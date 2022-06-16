@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php
+    $user = Auth::user();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +18,14 @@
 
     <title>Darting</title>
 
+    @yield('styles')
     <style>
         .align-items-end {
-             align-items: flex-start !important;
+            align-items: flex-start !important;
+        }
+
+        .account-form .form-group input {
+            color: white;
         }
     </style>
 </head>
@@ -88,9 +95,15 @@
                         </li>
                         <li><a href="#">Contact</a></li>
                     </ul>
+                    @auth
+                        <a href="#" class="signup"><i class="icofont-user"></i>
+                            <span>{{$user->fname. ' ' . $user->lname}}</span> </a>
+                    @endauth
+                    @guest
                     <a href="{{route('login')}}" class="login"><i class="icofont-user"></i> <span>CONNEXION</span> </a>
-                    <a href="{{route('register')}}" class="signup"><i class="icofont-users"></i> <span>S'INSCRIRE</span> </a>
-
+                    <a href="{{route('register')}}" class="signup"><i class="icofont-users"></i> <span>S'INSCRIRE</span>
+                    </a>
+                    @endguest
                     <!-- toggle icons -->
                     <div class="header-bar d-lg-none">
                         <span></span>
@@ -106,7 +119,6 @@
     </div>
 </header>
 <!-- ==========Header Section Ends Here========== -->
-
 
 
 @yield('content')
@@ -170,7 +182,8 @@
                                 <p class="mb-4">Energistically coordinate highly efficient procesr
                                     partnerships befor revolutionar growth strategie
                                     improvement viaing awesome</p>
-                                <img src="{{asset('assets/images/footer/about.jpg')}}" alt="about-image" class="footer-abt-img">
+                                <img src="{{asset('assets/images/footer/about.jpg')}}" alt="about-image"
+                                     class="footer-abt-img">
                             </div>
                         </div>
                     </div>
@@ -263,12 +276,9 @@
 <!-- ================ footer Section end Here =============== -->
 
 
-
 <!-- scrollToTop start here -->
 <a href="#" class="scrollToTop"><i class="icofont-rounded-up"></i></a>
 <!-- scrollToTop ending here -->
-
-
 
 
 <!-- All Scripts -->
@@ -280,6 +290,8 @@
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
 <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>
+@yield('scripts')
+
 </body>
 
 </html>

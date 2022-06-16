@@ -12,26 +12,25 @@
                             <div class="intro-form-inner">
                                 <h3>Présentation de Darting</h3>
                                 <p>Ne restez plus seul à la maison Confiez-nous l'organisation de vos sorties de groupe.</p>
-                                <form action="/" class="banner-form">
+                                <form action="{{route('find.match')}}" method="POST" class="banner-form">
+                                    @csrf
                                     <div class="gender">
                                         <label for="gender" class="left">Je suis un </label>
                                         <div class="custom-select right">
-                                            <select name="gender" id="gender" class="">
-                                                <option value="0">Sélectionnez Genrer</option>
-                                                <option value="1">Mâle</option>
-                                                <option value="2">Femelle</option>
-                                                <option value="3">Les autres</option>
+                                            <select required name="gender" id="gender" class="">
+                                                <option value="Mâle">Mâle</option>
+                                                <option value="Femelle">Femelle</option>
+                                                <option value="Autres">Autres</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="person">
                                         <label for="gender-two" class="left">À la recherche de</label>
                                         <div class="custom-select right">
-                                            <select name="gender" id="gender-two" class="">
-                                                <option value="0">Sélectionnez Genrer</option>
-                                                <option value="1">Mâle</option>
-                                                <option value="2">Femelle</option>
-                                                <option value="3">Les autres</option>
+                                            <select required name="gender_two" id="gender_two" class="">
+                                                <option value="Mâle">Mâle</option>
+                                                <option value="Femelle">Femelle</option>
+                                                <option value="Autres">Autres</option>
                                             </select>
                                         </div>
                                     </div>
@@ -39,46 +38,52 @@
                                         <label for="age" class="left">Âge</label>
                                         <div class="right d-flex justify-content-between">
                                             <div class="custom-select">
-                                                <select name="age-start" id="age">
-                                                    <option value="1">18</option>
-                                                    <option value="2">19</option>
-                                                    <option value="3">20</option>
-                                                    <option value="4">21</option>
-                                                    <option value="5">22</option>
-                                                    <option value="6">23</option>
-                                                    <option value="7">24</option>
-                                                    <option value="8">25</option>
-                                                    <option value="9">26</option>
-                                                    <option value="10">27</option>
-                                                    <option value="11">28</option>
-                                                    <option value="13">29</option>
-                                                    <option value="14">30</option>
+                                                <select required name="age_start" id="age">
+                                                    <option value="19">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
                                                 </select>
                                             </div>
 
                                             <div class="custom-select">
-                                                <select name="age-end" id="age-two">
-                                                    <option value="1">18+</option>
-                                                    <option value="2">19</option>
-                                                    <option value="3">20</option>
-                                                    <option value="4">21</option>
-                                                    <option value="5">22</option>
-                                                    <option value="6">23</option>
-                                                    <option value="7">24</option>
-                                                    <option value="8">25</option>
-                                                    <option value="9">26</option>
-                                                    <option value="10">27</option>
-                                                    <option value="11">28</option>
-                                                    <option value="13">29</option>
-                                                    <option value="14">30</option>
+                                                <select required name="age_end" id="age_two">
+                                                    <option value="19">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                     </div>
                                     <div class="city">
-                                        <label for="city" class="left">Ville</label>
-                                        <input class="right" type="text" id="city" placeholder="Le nom de ta ville..">
+                                        <label for="city" class="left">Objectif</label>
+                                        <div class="custom-select right">
+                                            <select required name="purpose" id="gender-two" class="">
+                                                <option value="Rencontres">Rencontres</option>
+                                                <option value="Mariage">Mariage</option>
+                                                <option value="Relation amicale">Relation amicale</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <button class="">Trouvez votre partenaire</button>
 
@@ -89,7 +94,7 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="banner-thumb">
-                        <img src="assets/images/01.png" alt="img">
+                        <img src="{{asset('assets/images/01.png')}}" alt="img">
                     </div>
                 </div>
             </div>
