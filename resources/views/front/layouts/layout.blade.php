@@ -27,6 +27,7 @@
         .account-form .form-group input {
             color: white;
         }
+
     </style>
 </head>
 
@@ -101,7 +102,7 @@
                     @endauth
                     @guest
                     <a href="{{route('login')}}" class="login"><i class="icofont-user"></i> <span>CONNEXION</span> </a>
-                    <a href="{{route('register')}}" class="signup"><i class="icofont-users"></i> <span>S'INSCRIRE</span>
+                    <a href="{{route('front.wizard')}}" class="signup"><i class="icofont-users"></i> <span>S'INSCRIRE</span>
                     </a>
                     @endguest
                     <!-- toggle icons -->

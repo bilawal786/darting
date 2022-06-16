@@ -1,6 +1,8 @@
 @extends('front.layouts.layout')
 
 @section('content')
+
+
     <div class="page-header-section style-1 login-section padding-tb">
         <div class="container">
             <div class="account-wrapper">

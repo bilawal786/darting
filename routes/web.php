@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Front\FrontendController@index')->name('front.index');
+Route::get('/profile', 'Front\FrontendController@profile')->name('front.profile');
 Route::get('/wizard/form', 'Front\FrontendController@wizard')->name('front.wizard');
 Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
 Route::post('/find/match', 'Front\FrontendController@findMatch')->name('find.match');
 Route::post('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
+Route::get('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
 
 
 Auth::routes();
