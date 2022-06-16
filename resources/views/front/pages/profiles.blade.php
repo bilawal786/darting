@@ -50,8 +50,8 @@
                     <div class="tab">
                         <div style="text-align: center !important;">
                         <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Profils</button>
-                        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+                        <button class="tablinks" onclick="openCity(event, 'Paris')">Activités</button>
+{{--                        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>--}}
                         </div>
                     </div>
 
@@ -148,8 +148,46 @@
                     </div>
 
                     <div id="Paris" class="tabcontent">
-                        <h3>Paris</h3>
-                        <p>Paris is the capital of France.</p>
+                        <br>
+                        <br>
+                            <div class="section-header">
+                                <h4>Activités récentes</h4>
+                                <h2>Activités les plus récentes selon vos intérêts</h2>
+                            </div>
+                            <div class="section-wrapper">
+                                <div class="row g-4">
+                                    <div class="col-xl-6 col-12">
+                                        <div class="group-item lab-item">
+                                            <div class="lab-inner d-flex flex-wrap align-items-center p-4">
+                                                <div class="lab-thumb me-sm-4 mb-4 mb-sm-0">
+                                                    <img src="{{asset('assets/images/group/01.jpg')}}" alt="img">
+                                                </div>
+                                                <div class="lab-content">
+                                                    <h4>Danse de bar</h4>
+                                                    <p>Colabors atively fabcate best breed and
+                                                        apcations through visionary value </p>
+                                                    <div class="test"> <a href="#" class="lab-btn"> <i class="icofont-users-alt-5"></i>Afficher l'activité</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-12">
+                                        <div class="group-item lab-item">
+                                            <div class="lab-inner d-flex flex-wrap align-items-center p-4">
+                                                <div class="lab-thumb me-sm-4 mb-4 mb-sm-0">
+                                                    <img src="{{asset('assets/images/group/02.jpg')}}" alt="img">
+                                                </div>
+                                                <div class="lab-content">
+                                                    <h4>Soirée piscine</h4>
+                                                    <p>Colabors atively fabcate best breed and
+                                                        apcations through visionary value </p>
+                                                    <div class="test"> <a href="#" class="lab-btn"> <i class="icofont-users-alt-5"></i>Afficher l'activité</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
 
                     <div id="Tokyo" class="tabcontent">
