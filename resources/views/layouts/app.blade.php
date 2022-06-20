@@ -8,24 +8,27 @@ $user = Auth::user();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>Darting Admin - </title>
-    <link rel="icon" type="image/x-icon" href="assets/images/fav.jpg"/>
-    <link href="layouts/vertical-light-menu/css/light/loader.css" rel="stylesheet" type="text/css" />
-    <link href="layouts/vertical-light-menu/css/dark/loader.css" rel="stylesheet" type="text/css" />
-    <script src="layouts/vertical-light-menu/loader.js"></script>
+    <link rel="icon" type="image/x-icon" href="{{asset('assets/images/fav.jpg')}}"/>
+    <link href="{{asset('layouts/vertical-light-menu/css/light/loader.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('layouts/vertical-light-menu/css/dark/loader.css')}}" rel="stylesheet" type="text/css" />
+    <script src="{{asset('layouts/vertical-light-menu/loader.js')}}"></script>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-    <link href="src/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="layouts/vertical-light-menu/css/light/plugins.css" rel="stylesheet" type="text/css" />
-    <link href="layouts/vertical-light-menu/css/dark/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('src/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('layouts/vertical-light-menu/css/light/plugins.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('layouts/vertical-light-menu/css/dark/plugins.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <link href="src/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
-    <link href="src/assets/css/light/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
-    <link href="src/assets/css/dark/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('src/plugins/src/apex/apexcharts.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('src/assets/css/light/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('src/assets/css/dark/dashboard/dash_1.css')}}" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="{{asset('src/plugins/src/table/datatable/datatables.css')}}">
 
+    <link rel="stylesheet" type="text/css" href="{{asset('src/plugins/css/light/table/datatable/dt-global_style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('src/plugins/css/dark/table/datatable/dt-global_style.css')}}">
 </head>
 <body class="layout-boxed">
 <!-- BEGIN LOADER -->
@@ -46,7 +49,7 @@ $user = Auth::user();
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             <form class="form-inline search-full form-inline search" role="search">
                 <div class="search-bar">
-                    <input type="text" class="form-control search-form-control  ml-lg-auto" placeholder="Search...">
+                    <input type="text" class="form-control search-form-control  ml-lg-auto" placeholder="Rechercher...">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x search-close"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </div>
             </form>
@@ -67,7 +70,7 @@ $user = Auth::user();
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle user" id="userProfileDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="avatar-container">
                         <div class="avatar avatar-sm avatar-indicators avatar-online">
-                            <img alt="avatar" src="src/assets/img/profile-30.png" class="rounded-circle">
+                            <img alt="avatar" src="{{asset('src/assets/img/profile-30.png')}}" class="rounded-circle">
                         </div>
                     </div>
                 </a>
@@ -136,21 +139,13 @@ $user = Auth::user();
             <div class="shadow-bottom"></div>
             <ul class="list-unstyled menu-categories" id="accordionExample">
                 <li class="menu active">
-                    <a href="#dashboard" data-bs-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
-                        <div class="">
+                    <a href="{{route('home')}}" class="dropdown-toggle">
+                        <div class="active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                             <span>Tableau de bord</span>
                         </div>
 
                     </a>
-{{--                    <ul class="collapse submenu list-unstyled show" id="dashboard" data-bs-parent="#accordionExample">--}}
-{{--                        <li class="active">--}}
-{{--                            <a href="./index.html"> Analytics </a>--}}
-{{--                        </li>--}}
-{{--                        <li>--}}
-{{--                            <a href="./index2.html"> Sales </a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
                 </li>
 
                 <li class="menu menu-heading">
@@ -158,14 +153,29 @@ $user = Auth::user();
                 </li>
 
                 <li class="menu">
-                    <a href="./app-calendar.html" aria-expanded="false" class="dropdown-toggle">
+                    <a href="#invoice" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                            <span>Calendar</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>                            <span>Loisirs</span>
+                        </div>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         </div>
                     </a>
+                    <ul class="collapse submenu list-unstyled" id="invoice" data-bs-parent="#accordionExample">
+                        <li>
+                            <a href="{{route('admin.sports')}}"> Sports </a>
+                        </li>
+                        <li>
+                            <a href="#"> Sorties </a>
+                        </li>
+                        <li>
+                            <a href="#"> Jeux </a>
+                        </li>
+                        <li>
+                            <a href="#"> Divers </a>
+                        </li>
+                    </ul>
                 </li>
-
 
             </ul>
 
@@ -180,16 +190,54 @@ $user = Auth::user();
 <!-- END MAIN CONTAINER -->
 
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
-<script src="src/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="src/plugins/src/mousetrap/mousetrap.min.js"></script>
-<script src="layouts/vertical-light-menu/app.js"></script>
+<script src="{{asset('src/plugins/src/global/vendors.min.js')}}"></script>
+<script src="{{asset('src/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('src/plugins/src/perfect-scrollbar/perfect-scrollbar.min.js')}}"></script>
+<script src="{{asset('src/plugins/src/mousetrap/mousetrap.min.js')}}"></script>
+<script src="{{asset('layouts/vertical-light-menu/app.js')}}"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
 
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-<script src="src/plugins/src/apex/apexcharts.min.js"></script>
-<script src="src/assets/js/dashboard/dash_1.js"></script>
+<script src="{{asset('src/plugins/src/apex/apexcharts.min.js')}}"></script>
+<script src="{{asset('src/assets/js/dashboard/dash_1.js')}}"></script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{{asset('src/plugins/src/table/datatable/datatables.js')}}"></script>
+<script>
+    $('#zero-config').DataTable({
+        "language": {
+            "sProcessing": "Traitement en cours ...",
+            "sLengthMenu": "Spectacle _MENU_ entrées",
+            // "sZeroRecords": "Aucun résultat trouvé",
+            "sEmptyTable": "Aucune donnée disponible",
+            // "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
+            "sInfoEmpty": "Aucune ligne affichée",
+            "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+            "sInfoPostFix": "",
+            "sSearch": "Rechercher:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Chargement...",
+            "oPaginate": {
+                "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
 
+            "oAria": {
+                "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
+            }
+        },
+        "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+            "<'table-responsive'tr>" +
+            "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+        // "oLanguage": {
+        //     "sInfo": "Showing page _PAGE_ of _PAGES_",
+        //     "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+        //     "sSearchPlaceholder": "Search...",
+        //     "sLengthMenu": "Results :  _MENU_",
+        // },
+        "stripeClasses": [],
+        "lengthMenu": [7, 10, 20, 50],
+        "pageLength": 10
+    });
+</script>
 </body>
 </html>

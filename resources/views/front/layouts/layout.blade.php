@@ -27,7 +27,21 @@
         .account-form .form-group input {
             color: white;
         }
-
+        .banner-section .section-wrapper .banner-content .intro-form::after {
+            background: url(../images/banner/shape-bottom.png);
+        }
+        .banner-section .section-wrapper .banner-content .intro-form::before {
+            background: url(../images/banner/shape-top.png);
+        }
+        .footer-section .footer-bottom, .bg-color, .group-item .lab-inner, .story-item, .about-item .lab-inner {
+            background-color: #5b398b;
+            border-radius: 10px;
+        }
+        @media only screen and (max-width: 600px) {
+           .ptm{
+               margin-top: 20px;
+           }
+        }
     </style>
 </head>
 
@@ -97,12 +111,12 @@
                         <li><a href="#">Contact</a></li>
                     </ul>
                     @auth
-                        <a href="#" class="signup"><i class="icofont-user"></i>
+                        <a href="{{route('front.dashboard')}}" class="signup"><i class="icofont-user"></i>
                             <span>{{$user->fname. ' ' . $user->lname}}</span> </a>
                     @endauth
                     @guest
                     <a href="{{route('login')}}" class="login"><i class="icofont-user"></i> <span>CONNEXION</span> </a>
-                    <a href="{{route('front.wizard')}}" class="signup"><i class="icofont-users"></i> <span>S'INSCRIRE</span>
+                    <a href="{{route('register')}}" class="signup"><i class="icofont-users"></i> <span>S'INSCRIRE</span>
                     </a>
                     @endguest
                     <!-- toggle icons -->

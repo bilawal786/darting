@@ -13,14 +13,22 @@ class FrontendController extends Controller
     public function function(){
         return view('front.pages.function');
     }
-    public function wizard(){
-        return view('front.pages.wizard');
-    }
-    public function findMatch(Request $request){
-      $data = $request->all();
-       return view('front.pages.wizard');
-    }
     public function profiles(){
-        return view('front.pages.profiles');
+        return view('front.dashboard.profiles');
+    }
+    public function profile(){
+        return view('front.dashboard.profile');
+    }
+    public function dashboard(){
+        return view('front.dashboard.index');
+    }
+    public function activityCreate(){
+        return view('front.dashboard.activityCreate');
+    }
+    public function activity(){
+        return view('front.dashboard.activity');
+    }
+    public function myProfile(){
+        return view('front.dashboard.myProfile');
     }
 }

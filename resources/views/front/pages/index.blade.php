@@ -12,15 +12,14 @@
                             <div class="intro-form-inner">
                                 <h3>Présentation de Darting</h3>
                                 <p>Ne restez plus seul à la maison Confiez-nous l'organisation de vos sorties de groupe.</p>
-                                <form action="{{route('find.match')}}" method="POST" class="banner-form">
+                                <form action="{{route('front.dashboard')}}" method="get" class="banner-form">
                                     @csrf
                                     <div class="gender">
                                         <label for="gender" class="left">Je suis un </label>
                                         <div class="custom-select right">
                                             <select required name="gender" id="gender" class="">
-                                                <option value="Mâle">Mâle</option>
-                                                <option value="Femelle">Femelle</option>
-                                                <option value="Autres">Autres</option>
+                                                <option value="Mâle">Homme</option>
+                                                <option value="Femelle">Femme</option>
                                             </select>
                                         </div>
                                     </div>
@@ -28,9 +27,8 @@
                                         <label for="gender-two" class="left">À la recherche de</label>
                                         <div class="custom-select right">
                                             <select required name="gender_two" id="gender_two" class="">
-                                                <option value="Mâle">Mâle</option>
-                                                <option value="Femelle">Femelle</option>
-                                                <option value="Autres">Autres</option>
+                                                <option value="Femelle">Femme</option>
+                                                <option value="Mâle">Homme</option>
                                             </select>
                                         </div>
                                     </div>
@@ -80,7 +78,6 @@
                                         <div class="custom-select right">
                                             <select required name="purpose" id="gender-two" class="">
                                                 <option value="Rencontres">Rencontres</option>
-                                                <option value="Mariage">Mariage</option>
                                                 <option value="Relation amicale">Relation amicale</option>
                                             </select>
                                         </div>

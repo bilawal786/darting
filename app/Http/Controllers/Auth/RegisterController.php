@@ -66,11 +66,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $sport_data = json_encode($data['sport']);
+        $sortie_data = json_encode($data['sortie']);
+        $game_data = json_encode($data['game']);
+        $divers_data = json_encode($data['divers']);
         return User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
             'phone' => $data['phone'],
+            'gender' => $data['gender'],
+            'date' => $data['date'],
+            'country' => $data['country'],
+            'about' => $data['about'],
+            'sport' => $sport_data,
+            'sortie' => $sortie_data,
+            'game' =>  $game_data,
+            'divers' => $divers_data,
             'password' => Hash::make($data['password']),
         ]);
     }
