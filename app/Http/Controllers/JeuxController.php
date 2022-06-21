@@ -1,45 +1,43 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use App\Sport;
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+use App\Jeux;
 use Illuminate\Http\Request;
 
-class SportsController extends Controller
+class JeuxController extends Controller
 {
     public function index()
     {
 
-        $sport = Sport::all();
-        return view('admin.sports.index', compact('sport'));
+        $jeux = Jeux::all();
+        return view('admin.jeux.index', compact('jeux'));
     }
-
     public function edit($id)
     {
 
-        $sport = Sport::find($id);
+        $jeux = Jeux::find($id);
 
-        return view('admin.sports.edit', compact('sport'));
+        return view('admin.jeux.edit', compact('jeux'));
     }
-
     public function create()
     {
 
-        return view('admin.sports.create');
+        return view('admin.jeux.create');
     }
-
     public function store(Request $request)
     {
-        $sport = new Sport();
-        $sport->name = $request->name;
+
+        $jeux = new Jeux();
+        $jeux->name = $request->name;
+
         if ($request->hasfile('image')) {
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
-            $sport->image = 'images/' . $name;
+            $jeux->image = 'images/' . $name;
         }
-        $sport->save();
+        $jeux->save();
 
         $notification = array(
             'messege' => 'Sport Update Successfully!',
@@ -48,19 +46,18 @@ class SportsController extends Controller
         return Redirect()->back()->with($notification);
 
     }
-
     public function update(Request $request, $id)
     {
-        $sport = Sport::find($id);
-        $sport->name = $request->name;
+        $jeux = Jeux::find($id);
+        $jeux->name = $request->name;
         if ($request->hasfile('image')) {
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
-            $sport->image = 'images/' . $name;
+            $jeux->image = 'images/' . $name;
         }
-        $sport->save();
+        $jeux->save();
         $notification = array(
             'message' => 'Sport Update Successfully',
             'alert-type' => 'success'
