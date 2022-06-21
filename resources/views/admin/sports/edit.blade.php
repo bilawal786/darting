@@ -23,7 +23,6 @@
 
                                     </div>
                                     <div class="col-xl-8 col-md-8 col-sm-8 col-8">
-                                        <form>
 
                                             <div class="widget-content widget-content-area">
 
@@ -38,7 +37,6 @@
 
                                                 <input type="submit" value="Soumettre" name="time" class="mt-4 mb-4 btn btn-primary">
 
-                                        </form>
 
                                     <div class="code-section-container">
 
