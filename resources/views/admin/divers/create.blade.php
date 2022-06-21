@@ -8,7 +8,7 @@
                     <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Loisirs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Sports</li>
+                            <li class="breadcrumb-item active" aria-current="page">Divers</li>
                         </ol>
                     </nav>
                 </div>
@@ -27,15 +27,15 @@
                                             <div class="widget-content widget-content-area">
 
                                                 <div class="form-group mb-4 mt-5">
-                                                    <label for="exampleFormControlInput2">Nom du sport</label>
-                                                    <input type="text" class="form-control" placeholder="Nom du sport" name="name" required>
+                                                    <label for="exampleFormControlInput2">Nom du diver</label>
+                                                    <input type="text" class="form-control" placeholder="Nom du diver" name="name" required>
                                                 </div>
                                                 <div class="col">
                                                     <label for="exampleFormControlInput2">Image</label>
                                                     <input class="form-control file-upload-input" type="file" id="formFile" name="image" required>
                                                 </div>
 
-                                                <input type="submit" name="time" class="mt-4 mb-4 btn btn-primary" value="nous faire parvenir">
+                                                <input type="submit" name="time" class="mt-4 mb-4 btn btn-primary" value="Soumettre">
 
                                         </form>
 

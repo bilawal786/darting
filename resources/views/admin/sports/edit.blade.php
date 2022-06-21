@@ -36,7 +36,7 @@
                                                     <input class="form-control file-upload-input" type="file" id="formFile" name="image" value="{{$sport->name}}">
                                                 </div>
 
-                                                <input type="submit" name="time" class="mt-4 mb-4 btn btn-primary">
+                                                <input type="submit" value="Soumettre" name="time" class="mt-4 mb-4 btn btn-primary">
 
                                         </form>
 

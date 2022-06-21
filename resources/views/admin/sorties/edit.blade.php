@@ -8,7 +8,7 @@
                     <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Loisirs</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Sports</li>
+                            <li class="breadcrumb-item active" aria-current="page">Sorties</li>
                         </ol>
                     </nav>
                 </div>
@@ -28,7 +28,7 @@
                                             <div class="widget-content widget-content-area">
 
                                                 <div class="form-group mb-4 mt-5">
-                                                    <label for="exampleFormControlInput2">Nom du sport</label>
+                                                    <label for="exampleFormControlInput2">Nom du sortie</label>
                                                     <input type="text" class="form-control" placeholder="Nom du sport" name="name" value="{{$sorti->name}}">
                                                 </div>
                                                 <div class="col">
@@ -36,7 +36,7 @@
                                                     <input class="form-control file-upload-input" type="file" id="formFile" name="image" value="{{$sorti->name}}">
                                                 </div>
 
-                                                <input type="submit" name="time" class="mt-4 mb-4 btn btn-primary">
+                                                <input type="submit" name="time" value="Soumettre" class="mt-4 mb-4 btn btn-primary">
 
                                         </form>
 
