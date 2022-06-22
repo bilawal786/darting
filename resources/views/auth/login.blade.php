@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button class="d-block lab-btn"><span>Login</span></button>
+                        <button class="d-block lab-btn"><span>Connexion</span></button>
                     </div>
                 </form>
 

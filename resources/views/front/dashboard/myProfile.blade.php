@@ -19,7 +19,7 @@
                             </div>
                             <div class="profile-information">
                                 <div class="profile-pic">
-                                    <img src="{{asset('assets/images/profile/Profile.jpg')}}" alt="DP">
+                                    <img src="{{asset($user->profile_picture)}}" alt="DP">
                                     <div class="custom-upload">
                                         <div class="file-btn">
                                             <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
@@ -127,7 +127,8 @@
                                                                 <h5>Mettre à jour le profil</h5>
                                                             </div>
                                                             <div class="widget-content">
-                                                                <form action="{{route('user.update')}}" class="banner-form">
+                                                                <form action="{{route('user.update')}}" method="POST" enctype="multipart/form-data" class="banner-form">
+                                                                    @csrf
                                                                     <div class="gender">
                                                                         <div class=" right w-100">
                                                                             <p style="text-align: left" >Prénom</p>
@@ -146,12 +147,18 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="age">
+                                                                        <div class="right d-flex justify-content-between w-100">
+                                                                            <div class=" right w-100">
+                                                                                <p style="text-align: left" >Ville</p>
+                                                                                <input type="text" name="city" value="{{$user->city}}" class="w-100" />
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                     <div class="city">
                                                                         <div class="custom-select right w-100">
-                                                                            <select class="">
-                                                                                <p style="text-align: left" >Country</p>
-                                                                                <option name="country" value="{{$user->country}}">{{$user->country}}
-                                                                                </option>
+                                                                            <select name="country"  class="">
+                                                                                <p style="text-align: left" >Pays</p>
                                                                                 <option value="Guadeloupe">Guadeloupe</option>
                                                                                 <option value="Martinique">Martinique</option>
                                                                                 <option value="Guyane">Guyane</option>
@@ -162,28 +169,28 @@
                                                                     <div class="interest">
                                                                         <div >
                                                                             <p style="text-align: left" >Image picture</p>
-                                                                            <input class="form-control" name="profile_picture" type="file" class="w-100"  >
+                                                                            <input class="form-control" name="profile_picture" type="file"  >
 
                                                                         </div>
                                                                         <div >
                                                                             <p style="text-align: left" >Image 1</p>
-                                                                            <input class="form-control" name="picture1" type="file" class="w-100" >
+                                                                            <input class="form-control" name="picture1" type="file">
                                                                         </div>
                                                                         <div >
                                                                             <p style="text-align: left" >Image 2</p>
-                                                                            <input class="form-control" type="file" name="picture2" class="w-100" >
+                                                                            <input class="form-control" type="file" name="picture2" >
                                                                         </div>
                                                                         <div >
                                                                             <p style="text-align: left" >Image 3</p>
-                                                                            <input class="form-control" type="file" name="picture3" class="w-100" >
+                                                                            <input class="form-control" type="file" name="picture3"  >
                                                                         </div>
                                                                         <div >
                                                                             <p style="text-align: left" >Image 4</p>
-                                                                            <input class="form-control" type="file" name="picture4" class="w-100" >
+                                                                            <input class="form-control" type="file" name="picture4">
                                                                         </div>
                                                                         <div >
                                                                             <p style="text-align: left" >Image 5</p>
-                                                                            <input class="form-control" type="file" name="picture5" class="w-100" >
+                                                                            <input class="form-control" type="file" name="picture5" >
 
                                                                         </div>
                                                                     </div>

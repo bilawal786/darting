@@ -31,7 +31,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
 
 //user
-    Route::get('/user/update','Front\UserController@update')->name('user.update');
+    Route::post('/user/update','Front\UserController@update')->name('user.update');
 });
 
 Route::group(['middleware' => ['auth', 'role']], function() {
