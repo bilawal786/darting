@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/activity/create', 'Front\FrontendController@activityCreate')->name('activity.create');
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
 
+//user
+    Route::get('/user/update','Front\UserController@update')->name('user.update');
 });
 
 Route::group(['middleware' => ['auth', 'role']], function() {
@@ -59,7 +61,13 @@ Route::get('admin/sorties/update/{id}','SortiesController@update')->name('admin.
     Route::get('/admin/divers/edit/{id}','DiversController@edit')->name('admin.divers.edit');
     Route::get('/admin/divers/update','DiversController@update')->name('admin.divers.update');
 //setting
-    Route::get('admin/setting/index','SettingController@index')->name('setting.index');
+
+    Route::get('admin/setting/index','SettingController@index')->name('admin.setting.index');
+    Route::get('admin/setting/update','SettingController@update')->name('admin.setting.update');
+//
+
+
 });
+
 
 

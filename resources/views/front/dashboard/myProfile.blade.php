@@ -1,8 +1,5 @@
 @extends('front.layouts.layout')
 @section('content')
-    <?php
-    $user = Auth::user();
-    ?>
     <style>
         h1, h2, h3, h4, h5, h6, p{
             text-align: left !important;
@@ -127,110 +124,70 @@
                                                     <div class="widget search-widget">
                                                         <div class="widget-inner">
                                                             <div class="widget-title">
-                                                                <h5>Update Profile</h5>
+                                                                <h5>Mettre à jour le profil</h5>
                                                             </div>
                                                             <div class="widget-content">
-                                                                <form action="/" class="banner-form">
+                                                                <form action="{{route('user.update')}}" class="banner-form">
                                                                     <div class="gender">
-                                                                        <div class="custom-select right w-100">
-                                                                            <select class="">
-                                                                                <option value="0">I am a </option>
-                                                                                <option value="1">Male</option>
-                                                                                <option value="2">Female</option>
-                                                                                <option value="3">Others</option>
-                                                                            </select>
+                                                                        <div class=" right w-100">
+                                                                            <p style="text-align: left" >Prénom</p>
+                                                                            <input type="text" value="{{$user->fname}}"  name="fname" class="w-100" />
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="person">
-                                                                        <div class="custom-select right w-100">
-                                                                            <select class="">
-                                                                                <option value="0">Looking for</option>
-                                                                                <option value="1">Male</option>
-                                                                                <option value="2">Female</option>
-                                                                                <option value="3">Others</option>
-                                                                            </select>
+                                                                        <div class=" right w-100">
+                                                                            <p style="text-align: left" >Nom</p>
+                                                                            <input type="text" value="{{$user->lname}}" name="lname" class="w-100" />
                                                                         </div>
                                                                     </div>
                                                                     <div class="age">
                                                                         <div class="right d-flex justify-content-between w-100">
-                                                                            <div class="custom-select">
-                                                                                <select>
-                                                                                    <option value="1">18</option>
-                                                                                    <option value="2">19</option>
-                                                                                    <option value="3">20</option>
-                                                                                    <option value="4">21</option>
-                                                                                    <option value="5">22</option>
-                                                                                    <option value="6">23</option>
-                                                                                    <option value="7">24</option>
-                                                                                    <option value="8">25</option>
-                                                                                    <option value="9">26</option>
-                                                                                    <option value="10">27</option>
-                                                                                    <option value="11">28</option>
-                                                                                    <option value="13">29</option>
-                                                                                    <option value="14">30</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="custom-select">
-                                                                                <select>
-                                                                                    <option value="1">36</option>
-                                                                                    <option value="2">19</option>
-                                                                                    <option value="3">20</option>
-                                                                                    <option value="4">21</option>
-                                                                                    <option value="5">22</option>
-                                                                                    <option value="6">23</option>
-                                                                                    <option value="7">24</option>
-                                                                                    <option value="8">25</option>
-                                                                                    <option value="9">26</option>
-                                                                                    <option value="10">27</option>
-                                                                                    <option value="11">28</option>
-                                                                                    <option value="13">29</option>
-                                                                                    <option value="14">30</option>
-                                                                                </select>
+                                                                            <div class=" right w-100">
+                                                                                <p style="text-align: left" >Téléphone</p>
+                                                                                <input type="number" name="phone" value="{{$user->phone}}" class="w-100" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="city">
                                                                         <div class="custom-select right w-100">
                                                                             <select class="">
-                                                                                <option value="0">Choose Your Country
+                                                                                <p style="text-align: left" >Country</p>
+                                                                                <option name="country" value="{{$user->country}}">{{$user->country}}
                                                                                 </option>
-                                                                                <option value="1">USA</option>
-                                                                                <option value="2">UK</option>
-                                                                                <option value="3">Spain</option>
-                                                                                <option value="4">Brazil</option>
-                                                                                <option value="5">France</option>
-                                                                                <option value="6">Newzeland</option>
-                                                                                <option value="7">Australia</option>
-                                                                                <option value="8">Bangladesh</option>
-                                                                                <option value="9">Turki</option>
-                                                                                <option value="10">Chine</option>
-                                                                                <option value="11">India</option>
-                                                                                <option value="12">Canada</option>
+                                                                                <option value="Guadeloupe">Guadeloupe</option>
+                                                                                <option value="Martinique">Martinique</option>
+                                                                                <option value="Guyane">Guyane</option>
+                                                                                <option value="Réunion">Réunion</option>
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="interest">
-                                                                        <div class="custom-select right w-100">
-                                                                            <select class="">
-                                                                                <option value="0">Your Interests
-                                                                                </option>
-                                                                                <option value="1">Gaming</option>
-                                                                                <option value="2">Fishing</option>
-                                                                                <option value="3">Skydriving</option>
-                                                                                <option value="4">Swimming</option>
-                                                                                <option value="5">Racing</option>
-                                                                                <option value="6">Hangout</option>
-                                                                                <option value="7">Tranvelling</option>
-                                                                                <option value="8">Camping</option>
-                                                                                <option value="9">Touring</option>
-                                                                                <option value="10">Acting</option>
-                                                                                <option value="11">Dancing</option>
-                                                                                <option value="12">Singing</option>
-                                                                            </select>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image picture</p>
+                                                                            <input class="form-control" name="profile_picture" type="file" class="w-100"  >
+
+                                                                        </div>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image 1</p>
+                                                                            <input class="form-control" name="picture1" type="file" class="w-100" >
+                                                                        </div>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image 2</p>
+                                                                            <input class="form-control" type="file" name="picture2" class="w-100" >
+                                                                        </div>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image 3</p>
+                                                                            <input class="form-control" type="file" name="picture3" class="w-100" >
+                                                                        </div>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image 4</p>
+                                                                            <input class="form-control" type="file" name="picture4" class="w-100" >
+                                                                        </div>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image 5</p>
+                                                                            <input class="form-control" type="file" name="picture5" class="w-100" >
+
                                                                         </div>
                                                                     </div>
-                                                                    <button class="">Find Your Partner</button>
+                                                                    <button class="">Mettre à jour le profil</button>
 
                                                                 </form>
                                                             </div>
@@ -332,62 +289,74 @@
                                                             <div class="tab-pane fade show active" id="pills-personal" role="tabpanel" aria-labelledby="pills-personal-tab">
                                                                 <h3>Sports</h3>
                                                                 <div class="row">
+                                                                    @foreach(json_decode($user->sport) as $sport)
+                                                                        <?php $sportData = \App\Sport::find($sport);?>
                                                                     <div class="col-md-6">
                                                                         <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
                                                                             <div class="col-3">
-                                                                                <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
+                                                                                <img style="height: 100px; border-radius: 50%" src="{{asset($sportData->image)}}" alt="">
                                                                             </div>
                                                                             <div class="col-9">
-                                                                                <h5>FootBall</h5>
+                                                                                <h5>{{$sportData->name}}</h5>
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
 
                                                             <div class="tab-pane fade" id="pills-mentions" role="tabpanel" aria-labelledby="pills-mentions-tab">
                                                                 <h3>Sorties</h3>
                                                                 <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                            <div class="col-3">
-                                                                                <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                            </div>
-                                                                            <div class="col-9">
-                                                                                <h5>FootBall</h5>
+                                                                    @foreach(json_decode($user->sortie) as $sortie)
+                                                                        <?php $sortieData = \App\Sorties::find($sortie);?>
+                                                                        <div class="col-md-6">
+                                                                            <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                                <div class="col-3">
+                                                                                    <img style="height: 100px; border-radius: 50%" src="{{asset($sortieData->image)}}" alt="">
+                                                                                </div>
+                                                                                <div class="col-9">
+                                                                                    <h5>{{$sortieData->name}}</h5>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                             <div class="tab-pane fade" id="pills-favorites" role="tabpanel" aria-labelledby="pills-favorites-tab">
                                                                 <h3>Games</h3>
                                                                 <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                            <div class="col-3">
-                                                                                <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                            </div>
-                                                                            <div class="col-9">
-                                                                                <h5>FootBall</h5>
+                                                                    @foreach(json_decode($user->sortie) as $game)
+                                                                        <?php $gameData = \App\Jeux::find($game);?>
+                                                                        <div class="col-md-6">
+                                                                            <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                                <div class="col-3">
+                                                                                    <img style="height: 100px; border-radius: 50%" src="{{asset($gameData->image)}}" alt="">
+                                                                                </div>
+                                                                                <div class="col-9">
+                                                                                    <h5>{{$gameData->name}}</h5>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                             <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">
                                                                 <h3>Divers</h3>
                                                                 <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                            <div class="col-3">
-                                                                                <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                            </div>
-                                                                            <div class="col-9">
-                                                                                <h5>FootBall</h5>
+                                                                    @foreach(json_decode($user->divers) as $divers)
+                                                                        <?php $diversData = \App\Divers::find($divers);?>
+                                                                        <div class="col-md-6">
+                                                                            <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                                <div class="col-3">
+                                                                                    <img style="height: 100px; border-radius: 50%" src="{{asset($diversData->image)}}" alt="">
+                                                                                </div>
+                                                                                <div class="col-9">
+                                                                                    <h5>{{$diversData->name}}</h5>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    @endforeach
                                                                 </div>
                                                             </div>
                                                         </div>

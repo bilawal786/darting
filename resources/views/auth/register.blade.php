@@ -181,170 +181,19 @@
                                     <div class="step">
                                         <h3 class="main_question"><i class="arrow_right"></i>Sports</h3>
                                         <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Fitness Musculation
-                                                        <input type="radio" name="sport[]" value="Fitness Musculation" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
+                                            <?php $sport = \App\Sport::all();?>
+                                            @foreach( $sport as $row)
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                            <label class="container_check version_2">
+                                                                <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{$row->image}}" alt="">
+                                                                {{$row->name}}
+                                                                <input type="checkbox" name="sport[]" value="{{$row->id}}" class="required">
+                                                                <span class="checkmark"></span>
+                                                            </label>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Foot en plein air
-                                                        <input type="checkbox" name="sport[]" value="Foot en plein air" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Foot en salle
-                                                        <input type="checkbox" name="sport[]" value="Foot en salle" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Handball
-                                                        <input type="checkbox" name="sport[]" value="Handball" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Jogging
-                                                        <input type="checkbox" name="sport[]" value="Jogging" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Karting
-                                                        <input type="checkbox" name="sport[]" value="Karting" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Natation
-                                                        <input type="checkbox" name="sport[]" value="Natation" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Boldairetudiant
-                                                        <input type="checkbox" name="sport[]" value="Boldairetudiant" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Bowling
-                                                        <input type="checkbox" name="sport[]" value="Bowling" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Brunch
-                                                        <input type="checkbox" name="sport[]" value="Brunch" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Football américain
-                                                        <input type="checkbox" name="sport[]" value="Football américain" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Golf
-                                                        <input type="checkbox" name="sport[]" value="Golf" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Gymnastique
-                                                        <input type="checkbox" name="sport[]" value="Gymnastique" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Soirées en Visio
-                                                        <input type="checkbox" name="sport[]" value="Soirées en Visio" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Accrobranche
-                                                        <input type="checkbox" name="sport[]" value="Accrobranche" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Afterwork
-                                                        <input type="checkbox" name="sport[]" value="Afterwork" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Balade Visite
-                                                        <input type="checkbox" name="sport[]" value="Balade Visite" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Barbecue
-                                                        <input type="checkbox" name="sport[]" value="Barbecue" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Boire un verre
-                                                        <input type="checkbox" name="sport[]" value="Boire un verre" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Football_%28soccer_ball%29.svg/1200px-Football_%28soccer_ball%29.svg.png" alt="">
-                                                        Basketball
-                                                        <input type="checkbox" name="sport[]" value="Basketball" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <!-- /row -->
                                     </div>
@@ -352,170 +201,19 @@
                                     <div class="step">
                                         <h3 class="main_question"><i class="arrow_right"></i>Sorties</h3>
                                         <div class="row">
+                                            <?php $sortie = \App\Sorties::all();?>
+                                            @foreach($sortie as $sort)
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Shopping Boutique
-                                                        <input type="radio" name="sortie[]" value="Shopping Boutique" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Soirée dansante
-                                                        <input type="checkbox" name="sortie[]" value="Soirée dansante" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Soirée étudiante
-                                                        <input type="checkbox" name="sortie[]" value="Soirée étudiante" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Sortie à moto
-                                                        <input type="checkbox" name="sortie[]" value="Sortie à moto" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Sortie avec enfants
-                                                        <input type="checkbox" name="sortie[]" value="Sortie avec enfants" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Spectacle Théâtre - Opéra
-                                                        <input type="checkbox" name="sortie[]" value="Spectacle Théâtre - Opéra" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Tapas con amigos
-                                                        <input type="checkbox" name="sortie[]" value="Tapas con amigos" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Vide dressing - Vide greniers
-                                                        <input type="checkbox" name="sortie[]" value="Vide dressing - Vide greniers" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Zoo - Fermes
-                                                        <input type="checkbox" name="sortie[]" value="Zoo - Fermes" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Autre sortie & soirée
-                                                        <input type="checkbox" name="sortie[]" value="Autre sortie & soirée" class="required">
+                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{asset($sort->image)}}" alt="">
+                                                        {{$sort->name}}
+                                                        <input type="checkbox" name="sortie[]" value=" {{$sort->id}}" class="required">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Soirées en Visio
-                                                        <input type="checkbox" name="sortie[]" value="Soirées en Visio" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Accrobranche
-                                                        <input type="checkbox" name="sortie[]" value="Accrobranche" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Afterwork
-                                                        <input type="checkbox" name="sortie[]" value="Afterwork" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Balade Visite
-                                                        <input type="checkbox" name="sortie[]" value="Balade Visite" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Balade canine
-                                                        <input type="checkbox" name="sortie[]" value="Balade canine" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Barbecue
-                                                        <input type="checkbox" name="sortie[]" value="Barbecue" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Boire un verre
-                                                        <input type="checkbox" name="sortie[]" value="Boire un verre" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Boldairetudiant
-                                                        <input type="checkbox" name="sortie[]" value="Boldairetudiant" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Bowling
-                                                        <input type="checkbox" name="sortie[]" value="Bowling" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://cdn4.iconfinder.com/data/icons/shopping-e-commerce-41/512/shoping-512.png" alt="">
-                                                        Brunch
-                                                        <input type="checkbox" name="sortie[]" value="Brunch" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                                @endforeach
                                         </div>
                                         <!-- /row -->
                                     </div>
@@ -523,82 +221,19 @@
                                     <div class="step">
                                         <h3 class="main_question"><i class="arrow_right"></i>Jeux</h3>
                                         <div class="row">
+                                            <?php $games = \App\Jeux::all();?>
+                                            @foreach($games as $game)
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Jeux en Visio
-                                                        <input type="radio" name="game[]" value="Jeux en Visio" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Baby foot Billard Fléchettes
-                                                        <input type="checkbox" name="game[]" value="Baby foot Billard Fléchettes" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Escape game
-                                                        <input type="checkbox" name="game[]" value="Escape game" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Jeux de cartes
-                                                        <input type="checkbox" name="game[]" value="Jeux de cartes" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Jeux de société - Echecs - Dames
-                                                        <input type="checkbox" name="game[]" value="Jeux de société" class="required">
+                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{asset($game->image)}}" alt="">
+                                                        {{$game->name}}
+                                                        <input type="radio" name="game[]" value="{{$game->id}}" class="required">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Jeux vidéo
-                                                        <input type="checkbox" name="game[]" value="Jeux vidéo" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Laser game
-                                                        <input type="checkbox" name="game[]" value="Laser game" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Loto
-                                                        <input type="checkbox" name="game[]" value="Loto" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://st.depositphotos.com/1005920/4386/i/600/depositphotos_43862183-stock-photo-game-icon.jpg" alt="">
-                                                        Autre jeu
-                                                        <input type="checkbox" name="game[]" value="Autre jeu" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                                @endforeach
                                         </div>
                                         <!-- /row -->
                                     </div>
@@ -606,186 +241,19 @@
                                     <div class="step">
                                         <h3 class="main_question"><i class="arrow_right"></i>Divers</h3>
                                         <div class="row">
+                                            <?php $divers = \App\Divers::all();?>
+                                            @foreach($divers as $diver)
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Cuisine
-                                                        <input type="radio" name="divers[]" value="Cuisine" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Littérature
-                                                        <input type="checkbox" name="divers[]" value="Littérature" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Musique
-                                                        <input type="checkbox" name="divers[]" value="Musique" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Œnologie
-                                                        <input type="checkbox" name="divers[]" value="Œnologie" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Peinture
-                                                        <input type="checkbox" name="divers[]" value="Peinture" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Sculpture
-                                                        <input type="checkbox" name="divers[]" value="Sculpture" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Architecture
-                                                        <input type="checkbox" name="divers[]" value="Architecture" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Photographie
-                                                        <input type="checkbox" name="divers[]" value="Photographie" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Salon Séminaire
-                                                        <input type="checkbox" name="divers[]" value="Salon Séminaire" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Télévision Série - Mangas
-                                                        <input type="checkbox" name="divers[]" value="Télévision Série - Mangas" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Voyage - Séjours
-                                                        <input type="checkbox" name="divers[]" value="Voyage - Séjours" class="required">
+                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{asset($diver->image)}}" alt="">
+                                                        {{$diver->name}}
+                                                        <input type="radio" name="divers[]" value="{{$diver->id}}" class="required">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Divers en Visio
-                                                        <input type="checkbox" name="divers[]" value="Divers en Visio" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Anniversaire
-                                                        <input type="checkbox" name="divers[]" value="Anniversaire" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Apprentissage - Atelier
-                                                        <input type="checkbox" name="divers[]" value="Apprentissage - Atelier" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Bénévolat Caritatif
-                                                        <input type="checkbox" name="divers[]" value="Bénévolat Caritatif" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Bien être Balnéo - Beauté Soins du corps
-                                                        <input type="checkbox" name="divers[]" value="Bien être Balnéo - Beauté Soins du corps" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Bricolage - Jardinage
-                                                        <input type="checkbox" name="divers[]" value="Bricolage - Jardinage" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Chasse pêche
-                                                        <input type="checkbox" name="divers[]" value="Chasse pêche" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Couture Broderie
-                                                        <input type="checkbox" name="divers[]" value="Couture Broderie" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Conférence
-                                                        <input type="checkbox" name="divers[]" value="Conférence" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Cuisine
-                                                        <input type="checkbox" name="divers[]" value="Cuisine" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="container_check version_2">
-                                                        <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="https://pbs.twimg.com/profile_images/941020935611731969/yjcd1MV-_400x400.jpg" alt="">
-                                                        Autre
-                                                        <input type="checkbox" name="divers[]" value="Autre" class="required">
-                                                        <span class="checkmark"></span>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <!-- /row -->
                                     </div>

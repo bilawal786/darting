@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontendController extends Controller
 {
@@ -29,6 +30,7 @@ class FrontendController extends Controller
         return view('front.dashboard.activity');
     }
     public function myProfile(){
-        return view('front.dashboard.myProfile');
+        $user= Auth::user();
+        return view('front.dashboard.myProfile', compact('user'));
     }
 }

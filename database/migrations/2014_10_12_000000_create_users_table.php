@@ -29,7 +29,12 @@ class CreateUsersTable extends Migration
             $table->longText('sortie')->nullable();
             $table->longText('game')->nullable();
             $table->longText('divers')->nullable();
-
+            $table->string('profile_picture')->nullable();
+            $table->string('picture1')->nullable();
+            $table->string('picture2')->nullable();
+            $table->string('picture3')->nullable();
+            $table->string('picture4')->nullable();
+            $table->string('picture5')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
