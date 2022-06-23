@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/icofont.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-
-    <title>Darting</title>
+@php $setting=\App\Setting::first(); @endphp
+    <title>{{$setting->name}}</title>
 
     @yield('styles')
     <style>
@@ -54,10 +54,10 @@
             <div class="header-top-area">
                 <ul class="left">
                     <li>
-                        <i class="icofont-ui-call"></i> <span>+590 690 57 47 00</span>
+                        <i class="icofont-ui-call"></i> {{$setting->phone}}
                     </li>
                     <li>
-                        <i class="icofont-location-pin"></i> Guadelope
+                        <i class="icofont-location-pin"></i> {{$setting->address}}
                     </li>
                 </ul>
                 <ul class="social-icons d-flex align-items-center">
@@ -67,19 +67,19 @@
                         </p>
                     </li>
                     <li>
-                        <a href="#" class="fb"><i class="icofont-facebook-messenger"></i></a>
+                        <a href="{{$setting->link1}}" class="fb"><i class="icofont-facebook-messenger"></i></a>
                     </li>
                     <li>
-                        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+                        <a href="{{$setting->link2}}" class="twitter"><i class="icofont-twitter"></i></a>
                     </li>
                     <li>
-                        <a href="#" class="vimeo"><i class="icofont-vimeo"></i></a>
+                        <a href="{{$setting->link3}}" class="vimeo"><i class="icofont-vimeo"></i></a>
                     </li>
                     <li>
-                        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+                        <a href="{{$setting->link4}}" class="skype"><i class="icofont-skype"></i></a>
                     </li>
                     <li>
-                        <a href="#" class="rss"><i class="icofont-rss-feed"></i></a>
+                        <a href="{{$setting->link5}}" class="rss"><i class="icofont-rss-feed"></i></a>
                     </li>
                 </ul>
             </div>
@@ -90,7 +90,7 @@
             <div class="header-wrapper">
                 <div class="logo">
                     <a href="{{route('front.index')}}">
-                        <img style="height: 100px" src="{{asset('logo.png')}}" alt="logo">
+                        <img style="height: 100px" src="{{asset($setting->logo)}}" alt="logo">
                     </a>
                 </div>
                 <div class="menu-area">
@@ -152,7 +152,7 @@
                                 <img src="{{asset('assets/images/footer/icons/01.png')}}" alt="Phone-icon">
                             </div>
                             <div class="lab-content">
-                                <span>Numéro de téléphone : +590 690 57 47 00</span>
+                                <span>Numéro de téléphone : {{$setting->phone}}</span>
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@
                                 <img src="{{asset('assets/images/footer/icons/02.png')}}" alt="email-icon">
                             </div>
                             <div class="lab-content">
-                                <span>Email : admin@darting.com</span>
+                                <span>Email : {{$setting->email}}</span>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                                 <img src="{{asset('assets/images/footer/icons/03.png')}}" alt="location-icon">
                             </div>
                             <div class="lab-content">
-                                <span>Adresse : 30 North West New York 240</span>
+                                <span>Adresse : {{$setting->address}}</span>
                             </div>
                         </div>
                     </div>

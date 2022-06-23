@@ -13,7 +13,7 @@ class SettingSeeder extends Seeder
     {
         \App\Setting::create([
             'name' => 'Darting',
-            'logo' => 'src/assets/img/logo2.svg',
+            'logo' => 'logo.png',
             'email' => 'daring@gmail.com',
             'phone' => '034527965',
             'address' => 'France',

@@ -14,7 +14,7 @@
                         </ol>
                     </nav>
                 </div>
-                <form action="{{route('admin.setting.update')}}" method="get" enctype="multipart/form-data">
+                <form action="{{route('admin.setting.update')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
                     @csrf
                     <div class="col-lg-12 col-12 layout-spacing">
                         <div class="statbox widget box box-shadow">
@@ -43,9 +43,8 @@
                                                        name="phone" value="{{$setting->phone}}"  required>
                                             </div>
                                             <div class="col">
-                                                <label for="exampleFormControlInput2">Logo du site</label>
-                                                <input class="form-control file-upload-input" type="file" id="formFile"
-                                                       name="logo" value="{{$setting->logo}}"  required>
+                                                <label for="">Logo du site</label>
+                                <input class="form-control file-upload-input" type="file" name="logo"   >
                                             </div>
                                             <div class="form-group mb-4 mt-5">
                                                 <label for="exampleFormControlInput2">Address</label>

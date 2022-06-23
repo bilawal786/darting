@@ -63,7 +63,7 @@ Route::get('admin/sorties/update/{id}','SortiesController@update')->name('admin.
 //setting
 
     Route::get('admin/setting/index','SettingController@index')->name('admin.setting.index');
-    Route::get('admin/setting/update','SettingController@update')->name('admin.setting.update');
+    Route::post('admin/setting/update','SettingController@update')->name('admin.setting.update');
 //
 
 
