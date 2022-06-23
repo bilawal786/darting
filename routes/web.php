@@ -48,11 +48,11 @@ Route::post('admin/sorties/store','SortiesController@store')->name('admin.sortie
 Route::get('admin/sorties/edit/{id}','SortiesController@edit')->name('admin.sorties.edit');
 Route::get('admin/sorties/update/{id}','SortiesController@update')->name('admin.sorties.update');
 //Jeux
-    Route::get('/admin/jeux/index','jeuxController@index')->name('admin.jeux.index');
-    Route::post('/admin/jeux/store','jeuxController@store')->name('admin.jeux.store');
-    Route::get('/admin/jeux/create','jeuxController@create')->name('admin.jeux.create');
-    Route::get('/admin/jeux/edit/{id}','jeuxController@edit')->name('admin.jeux.edit');
-    Route::get('/admin/jeux/update/{id}','jeuxController@edit')->name('admin.jeux.update');
+    Route::get('/admin/jeux/index','JeuxController@index')->name('admin.jeux.index');
+    Route::post('/admin/jeux/store','JeuxController@store')->name('admin.jeux.store');
+    Route::get('/admin/jeux/create','JeuxController@create')->name('admin.jeux.create');
+    Route::get('/admin/jeux/edit/{id}','JeuxController@edit')->name('admin.jeux.edit');
+    Route::get('/admin/jeux/update/{id}','JeuxController@edit')->name('admin.jeux.update');
 //Divers
 
     Route::get('/admin/divers/index','DiversController@index')->name('admin.divers.index');
