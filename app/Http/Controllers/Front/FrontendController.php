@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,10 +16,13 @@ class FrontendController extends Controller
         return view('front.pages.function');
     }
     public function profiles(){
-        return view('front.dashboard.profiles');
+        $users = User::where('role', '1')->where('id', '!=', Auth::user()->id)->get();
+        return view('front.dashboard.profiles', compact('users'));
     }
-    public function profile(){
-        return view('front.dashboard.profile');
+    public function profile($id){
+        $idd = base64_decode($id);
+        $user = User::find($idd);
+        return view('front.dashboard.profile', compact('user'));
     }
     public function dashboard(){
         return view('front.dashboard.index');

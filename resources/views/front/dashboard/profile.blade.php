@@ -12,14 +12,18 @@
                 <div class="member-profile">
                     <div class="profile-item">
                         <div class="profile-cover">
-                            <img src="assets/images/profile/cover.jpg" alt="cover-pic">
+                            <img src="{{asset('assets/images/profile/cover.jpg')}}" alt="cover-pic">
                             <div class="edit-photo custom-upload">
 
                             </div>
                         </div>
                         <div class="profile-information">
                             <div class="profile-pic">
-                                <img src="assets/images/profile/Profile.jpg" alt="DP">
+                                @if($user->profile_picture != null)
+                                    <img   src="{{asset($user->profile_picture)}}" alt="member-img">
+                                @else
+                                    <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                @endif
                                 <div class="custom-upload">
                                     <div class="file-btn">
                                         <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
@@ -27,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="profile-name">
-                                <h4>Chocolate</h4>
+                                <h4>{{$user->fname. ' ' . $user->lname}}</h4>
                                 <p>VIP <i class="icofont-badge"></i></p>
                             </div>
                             <ul class="profile-contact">
@@ -62,7 +66,7 @@
                                         aria-selected="false">Activities <span class="item-number">01</span></button>
                                 <button class="nav-link" id="nav-groups-tab" data-bs-toggle="tab"
                                         data-bs-target="#groups" type="button" role="tab" aria-controls="groups"
-                                        aria-selected="false">Photos <span class="item-number">02</span></button>
+                                        aria-selected="false">Photos</button>
                                 <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                         data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
                                         aria-selected="false">Loisirs</button>
@@ -82,8 +86,8 @@
                                                         <h6>Description</h6>
                                                     </div>
                                                     <div class="info-card-content">
-                                                        <p>Ca y est la saison des pique-nique est ouverte et il va faire chaud !!!!
-                                                            C'est le bon moment pour profiter des beaux jours, des copains, et par la même, se faire de nouvelles connaissances. Ca sera l'occase de revoir les personnes que j'ai pu rencontré sur frimake avec qui ça a accroché et qui j'espère deviendrons, avec le temps et les sorties, de vrais potes. Et pour cela, quoi de mieux qu'un pique nique au bord de l'un des plus beau spot pique nique de paname...
+                                                        <p>
+                                                            {{$user->about}}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -95,42 +99,21 @@
                                                     <div class="info-card-content">
                                                         <ul class="info-list">
                                                             <li>
-                                                                <p class="info-name">Lieux & Coordonnées
+                                                                <p class="info-name">Pays</p>
+                                                                <p class="info-details">{{$user->country}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-name">Je suis
                                                                 </p>
-                                                                <p class="info-details">Adresse réservée aux participants à :
-
-                                                                    9088 km(s)</p>
+                                                                <p class="info-details">{{$user->gender}}</p>
                                                             </li>
                                                             <li>
-                                                                <p class="info-name">Coût (€)</p>
-                                                                <p class="info-details">Gratuit</p>
+                                                                <p class="info-name">Téléphone</p>
+                                                                <p class="info-details">{{$user->phone}}</p>
                                                             </li>
                                                             <li>
-                                                                <p class="info-name">Type d'activité
-                                                                </p>
-                                                                <p class="info-details">Brunch</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-name">Activité visible</p>
-                                                                <p class="info-details">Par tout le monde</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-name">Participants souhaités
-                                                                </p>
-                                                                <p class="info-details">Tout le monde
-                                                                </p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-name">Age des participants (min-max)</p>
-                                                                <p class="info-details">25 - 50</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-name">Nbre de participants max</p>
-                                                                <p class="info-details">10</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-name">Validation des participants</p>
-                                                                <p class="info-details">Automatique</p>
+                                                                <p class="info-name">Email</p>
+                                                                <p class="info-details">{{$user->email}}</p>
                                                             </li>
                                                         </ul>
 
@@ -210,18 +193,41 @@
                                 </div>
                                 <div
                                     class="row g-3 g-lg-4 row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
+                                    @if($user->picture1)
                                     <div class="col">
                                         <div class="gallery-img">
-                                            <img src="assets/images/member/03.jpg" alt="image" class="rounded">
-
+                                            <img src="{{asset($user->picture1)}}" alt="image" class="rounded">
                                         </div>
                                     </div>
+                                    @endif
+                                        @if($user->picture2)
                                     <div class="col">
                                         <div class="gallery-img">
-                                            <img src="assets/images/member/02.jpg" alt="image" class="rounded">
-
+                                            <img src="{{asset($user->picture2)}}" alt="image" class="rounded">
                                         </div>
                                     </div>
+                                        @endif
+                                        @if($user->picture3)
+                                    <div class="col">
+                                        <div class="gallery-img">
+                                            <img src="{{asset($user->picture3)}}" alt="image" class="rounded">
+                                        </div>
+                                    </div>
+                                        @endif
+                                        @if($user->picture4)
+                                    <div class="col">
+                                        <div class="gallery-img">
+                                            <img src="{{asset($user->picture4)}}" alt="image" class="rounded">
+                                        </div>
+                                    </div>
+                                        @endif
+                                        @if($user->picture5)
+                                    <div class="col">
+                                        <div class="gallery-img">
+                                            <img src="{{asset($user->picture5)}}" alt="image" class="rounded">
+                                        </div>
+                                    </div>
+                                        @endif
                                 </div>
                             </div>
                             <!-- Photos Tab -->
@@ -253,62 +259,74 @@
                                                         <div class="tab-pane fade show active" id="pills-personal" role="tabpanel" aria-labelledby="pills-personal-tab">
                                                             <h3>Sports</h3>
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                        <div class="col-3">
-                                                                            <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="col-9">
-                                                                            <h5>FootBall</h5>
+                                                                @foreach(json_decode($user->sport) as $sport)
+                                                                    <?php $sportData = \App\Sport::find($sport);?>
+                                                                    <div class="col-md-6">
+                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                            <div class="col-3">
+                                                                                <img style="height: 100px; border-radius: 50%" src="{{asset($sportData->image)}}" alt="">
+                                                                            </div>
+                                                                            <div class="col-9">
+                                                                                <h5>{{$sportData->name}}</h5>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="pills-mentions" role="tabpanel" aria-labelledby="pills-mentions-tab">
                                                             <h3>Sorties</h3>
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                        <div class="col-3">
-                                                                            <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="col-9">
-                                                                            <h5>FootBall</h5>
+                                                                @foreach(json_decode($user->sortie) as $sortie)
+                                                                    <?php $sortieData = \App\Sorties::find($sortie);?>
+                                                                    <div class="col-md-6">
+                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                            <div class="col-3">
+                                                                                <img style="height: 100px; border-radius: 50%" src="{{asset($sortieData->image)}}" alt="">
+                                                                            </div>
+                                                                            <div class="col-9">
+                                                                                <h5>{{$sortieData->name}}</h5>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="pills-favorites" role="tabpanel" aria-labelledby="pills-favorites-tab">
                                                             <h3>Games</h3>
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                        <div class="col-3">
-                                                                            <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="col-9">
-                                                                            <h5>FootBall</h5>
+                                                                @foreach(json_decode($user->sortie) as $game)
+                                                                    <?php $gameData = \App\Jeux::find($game);?>
+                                                                    <div class="col-md-6">
+                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                            <div class="col-3">
+                                                                                <img style="height: 100px; border-radius: 50%" src="{{asset($gameData->image)}}" alt="">
+                                                                            </div>
+                                                                            <div class="col-9">
+                                                                                <h5>{{$gameData->name}}</h5>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="pills-friends" role="tabpanel" aria-labelledby="pills-friends-tab">
                                                             <h3>Divers</h3>
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                                        <div class="col-3">
-                                                                            <img style="height: 100px; border-radius: 50%" src="assets/images/member/02.jpg" alt="">
-                                                                        </div>
-                                                                        <div class="col-9">
-                                                                            <h5>FootBall</h5>
+                                                                @foreach(json_decode($user->divers) as $divers)
+                                                                    <?php $diversData = \App\Divers::find($divers);?>
+                                                                    <div class="col-md-6">
+                                                                        <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                                                            <div class="col-3">
+                                                                                <img style="height: 100px; border-radius: 50%" src="{{asset($diversData->image)}}" alt="">
+                                                                            </div>
+                                                                            <div class="col-9">
+                                                                                <h5>{{$diversData->name}}</h5>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                     </div>

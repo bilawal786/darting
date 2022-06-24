@@ -19,7 +19,11 @@
                             </div>
                             <div class="profile-information">
                                 <div class="profile-pic">
-                                    <img src="{{asset($user->profile_picture)}}" alt="DP">
+                                    @if($user->profile_picture != null)
+                                        <img   src="{{asset($user->profile_picture)}}" alt="member-img">
+                                    @else
+                                        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                    @endif
                                     <div class="custom-upload">
                                         <div class="file-btn">
                                             <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
@@ -62,7 +66,7 @@
                                             aria-selected="false">Activities <span class="item-number">01</span></button>
                                     <button class="nav-link" id="nav-groups-tab" data-bs-toggle="tab"
                                             data-bs-target="#groups" type="button" role="tab" aria-controls="groups"
-                                            aria-selected="false">Photos <span class="item-number">02</span></button>
+                                            aria-selected="false">Photos </button>
                                     <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                             data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
                                             aria-selected="false">Loisirs</button>
@@ -253,18 +257,41 @@
                                     </div>
                                     <div
                                         class="row g-3 g-lg-4 row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
-                                        <div class="col">
-                                            <div class="gallery-img">
-                                                <img src="assets/images/member/03.jpg" alt="image" class="rounded">
-
+                                        @if($user->picture1)
+                                            <div class="col">
+                                                <div class="gallery-img">
+                                                    <img src="{{asset($user->picture1)}}" alt="image" class="rounded">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="gallery-img">
-                                                <img src="assets/images/member/02.jpg" alt="image" class="rounded">
-
+                                        @endif
+                                        @if($user->picture2)
+                                            <div class="col">
+                                                <div class="gallery-img">
+                                                    <img src="{{asset($user->picture2)}}" alt="image" class="rounded">
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
+                                        @if($user->picture3)
+                                            <div class="col">
+                                                <div class="gallery-img">
+                                                    <img src="{{asset($user->picture3)}}" alt="image" class="rounded">
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @if($user->picture4)
+                                            <div class="col">
+                                                <div class="gallery-img">
+                                                    <img src="{{asset($user->picture4)}}" alt="image" class="rounded">
+                                                </div>
+                                            </div>
+                                        @endif
+                                        @if($user->picture5)
+                                            <div class="col">
+                                                <div class="gallery-img">
+                                                    <img src="{{asset($user->picture5)}}" alt="image" class="rounded">
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                 <!-- Photos Tab -->

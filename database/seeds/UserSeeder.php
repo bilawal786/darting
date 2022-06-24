@@ -21,6 +21,10 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'France',
             'country' => 'Guadeloupe',
+            'sport' => '["1"]',
+            'sortie' => '["1"]',
+            'game' => '["1"]',
+            'divers' => '["1"]',
             'password' => Hash::make('12345678'),
         ]);
         User::create([
@@ -31,6 +35,10 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'France',
             'country' => 'France',
+            'sport' => '["1"]',
+            'sortie' => '["1"]',
+            'game' => '["1"]',
+            'divers' => '["1"]',
             'password' => Hash::make('12345678'),
         ]);
     }

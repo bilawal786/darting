@@ -40,6 +40,12 @@
             background-color: #5b398b;
             border-radius: 10px;
         }
+        .form-control {
+            border: 1px solid #ddd;
+            height: auto;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
         @media only screen and (max-width: 600px) {
            .ptm{
                margin-top: 20px;

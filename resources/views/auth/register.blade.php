@@ -186,7 +186,7 @@
                                                 <div class="col-lg-6">
                                                     <div class="form-group">
                                                             <label class="container_check version_2">
-                                                                <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{$row->image}}" alt="">
+                                                                <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{asset($row->image)}}" alt="">
                                                                 {{$row->name}}
                                                                 <input type="checkbox" name="sport[]" value="{{$row->id}}" class="required">
                                                                 <span class="checkmark"></span>

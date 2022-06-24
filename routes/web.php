@@ -22,7 +22,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
-    Route::get('/profile', 'Front\FrontendController@profile')->name('front.profile');
+    Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity', 'Front\FrontendController@activity')->name('front.activity');
     Route::post('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
