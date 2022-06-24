@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/icofont.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-@php $setting=\App\Setting::first(); @endphp
+@php
+    $setting=\App\Setting::first();
+
+    @endphp
     <title>{{$setting->name}}</title>
 
     @yield('styles')

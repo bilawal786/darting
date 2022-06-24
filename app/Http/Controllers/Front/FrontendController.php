@@ -33,4 +33,9 @@ class FrontendController extends Controller
         $user= Auth::user();
         return view('front.dashboard.myProfile', compact('user'));
     }
+    public function notification(){
+        $user= Auth::user();
+        return view('front.dashboard.notification', compact('user'));
+    }
+
 }

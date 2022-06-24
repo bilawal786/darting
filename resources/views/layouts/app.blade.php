@@ -193,15 +193,16 @@ $user = Auth::user();
                         <li>
                             <a href="{{route('admin.setting.index')}}"> Réglage général </a>
                         </li>
+
+                        <ul class="collapse submenu list-unstyled" id="invoice2" data-bs-parent="#accordionExample">
+                            <li>
+                                <a href="{{route('admin.feature.index')}}"> Fonctionnalités </a>
+                            </li>
+                        </ul>
                     </ul>
                 </li>
-
-
             </ul>
-
-
         </nav>
-
     </div>
 
     @yield('content')

@@ -24,15 +24,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
     Route::get('/profile', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity', 'Front\FrontendController@activity')->name('front.activity');
-    Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
     Route::post('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/activity/create', 'Front\FrontendController@activityCreate')->name('activity.create');
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
+    Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
 //user
     Route::post('/user/update','Front\UserController@update')->name('user.update');
 });
+Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
 
 Route::group(['middleware' => ['auth', 'role']], function() {
 
@@ -65,7 +66,7 @@ Route::get('admin/sorties/update/{id}','SortiesController@update')->name('admin.
     Route::get('admin/setting/index','SettingController@index')->name('admin.setting.index');
     Route::post('admin/setting/update','SettingController@update')->name('admin.setting.update');
 //
-
+Route::get('admin/features/index','FeatureController@index')->name('admin.feature.index');
 
 });
 

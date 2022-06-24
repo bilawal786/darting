@@ -12,7 +12,7 @@
         <a href="{{route('my.profile')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Mon profil</button></a>
     </div>
     <div class="col-md-12">
-        <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Notifications</button>
+        <a href="{{route('front.notification')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Notification</button></a>
     </div>
     <div class="col-md-12">
         <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Messages </button>

@@ -2,7 +2,7 @@
 @section('content')
     <div class="banner-section page-header-section style-1 login-section padding-tb">
         <div class=" container">
-            <p style="text-align: center; color: white; font-weight: bold; font-size: 30px; line-height: 50px">
+            <p  style="text-align: center; color: white; font-weight: bold; font-size: 30px; line-height: 50px">
                 Darting, enfin un site pour vraiment organiser vos sorties. <br>
 
                 Vous voulez sortir, mais pas seul ? <br>

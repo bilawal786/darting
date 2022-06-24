@@ -297,7 +297,8 @@
                                                                 <h3>Sports</h3>
                                                                 <div class="row">
                                                                     @foreach(json_decode($user->sport) as $sport)
-                                                                        <?php $sportData = \App\Sport::find($sport);?>
+                                                                        <?php $sportData = \App\Sport::find($sport);
+                                                                        ?>
                                                                     <div class="col-md-6">
                                                                         <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
                                                                             <div class="col-3">
