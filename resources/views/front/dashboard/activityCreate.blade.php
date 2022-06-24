@@ -75,7 +75,7 @@
                                 <div class="row no-gutters">
                                     <div class="col-lg-12">
                                         <div id="wizard_container">
-                                            <form  method="POST" action="{{route('activity.store')}}">
+                                            <form  method="POST" action="{{route('activity.store')}}"  accept-charset="UTF-8" enctype="multipart/form-data">
                                                 @csrf
                                                 <div id="sport" style="display: none">
                                                     <h6 style="text-align: left; color: black">Sélectionnez le sport pour l'activité</h6>
@@ -153,7 +153,7 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <h6 style="text-align: left; color: black">Titre</h6>
-                                                        <input type="text" name="title" class="form-control" placeholder="Entrez le titre de l'activité">
+                                                        <input type="text" name="title" class="form-control"  placeholder="Entrez le titre de l'activité">
 
                                                         <h6 style="text-align: left; color: black">Durée de l'activité</h6>
                                                         <input type="time" name="time" class="form-control">
@@ -167,7 +167,7 @@
                                                         </select>
 
                                                         <h6 style="text-align: left; color: black">Image d'activité</h6>
-                                                        <input type="file" name="image" class="form-control">
+                                                        <input type="file" name="image"  class="form-control">
 
 
                                                         <h6 style="text-align: left; color: black">Âge des participants (min-max)</h6>

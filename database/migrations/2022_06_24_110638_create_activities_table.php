@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateActivitiesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('activities', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('title');
+            $table->string('time');
+            $table->string('country');
+            $table->string('image');
+            $table->string('min_age');
+            $table->string('max_age');
+            $table->string('date');
+            $table->string('city');
+            $table->string('num');
+            $table->string('type');
+            $table->longText('sortie')->nullable();
+            $table->longText('sport')->nullable();
+            $table->longText('game')->nullable();
+            $table->longText('diver')->nullable();
+
+            $table->string('description')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('activities');
+    }
+}

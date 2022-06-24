@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity', 'Front\FrontendController@activity')->name('front.activity');
+    Route::post('/activity', 'Front\FrontendController@activityStore')->name('activity.store');
     Route::post('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/activity/create', 'Front\FrontendController@activityCreate')->name('activity.create');
