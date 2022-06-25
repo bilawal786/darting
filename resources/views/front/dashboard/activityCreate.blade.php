@@ -44,10 +44,10 @@
                                 <h3 class="ptm" style="text-align: left">Sélectionnez le type d'activité</h3>
                             </div>
                            <div class="col-md-6">
-                               <a class="type"><img src="{{asset('assets/images/03.jpeg')}}" style="width: 100%; border-radius: 10px" alt=""></a>
+                               <a class="type" data-type=Real"><img src="{{asset('assets/images/03.jpeg')}}" style="width: 100%; border-radius: 10px" alt=""></a>
                            </div>
                            <div class="col-md-6">
-                               <a class="type"><img src="{{asset('assets/images/04.jpeg')}}" style="width: 100%; border-radius: 10px" alt=""></a>
+                               <a class="type" data-type="Visual"><img src="{{asset('assets/images/04.jpeg')}}" style="width: 100%; border-radius: 10px" alt=""></a>
                            </div>
                         </div>
                         <div class="row g-4" id="subtyperow" style="display: none">
@@ -55,16 +55,16 @@
                                 <h3 class="ptm" style="text-align: left">Sélectionnez le type de sous-activité</h3>
                             </div>
                            <div class="col-md-6">
-                               <a class="subitem" data-type="sports"><img src="{{asset('assets/images/05.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
+                               <a class="subitem" data-type="Sports"><img src="{{asset('assets/images/05.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
                            </div>
                            <div class="col-md-6">
-                               <a class="subitem" data-type="sorties"><img src="{{asset('assets/images/06.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
+                               <a class="subitem" data-type="Sorties"><img src="{{asset('assets/images/06.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
                            </div>
                            <div class="col-md-6">
-                               <a class="subitem" data-type="games"> <img src="{{asset('assets/images/07.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
+                               <a class="subitem" data-type="Games"> <img src="{{asset('assets/images/07.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
                            </div>
                            <div class="col-md-6">
-                               <a class="subitem" data-type="divers"><img src="{{asset('assets/images/08.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
+                               <a class="subitem" data-type="Divers"><img src="{{asset('assets/images/08.png')}}" style="width: 100%; border-radius: 10px" alt=""></a>
                            </div>
                         </div>
                         <div class="row g-4" id="form" style="display: none">
@@ -150,16 +150,18 @@
                                                     </div>
                                                 </div>
                                                 <br>
+                                                <input type="hidden" name="activity_type" id="activity_type">
+                                                <input type="hidden" name="activity_subtype" id="activity_subtype">
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <h6 style="text-align: left; color: black">Titre</h6>
-                                                        <input type="text" name="title" class="form-control"  placeholder="Entrez le titre de l'activité">
+                                                        <input type="text" name="title" class="form-control" required  placeholder="Entrez le titre de l'activité">
 
                                                         <h6 style="text-align: left; color: black">Durée de l'activité</h6>
-                                                        <input type="time" name="time" class="form-control">
+                                                        <input type="time" required name="time" class="form-control">
 
                                                         <h6 style="text-align: left; color: black">Pays</h6>
-                                                        <select name="country" class="form-control" id="">
+                                                        <select  required name="country" class="form-control" id="">
                                                             <option value="Guadeloupe">Guadeloupe</option>
                                                             <option value="Martinique">Martinique</option>
                                                             <option value="Guyane">Guyane</option>
@@ -167,13 +169,13 @@
                                                         </select>
 
                                                         <h6 style="text-align: left; color: black">Image d'activité</h6>
-                                                        <input type="file" name="image"  class="form-control">
+                                                        <input required type="file" name="image"  class="form-control">
 
 
                                                         <h6 style="text-align: left; color: black">Âge des participants (min-max)</h6>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <select name="min_age"  class="form-control" id="">
+                                                                <select required name="min_age"  class="form-control" id="">
                                                                     <option value="18">18</option>
                                                                     <option value="19">19</option>
                                                                     <option value="20">20</option>
@@ -210,7 +212,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <select name="max_age" class="form-control" id="">
+                                                                <select required name="max_age" class="form-control" id="">
                                                                     <option value="18">18</option>
                                                                     <option value="19">19</option>
                                                                     <option value="20">20</option>
@@ -252,14 +254,14 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <h6 style="text-align: left; color: black">Date d'activité</h6>
-                                                        <input type="date" name="date" class="form-control">
+                                                        <input type="date" required name="date" class="form-control">
 
                                                         <h6 style="text-align: left; color: black">Ville</h6>
-                                                        <input type="text" name="city" class="form-control" placeholder="Entrez la ville d'activité">
+                                                        <input type="text" required name="city" class="form-control" placeholder="Entrez la ville d'activité">
 
                                                         <h6 style="text-align: left; color: black">Nombre maximum de participants
                                                         </h6>
-                                                        <select name="num" class="form-control" id="">
+                                                        <select required name="num" class="form-control" id="">
                                                             <option value="2">2</option>
                                                             <option value="3">3</option>
                                                             <option value="4">4</option>
@@ -273,7 +275,7 @@
 
                                                         <h6 style="text-align: left; color: black">Type de participants souhaité
                                                         </h6>
-                                                        <select name="type" class="form-control" id="">
+                                                        <select required name="type" class="form-control" id="">
                                                             <option value="Everybody">Tout le monde</option>
                                                             <option value="Males Oly">Hommes seulement</option>
                                                             <option value="Females Only">Femmes seulement</option>
@@ -317,21 +319,24 @@
 @section('scripts')
     <script>
         $(".type").click(function (){
+            var type = $(this).attr("data-type");
             $("#typerow").hide();
             $("#subtyperow").show();
+            $("#activity_type").val(type);
         })
         $(".subitem").click(function (){
             $("#typerow").hide();
             $("#subtyperow").hide();
             $("#form").show();
             var dataId = $(this).attr("data-type");
-            if(dataId == "sports"){
+            $("#activity_subtype").val(dataId);
+            if(dataId == "Sports"){
                 $("#sport").show();
-            }else if(dataId == "sorties"){
+            }else if(dataId == "Sorties"){
                 $("#sortie").show();
-            }else if(dataId == "games"){
+            }else if(dataId == "Games"){
                 $("#game").show();
-            }else if(dataId == "divers"){
+            }else if(dataId == "Divers"){
                 $("#diver").show();
             }
         })

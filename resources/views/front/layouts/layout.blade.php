@@ -23,6 +23,14 @@
 
     @yield('styles')
     <style>
+        .form-control[type=file] {
+            overflow: hidden;
+            color: white;
+        }
+        textarea {
+            background-color: #221c53;
+            color: white;
+        }
         .align-items-end {
             align-items: flex-start !important;
         }

@@ -12,34 +12,26 @@
                     <div class="member-profile">
                         <div class="profile-item">
                             <div class="profile-cover">
-                                <img  style="height: 500px" src="https://www.betterteam.com/images/club-promoter-job-description-5946x3964-20201119.jpeg?crop=1:1,smart&width=1200&dpr=2" alt="cover-pic">
-                                <div class="edit-photo custom-upload">
-                                    <div class="file-btn"><i class="icofont-camera"></i>
-                                        Edit Photo</div>
-                                    <input type="file">
-                                </div>
+                                <img  style="height: 500px" src="{{asset($activity->image)}}" alt="cover-pic">
                             </div>
                             <div class="profile-information">
                                 <div class="profile-pic">
-                                    <img src="https://static-01.daraz.pk/p/487f6cc2880b61909f5d2959cdd0d3a0.jpg" alt="DP">
-                                    <div class="custom-upload">
-                                        <div class="file-btn">
-                                        <span class="d-none d-lg-inline-block"> <i class="icofont-camera"></i>
-                                            Edit</span>
-                                            <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
-                                        <input type="file">
-                                    </div>
+                                    @if($activity->user->profile_picture != null)
+                                        <img   src="{{asset($activity->user->profile_picture)}}" alt="member-img">
+                                    @else
+                                        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                    @endif
                                 </div>
                                 <div class="profile-name">
-                                    <h4>Apero Quai des Invalides</h4>
-                                    <p>16 Juin 2022</p>
+                                    <h4>{{$activity->title}}</h4>
+                                    <p>{{$activity->date}}</p>
                                 </div>
                                 <ul class="profile-contact">
                                     <li>
                                         <a href="#">
                                             <div class="icon"><i class="icofont-location-pin"></i></div>
                                             <div class="text">
-                                                <p>Paris</p>
+                                                <p>{{$activity->country}}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -47,7 +39,7 @@
                                         <a href="#">
                                             <div class="icon"><i class="icofont-clock-time"></i></div>
                                             <div class="text">
-                                                <p>18H45</p>
+                                                <p>{{$activity->time}}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -55,7 +47,7 @@
                                         <a href="#">
                                             <div class="icon"><i class="icofont-user-alt-5"></i></div>
                                             <div class="text">
-                                                <p>10 / 10</p>
+                                                <p>1 / {{$activity->num}}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -97,12 +89,12 @@
                                                         <div class="info-card-content">
                                                             <div class="lab-content w-100">
                                                                 <ul class="img-stack d-flex">
-                                                                    <li><img src="assets/images/group/group-mem/01.png" alt="member-img"></li>
-                                                                    <li><img src="assets/images/group/group-mem/02.png" alt="member-img"></li>
-                                                                    <li><img src="assets/images/group/group-mem/03.png" alt="member-img"></li>
-                                                                    <li><img src="assets/images/group/group-mem/04.png" alt="member-img"></li>
-                                                                    <li><img src="assets/images/group/group-mem/05.png" alt="member-img"></li>
-                                                                    <li><img src="assets/images/group/group-mem/06.png" alt="member-img"></li>
+                                                                    <li><img src="{{asset('assets/images/group/group-mem/01.png')}}" alt="member-img"></li>
+                                                                    <li><img src="{{asset('assets/images/group/group-mem/02.png')}}" alt="member-img"></li>
+                                                                    <li><img src="{{asset('assets/images/group/group-mem/03.png')}}" alt="member-img"></li>
+                                                                    <li><img src="{{asset('assets/images/group/group-mem/04.png')}}" alt="member-img"></li>
+                                                                    <li><img src="{{asset('assets/images/group/group-mem/05.png')}}" alt="member-img"></li>
+                                                                    <li><img src="{{asset('assets/images/group/group-mem/06.png')}}" alt="member-img"></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -112,9 +104,7 @@
                                                             <h6>Description</h6>
                                                         </div>
                                                         <div class="info-card-content">
-                                                            <p>Ca y est la saison des pique-nique est ouverte et il va faire chaud !!!!
-                                                                C'est le bon moment pour profiter des beaux jours, des copains, et par la même, se faire de nouvelles connaissances. Ca sera l'occase de revoir les personnes que j'ai pu rencontré sur frimake avec qui ça a accroché et qui j'espère deviendrons, avec le temps et les sorties, de vrais potes. Et pour cela, quoi de mieux qu'un pique nique au bord de l'un des plus beau spot pique nique de paname...
-                                                            </p>
+                                                            <p>{{$activity->description}} </p>
                                                         </div>
                                                     </div>
                                                     <div class="info-card mb-20">
@@ -138,7 +128,7 @@
                                                                 <li>
                                                                     <p class="info-name">Type d'activité
                                                                     </p>
-                                                                    <p class="info-details">Brunch</p>
+                                                                    <p class="info-details">{{$activity->type}} </p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Activité visible</p>
@@ -152,11 +142,11 @@
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Age des participants (min-max)</p>
-                                                                    <p class="info-details">25 - 50</p>
+                                                                    <p class="info-details">{{$activity->min_age}}  - {{$activity->max_age}} </p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Nbre de participants max</p>
-                                                                    <p class="info-details">10</p>
+                                                                    <p class="info-details">{{$activity->num}} </p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Validation des participants</p>
@@ -177,7 +167,26 @@
                                 </div>
                                 <!-- Group Tab -->
                                 <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="nav-groups-tab">
-
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="info-card mb-20">
+                                                <div class="info-card-title">
+                                                    <h6>Inscrivez-vous en tant que participant à cette activité</h6>
+                                                </div>
+                                                <div class="info-card-content">
+                                                    <div class="lab-content w-100">
+                                                        <form action="">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                  <button style="width: 100%" class="btn btn-primary"> Participate</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Photos Tab -->
                                 <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="nav-photos-tab">

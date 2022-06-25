@@ -228,7 +228,7 @@
                                                     <label class="container_check version_2">
                                                         <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{asset($game->image)}}" alt="">
                                                         {{$game->name}}
-                                                        <input type="radio" name="game[]" value="{{$game->id}}" class="required">
+                                                        <input type="checkbox" name="game[]" value="{{$game->id}}" class="required">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>
@@ -248,7 +248,7 @@
                                                     <label class="container_check version_2">
                                                         <img style="height: 20px; margin-right: 10px; border-radius: 50px;" src="{{asset($diver->image)}}" alt="">
                                                         {{$diver->name}}
-                                                        <input type="radio" name="divers[]" value="{{$diver->id}}" class="required">
+                                                        <input type="checkbox" name="divers[]" value="{{$diver->id}}" class="required">
                                                         <span class="checkmark"></span>
                                                     </label>
                                                 </div>

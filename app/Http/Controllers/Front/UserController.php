@@ -16,6 +16,7 @@ class UserController extends Controller
         $user->phone=$request->phone;
         $user->city=$request->city;
         $user->country=$request->country;
+        $user->about=$request->description;
         if ($request->hasfile('profile_picture')) {
             $image1 = $request->file('profile_picture');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();

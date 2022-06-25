@@ -15,17 +15,19 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('user_id');
             $table->string('title');
             $table->string('time');
             $table->string('country');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('min_age');
             $table->string('max_age');
             $table->string('date');
             $table->string('city');
             $table->string('num');
             $table->string('type');
+            $table->string('activity_type');
+            $table->string('activity_subtype');
             $table->longText('sortie')->nullable();
             $table->longText('sport')->nullable();
             $table->longText('game')->nullable();

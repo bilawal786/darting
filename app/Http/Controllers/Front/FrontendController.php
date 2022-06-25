@@ -26,13 +26,16 @@ class FrontendController extends Controller
         return view('front.dashboard.profile', compact('user'));
     }
     public function dashboard(){
-        return view('front.dashboard.index');
+        $activities = Activity::all();
+        return view('front.dashboard.index', compact('activities'));
     }
     public function activityCreate(){
         return view('front.dashboard.activityCreate');
     }
-    public function activity(){
-        return view('front.dashboard.activity');
+    public function activity($id){
+        $id = base64_decode($id);
+        $activity = Activity::find($id);
+        return view('front.dashboard.activity', compact('activity'));
     }
     public function myProfile(){
         $user= Auth::user();
@@ -49,11 +52,9 @@ class FrontendController extends Controller
             foreach($request->sortie as $name)
             {
                 $data4[]=$name;
-
                 $active->sortie=json_encode($data4);
             }
         }
-
         if ($request->diver){
             foreach($request->diver as $diver)
             {
@@ -61,7 +62,6 @@ class FrontendController extends Controller
                 $active->diver=json_encode($data1);
             }
         }
-
         if ($request->game){
             foreach($request->game as $name)
             {
@@ -72,12 +72,10 @@ class FrontendController extends Controller
         if ($request->sport){
             foreach($request->sport as $name)
             {
-
                 $data3[]=$name;
                 $active->sport=json_encode($data3);
             }
         }
-
         $active->title = $request->title;
         $active->time = $request->time;
         $active->country = $request->country;
@@ -88,12 +86,15 @@ class FrontendController extends Controller
             $image1->move($destinationPath, $name);
             $active->image = 'images/' . $name;
         }
+        $active->user_id = Auth::user()->id;
         $active->min_age = $request->min_age;
         $active->max_age = $request->max_age;
         $active->date = $request->date;
         $active->city = $request->city;
         $active->num = $request->num;
         $active->type = $request->type;
+        $active->activity_type = $request->activity_type;
+        $active->activity_subtype = $request->activity_subtype;
         $active->description = $request->description;
         $active->save();
         return redirect()->back();
