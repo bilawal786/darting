@@ -106,94 +106,31 @@
     <div class="container">
         <div class="section-header">
             <h4 class="theme-color">Rencontrez de nouvelles personnes aujourd'hui!</h4>
-            <h2>Nouveaux membres en Guadeloupe</h2>
+            <h2>Nouveaux membres</h2>
         </div>
         <div class="section-wrapper">
             <div class="row justify-content-center g-3 g-md-4">
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/01.jpg" alt="member-img">
+                @foreach($users as $user)
+                    <div class="col-xl-3 col-lg-3 col-md-4 col-6">
+                        <a href="{{route('front.profile', ['id' => base64_encode($user->id)])}}">
+                            <div class="lab-item member-item style-1">
+                                <div class="lab-inner">
+                                    <div class="lab-thumb">
+                                        @if($user->profile_picture != null)
+                                            <img   src="{{asset($user->profile_picture)}}" alt="member-img">
+                                        @else
+                                            <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                        @endif
+                                    </div>
+                                    <div class="lab-content">
+                                        <h6><a>{{$user->fname. ' ' . $user->lname}}</a> </h6>
+                                        <p>{{$user->country}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Actif 1 jour</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/02.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Gihan-Fernando</a></h6>
-                                <p>Actif 2 jour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/03.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Sweet Admin</a></h6>
-                                <p>Active 3 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/04.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Gyan-Baffour</a></h6>
-                                <p>Actif 4 jour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/05.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Teszt Eleking</a></h6>
-                                <p>Actif 1 jour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-3 col-md-4 col-6">
-                    <div class="lab-item member-item style-1">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/06.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Zeahra Guido</a>
-                                </h6>
-                                <p>Actif 1 jour</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="member-button-group d-flex flex-wrap justify-content-center">
-                <a href="#" class="lab-btn"><i class="icofont-users"></i> <span>Rejoignez-nous pour
-                            Libre</span></a>
-                <a href="#" class="lab-btn"><i class="icofont-play-alt-1"></i> <span>Adhésion Premium</span></a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -413,161 +350,5 @@
     </div>
 </section>
 <!-- ================ Success Story Section end Here =============== -->
-
-
-<!-- ================ Top Member Section start Here =============== -->
-<section class="top-member-section padding-tb">
-    <div class="container">
-        <div class="section-header">
-            <h4 class="theme-color">Meilleurs membres</h4>
-            <h2>Membres en ligne maintenant</h2>
-        </div>
-        <div class="section-wrapper">
-            <ul class="button-group filters-button-group w-100 d-flex flex-wrap justify-content-center">
-                <li class="button is-checked filter-btn" data-filter="*"><i class="icofont-heart-alt"></i> Afficher tout
-                </li>
-                <li class="button filter-btn" data-filter=".girl"><i class="icofont-girl"></i> nouvelle fille
-                    membre</li>
-                <li class="button filter-btn" data-filter=".boy"><i class="icofont-hotel-boy"></i> Nouveau
-                    Membre garçon</li>
-            </ul>
-
-            <div class="grid-memberlist">
-                <div class="grid-member filter-item girl">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/01.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Johanna</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/03.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Selinae</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/02.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/04.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Rocky deo</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/05.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Jhon doe</a> </h6>
-                                <p>Active 5 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/06.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Angelina</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/07.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrea Guido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/08.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Jene Aiko</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item girl">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/09.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Anna haek</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-member filter-item boy">
-                    <div class="lab-item member-item style-1 style-2">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/member/10.jpg" alt="member-img">
-                            </div>
-                            <div class="lab-content">
-                                <h6><a href="profile.html">Andrean Puido</a> </h6>
-                                <p>Active 1 Day</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ================ Top Member Section end Here =============== -->
-
 
 @endsection

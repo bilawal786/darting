@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/icofont.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
-@php
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+    @php
     $setting=\App\Setting::first();
 
     @endphp
@@ -298,7 +300,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="footer-bottom-content text-center">
-                        <p>&copy; 2022 <a href="index.html">Darting</a> -Tous les droits sont réservés.</p>
+                        <p>&copy; 2022 <a href="#">Darting</a> -Tous les droits sont réservés.</p>
                     </div>
                 </div>
             </div>
@@ -322,6 +324,27 @@
 <script src="{{asset('assets/js/wow.min.js')}}"></script>
 <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+    @if(Session::has('messege'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
 @yield('scripts')
 
 </body>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Activity;
 use App\Http\Controllers\Controller;
+use App\Participant;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
     public function index(){
-        return view('front.pages.index');
+        $users = User::where('role', '1')->get();
+        return view('front.pages.index', compact('users'));
     }
     public function function(){
         return view('front.pages.function');
@@ -44,6 +46,28 @@ class FrontendController extends Controller
     public function notification(){
         $user= Auth::user();
         return view('front.dashboard.notification', compact('user'));
+    }
+    public function activityApply($id){
+        $check = Participant::where('activity_id', $id)->where('user_id', Auth::user()->id)->first();
+        if ($check){
+            $notification = array(
+                'messege' => 'Already applied !',
+                'alert-type' => 'error'
+            );
+            return Redirect()->back()->with($notification);
+        }else{
+            $particpant = new Participant();
+            $particpant->activity_id = $id;
+            $particpant->user_id = Auth::user()->id;
+            $particpant->save();
+            $notification = array(
+                'messege' => 'Successfully applied as participant',
+                'alert-type' => 'success'
+            );
+            return Redirect()->back()->with($notification);
+        }
+
+
     }
     public function activityStore(Request $request)
     {

@@ -17,20 +17,6 @@ class UserController extends Controller
         $user->city=$request->city;
         $user->country=$request->country;
         $user->about=$request->description;
-        if ($request->hasfile('profile_picture')) {
-            $image1 = $request->file('profile_picture');
-            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'images/';
-            $image1->move($destinationPath, $name);
-            $user->profile_picture = 'images/' . $name;
-        }
-        if ($request->hasfile('picture1')) {
-            $image1 = $request->file('picture1');
-            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
-            $destinationPath = 'images/';
-            $image1->move($destinationPath, $name);
-            $user->picture1 = 'images/' . $name;
-        }
         if ($request->hasfile('picture2')) {
             $image1 = $request->file('picture2');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
@@ -62,7 +48,31 @@ class UserController extends Controller
         $user->save();
 
         $notification = array(
-            'messege' => 'Sport Update Successfully!',
+            'messege' => 'Successfully Updated!',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+    public function profileImage(Request $request){
+        $user=Auth::user();
+        if ($request->hasfile('profileImage')) {
+            $image1 = $request->file('profileImage');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $user->profile_picture = 'images/' . $name;
+        }
+        if ($request->hasfile('coverImage')) {
+            $image1 = $request->file('coverImage');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $user->picture1 = 'images/' . $name;
+        }
+        $user->save();
+
+        $notification = array(
+            'messege' => 'Successfully Updated!',
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);

@@ -82,19 +82,25 @@
                                         <div class="row">
                                             <div class="col-xl-12">
                                                 <article>
+                                                    @php
+                                                    $participants = \App\Participant::where('activity_id' , $activity->id)->get();
+                                                    @endphp
                                                     <div class="info-card mb-20">
                                                         <div class="info-card-title">
-                                                            <h6>10 Participant(s) (4 En attente)</h6>
+                                                            <h6>{{$activity->num}} Participant(s) ({{$activity->num - $participants->count()}} En attente)</h6>
                                                         </div>
                                                         <div class="info-card-content">
                                                             <div class="lab-content w-100">
                                                                 <ul class="img-stack d-flex">
-                                                                    <li><img src="{{asset('assets/images/group/group-mem/01.png')}}" alt="member-img"></li>
-                                                                    <li><img src="{{asset('assets/images/group/group-mem/02.png')}}" alt="member-img"></li>
-                                                                    <li><img src="{{asset('assets/images/group/group-mem/03.png')}}" alt="member-img"></li>
-                                                                    <li><img src="{{asset('assets/images/group/group-mem/04.png')}}" alt="member-img"></li>
-                                                                    <li><img src="{{asset('assets/images/group/group-mem/05.png')}}" alt="member-img"></li>
-                                                                    <li><img src="{{asset('assets/images/group/group-mem/06.png')}}" alt="member-img"></li>
+                                                                    @foreach($participants as $participant)
+                                                                    <li>
+                                                                        @if($participant->user->profile_picture != null)
+                                                                        <img style="height: 60px; border-radius: 50%" src="{{asset($participant->user->profile_picture)}}" alt="member-img">
+                                                                        @else
+                                                                            <img style="height: 60px; border-radius: 50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                                                        @endif
+                                                                    </li>
+                                                                    @endforeach
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -178,7 +184,7 @@
                                                         <form action="">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                  <button style="width: 100%" class="btn btn-primary"> Participate</button>
+                                                                    <a href="{{route('activity.apply.part', ['id' => $activity->id])}}" style="width: 100%" class="btn btn-primary"> Vous voulez participer ?</a>
                                                                 </div>
                                                             </div>
                                                         </form>

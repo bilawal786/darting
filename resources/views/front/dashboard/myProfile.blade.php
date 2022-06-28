@@ -10,51 +10,63 @@
             <div class="container">
                 <div class="section-wrapper">
                     <div class="member-profile">
-                        <div class="profile-item">
-                            <div class="profile-cover">
-                                <img src="{{asset('assets/images/profile/cover.jpg')}}" alt="cover-pic">
-                                <div class="edit-photo custom-upload">
-
-                                </div>
-                            </div>
-                            <div class="profile-information">
-                                <div class="profile-pic">
-                                    @if($user->profile_picture != null)
-                                        <img   src="{{asset($user->profile_picture)}}" alt="member-img">
+                        <form id="autoFormSUbmit" method="POST" enctype="multipart/form-data" action="{{route('prfile.image')}}">
+                            @csrf
+                            <div class="profile-item">
+                                <div class="profile-cover">
+                                    @if($user->picture1 != null)
+                                    <img src="{{asset($user->picture1)}}" alt="cover-pic">
                                     @else
-                                        <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                    <img src="{{asset('assets/images/profile/cover.jpg')}}" alt="cover-pic">
                                     @endif
-                                    <div class="custom-upload">
-                                        <div class="file-btn">
-                                            <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
-                                        <input type="file">
+                                    <div class="edit-photo custom-upload">
+                                        <div class="file-btn"><i class="icofont-camera"></i>
+                                            Modifier l'image</div>
+                                        <input id="coverImage" name="coverImage" type="file">
                                     </div>
                                 </div>
-                                <div class="profile-name">
-                                    <h4>{{$user->fname . ' ' . $user->lname}}</h4>
-                                    <p>VIP <i class="icofont-badge"></i></p>
-                                </div>
-                                <ul class="profile-contact">
-                                    <li>
-                                        <a href="#">
-                                            <div class="icon"><i class="icofont-user"></i></div>
-                                            <div class="text">
-                                                <p>Presense 100%</p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div class="icon"><i class="icofont-star"></i></div>
-                                            <div class="text">
-                                                <p>Avis <i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i></p>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <div class="profile-information">
+                                    <div class="profile-pic">
+                                        @if($user->profile_picture != null)
+                                            <img   src="{{asset($user->profile_picture)}}" alt="member-img">
+                                        @else
+                                            <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                        @endif
+                                        <div class="custom-upload">
+                                            <div class="file-btn">
+                                        <span class="d-none d-lg-inline-block"> <i class="icofont-camera"></i>
+                                            Modifier l'image</span>
+                                                <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
+                                            <input id="profileImage" name="profileImage" type="file">
+                                        </div>
+                                    </div>
+                                    <div class="profile-name">
+                                        <h4>{{$user->fname . ' ' . $user->lname}}</h4>
+                                        <p>VIP <i class="icofont-badge"></i></p>
+                                    </div>
+                                    <ul class="profile-contact">
+                                        <li>
+                                            <a href="#">
+                                                <div class="icon"><i class="icofont-user"></i></div>
+                                                <div class="text">
+                                                    <p>Presense 100%</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="icon"><i class="icofont-star"></i></div>
+                                                <div class="text">
+                                                    <p>Avis <i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i></p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
 
+                                </div>
                             </div>
-                        </div>
+                        </form>
+
                         <div class="profile-details">
                             <nav class="profile-nav">
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -173,28 +185,19 @@
                                                                     </div>
                                                                     <div class="interest">
                                                                         <div >
-                                                                            <p style="text-align: left" >Image de profil</p>
-                                                                            <input class="form-control" name="profile_picture" type="file"  >
-
-                                                                        </div>
-                                                                        <div >
                                                                             <p style="text-align: left" >Image 1</p>
-                                                                            <input class="form-control" name="picture1" type="file">
-                                                                        </div>
-                                                                        <div >
-                                                                            <p style="text-align: left" >Image 2</p>
                                                                             <input class="form-control" type="file" name="picture2" >
                                                                         </div>
                                                                         <div >
-                                                                            <p style="text-align: left" >Image 3</p>
+                                                                            <p style="text-align: left" >Image 2</p>
                                                                             <input class="form-control" type="file" name="picture3"  >
                                                                         </div>
                                                                         <div >
-                                                                            <p style="text-align: left" >Image 4</p>
+                                                                            <p style="text-align: left" >Image 3</p>
                                                                             <input class="form-control" type="file" name="picture4">
                                                                         </div>
                                                                         <div >
-                                                                            <p style="text-align: left" >Image 5</p>
+                                                                            <p style="text-align: left" >Image 4</p>
                                                                             <input class="form-control" type="file" name="picture5" >
 
                                                                         </div>
@@ -416,4 +419,14 @@
         </section>
     </div>
 
+@endsection
+@section('scripts')
+    <script>
+        document.getElementById("profileImage").onchange = function() {
+            document.getElementById("autoFormSUbmit").submit();
+        };
+        document.getElementById("coverImage").onchange = function() {
+            document.getElementById("autoFormSUbmit").submit();
+        };
+    </script>
 @endsection

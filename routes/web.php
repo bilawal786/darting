@@ -25,14 +25,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity/{id}', 'Front\FrontendController@activity')->name('front.activity');
     Route::post('/activity', 'Front\FrontendController@activityStore')->name('activity.store');
+    Route::get('/activity/apply/part/{id}', 'Front\FrontendController@activityApply')->name('activity.apply.part');
     Route::post('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
-    Route::get('/activity/create', 'Front\FrontendController@activityCreate')->name('activity.create');
+    Route::get('/activity/create/a', 'Front\FrontendController@activityCreate')->name('activity.create');
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
 //user
     Route::post('/user/update','Front\UserController@update')->name('user.update');
+    Route::post('/prfile/image','Front\UserController@profileImage')->name('prfile.image');
 });
 Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
 

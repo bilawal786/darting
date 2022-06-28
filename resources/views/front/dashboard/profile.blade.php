@@ -301,7 +301,7 @@
                                                         <div class="tab-pane fade" id="pills-favorites" role="tabpanel" aria-labelledby="pills-favorites-tab">
                                                             <h3>Games</h3>
                                                             <div class="row">
-                                                                @foreach(json_decode($user->sortie) as $game)
+                                                                @foreach(json_decode($user->game) as $game)
                                                                     <?php $gameData = \App\Jeux::find($game);?>
                                                                     <div class="col-md-6">
                                                                         <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
