@@ -11,12 +11,24 @@ class UserController extends Controller
 {
     public function update(Request $request){
         $user=Auth::user();
-        $user->fname=$request->fname;
-        $user->lname=$request->lname;
-        $user->phone=$request->phone;
-        $user->city=$request->city;
-        $user->country=$request->country;
-        $user->about=$request->description;
+        if ($request->fname){
+            $user->fname=$request->fname;
+        }
+        if ($request->lname){
+            $user->lname=$request->lname;
+        }
+       if ($request->phone){
+           $user->phone=$request->phone;
+       }
+       if ($request->city){
+           $user->city=$request->city;
+       }
+        if ($request->country){
+            $user->country=$request->country;
+        }
+        if ($request->description){
+            $user->about=$request->description;
+        }
         if ($request->hasfile('picture2')) {
             $image1 = $request->file('picture2');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
@@ -44,6 +56,36 @@ class UserController extends Controller
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
             $user->picture5 = 'images/' . $name;
+        }
+        if ($request->question1){
+            $user->question1 = $request->question1;
+        }
+        if ($request->question2){
+            $user->question2 = $request->question2;
+        }
+        if ($request->question3){
+            $user->question3 = $request->question3;
+        }
+        if ($request->question4){
+            $user->question4 = $request->question4;
+        }
+        if ($request->question5){
+            $user->question5 = $request->question5;
+        }
+        if ($request->question6){
+            $user->question6 = $request->question6;
+        }
+        if ($request->question7){
+            $user->question7 = $request->question7;
+        }
+        if ($request->question8){
+            $user->question8 = $request->question8;
+        }
+        if ($request->question9){
+            $user->question9 = $request->question9;
+        }
+        if ($request->question10){
+            $user->question10 = $request->question10;
         }
         $user->save();
 

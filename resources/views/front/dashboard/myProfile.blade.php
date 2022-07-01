@@ -497,7 +497,7 @@
                                                                         <span id="location"></span>
                                                                     </div>
                                                                     <!-- /top-wizard -->
-                                                                    <form id="wrapped" action="#" method="post">
+                                                                    <form id="wrapped" action="{{route('user.update')}}" method="POST">
                                                                         @csrf
                                                                         <input id="website" name="website" type="text" value="">
                                                                         <!-- Leave for security protection, read docs for details -->
@@ -510,13 +510,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question1" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question1" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -524,13 +524,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question1" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question1" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -548,13 +548,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question2" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question2" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -562,13 +562,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question2" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question2" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -586,13 +586,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question3" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question3" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -600,13 +600,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question3" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question3" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -624,13 +624,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question4" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question4" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -638,13 +638,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question4" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question4" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -662,13 +662,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question5" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question5" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -676,13 +676,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question5" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question5" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -700,13 +700,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question6" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question6" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -714,13 +714,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question6" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question6" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -738,13 +738,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question7" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question7" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -752,13 +752,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question7" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question7" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -776,13 +776,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question8" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question8" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -790,13 +790,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question8" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question8" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -814,13 +814,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question9" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question9" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -828,13 +828,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question9" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question9" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -852,13 +852,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="gender" value="Ma vie" class="required">
+                                                                                                <input type="radio" name="question10" value="Ma vie" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="gender" value="Mes sorties" class="required">
+                                                                                                <input type="radio" name="question10" value="Mes sorties" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -866,13 +866,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="gender" value="Mes passions" class="required">
+                                                                                                <input type="radio" name="question10" value="Mes passions" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="gender" value="Mes délires" class="required">
+                                                                                                <input type="radio" name="question10" value="Mes délires" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
