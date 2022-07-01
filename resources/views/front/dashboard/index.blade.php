@@ -7,6 +7,7 @@
                @include('front.dashboard.include.sidebar')
              </div>
              <div class="col-md-9">
+                 @if($activities->count())
                  @foreach($activities as $activitie)
                  <div class="section-wrapper" style="margin-bottom: 10px">
                      <div class="row g-4">
@@ -43,6 +44,9 @@
                      </div>
                  </div>
                  @endforeach
+                 @else
+                 <h3>Aucune activité trouvée dans votre région</h3>
+                 @endif
              </div>
          </div>
         </div>
