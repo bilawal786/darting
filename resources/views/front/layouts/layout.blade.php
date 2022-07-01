@@ -25,6 +25,9 @@
 
     @yield('styles')
     <style>
+        header{
+            padding: 0px;
+        }
         .form-control[type=file] {
             overflow: hidden;
             color: white;
