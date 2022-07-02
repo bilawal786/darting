@@ -93,6 +93,51 @@
                                                 </div>
                                                 <div class="info-card mb-20">
                                                     <div class="info-card-title">
+                                                        <h6>Intérêts</h6>
+                                                    </div>
+                                                    <div class="info-card-content">
+                                                        <ul class="info-list">
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                            <li>
+                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-name">{{$user->question1}}</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="info-card mb-20">
+                                                    <div class="info-card-title">
                                                         <h6>En savoir plus
                                                         </h6>
                                                     </div>
@@ -196,46 +241,28 @@
                                 <div class="photo-title text-center border-radius-2 bg-theme p-1 mb-4">
                                     <h3 class="mb-0">Pictures</h3>
                                 </div>
-                                <div
-                                    class="row g-3 g-lg-4 row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
-                                    @if($user->picture1)
-                                    <div class="col">
-                                        <div class="gallery-img">
-                                            <img src="{{asset($user->picture1)}}" alt="image" class="rounded">
+                                <div class="col-xl-12">
+                                    <div
+                                        class="row">
+                                        @foreach($user->photos as $photo)
+                                            @if($photo)
+                                                <div class="col-md-3">
+                                                    <div class="gallery-img">
+                                                        <img id="myImg" src="{{asset($photo->image)}}" alt="image" class="rounded">
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                        <div id="myModal" class="modal">
+                                            <span class="close">&times;</span>
+                                            <img id="img01" class="modal-content"  src="">
+                                            <div id="caption"></div>
                                         </div>
                                     </div>
-                                    @endif
-                                        @if($user->picture2)
-                                    <div class="col">
-                                        <div class="gallery-img">
-                                            <img src="{{asset($user->picture2)}}" alt="image" class="rounded">
-                                        </div>
-                                    </div>
-                                        @endif
-                                        @if($user->picture3)
-                                    <div class="col">
-                                        <div class="gallery-img">
-                                            <img src="{{asset($user->picture3)}}" alt="image" class="rounded">
-                                        </div>
-                                    </div>
-                                        @endif
-                                        @if($user->picture4)
-                                    <div class="col">
-                                        <div class="gallery-img">
-                                            <img src="{{asset($user->picture4)}}" alt="image" class="rounded">
-                                        </div>
-                                    </div>
-                                        @endif
-                                        @if($user->picture5)
-                                    <div class="col">
-                                        <div class="gallery-img">
-                                            <img src="{{asset($user->picture5)}}" alt="image" class="rounded">
-                                        </div>
-                                    </div>
-                                        @endif
-                                </div>
                             </div>
-                            <!-- Photos Tab -->
+
+                        </div>
+
                             <div class="tab-pane activity-page fade active" id="photos" role="tabpanel">
                                 <div>
                                     <div class="row">
@@ -342,8 +369,6 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
                     </div>
                 </div>
             </div>

@@ -122,13 +122,14 @@
 
                                 </div>
                             </nav>
-                            <form action="{{route('user.update')}}" method="POST" enctype="multipart/form-data" class="banner-form">
-                                @csrf
+
                             <div class="tab-content" id="nav-tabContent">
 
                                 <!-- Profile tab -->
                                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                         <div>
+                                            <form action="{{route('user.update')}}" method="POST" enctype="multipart/form-data" class="banner-form">
+                                                @csrf
                                             <div class="row">
                                                 <div class="col-xl-8">
                                                     <article>
@@ -228,8 +229,10 @@
                                                     </aside>
                                                 </div>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
+
                                     <!-- Frinds Tab -->
                                     <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="nav-friends-tab">
                                         <div>
@@ -276,6 +279,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <!-- Group Tab -->
                                     <div class="tab-pane fade" id="groups" role="tabpanel" aria-labelledby="nav-groups-tab">
                                         <div class="photo-title text-center border-radius-2 bg-theme p-1 mb-4">
@@ -284,76 +288,47 @@
                                         <div class="row">
                                             <div class="col-xl-8">
                                                 <div
-                                                    class="row g-3 g-lg-4 row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
-                                                    @if($user->picture1)
-                                                        <div class="col">
+                                                    class="row">
+                                                    @foreach($user->photos as $photo)
+                                                    @if($photo)
+                                                        <div class="col-md-4">
                                                             <div class="gallery-img">
-                                                                <img src="{{asset($user->picture1)}}" alt="image" class="rounded">
+                                                                <img id="myImg" src="{{asset($photo->image)}}" alt="image" class="rounded">
                                                             </div>
                                                         </div>
                                                     @endif
-                                                    @if($user->picture2)
-                                                        <div class="col">
-                                                            <div class="gallery-img">
-                                                                <img src="{{asset($user->picture2)}}" alt="image" class="rounded">
-                                                            </div>
+                                                    @endforeach
+                                                        <div id="myModal" class="modal">
+                                                            <span class="close">&times;</span>
+                                                            <img id="img01" class="modal-content"  src="">
+                                                            <div id="caption"></div>
                                                         </div>
-                                                    @endif
-                                                    @if($user->picture3)
-                                                        <div class="col">
-                                                            <div class="gallery-img">
-                                                                <img src="{{asset($user->picture3)}}" alt="image" class="rounded">
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                    @if($user->picture4)
-                                                        <div class="col">
-                                                            <div class="gallery-img">
-                                                                <img src="{{asset($user->picture4)}}" alt="image" class="rounded">
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                    @if($user->picture5)
-                                                        <div class="col">
-                                                            <div class="gallery-img">
-                                                                <img src="{{asset($user->picture5)}}" alt="image" class="rounded">
-                                                            </div>
-                                                        </div>
-                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
-                                                <aside class="mt-5 mt-xl-0">
-                                                    <div class="widget search-widget">
-                                                        <div class="widget-inner">
-                                                            <div class="widget-title">
-                                                                <h5>Téléchargez vos quelques photos</h5>
-                                                            </div>
-                                                            <div class="widget-content">
-                                                                <div class="interest">
-                                                                    <div >
-                                                                        <p style="text-align: left" >Image 1</p>
-                                                                        <input class="form-control" type="file" name="picture2" >
-                                                                    </div>
-                                                                    <div >
-                                                                        <p style="text-align: left" >Image 2</p>
-                                                                        <input class="form-control" type="file" name="picture3"  >
-                                                                    </div>
-                                                                    <div >
-                                                                        <p style="text-align: left" >Image 3</p>
-                                                                        <input class="form-control" type="file" name="picture4">
-                                                                    </div>
-                                                                    <div >
-                                                                        <p style="text-align: left" >Image 4</p>
-                                                                        <input class="form-control" type="file" name="picture5" >
-
-                                                                    </div>
+                                                <form action="{{route('user.image.post')}}"  enctype="multipart/form-data" method="POST">
+                                                    @csrf
+                                                    <aside class="mt-5 mt-xl-0">
+                                                        <div class="widget search-widget">
+                                                            <div class="widget-inner">
+                                                                <div class="widget-title">
+                                                                    <h5>Télécharger une nouvelle photo</h5>
                                                                 </div>
-                                                                <input style="width: 100%"  id="inputButtonc" type="submit" value="Mettre à jour le profil" class="btn btn-primary">
+                                                                <div class="widget-content">
+                                                                    <div class="interest">
+                                                                        <div >
+                                                                            <p style="text-align: left" >Image</p>
+                                                                            <input class="form-control" type="file" name="image" >
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <input style="width: 100%"  id="inputButtonc" type="submit" value="Envoyer la photo" class="btn btn-primary">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </aside>
+                                                    </aside>
+                                                </form>
+
                                             </div>
                                         </div>
                                     </div>
@@ -465,7 +440,6 @@
                                             </div>
                                         </div>
                                     </div>
-                            </form>
                                 <!-- quiz Tab -->
                                 <div class="tab-pane activity-page fade" id="quiz" role="tabpanel">
                                     <div>

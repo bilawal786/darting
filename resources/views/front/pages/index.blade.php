@@ -117,9 +117,9 @@
                                 <div class="lab-inner">
                                     <div class="lab-thumb">
                                         @if($user->profile_picture != null)
-                                            <img   src="{{asset($user->profile_picture)}}" alt="member-img">
+                                            <img height="200px"  src="{{asset($user->profile_picture)}}" alt="member-img">
                                         @else
-                                            <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                            <img height="200px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
                                         @endif
                                     </div>
                                     <div class="lab-content">

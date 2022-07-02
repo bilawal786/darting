@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Photo;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -112,6 +113,24 @@ class UserController extends Controller
             $user->picture1 = 'images/' . $name;
         }
         $user->save();
+
+        $notification = array(
+            'messege' => 'Successfully Updated!',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+    public function imagePost(Request $request){
+        $image = new Photo();
+        $image->user_id = Auth::user()->id;
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $image->image = 'images/' . $name;
+        }
+        $image->save();
 
         $notification = array(
             'messege' => 'Successfully Updated!',
