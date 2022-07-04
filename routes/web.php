@@ -14,12 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Front\FrontendController@index')->name('front.index');
+Route::get('/subscriptions', 'Front\FrontendController@subscriptions')->name('front.subscriptions');
+Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
 
 
 Auth::routes();
 
 
 Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('/subscription/buy/{id}', 'Front\FrontendController@subscriptionBuy')->name('subscription.buy');
 
     Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
@@ -32,12 +36,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
-//user
     Route::post('/user/update','Front\UserController@update')->name('user.update');
     Route::post('/prfile/image','Front\UserController@profileImage')->name('prfile.image');
     Route::post('/user/image/post','Front\UserController@imagePost')->name('user.image.post');
 });
-Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
 
 Route::group(['middleware' => ['auth', 'role']], function() {
 

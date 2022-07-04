@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Front;
 use App\Activity;
 use App\Http\Controllers\Controller;
 use App\Participant;
+use App\Subscription;
 use App\User;
+use App\UserSubscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -121,7 +123,26 @@ class FrontendController extends Controller
         $active->activity_subtype = $request->activity_subtype;
         $active->description = $request->description;
         $active->save();
-        return redirect()->back();
+        $notification = array(
+            'messege' => 'Successfully added a activity',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function subscriptions(){
+        $subscriptions = Subscription::all();
+        return view('front.pages.subscriptions', compact('subscriptions'));
+    }
+    public function subscriptionBuy($id){
+        $userSubscription = new UserSubscription();
+        $userSubscription->user_id = Auth::user()->id;
+        $userSubscription->subscription_id = $id;
+        $userSubscription->save();
+        $notification = array(
+            'messege' => 'Successfully purchase a subscription',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('front.dashboard')->with($notification);
     }
 
 }

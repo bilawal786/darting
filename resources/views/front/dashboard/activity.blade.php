@@ -184,7 +184,11 @@
                                                         <form action="">
                                                             <div class="row">
                                                                 <div class="col-md-6">
+                                                                    @if(Auth::user()->hasSubscription())
                                                                     <a href="{{route('activity.apply.part', ['id' => $activity->id])}}" style="width: 100%" class="btn btn-primary"> Vous voulez participer ?</a>
+                                                                    @else
+                                                                        <a href="{{route('front.subscriptions')}}"><h6 style="color: #df314d">Inscrivez-vous pour postuler en tant que participant</h6></a>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </form>

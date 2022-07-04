@@ -13,9 +13,6 @@
                     <div class="profile-item">
                         <div class="profile-cover">
                             <img src="{{asset('assets/images/profile/cover.jpg')}}" alt="cover-pic">
-                            <div class="edit-photo custom-upload">
-
-                            </div>
                         </div>
                         <div class="profile-information">
                             <div class="profile-pic">
@@ -24,11 +21,6 @@
                                 @else
                                     <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
                                 @endif
-                                <div class="custom-upload">
-                                    <div class="file-btn">
-                                        <span class="d-lg-none mr-0"><i class="icofont-plus"></i></span></div>
-                                    <input type="file">
-                                </div>
                             </div>
                             <div class="profile-name">
                                 <h4>{{$user->fname. ' ' . $user->lname}}</h4>
@@ -96,6 +88,7 @@
                                                         <h6>Intérêts</h6>
                                                     </div>
                                                     <div class="info-card-content">
+                                                        @if(Auth::user()->hasSubscription())
                                                         <ul class="info-list">
                                                             <li>
                                                                 <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
@@ -134,6 +127,9 @@
                                                                 <p class="info-name">{{$user->question1}}</p>
                                                             </li>
                                                         </ul>
+                                                        @else
+                                                            <a href="{{route('front.subscriptions')}}"><h6 style="color: #df314d">Abonnez-vous pour voir</h6></a>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="info-card mb-20">
@@ -176,12 +172,16 @@
                                                             <h5>Contact</h5>
                                                         </div>
                                                         <div class="widget-content">
+                                                            @if(Auth::user()->hasSubscription())
                                                             <p>Rencontres sérieuses avec TuruLav votre parfait
                                                                 Le match n'est qu'à un clic. Rencontres sérieuses avec TuruLav votre parfait
                                                                 Le match n'est qu'à un clic.</p>
                                                             <form action="#" class="banner-form">
                                                                 <button class="">Envoyer le message</button>
                                                             </form>
+                                                            @else
+                                                                <a href="{{route('front.subscriptions')}}"><h6 style="color: #df314d">Abonnez-vous pour envoyer un messager</h6></a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

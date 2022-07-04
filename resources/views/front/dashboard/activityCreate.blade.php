@@ -39,6 +39,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="section-wrapper">
+                        @if(Auth::user()->hasSubscription())
                         <div class="row g-4" id="typerow">
                             <div class="col-md-12">
                                 <h3 class="ptm" style="text-align: left">Sélectionnez le type d'activité</h3>
@@ -310,6 +311,9 @@
                                 </div><!-- /Row -->
                             </div>
                         </div>
+                    @else
+                        <a href="{{route('front.subscriptions')}}"><h6 style="color: #df314d">Abonnez-vous pour créer une activité</h6></a>
+                    @endif
                     </div>
                 </div>
             </div>
