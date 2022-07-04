@@ -18,6 +18,8 @@ Route::get('/subscriptions', 'Front\FrontendController@subscriptions')->name('fr
 Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
 
 
+
+
 Auth::routes();
 
 
@@ -73,6 +75,14 @@ Route::group(['middleware' => ['auth', 'role']], function() {
 
     Route::get('admin/setting/index','SettingController@index')->name('admin.setting.index');
     Route::post('admin/setting/update','SettingController@update')->name('admin.setting.update');
+
+    Route::get('admin/question/create','QuestionController@create')->name('admin.question.create');
+    Route::get('admin/question/index','QuestionController@index')->name('admin.question.index');
+    Route::post('admin/question/store','QuestionController@store')->name('admin.question.store');
+    Route::get('admin/question/edit/{id}','QuestionController@edit')->name('admin.question.edit');
+    Route::post('admin/question/update/{id}','QuestionController@update')->name('admin.question.update');
+    Route::get('admin/question/delete/{id}','QuestionController@delete')->name('admin.question.delete');
+    Route::get('admin/question/show/{id}','QuestionController@show')->name('admin.question.show');
 
 Route::get('admin/features/index','FeatureController@index')->name('admin.feature.index');
 
