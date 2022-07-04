@@ -36,8 +36,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
+//user
+
+    Route::get('/admin/users/index','Front\UserController@index')->name('admin.users.index');
+    Route::get('/admin/users/userview/{id}','Front\UserController@userview')->name('admin.users.userview');
     Route::post('/user/update','Front\UserController@update')->name('user.update');
-    Route::post('/prfile/image','Front\UserController@profileImage')->name('prfile.image');
+    Route::post('/profile/image','Front\UserController@profileImage')->name('profile.image');
     Route::post('/user/image/post','Front\UserController@imagePost')->name('user.image.post');
 });
 

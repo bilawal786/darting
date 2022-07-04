@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers\Front;
-
-use App\Http\Controllers\Controller;
-use App\Photo;
+use App\Divers;
+use App\Jeux;
+use App\Sorties;
+use App\Sport;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
+
 {
     public function update(Request $request){
         $user=Auth::user();
@@ -138,4 +141,21 @@ class UserController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
+
+    public function index()
+    {
+        $user=User::where('role', '=', 1)->get();
+        return view('admin.users.index',compact('user'));
+
+    }
+    public function userview($id)
+    {
+        $user=User::find($id);
+        $juex=Jeux::all();
+        $divers=Divers::all();
+        $sports=Sport::all();
+        $sortie = Sorties::all();
+        return view('admin.users.userview',compact('user','sortie','juex','divers','sports'));
+    }
+
 }

@@ -13,7 +13,7 @@ class SportsSeeder extends Seeder
     {
                 \App\Sport::create([
                    'name'=>'Sports en Visio',
-                    'image'=>'Sports/basketball.png'
+                    'image'=>'Sports/basketball.jpg'
                 ]);
         \App\Sport::create([
             'name'=>'arts martix-Boxe',
@@ -25,7 +25,7 @@ class SportsSeeder extends Seeder
         ]);
         \App\Sport::create([
             'name'=>'Badminton-Squash',
-            'image'=>'Sports/badminton.jpg'
+            'image'=>'Sports/badmintion-squash.jpg'
         ]);
         \App\Sport::create([
             'name'=>'Basket Ball',
@@ -33,19 +33,19 @@ class SportsSeeder extends Seeder
         ]);
         \App\Sport::create([
             'name'=>'bubble_bump',
-            'image'=>'Sports/bubblebump.png'
+            'image'=>'Sports/bubble bump.jpg'
         ]);
         \App\Sport::create([
             'name'=>'cyclisme-VTT',
-            'image'=>'Sports/cyclisem.png'
+            'image'=>'Sports/cyclisem.jpg'
         ]);
         \App\Sport::create([
             'name'=>'Danse',
-            'image'=>'Sports/dance.png'
+            'image'=>'Sports/dance.jpg'
         ]);
         \App\Sport::create([
             'name'=>'Equitation',
-            'image'=>'Sports/equation.png'
+            'image'=>'Sports/equition.jpg'
         ]);
         \App\Sport::create([
             'name'=>'Escalade',

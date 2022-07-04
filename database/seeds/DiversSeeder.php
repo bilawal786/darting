@@ -12,10 +12,6 @@ class DiversSeeder extends Seeder
     public function run()
     {
         App\Divers::create([
-            'name'=>'Divers en Visio',
-            'image'=>'Divers/diversenvesio.jpg'
-        ]);
-        App\Divers::create([
             'name'=>'Anniversaire',
             'image'=>'Divers/anniversaire.jpg'
         ]);
