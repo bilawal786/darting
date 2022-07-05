@@ -19,21 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/question/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/question/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/question/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/question/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+    <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="Question">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2022_6_43_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2022_6_43_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/question/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/dashboard/myProfile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/dashboard/myProfile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/dashboard/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/dashboard/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -167,6 +170,12 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -177,8 +186,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1656928749322</updated>
-      <workItem from="1656928753782" duration="9165000" />
+      <workItem from="1656928753782" duration="9408000" />
+      <workItem from="1656942490936" duration="205000" />
+      <workItem from="1657004236432" duration="5027000" />
     </task>
+    <task id="LOCAL-00001" summary="Question">
+      <created>1656942294562</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656942294562</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +213,25 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Question" />
+    <option name="LAST_COMMIT_MESSAGE" value="Question" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2" timestamp="1656942300898">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1656942300898" />
+    <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1657005793624">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1657005793624" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1657013364078">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1657013364078" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -202,6 +240,16 @@
           <url>file://$PROJECT_DIR$/resources/views/admin/question/show.blade.php</url>
           <line>21</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php</url>
+          <line>8</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/front/dashboard/myProfile.blade.php</url>
+          <line>482</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

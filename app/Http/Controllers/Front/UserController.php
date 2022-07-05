@@ -6,7 +6,8 @@ use App\Jeux;
 use App\Sorties;
 use App\Sport;
 use App\User;
-use App\Request;
+use Illuminate\Http\Request;
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 
@@ -14,6 +15,7 @@ class UserController extends Controller
 
 {
     public function update(Request $request){
+
         $user=Auth::user();
         if ($request->fname){
             $user->fname=$request->fname;

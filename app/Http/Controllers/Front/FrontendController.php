@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Participant;
 use App\Subscription;
 use App\User;
+use App\Question;
 use App\UserSubscription;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class FrontendController extends Controller
 {
@@ -27,7 +29,8 @@ class FrontendController extends Controller
     public function profile($id){
         $idd = base64_decode($id);
         $user = User::find($idd);
-        return view('front.dashboard.profile', compact('user'));
+        $question = Question::all();
+        return view('front.dashboard.profile', compact('user','question'));
     }
     public function dashboard(){
         $activities = Activity::all();
@@ -43,7 +46,8 @@ class FrontendController extends Controller
     }
     public function myProfile(){
         $user= Auth::user();
-        return view('front.dashboard.myProfile', compact('user'));
+        $question = Question::all();
+        return view('front.dashboard.myProfile', compact('user','question'));
     }
     public function notification(){
         $user= Auth::user();

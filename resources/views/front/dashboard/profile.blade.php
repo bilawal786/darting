@@ -90,42 +90,33 @@
                                                     <div class="info-card-content">
                                                         @if(Auth::user()->hasSubscription())
                                                         <ul class="info-list">
+                                                            @foreach($question as  $key=> $row)
                                                             <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
+                                                                <p class="info-details">{{$key+1}} / {{$row->q}}</p>
+                                                                @if($key+1==1)
                                                                 <p class="info-name">{{$user->question1}}</p>
+                                                                @elseif($key+1==2)
+                                                                    <p class="info-name">{{$user->question2}}</p>
+                                                                @elseif($key+1==3)
+                                                                    <p class="info-name">{{$user->question3}}</p>
+                                                                @elseif($key+1==4)
+                                                                    <p class="info-name">{{$user->question4}}</p>
+                                                                @elseif($key+1==5)
+                                                                    <p class="info-name">{{$user->question5}}</p>
+                                                                @elseif($key+1==6)
+                                                                    <p class="info-name">{{$user->question6}}</p>
+                                                                @elseif($key+1==7)
+                                                                    <p class="info-name">{{$user->question7}}</p>
+                                                                @elseif($key+1==8)
+                                                                    <p class="info-name">{{$user->question8}}</p>
+                                                                @elseif($key+1==9)
+                                                                    <p class="info-name">{{$user->question9}}</p>
+                                                                @elseif($key+1==10)
+                                                                    <p class="info-name">{{$user->question10}}</p>
+                                                                @endif
                                                             </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
-                                                            <li>
-                                                                <p class="info-details">Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”</p>
-                                                                <p class="info-name">{{$user->question1}}</p>
-                                                            </li>
+                                                            @endforeach
+
                                                         </ul>
                                                         @else
                                                             <a href="{{route('front.subscriptions')}}"><h6 style="color: #df314d">Abonnez-vous pour voir</h6></a>

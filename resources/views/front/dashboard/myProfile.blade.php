@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="section-wrapper">
                     <div class="member-profile">
-                        <form id="autoFormSUbmit" method="POST" enctype="multipart/form-data" action="{{route('prfile.image')}}">
+                        <form id="autoFormSUbmit" method="POST" enctype="multipart/form-data" action="{{route('profile.image')}}">
                             @csrf
                             <div class="profile-item">
                                 <div class="profile-cover">
@@ -476,35 +476,35 @@
                                                                         <input id="website" name="website" type="text" value="">
                                                                         <!-- Leave for security protection, read docs for details -->
                                                                         <div id="middle-wizard">
-
+                                                                        @foreach($question as $key => $row)
                                                                             <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
+                                                                                <h3  class="main_question"><i class="arrow_right"></i>{{$key+1}}/ {{$row->q}}…”
                                                                                 </h3>
                                                                                 <div class="row">
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question1" value="Ma vie" class="required">
+                                                                                            <label class="container_radio version_2">{{$row->a1}}
+                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a1}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question1" value="Mes sorties" class="required">
+                                                                                            <label class="container_radio version_2">{{$row->a2}}
+                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a2}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question1" value="Mes passions" class="required">
+                                                                                            <label class="container_radio version_2">{{$row->a3}}
+                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a3}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question1" value="Mes délires" class="required">
+                                                                                            <label class="container_radio version_2">{{$row->a4}}
+                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a4}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -513,348 +513,9 @@
                                                                                 <hr>
                                                                                 <!-- /row -->
                                                                             </div>
+                                                                            @endforeach
 
 
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question2" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question2" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question2" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question2" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question3" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question3" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question3" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question3" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question4" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question4" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question4" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question4" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question5" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question5" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question5" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question5" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question6" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question6" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question6" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question6" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question7" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question7" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question7" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question7" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question8" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question8" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question8" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question8" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question9" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question9" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question9" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question9" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
-
-
-                                                                            <div class="step">
-                                                                                <h3  class="main_question"><i class="arrow_right"></i>1/ Complétez cette phrase : “J’aimerais avoir quelqu’un avec qui partager…”
-                                                                                </h3>
-                                                                                <div class="row">
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Ma vie
-                                                                                                <input type="radio" name="question10" value="Ma vie" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes sorties
-                                                                                                <input type="radio" name="question10" value="Mes sorties" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-lg-12">
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes passions
-                                                                                                <input type="radio" name="question10" value="Mes passions" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                        <div class="form-group">
-                                                                                            <label class="container_radio version_2">Mes délires
-                                                                                                <input type="radio" name="question10" value="Mes délires" class="required">
-                                                                                                <span class="checkmark"></span>
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <hr>
-                                                                                <!-- /row -->
-                                                                            </div>
 
 
                                                                             <div class="submit step" id="end">
