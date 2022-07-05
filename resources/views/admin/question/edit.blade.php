@@ -36,7 +36,7 @@
 
 
 
-                    <div class="col-xxl-3 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <form action="{{ route('admin.question.update',['id'=>$question->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
