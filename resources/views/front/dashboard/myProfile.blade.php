@@ -484,13 +484,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">{{$row->a1}}
-                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a1}}" class="required">
+                                                                                                <input type="radio"  {{ $row->a1==$user->question1 ? "checked" : "" }} name="question{{$key+1}}" value="{{$row->a1}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">{{$row->a2}}
-                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a2}}" class="required">
+                                                                                                <input type="radio" {{ $row->a2==$user->question1 ? "checked" : "" }}  name="question{{$key+1}}" value="{{$row->a2}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
@@ -498,13 +498,13 @@
                                                                                     <div class="col-lg-12">
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">{{$row->a3}}
-                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a3}}" class="required">
+                                                                                                <input type="radio" {{ $row->a3==$user->question1 ? "checked" : "" }} name="question{{$key+1}}" value="{{$row->a3}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label class="container_radio version_2">{{$row->a4}}
-                                                                                                <input type="radio" name="question{{$key+1}}" value="{{$row->a4}}" class="required">
+                                                                                                <input type="radio" {{ $row->a4==$user->question1 ? "checked" : "" }} name="question{{$key+1}}" value="{{$row->a4}}" class="required">
                                                                                                 <span class="checkmark"></span>
                                                                                             </label>
                                                                                         </div>
