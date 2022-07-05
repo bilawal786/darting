@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Activity;
+use App\Feature;
 use App\Http\Controllers\Controller;
 use App\Participant;
 use App\Subscription;
@@ -19,8 +20,9 @@ class FrontendController extends Controller
         $users = User::where('role', '1')->get();
         return view('front.pages.index', compact('users'));
     }
-    public function function(){
-        return view('front.pages.function');
+    public function feature(){
+        $feature=Feature::find(1);
+        return view('front.pages.function',compact('feature'));
     }
     public function profiles(){
         $users = User::where('role', '1')->where('id', '!=', Auth::user()->id)->get();

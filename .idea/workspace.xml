@@ -19,6 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="sidebar">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2022_6_43_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2022_6_43_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FeatureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FeatureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/FeatureSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FeatureSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/features/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/features/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/userview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/userview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/front/pages/function.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/function.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="Question">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2022_6_43_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_4_2022_6_43_AM__Default_Changelist_.xml" afterDir="false" />
@@ -198,6 +209,14 @@
       <updated>1656942294562</updated>
     </task>
     <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00001" summary="sidebar">
+      <created>1657005779320</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1657005779320</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +251,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1657013364078" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sidebar" />
+    <option name="LAST_COMMIT_MESSAGE" value="sidebar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

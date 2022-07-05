@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Front;
 use App\Divers;
 use App\Jeux;
+use App\Photo;
+use App\Question;
 use App\Sorties;
 use App\Sport;
 use App\User;
@@ -152,12 +154,13 @@ class UserController extends Controller
     }
     public function userview($id)
     {
+        $question=Question::all();
         $user=User::find($id);
         $juex=Jeux::all();
         $divers=Divers::all();
         $sports=Sport::all();
         $sortie = Sorties::all();
-        return view('admin.users.userview',compact('user','sortie','juex','divers','sports'));
+        return view('admin.users.userview',compact('user','sortie','juex','divers','sports','question'));
     }
 
 }
