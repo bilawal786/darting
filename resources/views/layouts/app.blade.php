@@ -20,6 +20,7 @@ $user = Auth::user();
     <link href="{{asset('layouts/vertical-light-menu/css/light/plugins.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('layouts/vertical-light-menu/css/dark/plugins.css')}}" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
+    <link href="{{asset('https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css')}}" rel="stylesheet">
 
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <link href="{{asset('src/assets/css/light/pages/faq.css')}}" rel="stylesheet" type="text/css" />
@@ -234,8 +235,6 @@ $user = Auth::user();
                             </li>
                         </ul>
 
-
-                    </ul>
                 </li>
                 <li class="menu ">
                     <a href="{{route('admin.question.index')}}" class="dropdown-toggle">
@@ -264,6 +263,7 @@ $user = Auth::user();
 <script src="{{asset('src/plugins/src/mousetrap/mousetrap.min.js')}}"></script>
 <script src="{{asset('layouts/vertical-light-menu/app.js')}}"></script>
 <!-- END GLOBAL MANDATORY SCRIPTS -->
+<script src="{{asset('https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js')}}"></script>
 
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 <script src="{{asset('src/plugins/src/apex/apexcharts.min.js')}}"></script>
@@ -325,6 +325,12 @@ $user = Auth::user();
         "stripeClasses": [],
         "lengthMenu": [7, 10, 20, 50],
         "pageLength": 10
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+        $('#summernote1').summernote();
     });
 </script>
 </body>
