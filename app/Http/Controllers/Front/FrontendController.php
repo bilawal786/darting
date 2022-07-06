@@ -6,6 +6,7 @@ use App\Activity;
 use App\Http\Controllers\Controller;
 use App\Participant;
 use App\Subscription;
+use App\Plan;
 use App\User;
 use App\Question;
 use App\UserSubscription;
@@ -134,14 +135,26 @@ class FrontendController extends Controller
         return redirect()->back()->with($notification);
     }
     public function subscriptions(){
-        $subscriptions = Subscription::all();
-        return view('front.pages.subscriptions', compact('subscriptions'));
+        $user = Auth::user();
+        $subscriptions = Plan::all();
+        $intent = $user->createSetupIntent();
+        return view('front.pages.subscriptions', compact('subscriptions','intent'));
     }
-    public function subscriptionBuy($id){
+    public function subscriptionBuy(Request $request,$id){
+        $user= Auth::user();
         $userSubscription = new UserSubscription();
-        $userSubscription->user_id = Auth::user()->id;
+        $userSubscription->user_id = $user->id;
         $userSubscription->subscription_id = $id;
+        $userSubscription->price = $request->price;
+        $userSubscription->key = $request->key;
+        $userSubscription->card_holder_name = $request->card_holder_name;
+        $userSubscription->paymentMethodId = $request->paymentMethodId;
         $userSubscription->save();
+
+        $user->newSubscription('main', $userSubscription->key)
+            ->create($userSubscription->paymentMethodId);
+
+       
         $notification = array(
             'messege' => 'Successfully purchase a subscription',
             'alert-type' => 'success'

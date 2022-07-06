@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+
+    use Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -46,8 +48,7 @@ class User extends Authenticatable
         return $this->hasMany(Photo::class);
     }
     public function hasSubscription(){
-        $subscription = UserSubscription::where('user_id', $this->id)->first();
-        if ($subscription){
+        if ($this->subscribed('default')){
             return true;
         }else{
             return false;

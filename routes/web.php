@@ -25,7 +25,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
 
-    Route::get('/subscription/buy/{id}', 'Front\FrontendController@subscriptionBuy')->name('subscription.buy');
+    Route::post('/subscription/buy/{id}', 'Front\FrontendController@subscriptionBuy')->name('subscription.buy');
 
     Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
