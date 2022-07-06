@@ -233,8 +233,7 @@
                                     <h3 class="mb-0">Pictures</h3>
                                 </div>
                                 <div class="col-xl-12">
-                                    <div
-                                        class="row">
+                                    <div class="row">
                                         @foreach($user->photos as $photo)
                                             @if($photo)
                                                 <div class="col-md-3">
@@ -250,7 +249,7 @@
                                             <div id="caption"></div>
                                         </div>
                                     </div>
-                            </div>
+                                </div>
 
                         </div>
 

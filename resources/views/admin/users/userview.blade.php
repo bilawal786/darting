@@ -201,16 +201,16 @@
                                                             <th><div class="th-content">Nom</div></th>
                                                         </tr>
                                                         </thead>
-                                                        @foreach($sortie as $row)
+                                                        @foreach(json_decode($user->sortie) as $sortie)
+                                                            <?php $sortieData = \App\Sport::find($sortie);?>
+                                                            <tbody>
 
-                                                        <tbody>
-                                                        <tr>
-                                                                <td  ><img class="rounded-circle"   src="{{asset($row->image)}}" alt="avatar"  width="64" height="64"/>
-                                                                </td>
-                                                            <td class="td-content product-brand text-primary">{{$row->name}}</td>
-                                                        </tr>
-                                                        @endforeach
-                                                        </tbody>
+                                                            <td> <img class="rounded-circle"   src="{{asset($sortieData->image)}}" alt="avatar"  width="64" height="64"/></td>
+                                                            <td class="td-content product-brand text-primary">
+                                                                {{$sortieData->name}}
+                                                            </td>
+                                                            </tbody>
+                                                            @endforeach
                                                     </table>
                                                 </div>
                                             </div>
@@ -233,17 +233,16 @@
                                                             <th><div class="th-content">Nom</div></th>
                                                         </tr>
                                                         </thead>
-                                                        @foreach($sports as $row)
-                                                        <tbody>
+                                                        @foreach(json_decode($user->sport) as $sport)
+                                                            <?php $sportData = \App\Sport::find($sport);?>
+                                                            <tbody>
 
-
-                                                            <td  ><img class="rounded-circle"   src="{{asset($row->image)}}" alt="avatar"  width="64" height="64"/>
+                                                            <td> <img class="rounded-circle"   src="{{asset($sportData->image)}}" alt="avatar"  width="64" height="64"/></td>
+                                                            <td class="td-content product-brand text-primary">
+                                                                {{$sportData->name}}
                                                             </td>
-                                                            <td class="td-content product-brand text-primary">{{$row->name}}</td>
-
-                                                            </tr>
+                                                            </tbody>
                                                             @endforeach
-                                                        </tbody>
                                                     </table>
                                                 </div>
                                             </div>
@@ -266,12 +265,16 @@
                                                             <th><div class="th-content">Nom</div></th>
                                                         </tr>
                                                         </thead>
-                                                        @foreach($juex as $row)
+                                                        @foreach(json_decode($user->game) as $game)
+                                                            <?php $gameData = \App\Jeux::find($game);?>
                                                         <tbody>
-                                                            <td> <img class="rounded-circle"   src="{{asset($row->image)}}" alt="avatar"  width="64" height="64"/></td>
-                                                            <td class="td-content product-brand text-primary">{{$row->name}}</td>
+
+                                                            <td> <img class="rounded-circle"   src="{{asset($gameData->image)}}" alt="avatar"  width="64" height="64"/></td>
+                                                            <td class="td-content product-brand text-primary">
+                                                                    {{$gameData->name}}
+                                                            </td>
                                                         </tbody>
-                                                        @endforeach
+                                                            @endforeach
                                                     </table>
                                                 </div>
                                             </div>
@@ -291,235 +294,94 @@
                                                             <th><div class="th-content">Nom</div></th>
                                                         </tr>
                                                         </thead>
-                                                        @foreach($divers as $row)                                                        <tbody>
-                                                            <td  ><img class="rounded-circle"   src="{{asset($row->image)}}" alt="avatar"  width="64" height="64"/>
-                                                            </td>
-                                                            <td class="td-content product-brand text-primary">{{$row->name}}</td>
-                                                            @endforeach
-                                                        </tbody>
+                                                        @foreach(json_decode($user->divers) as $divers)
+                                                            <?php $diversData = \App\Divers::find($divers);?>
+                                                            <tbody>
+                                                            <tr>
+                                                            <td  ><img class="rounded-circle"   src="{{asset($diversData->image)}}" alt="avatar"  width="64" height="64"/>
 
-                                                    </table>
+                                                            <td class="td-content product-brand text-primary">
+                                                                    {{$diversData->name}}
+                                                            </td>
+                                                            @endforeach
+                                                            </tbody>
+
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
-
                                 </div>
-                            </div>
-                            <div class="tab-pane fade" id="animated-underline-contact" role="tabpanel" aria-labelledby="animated-underline-contact-tab">
-                                <div class="layout-px-spacing">
+{{--                            Question tab--}}
+                                <div class="tab-pane fade" id="animated-underline-contact" role="tabpanel" aria-labelledby="animated-underline-contact-tab">
+                                    <div class="layout-px-spacing">
 
-                                    <div class="middle-content container-xxl p-0">
+                                        <div class="middle-content container-xxl p-0">
 
-                                        <div class="faq">
+                                            <div class="faq">
 
-                                            <div class="faq-layouting layout-spacing">
+                                                <div class="faq-layouting layout-spacing">
 
-                                                <div class="fq-tab-section">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
+                                                    <div class="fq-tab-section">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                    <div class="row" >
+                                                                        @foreach($question as $row)
+                                                                        <div class="col-lg-6" style="margin-top: 100px;">
 
+                                                                            <div class="accordion" id="simple_faq">
+                                                                                <div class="card">
 
-                                                            <div class="row">
+                                                                                    <div class="card-header" id="fqheadingOne">
+                                                                                        <div class="mb-0" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapse1" aria-expanded="false" aria-controls="fqcollapseOne">
+                                                                                            <span class="faq-q-title">{{$row->q}}</span> <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div id="fqcollapse1" class="collapse" aria-labelledby="fqheadingOne" data-bs-parent="#simple_faq">
+                                                                                        <div class="card-body">
+                                                                                            <p></p>
+                                                                                        </div>
+                                                                                    </div>
 
-                                                                <div class="col-lg-6">
-
-                                                                    <div class="accordion" id="simple_faq">
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingOne">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseOne" aria-expanded="false" aria-controls="fqcollapseOne">
-                                                                                    <span class="faq-q-title">Commencer</span> <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseOne" class="collapse" aria-labelledby="fqheadingOne" data-bs-parent="#simple_faq">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question1}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingTwo">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseTwo" aria-expanded="false" aria-controls="fqcollapseTwo">
-                                                                                    <span class="faq-q-title">Comment puis-je décompresser les fichiers du produit</span> <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseTwo" class="collapse" aria-labelledby="fqheadingTwo" data-bs-parent="#simple_faq" style="">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question2}}</p>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingThree">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseThree" aria-expanded="false" aria-controls="fqcollapseThree">
-                                                                                    <span class="faq-q-title">La barre latérale ne rend pas le CSS</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseThree" class="collapse" aria-labelledby="fqheadingThree" data-bs-parent="#simple_faq">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question3}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingFour">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseFour" aria-expanded="false" aria-controls="fqcollapseFour">
-                                                                                    <span class="faq-q-title">Niveau de production construit</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseFour" class="collapse" aria-labelledby="fqheadingFour" data-bs-parent="#simple_faq">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question3}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingFive">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseFive" aria-expanded="false" aria-controls="fqcollapseFive">
-                                                                                    <span class="faq-q-title">Problème de compilation</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseFive" class="collapse" aria-labelledby="fqheadingFive" data-bs-parent="#simple_faq">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question4}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingSix">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseSix" aria-expanded="false" aria-controls="fqcollapseSix">
-                                                                                    <span class="faq-q-title">Premiers pas avec les kits de démarrage</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseSix" class="collapse" aria-labelledby="fqheadingSix" data-bs-parent="#simple_faq">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question5}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                        @endforeach
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-lg-6">
-
-                                                                    <div class="accordion" id="simple_faq1">
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingOne1">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseOne1" aria-expanded="false" aria-controls="fqcollapseOne1">
-                                                                                    <span class="faq-q-title">Les images sont-elles fournies dans la version téléchargeable?</span> <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseOne1" class="collapse" aria-labelledby="fqheadingOne1" data-bs-parent="#simple_faq1">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question6}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingTwo2">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseTwo2" aria-expanded="false" aria-controls="fqcollapseTwo2">
-                                                                                    <span class="faq-q-title">Comment puis-je personnaliser les sections APPS?</span> <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseTwo2" class="collapse" aria-labelledby="fqheadingTwo2" data-bs-parent="#simple_faq1">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question7}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingThree3">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseThree3" aria-expanded="false" aria-controls="fqcollapseThree3">
-                                                                                    <span class="faq-q-title">Premiers pas avec plusieurs mises en page</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseThree3" class="collapse" aria-labelledby="fqheadingThree3" data-bs-parent="#simple_faq1">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question7}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingFour4">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseFour4" aria-expanded="false" aria-controls="fqcollapseFour4">
-                                                                                    <span class="faq-q-title">Comment utiliser les gestionnaires de tâches?</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseFour4" class="collapse" aria-labelledby="fqheadingFour4" data-bs-parent="#simple_faq1">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question8}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingFive5">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseFive5" aria-expanded="false" aria-controls="fqcollapseFive5">
-                                                                                    <span class="faq-q-title">Comment configurer un vpn ?</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseFive5" class="collapse" aria-labelledby="fqheadingFive5" data-bs-parent="#simple_faq1">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question9}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <div class="card">
-                                                                            <div class="card-header" id="fqheadingSix6">
-                                                                                <div class="mb-0 collapsed" data-bs-toggle="collapse" role="navigation" data-bs-target="#fqcollapseSix6" aria-expanded="false" aria-controls="fqcollapseSix6">
-                                                                                    <span class="faq-q-title">Chrome vs Edge qui est mieux !</span><div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div id="fqcollapseSix6" class="collapse" aria-labelledby="fqheadingSix6" data-bs-parent="#simple_faq1" style="">
-                                                                                <div class="card-body">
-                                                                                    <p>{{$user->question10}}</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-
-
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                {{--Photos tab--}}
+                                <div class="tab-pane fade " id="animated-underline-photos" role="tabpanel" aria-labelledby="animated-underline-photos-tab">
+                                    <div class="col-xl-12">
+                                        <div class="row">
+                                            @foreach($user->photos as $photo)
+                                                @if($photo)
+                                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4">
+                                                <a href="#" class="card style-2 mb-md-0 mb-4">
+                                                    <img src="{{asset($photo->image)}}" class="card-img-top" alt="...">
+                                                </a>
+                                            </div>
+                                                @endif
+                                            @endforeach
                                         </div>
 
+                                        </div>
                                     </div>
-
                                 </div>
+                                {{--close photo tab--}}
                             </div>
-                            <div class="tab-pane fade " id="animated-underline-photos" role="tabpanel" aria-labelledby="animated-underline-photos-tab">
-                                <h2>hi</h2>
-                            </div>
-
-                        </div>
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
 
-
-
-    </div>
-
-@endsection
+    @endsection

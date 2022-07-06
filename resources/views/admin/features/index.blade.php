@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-    <div id="content" class="main-content">
+    <div id="content" class="main-content ">
 
-        <div class="layout-px-spacing">
+        <div class="layout-px-spacing ">
 
             <div class="middle-content container-xxl p-0">
 
@@ -17,54 +17,47 @@
                     </nav>
                 </div>
                 <!-- /BREADCRUMB -->
+                <form action="{{route('admin.feature.update')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+                    @csrf
+                <div class="row mb-4 layout-spacing layout-top-spacing w-100">
 
-                <div class="row mb-4 layout-spacing layout-top-spacing">
-
-                    <div class="col-xxl-9 col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
 
                         <div class="widget-content widget-content-area blog-create-section">
 
                             <div class="row mb-4">
-                                <div class="col-sm-12 ">
-                                    <label>Content</label>
-                                    <input type="text" class="form-control"  id="post-title"  style="height:500px">
+                                <div class="col-sm-12 " >
+                                    <label>Content-1</label>
+
+                                    <textarea class="form-control" id="summernote"   name="content1" >  {{$feature->content1}} </textarea>
+
                                 </div>
                             </div>
 
                             <div class="row mb-4">
                                 <div class="col-sm-12">
-
-                                    <input type="file" class="form-control" id="post-title" >
+                                    <label>Image</label>
+                                    <input type="file" class="form-control" id="post-title" name="image"  >
                                 </div>
                             </div>
-
-
                         </div>
 
                         <div class="widget-content widget-content-area blog-create-section mt-4">
+                            <div class="row mb-4 ">
+                                <div class="col-xxl-12 mb-4 " >
+                                    <label>Content-2</label>
+                                    <textarea class="form-control" id="summernote1"   name="content2" >  {{$feature->content2}} </textarea>
 
-
-
-                            <div class="row mb-4">
-                                <div class="col-xxl-12 mb-4">
-                                    <label>Content</label>
-                                    <input type="text" class="form-control" id="post-meta-title"  style="height:500px">
                                 </div>
-
                             </div>
                             <div class="col-xxl-12 col-sm-4 col-12 mx-auto">
                                 <button class="btn btn-success w-100">Create Feature</button>
                             </div>
                         </div>
-
                     </div>
-
-
-
                 </div>
-
+                </form>
             </div>
-
         </div>
 
         <!--  BEGIN FOOTER  -->
