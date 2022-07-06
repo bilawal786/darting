@@ -48,7 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(Photo::class);
     }
     public function hasSubscription(){
-        if ($this->subscribed('default')){
+        $user = Auth::user();
+        if ($user->subscribed('default')){
             return true;
         }else{
             return false;
