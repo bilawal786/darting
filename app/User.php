@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -49,6 +50,7 @@ class User extends Authenticatable
     }
     public function hasSubscription(){
         $user = Auth::user();
+       
         if ($user->subscribed('default')){
             return true;
         }else{
