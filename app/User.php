@@ -51,7 +51,7 @@ class User extends Authenticatable
     public function hasSubscription(){
         $user = Auth::user();
        
-        if ($user->subscribed('default')){
+        if ($user->subscribed('main')){
             return true;
         }else{
             return false;
