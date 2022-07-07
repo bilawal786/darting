@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Front\FrontendController@index')->name('front.index');
+Route::get('/blogindex/{id}','Front\FrontendController@blogindex')->name('front.blogindex');
 Route::get('/subscriptions', 'Front\FrontendController@subscriptions')->name('front.subscriptions');
 Route::get('/front/function', 'Front\FrontendController@feature')->name('front.function');
 
@@ -89,8 +90,10 @@ Route::group(['middleware' => ['auth', 'role']], function() {
 
     Route::get('admin/blog/index','BlogController@index')->name('admin.blog.index');
     Route::get('admin/blog/create','BlogController@create')->name('admin.blog.create');
-    Route::get('admin/blog/show','BlogController@show')->name('admin.blog.show');
-    Route::get('admin/blog/store','BlogController@store')->name('admin.blog.store');
+    Route::post('admin/blog/store','BlogController@store')->name('admin.blog.store');
+    Route::get('admin/blog/delete/{id}','BlogController@delete')->name('admin.blog.delete');
+    Route::post('admin/blog/update/{id}','BlogController@update')->name('admin.blog.update');
+    Route::get('admin/blog/edit/{id}','BlogController@edit')->name('admin.blog.edit');
 //    Route::get('admin/blog/index','BlogController@index')->name('admin.blog.index');
 
 

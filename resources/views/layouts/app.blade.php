@@ -249,10 +249,11 @@ $user = Auth::user();
 
                     <ul class="collapse submenu list-unstyled" id="invoice4" data-bs-parent="#accordionExample">
                         <li>
-                            <a href="{{route('admin.blog.create')}}"> Create Blog </a>
+                            <a href="{{route('admin.blog.create')}}"> Créer un blog
+                            </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.blog.show')}}"> Show blog </a>
+                            <a href="{{route('admin.blog.index')}}">Liste de blogs </a>
                         </li>
                     </ul>
 

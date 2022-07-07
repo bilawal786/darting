@@ -1,12 +1,17 @@
 @extends('layouts.app')
 @section('content')
 
-    <div id="content" class="main-content">
+
+
+
+
+         <div id="content" class="main-content">
         <div class="layout-px-spacing">
 
     <div class="middle-content container-xxl p-0">
-
-        <div class="row layout-top-spacing">
+        <form action="{{route('admin.blog.show',['id'=>$blog->id])}}" method="get"  accept-charset="UTF-8" enctype="multipart/form-data">
+            @csrf
+         <div class="row layout-top-spacing">
 
             <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
 
@@ -15,7 +20,9 @@
 
                     <div class="featured-image">
 
-                        <div class="featured-image-overlay"></div>
+                        <div class="featured-image-overlay">
+
+                        </div>
 
                         <div class="post-header">
 
@@ -26,7 +33,7 @@
                             <div class="post-meta-info d-flex justify-content-between">
 
                                 <div class="media">
-                                    <img src="../src/assets/img/profile-12.jpeg" alt="profile">
+                                    <img src="{{asset('src/assets/img/profile-12.jpeg')}}" alt="profile">
                                     <div class="media-body">
                                         <h5>Kelly Young</h5>
                                         <p>15 May 2022</p>
@@ -45,39 +52,10 @@
 
                     </div>
 
+
                     <div class="post-content">
 
-                        <p class="mb-5">Aenean non tempor justo. Donec faucibus sapien a urna interdum porta. Quisque fermentum nisi felis, quis aliquam quam volutpat porta. Nullam aliquet scelerisque massa, quis tincidunt velit. Vivamus semper placerat ornare. Maecenas eget accumsan eros. Donec non felis vitae tortor elementum euismod sit amet vitae risus. Nam nunc turpis, porttitor ut tempor eu, efficitur nec risus.</p>
-
-                        <h4>Cinyras ea tulit in inducit qui mater</h4>
-
-                        <p class="mb-5">Lorem markdownum facit? Hinc tutus serisque, mihi iaculum curam, vicibus aliquando se posses gentis quidem. Meta  tenebat diversa dixerat celeberrimus molle require; prendique urnam  Pyreneus? Haut mei sive digna noctisque percussit dicta, in pars certaminis iuvenalis. Praemonuisse esse  inter in huic, Cinyras pallentem vi sistere cubat ne causa.</p>
-
-                        <h4>Utque tu canibus</h4>
-
-                        <p class="mb-5">Possent quippe. Conata fera ab Hersilie iam auditur haesit. Culpa ignis retia Aonides ictus crescendo micantes, petere, ambustaque vicem in digitos iubet cornigeris.</p>
-
-
-
-                        <h4>Fregit aut Caystro equos</h4>
-
-                        <p>Manet pro aere superest adiacet sua purpura Tereus in multis conantem culpa, inque fingit et referebat? Materiaque mentes et, quo omnia  captiva ore mandat cepit triformis filia. Prius sorte nomina in repellite sentit facunde te aures, vires.</p>
-
-
-                        <hr class="my-5">
-
-
-                        <p class="mb-5">Est convicia et nubibus negate. In nisi inbellibus sui, cruribus vult hostes solum invitat. Vino faciam stratis; non modo in eurus igitur, ambit, mentitus periclo? Ullo dextra, extemplo commenta ultima, quid ire vos toto quia, in habili Gradivus ferarum certaminis attulerat.</p>
-
-
-                        <h4>Nemus dolet monstravit</h4>
-
-                        <p class="mb-5">Est et hic volucres, rursus; simul, cauda tamen cacumine pars intendensque . Maius dignior caret coniuge, demugitaeque duce, exponimur anus inritata. Quoque sum casusve corpora, dat caecis doloris scelus domesticus laboris heu quod reliquit. Albenti infra sed Pergama vivere fusus de fecerat sublime prosunt illic. Consensu pavet insistit terras!</p>
-
-                        <hr class="my-5">
-
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-
+                        {{$blog->description}}
 
                     </div>
 
@@ -106,11 +84,6 @@
                         </div>
 
                         <hr>
-
-
-
-
-
                         <div class="post-form mt-5">
 
                             <div class="section add-comment">
@@ -146,7 +119,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
 
                         </div>
 
@@ -156,11 +129,10 @@
 
 
             </div>
-
+        </form>
         </div>
-
-    </div>
-
         </div>
     </div>
+         </div>
+
 @endsection
