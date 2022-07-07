@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Activity;
+use App\Blog;
 use App\Feature;
 use App\Http\Controllers\Controller;
 use App\Participant;
@@ -11,6 +12,7 @@ use App\Plan;
 use App\User;
 use App\Question;
 use App\UserSubscription;
+use App\Work;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +20,10 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
     public function index(){
+        $work=Work::first();
         $users = User::where('role', '1')->get();
-        return view('front.pages.index', compact('users'));
+
+        return view('front.pages.index', compact('users','work'));
     }
     public function feature(){
         $feature=Feature::find(1);
@@ -156,12 +160,18 @@ class FrontendController extends Controller
         $user->newSubscription('main', $userSubscription->key)
             ->create($userSubscription->paymentMethodId);
 
-       
+
         $notification = array(
             'messege' => 'Successfully purchase a subscription',
             'alert-type' => 'success'
         );
         return redirect()->route('front.dashboard')->with($notification);
+    }
+
+
+    public function blogindex($id){
+        $blog=Blog::find($id);
+        return view('front.pages.blogindex',compact('blog'));
     }
 
 }

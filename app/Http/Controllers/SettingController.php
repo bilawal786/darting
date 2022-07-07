@@ -9,8 +9,8 @@ class SettingController extends Controller
 {
     public function index()
     {
-
-        return view('admin.settings.index')->with('setting',Setting::first());
+        $setting=Setting::first();
+        return view('admin.settings.index',compact('setting'));
     }
     public function update(Request $request){
 

@@ -206,11 +206,13 @@
 
 
 <!-- ================ Work Section start Here =============== -->
+
+
 <section class="work-section padding-tb">
     <div class="container">
         <div class="section-header">
-            <h4 class="theme-color">Comment ça marche?</h4>
-            <h2>Vous n'êtes qu'à 3 étapes d'un grand rendez-vous</h2>
+            <h4 class="theme-color">{{$work->title1}}</h4>
+            <h2>{{$work->title2}}</h2>
         </div>
         <div class="section-wrapper">
             <div class="row justify-content-center g-5">
@@ -219,7 +221,7 @@
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
                                 <div class="thumb-inner">
-                                    <img src="assets/images/work/01.png" alt="work-img">
+                                    <img src="{{asset($work->image1)}}" alt="work-img">
                                     <div class="step">
                                         <span>step</span>
                                         <p>01</p>
@@ -227,10 +229,8 @@
                                 </div>
                             </div>
                             <div class="lab-content">
-                                <h4>Créer un profil</h4>
-                                <p>Continua actualize ailers through robu
-                                    and sertively concepze standards compliant
-                                    commerce after technica sound.</p>
+                                <h4>{{$work->title3}}</h4>
+                                <p>{{$work->descruption1}}</p>
                             </div>
                         </div>
                     </div>
@@ -240,7 +240,7 @@
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
                                 <div class="thumb-inner">
-                                    <img src="assets/images/work/02.png" alt="work-img">
+                                    <img src="{{asset($work->image1)}}" alt="work-img">
                                     <div class="step">
                                         <span>step</span>
                                         <p>02</p>
@@ -248,10 +248,8 @@
                                 </div>
                             </div>
                             <div class="lab-content">
-                                <h4>Trouver des correspondances</h4>
-                                <p>Continua actualize ailers through robu
-                                    and sertively concepze standards compliant
-                                    commerce after technica sound.</p>
+                                <h4>{{$work->title4}}</h4>
+                                <p>{{$work->descruption2}}</p>
                             </div>
                         </div>
                     </div>
@@ -261,7 +259,7 @@
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
                                 <div class="thumb-inner">
-                                    <img src="assets/images/work/03.png" alt="work-img">
+                                    <img src="{{asset($work->image1)}}" alt="work-img">
                                     <div class="step">
                                         <span>step</span>
                                         <p>03</p>
@@ -269,10 +267,8 @@
                                 </div>
                             </div>
                             <div class="lab-content">
-                                <h4>Commencer à sortir ensemble</h4>
-                                <p>Continua actualize ailers through robu
-                                    and sertively concepze standards compliant
-                                    commerce after technica sound.</p>
+                                <h4>{{$work->title5}}</h4>
+                                <p>{{$work->descruption3}}</p>
                             </div>
                         </div>
                     </div>
@@ -294,57 +290,27 @@
         </div>
         <div class="section-wrapper">
             <div class="row justify-content-center g-4">
+                <?php $blog=\App\Blog::all();  ?>
+                @foreach($blog as $row)
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="story-item lab-item">
                         <div class="lab-inner">
+
                             <div class="lab-thumb">
-                                <img src="assets/images/story/01.jpg" alt="img">
+
+                                <img style="height: 300px; width: 100%" src="{{asset($row->image)}}" alt="img">
                             </div>
                             <div class="lab-content">
-                                <h4><a href="blog-single.html">Image Post Formate</a></h4>
-                                <p>Seamlesly evolve unique web-readiness with
-                                    Collabors atively fabricate best of breed and
-                                    apcations through </p>
-                                <a href="blog-single.html" class="lab-btn"><i class="icofont-circled-right"></i>
+                                <h4><a href="{{route('front.blogindex',['id'=> $row->id ])}}">{{substr($row->title,0,25)}}</a></h4>
+
+                                <a href="{{route('front.blogindex',['id'=> $row->id ])}}"  class="lab-btn"><i class="icofont-circled-right"></i>
                                     Lire la suitee</a>
                             </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="story-item lab-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/story/02.jpg" alt="img">
-                            </div>
-                            <div class="lab-content">
-                                <h4><a href="blog-single.html">Couple Of Month</a></h4>
-                                <p>Seamlesly evolve unique web-readiness with
-                                    Collabors atively fabricate best of breed and
-                                    apcations through </p>
-                                <a href="blog-single.html" class="lab-btn"><i class="icofont-circled-right"></i>
-                                    Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="story-item lab-item">
-                        <div class="lab-inner">
-                            <div class="lab-thumb">
-                                <img src="assets/images/story/03.jpg" alt="img">
-                            </div>
-                            <div class="lab-content">
-                                <h4><a href="blog-single.html">Media For Blog Article</a></h4>
-                                <p>Seamlesly evolve unique web-readiness with
-                                    Collabors atively fabricate best of breed and
-                                    apcations through </p>
-                                <a href="blog-single.html" class="lab-btn"><i class="icofont-circled-right"></i>
-                                    Lire la suite</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endforeach
             </div>
         </div>
     </div>
