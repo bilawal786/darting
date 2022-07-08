@@ -91,7 +91,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="banner-thumb">
-                        <img src="{{asset('assets/images/01.png')}}" alt="img">
+                        @foreach($setting as $row)
+                        <img src="{{asset($row->banarimage)}}" alt="img">
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -240,7 +242,7 @@
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
                                 <div class="thumb-inner">
-                                    <img src="{{asset($work->image1)}}" alt="work-img">
+                                    <img src="{{asset($work->image2)}}" alt="work-img">
                                     <div class="step">
                                         <span>step</span>
                                         <p>02</p>
@@ -259,7 +261,7 @@
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
                                 <div class="thumb-inner">
-                                    <img src="{{asset($work->image1)}}" alt="work-img">
+                                    <img src="{{asset($work->image3)}}" alt="work-img">
                                     <div class="step">
                                         <span>step</span>
                                         <p>03</p>
@@ -290,7 +292,6 @@
         </div>
         <div class="section-wrapper">
             <div class="row justify-content-center g-4">
-                <?php $blog=\App\Blog::all();  ?>
                 @foreach($blog as $row)
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="story-item lab-item">
@@ -312,6 +313,12 @@
                 </div>
                     @endforeach
             </div>
+            <div class="col-md-12 text-center mt-5">
+                <a  href="{{route('front.allposts')}}"  class="lab-btn text-center"><i class="icofont-circled-right "></i>
+                    Voir tous les articles</a>
+            </div>
+
+        </div>
         </div>
     </div>
 </section>

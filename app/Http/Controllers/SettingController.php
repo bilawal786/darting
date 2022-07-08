@@ -31,6 +31,14 @@ class SettingController extends Controller
         $setting->link3=$request->link3;
         $setting->link4=$request->link4;
         $setting->link5=$request->link5;
+        $setting->footercontent=$request->footercontent;
+        if ($request->hasfile('banarimage')) {
+            $image1 = $request->file('banarimage');
+            $name = time() . 'banarimage' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $setting->banarimage = 'images/' . $name;
+        }
         $setting->save();
         return redirect()->back();
     }

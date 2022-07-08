@@ -25,6 +25,8 @@ class CreateSettingsTable extends Migration
             $table->string('link3');
             $table->string('link4');
             $table->string('link5');
+            $table->string('banarimage');
+            $table->longText('footercontent');
             $table->timestamps();
         });
     }

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(QuestionSeeder::class);
         $this->call(FeatureSeeder::class);
         $this->call(WorkSeeder::class);
+        $this->call(BlogSeeder::class);
 
     }
 

@@ -49,8 +49,8 @@
 
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink21">
 
-                                                <a class="dropdown-item" href="{{route('admin.blog.edit',['id'=> $row->id])}}">Edit</a>
-                                                <a class="dropdown-item" href="{{route('admin.blog.delete',['id'=> $row->id])}}">Delete</a>
+                                                <a class="dropdown-item" href="{{route('admin.blog.edit',['id'=> $row->id])}}">Éditer</a>
+                                                <a class="dropdown-item" href="{{route('admin.blog.delete',['id'=> $row->id])}}">Effacer</a>
                                             </div>
                                         </div>
 

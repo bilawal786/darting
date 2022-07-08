@@ -19,24 +19,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="Question">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-    </list>
-    <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="sidebar">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/blog/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/front/pages/blogindex.blade.php" afterDir="false" />
+    <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="blog module compleate CRUD&#10;work section">
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/blog/allpost.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/work/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/pages/allposts.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/front/pages/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BlogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SettingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_07_05_111045_create_blogs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_07_05_111045_create_blogs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2022_06_21_132635_create_settings_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_06_21_132635_create_settings_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blog/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/SettingSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/SettingSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/blog/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/blog/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/blog/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/features/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/features/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layouts/layout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/pages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/pages/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
@@ -58,6 +57,12 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -181,25 +186,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -220,6 +222,7 @@
       <workItem from="1657133508850" duration="473000" />
       <workItem from="1657166853147" duration="643000" />
       <workItem from="1657194162920" duration="408000" />
+      <workItem from="1657253236737" duration="15437000" />
     </task>
     <task id="LOCAL-00001" summary="Question">
       <created>1656942294562</created>
@@ -256,11 +259,32 @@
       <option name="project" value="LOCAL" />
       <updated>1657167076941</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="blog module compleate CRUD&#10;work section">
+      <created>1657200656945</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657200656945</updated>
+    </task>
+    <task id="LOCAL-00007" summary="blog module compleate CRUD&#10;work section">
+      <created>1657200699529</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657200699529</updated>
+    </task>
+    <task id="LOCAL-00008" summary="blog module compleate CRUD&#10;work section">
+      <created>1657200716071</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657200716071</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -275,27 +299,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Question" />
-    <option name="LAST_COMMIT_MESSAGE" value="Question" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="549" y="158" key="FileChooserDialogImpl" timestamp="1657084745073">
-      <screen x="0" y="0" width="1304" height="768" />
-    </state>
-    <state x="549" y="158" key="FileChooserDialogImpl/0.0.1304.768@0.0.1304.768" timestamp="1657084745073" />
-    <state x="263" y="105" key="Vcs.Push.Dialog.v2" timestamp="1657167091935">
-      <screen x="0" y="0" width="1304" height="768" />
-    </state>
-    <state x="263" y="105" key="Vcs.Push.Dialog.v2/0.0.1304.768@0.0.1304.768" timestamp="1657167091935" />
-    <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1657022031960" />
-    <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1657005793624">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="492" y="282" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1657005793624" />
-    <state x="324" y="172" key="run.anything.popup" timestamp="1657109249233">
-      <screen x="0" y="0" width="1304" height="768" />
-    </state>
-    <state x="324" y="172" key="run.anything.popup/0.0.1304.768@0.0.1304.768" timestamp="1657109249233" />
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1657013364078" />
+    <MESSAGE value="blog module compleate CRUD&#10;work section" />
+    <option name="LAST_COMMIT_MESSAGE" value="blog module compleate CRUD&#10;work section" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -304,11 +309,6 @@
           <url>file://$PROJECT_DIR$/resources/views/admin/question/show.blade.php</url>
           <line>21</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php</url>
-          <line>10</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/front/dashboard/myProfile.blade.php</url>

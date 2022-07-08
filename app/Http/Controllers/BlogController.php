@@ -15,31 +15,23 @@ class BlogController extends Controller
     public function create(){
         return view('admin.blog.create');
     }
-
     public function store(Request $request){
-
         $blog=new Blog();
         $blog->title=$request->title;
-
         if ($request->hasfile('image')) {
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
             $blog->image = 'images/' . $name;
-
         }
-
-
-
         $blog->description=$request->description;
-
         $blog->save();
         $notification = array(
             'messege' => 'post created!',
             'alert-type' => 'success'
         );
-        return Redirect()->back()->with($notification);
+        return redirect()->back()->with($notification);
     }
     public function delete($id){
         $blog = Blog::find($id);
@@ -48,32 +40,30 @@ class BlogController extends Controller
             'messege' => 'Supprimer avec succès!',
             'alert-type' => 'error'
         );
-        return Redirect()->back()->with($notification);
+        return redirect()->back()->with($notification);
     }
 
     public function update(Request $request, $id)
-{
-
-    $blog=Blog::find($id);
-    $blog->title=$request->title;
-    if ($request->hasfile('image')) {
-        $image1 = $request->file('image');
-        $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
-        $destinationPath = 'images/';
-        $image1->move($destinationPath, $name);
-        $blog->image = 'images/' . $name;
+    {
+        $blog=Blog::find($id);
+        $blog->title=$request->title;
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $blog->image = 'images/' . $name;
+        }
+        $blog->description=$request->description;
+        $blog->save();
+        $notification = array(
+            'messege' => 'post updated!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
-    $blog->description=$request->description;
-
-    $blog->save();
-    $notification = array(
-        'messege' => 'post updated!',
-        'alert-type' => 'success'
-    );
-    return Redirect()->back()->with($notification);
-}
-public function edit($id){
+    public function edit($id){
         $blog=Blog::find($id);
         return view('admin.blog.edit',compact('blog'));
-}
+    }
 }

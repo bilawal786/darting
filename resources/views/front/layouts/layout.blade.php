@@ -20,6 +20,7 @@
 
     @php
     $setting=\App\Setting::first();
+    $blog = \App\Blog::orderBy('updated_at','desc')->limit(3)->get();
 
     @endphp
     <title>{{$setting->name}}</title>
@@ -216,9 +217,11 @@
                             <a href="#">Communauté</a>
                         </li>
                         <li>
-                            <a href="#0">Blog</a>
+                            <a href="{{route('front.allposts')}}">Blog</a>
                         </li>
-                        <li><a href="#">Contact</a></li>
+                        <li>
+                            <a href="{{route('front.contact')}}">Contact</a>
+                        </li>
                     </ul>
                     @auth
                         <a href="{{route('front.dashboard')}}" class="signup"><i class="icofont-user"></i>
@@ -304,11 +307,8 @@
                                 <h4>À propos de darting</h4>
                             </div>
                             <div class="fm-item-content">
-                                <p class="mb-4">Energistically coordinate highly efficient procesr
-                                    partnerships befor revolutionar growth strategie
-                                    improvement viaing awesome</p>
-                                <img src="{{asset('assets/images/footer/about.jpg')}}" alt="about-image"
-                                     class="footer-abt-img">
+                                <p class="mb-4">{{$setting->footercontent}}</p>
+
                             </div>
                         </div>
                     </div>
@@ -321,44 +321,21 @@
                             </div>
                             <div class="fm-item-content">
                                 <div class="fm-item-widget lab-item">
+                                    @foreach($blog as $row)
                                     <div class="lab-inner">
-                                        <div class="lab-thumb">
-                                            <a href="#"> <img src="{{asset('assets/images/footer/01.jpg')}}"
-                                                              alt="footer-widget-img"></a>
+                                        <div class="lab-thumb p-2" >
+                                             <img src="{{asset($row->image)}}" alt="footer-widget-img">
                                         </div>
                                         <div class="lab-content">
-                                            <h6><a href="blog-single.html">Enable Seamin Matera Forin And Our
-                                                    Orthonal Create Vortals.</a></h6>
-                                            <p>July 23, 2021</p>
+
+                                            <h6><a href="blog-single.html">{{$row->title}}</a></h6>
+                                            <p>{{$row->updated_at}}</p>
                                         </div>
                                     </div>
+                                        @endforeach
                                 </div>
-                                <div class="fm-item-widget lab-item">
-                                    <div class="lab-inner">
-                                        <div class="lab-thumb">
-                                            <a href="#"><img src="{{asset('assets/images/footer/02.jpg')}}"
-                                                             alt="footer-widget-img"></a>
-                                        </div>
-                                        <div class="lab-content">
-                                            <h6><a href="blog-single.html">Dynamca Network Otuitive Catays For
-                                                    Plagiarize Mindshare After</a></h6>
-                                            <p>July 23, 2021</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="fm-item-widget lab-item">
-                                    <div class="lab-inner">
-                                        <div class="lab-thumb">
-                                            <a href="#"><img src="{{asset('assets/images/footer/03.jpg')}}"
-                                                             alt="footer-widget-img"></a>
-                                        </div>
-                                        <div class="lab-content">
-                                            <h6><a href="blog-single.html">Dynamca Network Otuitive Catays For
-                                                    Plagiarize Mindshare After</a></h6>
-                                            <p>July 23, 2021</p>
-                                        </div>
-                                    </div>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>

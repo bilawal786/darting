@@ -7,6 +7,7 @@ use App\Blog;
 use App\Feature;
 use App\Http\Controllers\Controller;
 use App\Participant;
+use App\Setting;
 use App\Subscription;
 use App\Plan;
 use App\User;
@@ -20,13 +21,14 @@ use Illuminate\Support\Facades\Auth;
 class FrontendController extends Controller
 {
     public function index(){
-        $work=Work::first();
+        $work = Work::first();
+        $setting = Setting::all();
         $users = User::where('role', '1')->get();
-
-        return view('front.pages.index', compact('users','work'));
+        $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
+        return view('front.pages.index', compact('users','work', 'blog','setting'));
     }
     public function feature(){
-        $feature=Feature::find(1);
+        $feature = Feature::find(1);
         return view('front.pages.function',compact('feature'));
     }
     public function profiles(){
@@ -173,5 +175,10 @@ class FrontendController extends Controller
         $blog=Blog::find($id);
         return view('front.pages.blogindex',compact('blog'));
     }
+    public function allposts(){
+        $blog=Blog::all();
+        return view('front.pages.allposts',compact('blog'));
+    }
+
 
 }

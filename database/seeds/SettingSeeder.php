@@ -22,6 +22,9 @@ class SettingSeeder extends Seeder
             'link3' => 'www.google.com',
             'link4' => 'www.skype.com',
             'link5' => 'www.pintrest.com',
+            'banarimage'=>'assets/images/01.png',
+            'footercontent'=>'Energistically coordinate highly efficient procesr partnerships befor revolutionar growth strategie improvement viaing awesome
+                              Energistically coordinate highly efficient procesr partnerships befor revolutionar growth Energistically coordinate highly efficient procesr partnerships befor revolutionar growth   '
         ]);
         \App\Plan::create([
             'name' => 'Forfait Premium',

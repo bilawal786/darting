@@ -44,7 +44,7 @@
                                             </div>
                                             <div class="col">
                                                 <label for="">Logo du site</label>
-                                <input class="form-control file-upload-input" type="file" name="logo"   >
+                                    <input class="form-control file-upload-input" type="file" name="logo"   >
                                             </div>
                                             <div class="form-group mb-4 mt-5">
                                                 <label for="exampleFormControlInput2">Address</label>
@@ -75,6 +75,16 @@
                                                 <label for="exampleFormControlInput2">google</label>
                                                 <input type="text" class="form-control"
                                                        name="link5" value="{{$setting->link5}}"  required>
+                                            </div>
+                                            <div class="form-group mb-4 mt-5">
+                                                <label for="exampleFormControlInput2">Contenu du pied de page</label>
+                                                <textarea type="text" class="form-control"
+                                                          name="footercontent" rows="8"   required>{{$setting->footercontent}} </textarea>
+                                            </div>
+                                            <div class="form-group mb-4 mt-5">
+                                                <label for="exampleFormControlInput2">image banale</label>
+                                                <input type="file" class="form-control"
+                                                       name="banarimage" value="{{$setting->banarimage}}">
                                             </div>
 
 

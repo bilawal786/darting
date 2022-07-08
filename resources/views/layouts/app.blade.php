@@ -215,6 +215,11 @@ $user = Auth::user();
                                 <a href="{{route('admin.feature.index')}}"> Fonctionnalités </a>
                             </li>
                         </ul>
+                        <ul class="collapse submenu list-unstyled" id="invoice2" data-bs-parent="#accordionExample">
+                            <li>
+                                <a href="{{route('admin.work.index')}}"> Comment ça marche</a>
+                            </li>
+                        </ul>
 
                     </ul>
                 </li>
