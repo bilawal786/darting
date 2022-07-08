@@ -26,7 +26,6 @@ class ContactController extends Controller
      */
     public function create()
     {
-
         return redirect()->back();
     }
 
@@ -43,6 +42,7 @@ class ContactController extends Controller
         $contact->email=$request->email;
         $contact->phone=$request->phone;
         $contact->text=$request->text;
+        $contact->save();
         $notification = array(
             'messege' => 'Envoyer le message!',
             'alert-type' => 'success'
