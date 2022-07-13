@@ -40,7 +40,8 @@ class ContactController extends Controller
         $contact =new Contact();
         $contact->name=$request->name;
         $contact->email=$request->email;
-        $contact->phone=$request->phone;
+        $contact->number=$request->number;
+        $contact->sub=$request->sub;
         $contact->text=$request->text;
         $contact->save();
         $notification = array(

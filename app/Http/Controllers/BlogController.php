@@ -28,7 +28,7 @@ class BlogController extends Controller
         $blog->description=$request->description;
         $blog->save();
         $notification = array(
-            'messege' => 'post created!',
+            'messege' => 'Message créé!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -57,7 +57,7 @@ class BlogController extends Controller
         $blog->description=$request->description;
         $blog->save();
         $notification = array(
-            'messege' => 'post updated!',
+            'messege' => 'Message mis à jour!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

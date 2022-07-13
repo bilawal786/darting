@@ -15,13 +15,13 @@
                                     li nous allons normalement obtenir des inutes de connexion, nous aurons normalement ge.</p>
                                 <form action="{{route('front.store')}}" method="POST"  enctype="multipart/form-data" id="commentform" class="comment-form">
                                     @csrf
-                                    <input type="text" name="name" class="" placeholder="Name*">
-                                    <input type="email" name="email" class="" placeholder="Email*">
-                                    <input type="text" name="sub" class="" placeholder="Subject*">
+                                    <input type="text" name="name" class="" placeholder="Nom*">
+                                    <input type="email" name="email" class="" placeholder="E-mail*">
+                                    <input type="text" name="sub" class="" placeholder="Matière*">
                                     <input type="text" name="number" class="" placeholder="Mobile Number*">
-                                    <textarea name="text" id="role" cols="30" rows="8" placeholder="Message*"></textarea>
+                                    <textarea name="text"  cols="30" rows="8" placeholder="Message*"></textarea>
                                     <button type="submit" class="lab-btn">
-                                        <span>Send Our Message</span>
+                                        <span>Envoyez notre message</span>
                                     </button>
                                 </form>
                             </div>
