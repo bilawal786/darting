@@ -281,6 +281,11 @@
                                                             <option value="Males Oly">Hommes seulement</option>
                                                             <option value="Females Only">Femmes seulement</option>
                                                         </select>
+                                                        <h6 style="text-align: left; color: black">Price</h6>
+                                                        <span class="input-symbol-euro">
+                                                            <input type="number" class="form-control" name="price"value="0" min="0" step="1" placeholder="€"  />
+                                                                    </span>
+
 
 {{--                                                        <h6 style="text-align: left; color: black">Type d'activité--}}
 {{--                                                        </h6>--}}
@@ -322,6 +327,7 @@
 @endsection
 @section('scripts')
     <script>
+
         $(".type").click(function (){
             var type = $(this).attr("data-type");
             $("#typerow").hide();
@@ -344,6 +350,7 @@
                 $("#diver").show();
             }
         })
+
     </script>
     <!-- COMMON SCRIPTS -->
     <script src="/wizard/js/common_scripts.min.js"></script>

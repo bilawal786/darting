@@ -329,7 +329,7 @@
                                                             <div class="col-md-12">
                                                                     <div class="row" >
                                                                         @foreach($question as $row)
-                                                                        <div class="col-lg-6" style="margin-top: 100px;">
+                                                                        <div class="col-lg-6">
 
                                                                             <div class="accordion" id="simple_faq">
                                                                                 <div class="card">

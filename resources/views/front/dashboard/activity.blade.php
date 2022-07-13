@@ -71,6 +71,9 @@
                                     <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                             data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
                                             aria-selected="false">Inviter</button>
+                                    <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
+                                            data-bs-target="#reviews" type="button" role="tab" aria-controls="photos"
+                                            aria-selected="false">Examen</button>
 
                                 </div>
                             </nav>
@@ -84,10 +87,11 @@
                                                 <article>
                                                     @php
                                                     $participants = \App\Participant::where('activity_id' , $activity->id)->get();
+                                                     $totalprice = $activity->price/$activity->num;
                                                     @endphp
                                                     <div class="info-card mb-20">
                                                         <div class="info-card-title">
-                                                            <h6>{{$activity->num}} Participant(s) ({{$activity->num - $participants->count()}} En attente)</h6>
+                                                            <h6>{{$activity->num}} Participant(s) ({{$activity->num - $participants->count()}} En attente) </h6>
                                                         </div>
                                                         <div class="info-card-content">
                                                             <div class="lab-content w-100">
@@ -95,7 +99,7 @@
                                                                     @foreach($participants as $participant)
                                                                     <li>
                                                                         @if($participant->user->profile_picture != null)
-                                                                        <img style="height: 60px; border-radius: 50%" src="{{asset($participant->user->profile_picture)}}" alt="member-img">
+                                                                        <img style="height: 60px; border-radius: 50%" src="{{asset($participant->user->profile_picture)}}" alt="member-img" >
                                                                         @else
                                                                             <img style="height: 60px; border-radius: 50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
                                                                         @endif
@@ -177,12 +181,14 @@
                                         <div class="col-md-12">
                                             <div class="info-card mb-20">
                                                 <div class="info-card-title">
-                                                    <h6>Inscrivez-vous en tant que participant à cette activité</h6>
+                                                    <h6>Inscrivez-vous en tant que participant à cette activité </h6>
+                                                    <h5>({{$totalprice}}€)</h5>
                                                 </div>
                                                 <div class="info-card-content">
                                                     <div class="lab-content w-100">
                                                         <form action="">
                                                             <div class="row">
+
                                                                 <div class="col-md-6">
                                                                     @if(Auth::user()->hasSubscription())
                                                                     <a href="{{route('activity.apply.part', ['id' => $activity->id])}}" style="width: 100%" class="btn btn-primary"> Vous voulez participer ?</a>
@@ -202,6 +208,49 @@
                                 <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="nav-photos-tab">
 
                                 </div>
+
+                                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="info-card mb-20">
+                                                <div class="info-card-title">
+                                                    <h6>Reviews</h6>
+                                                </div>
+
+                                                <div class="info-card-content">
+                                                    <div class="lab-content w-100">
+                                                        <form  method="post" action="{{route('activity.rating')}}"  accept-charset="UTF-8" enctype="multipart/form-data" >
+
+                                                            <div class="row">
+                                                                <div class="txt-center">
+                                                                        <div class="rating">
+                                                                            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
+                                                                            <label for="star5">☆</label>
+                                                                            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                                                            <label for="star4">☆</label>
+                                                                            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                                                            <label for="star3">☆</label>
+                                                                            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                                                            <label for="star2">☆</label>
+                                                                            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                                                            <label for="star1">☆</label>
+                                                                            <div class="clear"></div>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                    <textarea  class="form-control" name="comment" rows="5">
+                                                                    </textarea>
+                                                                            <button type="submit" class="btn btn-success">Submit Review</button>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                         </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -210,4 +259,14 @@
         </section>
     </div>
 
+    <script src="{{asset('js/addons/rating.js')}}">
+        $(document).ready(function() {
+            $('#rateMe4').mdbRate();
+        });
+    </script>
 @endsection
+
+
+
+
+

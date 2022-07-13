@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="{{asset('assets/css/icofont.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/swiper.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel=”stylesheet” href=”{{asset('maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')}}”>
+    <link rel=”stylesheet” href=”{{asset('css/bootstrap-star-rating/star-rating.css')}}” media=”all” rel=”stylesheet” type=”text/css”/>
+    <link rel="stylesheet" href="{{asset('path/to/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css')}}">
+
     <link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css')}}">
 
 
@@ -105,7 +110,60 @@
             text-decoration: none;
             cursor: pointer;
         }
+        /* rating stars*/
+        .txt-center {
+            text-align: center;
+        }
+        .hide {
+            display: none;
+        }
 
+        .clear {
+            float: none;
+            clear: both;
+        }
+
+        .rating {
+            width: 90px;
+            unicode-bidi: bidi-override;
+            direction: rtl;
+            text-align: center;
+            position: relative;
+        }
+
+        .rating > label {
+            float: right;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+            color: #000;
+        }
+
+        .rating > label:hover,
+        .rating > label:hover ~ label,
+        .rating > input.radio-btn:checked ~ label {
+            color: transparent;
+        }
+
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before {
+            content: "\2605";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+
+        .star-rating {
+            line-height:32px;
+            font-size:1.25em;
+        }
+
+        .star-rating .fa-star{color: yellow;}
         /* 100% Image Width on Smaller Screens */
         @media only screen and (max-width: 700px){
             .modal-content {
@@ -385,6 +443,8 @@
 
 <!-- All Scripts -->
 <script src="{{asset('assets/js/jquery.js')}}"></script>
+<script src=”{{asset('ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')}}”></script>
+<script src=”{{asset('js/bootstrap-star-rating/star-rating.js” type=”text/javascript')}}”></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/waypoints.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
@@ -394,6 +454,7 @@
 <script src="{{asset('assets/js/functions.js')}}"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 <script>
     @if(Session::has('messege'))
     var type="{{Session::get('alert-type','info')}}"
@@ -444,6 +505,11 @@
     span.onclick = function() {
         modal.style.display = "none";
     }
+</script>
+<script src="{{asset('js/addons/rating.js')}}">
+    $(document).ready(function() {
+        $('#rateMe4').mdbRate();
+    });
 </script>
 @yield('scripts')
 

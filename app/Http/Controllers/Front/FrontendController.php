@@ -14,6 +14,7 @@ use App\User;
 use App\Question;
 use App\UserSubscription;
 use App\Work;
+use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,6 +50,7 @@ class FrontendController extends Controller
         return view('front.dashboard.activityCreate');
     }
     public function activity($id){
+
         $id = base64_decode($id);
         $activity = Activity::find($id);
         return view('front.dashboard.activity', compact('activity'));
@@ -135,6 +137,8 @@ class FrontendController extends Controller
         $active->activity_type = $request->activity_type;
         $active->activity_subtype = $request->activity_subtype;
         $active->description = $request->description;
+        $active->price=$request->price;
+
         $active->save();
         $notification = array(
             'messege' => 'Successfully added a activity',
@@ -179,6 +183,20 @@ class FrontendController extends Controller
         $blog=Blog::all();
         return view('front.pages.allposts',compact('blog'));
     }
+
+    public function rating(Request $request){
+       dd($request);
+        $rating = new Review();
+        $rating->star=$request->star;
+        $rating->save();
+        $notification = array(
+            'messege' => 'Successfully purchase a subscription',
+            'alert-type' => 'success'
+        );
+       return redirect()->back();
+
+    }
+
 
 
 }

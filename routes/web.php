@@ -44,6 +44,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
+//    Route::get('/activity/rating','Front\ReviewController@create')->name('activity.rating');
+    Route::post('/activity/rating','Front\FrontendController@rating')->name('activity.rating');
+
+
+
 //user
 
     Route::get('/admin/users/index','Front\UserController@index')->name('admin.users.index');
@@ -104,6 +109,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
 
     Route::get('admin/work/index','WorkController@index')->name('admin.work.index');
     Route::post('admin/work/update','WorkController@update')->name('admin.work.update');
+
+    Route::get('admin/contact/index','ContactController@index2')->name('admin.contact.index');
+
 
 
 

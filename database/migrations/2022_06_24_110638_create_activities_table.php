@@ -32,7 +32,7 @@ class CreateActivitiesTable extends Migration
             $table->longText('sport')->nullable();
             $table->longText('game')->nullable();
             $table->longText('diver')->nullable();
-
+            $table->string('price');
             $table->string('description')->nullable();
             $table->timestamps();
         });

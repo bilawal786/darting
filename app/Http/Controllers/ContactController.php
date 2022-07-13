@@ -15,8 +15,14 @@ class ContactController extends Controller
      */
     public function index()
     {
+
         $setting =Setting::all();
         return view('front.pages.contact',compact('setting'));
+    }
+    public function index2()
+    {
+        $contact=Contact::all();
+        return view('admin/contact/index',compact('contact'));
     }
 
     /**
