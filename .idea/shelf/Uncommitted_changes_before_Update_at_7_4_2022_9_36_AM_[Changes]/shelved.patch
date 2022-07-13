@@ -1,0 +1,37 @@
+Index: routes/web.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nuse Illuminate\\Support\\Facades\\Route;\r\n\r\n/*\r\n|--------------------------------------------------------------------------\r\n| Web Routes\r\n|--------------------------------------------------------------------------\r\n|\r\n| Here is where you can register web routes for your application. These\r\n| routes are loaded by the RouteServiceProvider within a group which\r\n| contains the \"web\" middleware group. Now create something great!\r\n|\r\n*/\r\n\r\nRoute::get('/', 'Front\\FrontendController@index')->name('front.index');\r\n\r\n\r\nAuth::routes();\r\n\r\n\r\nRoute::group(['middleware' => ['auth']], function() {\r\n\r\n    Route::get('/dashboard', 'Front\\FrontendController@dashboard')->name('front.dashboard');\r\n    Route::get('/profile/{id}', 'Front\\FrontendController@profile')->name('front.profile');\r\n    Route::get('/activity/{id}', 'Front\\FrontendController@activity')->name('front.activity');\r\n    Route::post('/activity', 'Front\\FrontendController@activityStore')->name('activity.store');\r\n    Route::post('/front/profiles', 'Front\\FrontendController@profiles')->name('front.profiles');\r\n    Route::get('/front/profiles', 'Front\\FrontendController@profiles')->name('front.profiles');\r\n    Route::get('/activity/create', 'Front\\FrontendController@activityCreate')->name('activity.create');\r\n    Route::get('/my/profile', 'Front\\FrontendController@myProfile')->name('my.profile');\r\n    Route::get('/notification', 'Front\\FrontendController@notification')->name('front.notification');\r\n\r\n//user\r\n    Route::post('/user/update','Front\\UserController@update')->name('user.update');\r\n});\r\nRoute::get('/front/function', 'Front\\FrontendController@function')->name('front.function');\r\n\r\nRoute::group(['middleware' => ['auth', 'role']], function() {\r\n\r\nRoute::get('/home', 'HomeController@index')->name('home');\r\nRoute::get('/admin/sports', 'Admin\\SportsController@index')->name('admin.sports');\r\nRoute::get('/admin/sports/edit/{id}', 'Admin\\SportsController@edit')->name('admin.sports.edit');\r\nRoute::get('/admin/sports/create', 'Admin\\SportsController@create')->name('admin.sports.create');\r\nRoute::post('/admin/sports/store', 'Admin\\SportsController@store')->name('admin.sports.store');\r\n// Sorties\r\n Route::get('/admin/sorties/index','SortiesController@index')->name('admin.sorties.index');\r\nRoute::get('admin/sorties/create','SortiesController@create')->name('admin.sorties.create');\r\nRoute::post('admin/sorties/store','SortiesController@store')->name('admin.sorties.store');\r\nRoute::get('admin/sorties/edit/{id}','SortiesController@edit')->name('admin.sorties.edit');\r\nRoute::get('admin/sorties/update/{id}','SortiesController@update')->name('admin.sorties.update');\r\n//Jeux\r\n    Route::get('/admin/jeux/index','JeuxController@index')->name('admin.jeux.index');\r\n    Route::post('/admin/jeux/store','JeuxController@store')->name('admin.jeux.store');\r\n    Route::get('/admin/jeux/create','JeuxController@create')->name('admin.jeux.create');\r\n    Route::get('/admin/jeux/edit/{id}','JeuxController@edit')->name('admin.jeux.edit');\r\n    Route::get('/admin/jeux/update/{id}','JeuxController@edit')->name('admin.jeux.update');\r\n//Divers\r\n\r\n    Route::get('/admin/divers/index','DiversController@index')->name('admin.divers.index');\r\n    Route::get('/admin/divers/create','DiversController@create')->name('admin.divers.create');\r\n    Route::post('/admin/divers/store','DiversController@store')->name('admin.divers.store');\r\n    Route::get('/admin/divers/edit/{id}','DiversController@edit')->name('admin.divers.edit');\r\n    Route::get('/admin/divers/update','DiversController@update')->name('admin.divers.update');\r\n//setting\r\n\r\n    Route::get('admin/setting/index','SettingController@index')->name('admin.setting.index');\r\n    Route::post('admin/setting/update','SettingController@update')->name('admin.setting.update');\r\n//\r\nRoute::get('admin/features/index','FeatureController@index')->name('admin.feature.index');\r\n\r\n});\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/routes/web.php b/routes/web.php
+--- a/routes/web.php	
++++ b/routes/web.php	
+@@ -33,6 +33,7 @@
+ 
+ //user
+     Route::post('/user/update','Front\UserController@update')->name('user.update');
++    Route::get('admin/users/index', 'Front\UserController@index')->name('admin.users.index');
+ });
+ Route::get('/front/function', 'Front\FrontendController@function')->name('front.function');
+ 
+@@ -63,12 +64,16 @@
+     Route::get('/admin/divers/edit/{id}','DiversController@edit')->name('admin.divers.edit');
+     Route::get('/admin/divers/update','DiversController@update')->name('admin.divers.update');
+ //setting
+-
+     Route::get('admin/setting/index','SettingController@index')->name('admin.setting.index');
+     Route::post('admin/setting/update','SettingController@update')->name('admin.setting.update');
+-//
++
++    //user data
++
++
+ Route::get('admin/features/index','FeatureController@index')->name('admin.feature.index');
+ 
++
++
+ });
+ 
+ 
