@@ -215,38 +215,192 @@
                                         <div class="col-md-12">
                                             <div class="info-card mb-20">
                                                 <div class="info-card-title">
-                                                    <h6>Reviews</h6>
+                                                    <h6>Commentaires</h6>
                                                 </div>
+
+                                                <?php $activitys = \App\Review::where('user_id','=',Auth::user()->id)->where('activity_id','=',$activity->id)->first(); ?>
 
                                                 <div class="info-card-content">
                                                     <div class="lab-content w-100">
                                                         <form  method="post" action="{{route('activity.rating')}}"  accept-charset="UTF-8" enctype="multipart/form-data" >
-
-                                                            <div class="row">
-                                                                <div class="txt-center">
+                                                            @csrf
+                                                            @if(!$activitys)
+                                                                <div class="col-md-4">
+                                                                    <div class="txt-center">
                                                                         <div class="rating">
+                                                                            <input type="hidden" value="{{$activity->id}}" name="activity_id" />
                                                                             <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
-                                                                            <label for="star5">☆</label>
+                                                                            <label for="star5"><i class='fa fa-star fa-fw'></i></label>
                                                                             <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
-                                                                            <label for="star4">☆</label>
+                                                                            <label for="star4"><i class='fa fa-star fa-fw'></i></label>
                                                                             <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-                                                                            <label for="star3">☆</label>
+                                                                            <label for="star3"><i class='fa fa-star fa-fw'></i></label>
                                                                             <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-                                                                            <label for="star2">☆</label>
+                                                                            <label for="star2"><i class='fa fa-star fa-fw'></i></label>
                                                                             <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-                                                                            <label for="star1">☆</label>
+                                                                            <label for="star1"><i class='fa fa-star fa-fw '></i></label>
                                                                             <div class="clear"></div>
                                                                         </div>
-                                                                        <div class="col-md-6">
-                                                                    <textarea  class="form-control" name="comment" rows="5">
+
+                                                                        <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white">
                                                                     </textarea>
-                                                                            <button type="submit" class="btn btn-success">Submit Review</button>
-                                                                        </div>
+                                                                        <button type="submit" class="btn btn-primary" style="width: 100%" >Poster le commentaire</button>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+
                                                          </form>
+                                                        @else
+                                                        <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-4">
+
+                                                            <div class="widget-content widget-content-area br-8">
+
+                                                                <div class="production-descriptions simple-pills">
+
+                                                                    <div class="pro-des-content">
+
+                                                                        <div class="row">
+                                                                            <div class="col-xxl-6 col-xl-8 col-lg-9 col-md-9 col-sm-12 mx-auto">
+                                                                                <div class="product-reviews mb-5">
+
+                                                                                    <div class="row">
+                                                                                        <div class="col-sm-6 align-self-center">
+                                                                                            <div class="reviews">
+                                                                                                <h1 class="mb-0">{{$totalstarval}}</h1>
+                                                                                                <span>({{$rating->count()}} reviews)</span>
+                                                                                                <div class="stars mt-3 mb-sm-0 mb-4">
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star empty-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="col-sm-6">
+
+
+
+                                                                                            <div class="row review-progress mb-sm-1 mb-3">
+
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>5 Star</p>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-8 align-self-center">
+                                                                                                    <div class="progress">
+                                                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row review-progress mb-sm-1 mb-3">
+
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>4 Star</p>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-8 align-self-center">
+                                                                                                    <div class="progress">
+                                                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row review-progress mb-sm-1 mb-3">
+
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>3 Star</p>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-8 align-self-center">
+                                                                                                    <div class="progress">
+                                                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row review-progress mb-sm-1 mb-3">
+
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>2 Star</p>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-8 align-self-center">
+                                                                                                    <div class="progress">
+                                                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="row review-progress mb-sm-1 mb-3">
+
+                                                                                                <div class="col-sm-4">
+                                                                                                    <p>1 Star</p>
+                                                                                                </div>
+
+                                                                                                <div class="col-sm-8 align-self-center">
+                                                                                                    <div class="progress">
+                                                                                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                        <div id="iconsAccordion" class="accordion-icons accordion">
+
+                                                                            <div class="card">
+                                                                                <div class="card-header" id="headingTwo3">
+                                                                                    <section class="mb-0 mt-0">
+                                                                                        <div role="menu" class="collapsed" data-bs-toggle="collapse" data-bs-target="#iconAccordionTwo" aria-expanded="false" aria-controls="iconAccordionTwo">
+                                                                                            <div class="accordion-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+                                                                                            Reviews  <div class="icons"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></div>
+                                                                                        </div>
+                                                                                    </section>
+                                                                                </div>
+                                                                                <div id="iconAccordionTwo" class="collapse" aria-labelledby="headingTwo3" data-bs-parent="#iconsAccordion" style="">
+                                                                                    <div class="card-body">
+                                                                                        <div class="row">
+                                                                                            @foreach($users as $user)
+                                                                                            <div class="col-md-12 mx-auto">
+                                                                                                <div class="media mb-4">
+                                                                                                    <div class="avatar me-sm-4 mb-sm-0 me-0 mb-3">
+                                                                                                        <img alt="avatar" src="{{asset($user->profile_picture)}}" class="rounded-circle">
+                                                                                                    </div>
+                                                                                                    <div class="media-body">
+                                                                                                        <h4 class="media-heading mb-1">{{$user->fname}}{{$user->lname}}</h4>
+                                                                                                        <div class="stars">
+                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                                                                                        </div>
+                                                                                                        <div class="meta-tags">4 mint ago</div>
+                                                                                                        <p class="media-text mt-2">comment area </p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    @endif
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>

@@ -23,18 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="contect form">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/contact/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2022_9_16_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2022_9_16_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ContactController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Front/FrontendController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2022_06_24_110638_create_activities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2022_06_24_110638_create_activities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/question/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/question/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/userview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/userview.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/dashboard/activity.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/dashboard/activity.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/front/dashboard/activityCreate.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/dashboard/activityCreate.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/front/layouts/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/front/layouts/layout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +217,7 @@
       <workItem from="1657166853147" duration="643000" />
       <workItem from="1657194162920" duration="408000" />
       <workItem from="1657253236737" duration="15636000" />
-      <workItem from="1657689164591" duration="22939000" />
+      <workItem from="1657689164591" duration="50590000" />
     </task>
     <task id="LOCAL-00001" summary="Question">
       <created>1656942294562</created>
@@ -309,7 +303,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657692567817</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="contect form">
+      <created>1657717132838</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1657717132838</updated>
+    </task>
+    <task id="LOCAL-00014" summary="contect form">
+      <created>1657717233194</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657717233194</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

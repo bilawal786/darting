@@ -51,9 +51,20 @@ class FrontendController extends Controller
     }
     public function activity($id){
 
+        $star5=Review::where('star','5')->where('activity_id','1')->sum('star');
+        dd($star5);
+        $star4=Review::where('star','4')->sum('star');
+        $star3=Review::where('star','3')->sum('star');
+        $star2=Review::where('star','2')->sum('star');
+        $star1=Review::where('star','1')->sum('star');
+        $totalstars= Review::all();
+        $totalstarval = $star5 + $star4 +$star3 + $star2 + $star1 ;
+
         $id = base64_decode($id);
+        $users = User::where('role', '1')->get();
+        $rating =\App\Review::all();
         $activity = Activity::find($id);
-        return view('front.dashboard.activity', compact('activity'));
+        return view('front.dashboard.activity', compact('activity','users','rating','star5','star4','star3','star2','star1','totalstars','totalstarval'));
     }
     public function myProfile(){
         $user= Auth::user();
@@ -183,17 +194,24 @@ class FrontendController extends Controller
         $blog=Blog::all();
         return view('front.pages.allposts',compact('blog'));
     }
+//public function ratingcreate(){
+//    $user=User::where('role', '=', 1)->get();
+//    return view('front.dashboard.activity',compact('user'));
+//}
+
 
     public function rating(Request $request){
-       dd($request);
         $rating = new Review();
+        $rating->user_id=Auth::user()->id;
         $rating->star=$request->star;
+        $rating->comment=$request->comment;
+        $rating->activity_id=$request->activity_id;
         $rating->save();
         $notification = array(
-            'messege' => 'Successfully purchase a subscription',
+            'messege' => 'Envoyer un avis',
             'alert-type' => 'success'
         );
-       return redirect()->back();
+       return redirect()->back()->with($notification);
 
     }
 

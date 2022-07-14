@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 //    Route::get('/activity/rating','Front\ReviewController@create')->name('activity.rating');
     Route::post('/activity/rating','Front\FrontendController@rating')->name('activity.rating');
+    Route::get('/activity/rating/create','Front\FrontendController@ratingcreate')->name('activity.ratingcreate');
+
 
 
 

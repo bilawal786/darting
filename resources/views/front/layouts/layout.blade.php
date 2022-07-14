@@ -191,10 +191,10 @@
             color: white;
         }
         .banner-section .section-wrapper .banner-content .intro-form::after {
-            background: url(../images/banner/shape-bottom.png);
+            background: url{{asset('images/banner/shape-bottom.png')}};
         }
         .banner-section .section-wrapper .banner-content .intro-form::before {
-            background: url(../images/banner/shape-top.png);
+            background: url{{asset('images/banner/shape-top.png')}};
         }
         .footer-section .footer-bottom, .bg-color, .group-item .lab-inner, .story-item, .about-item .lab-inner {
             background-color: #5b398b;
@@ -453,7 +453,11 @@
 <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/js/functions.js')}}"></script>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+<script src="{{asset('src/plugins/src/glightbox/glightbox.min.js')}}"></script>
+<script src="{{asset('src/plugins/src/splide/splide.min.js')}}"></script>
+<script src="{{asset('src/assets/js/apps/ecommerce-details.')}}"></script>
+
 
 <script>
     @if(Session::has('messege'))
