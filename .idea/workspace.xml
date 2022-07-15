@@ -22,6 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="ccd130be-2153-471c-b0b9-42b605177a70" name="Changes" comment="blog module compleate CRUD&#10;work section">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2022_9_16_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2022_9_16_AM__Default_Changelist_.xml" beforeDir="false" />
     <list default="true" id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="contect form">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2022_9_16_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_7_2022_9_16_AM__Default_Changelist_.xml" beforeDir="false" />
@@ -176,19 +179,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -201,7 +204,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0d00a633-4b4a-4267-b157-d20710b56bbb" name="Default Changelist" comment="" />
+      <changelist id="ccd130be-2153-471c-b0b9-42b605177a70" name="Changes" comment="blog module compleate CRUD&#10;work section" />
       <created>1656928749322</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -216,6 +219,9 @@
       <workItem from="1657133508850" duration="473000" />
       <workItem from="1657166853147" duration="643000" />
       <workItem from="1657194162920" duration="408000" />
+      <workItem from="1657253236737" duration="15437000" />
+      <workItem from="1657785058102" duration="599000" />
+      <workItem from="1657802282085" duration="607000" />
       <workItem from="1657253236737" duration="15636000" />
       <workItem from="1657689164591" duration="50590000" />
     </task>
@@ -275,6 +281,7 @@
       <option name="project" value="LOCAL" />
       <updated>1657200716071</updated>
     </task>
+    <option name="localTasksCounter" value="9" />
     <task id="LOCAL-00009" summary="setting update&#10;contact">
       <created>1657271815418</created>
       <option name="number" value="00009" />
@@ -337,9 +344,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Question" />
     <MESSAGE value="blog module compleate CRUD&#10;work section" />
-    <MESSAGE value="setting update&#10;contact" />
-    <MESSAGE value="contect form" />
-    <option name="LAST_COMMIT_MESSAGE" value="contect form" />
+    <option name="LAST_COMMIT_MESSAGE" value="blog module compleate CRUD&#10;work section" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

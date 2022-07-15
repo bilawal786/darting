@@ -50,9 +50,7 @@ class FrontendController extends Controller
         return view('front.dashboard.activityCreate');
     }
     public function activity($id){
-
         $star5=Review::where('star','5')->where('activity_id','1')->sum('star');
-        dd($star5);
         $star4=Review::where('star','4')->sum('star');
         $star3=Review::where('star','3')->sum('star');
         $star2=Review::where('star','2')->sum('star');

@@ -71,9 +71,9 @@
                                     <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                             data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
                                             aria-selected="false">Inviter</button>
-                                    <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
-                                            data-bs-target="#reviews" type="button" role="tab" aria-controls="photos"
-                                            aria-selected="false">Examen</button>
+{{--                                    <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"--}}
+{{--                                            data-bs-target="#reviews" type="button" role="tab" aria-controls="photos"--}}
+{{--                                            aria-selected="false">Examen</button>--}}
 
                                 </div>
                             </nav>

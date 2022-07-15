@@ -50,12 +50,12 @@
         // Custom styling can be passed to options when creating an Element // (Note that this demo uses a wider set of styles than the guide below.)
         var style= {
             base: {
-                color: "#32325d",
+                color: "#ffffff",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                 fontSmoothing: "antialiased",
                 fontSize: "16px",
                 '::placeholder': {
-                    color: "#aab7c4",
+                    color: "#ffffff",
                 }
             },
             invalid: {
