@@ -172,6 +172,13 @@
         }
     </style>
     <style>
+        .myspan{
+            background-color: red;
+            padding: 2px;
+            border-radius: 10px;
+            margin-left: 5px;
+            font-size: 15px;
+        }
         header{
             padding: 0px;
         }
@@ -191,10 +198,10 @@
             color: white;
         }
         .banner-section .section-wrapper .banner-content .intro-form::after {
-            background: url{{asset('images/banner/shape-bottom.png')}};
+            background: url{{asset('images/banner/shape-bottom.pngxxx')}};
         }
         .banner-section .section-wrapper .banner-content .intro-form::before {
-            background: url{{asset('images/banner/shape-top.png')}};
+            background: url{{asset('images/banner/shape-top.pngxxx')}};
         }
         .footer-section .footer-bottom, .bg-color, .group-item .lab-inner, .story-item, .about-item .lab-inner {
             background-color: #5b398b;
@@ -219,9 +226,12 @@
 <!-- ==========Header Section Starts Here========== -->
 <header class="header-section">
     <div class="header-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="header-top-area">
                 <ul class="left">
+                    <li>
+                        <a href="{{route('front.subscriptions')}}">Abonnement</a>
+                    </li>
                     <li>
                         <i class="icofont-ui-call"></i> {{$setting->phone}}
                     </li>
@@ -229,7 +239,7 @@
                         <i class="icofont-location-pin"></i> {{$setting->address}}
                     </li>
                 </ul>
-                <ul class="social-icons d-flex align-items-center">
+                <ul class="social-icons d-flex align-items-center" style="margin-right: 30px">
                     <li>
                         <p>
                             Trouvez-nous sur :
@@ -250,12 +260,22 @@
                     <li>
                         <a href="{{$setting->link5}}" class="rss"><i class="icofont-rss-feed"></i></a>
                     </li>
+                    @auth
+                    <li>
+                        <a  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" href="{{route('logout')}}">
+                            Déconnecter</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                    @endauth
                 </ul>
             </div>
         </div>
     </div>
     <div class="header-bottom">
-        <div class="container">
+        <div class="container-fluid">
             <div class="header-wrapper">
                 <div class="logo">
                     <a href="{{route('front.index')}}">
@@ -267,12 +287,10 @@
                         <li>
                             <a href="{{route('front.index')}}">Acceuil</a>
                         </li>
+                        @guest
 
                         <li>
                             <a href="{{route('front.function')}}">Fonctionnalités</a>
-                        </li>
-                        <li>
-                            <a href="#">Communauté</a>
                         </li>
                         <li>
                             <a href="{{route('front.allposts')}}">Blog</a>
@@ -280,6 +298,25 @@
                         <li>
                             <a href="{{route('front.contact')}}">Contact</a>
                         </li>
+                        @endguest
+
+                        @auth
+                        <li>
+                            <a href="{{route('my.profile')}}">Mon profil</a>
+                        </li>
+                        <li>
+                            <a href="{{route('front.profiles')}}">Match parfait <span class="myspan">1</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Messages <span class="myspan">2</span></a>
+                        </li>
+                        <li>
+                            <a href="{{route('front.dashboard')}}">Activities <span class="myspan">1</span></a>
+                        </li>
+                        <li>
+                            <a href="{{route('activity.create')}}">Créer une activité </a>
+                        </li>
+                        @endauth
                     </ul>
                     @auth
                         <a href="{{route('front.dashboard')}}" class="signup"><i class="icofont-user"></i>
@@ -402,18 +439,23 @@
                     <div class="footer-middle-item-wrapper">
                         <div class="footer-middle-item-3 mb-lg-0">
                             <div class="fm-item-title">
-                                <h4>Notre inscription à la newsletter</h4>
+                                <h4>Useful links</h4>
                             </div>
                             <div class="fm-item-content">
-                                <p>By subscribing to our mailing list you will always
-                                    be update with the latest news from us.</p>
-                                <form>
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Enter email">
-                                    </div>
-                                    <button type="submit" class="lab-btn">Envoyer un massage <i
-                                            class="icofont-paper-plane"></i></button>
-                                </form>
+                                <ul>
+                                    <li>
+                                        <a style="color: white" href="{{route('front.function')}}">Fonctionnalités</a>
+                                    </li>
+                                    <li>
+                                        <a style="color: white" href="#">Communauté</a>
+                                    </li>
+                                    <li>
+                                        <a  style="color: white" href="{{route('front.allposts')}}">Blog</a>
+                                    </li>
+                                    <li>
+                                        <a style="color: white" href="{{route('front.contact')}}">Contact</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
