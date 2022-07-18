@@ -8,6 +8,7 @@ use App\Feature;
 use App\Http\Controllers\Controller;
 use App\Participant;
 use App\Setting;
+use App\Slider;
 use App\Subscription;
 use App\Plan;
 use App\User;
@@ -24,9 +25,17 @@ class FrontendController extends Controller
     public function index(){
         $work = Work::first();
         $setting = Setting::all();
+        $slide=Slider::first();
         $users = User::where('role', '1')->get();
         $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
-        return view('front.pages.index', compact('users','work', 'blog','setting'));
+        return view('front.pages.index', compact('slide','users','work', 'blog','setting'));
+    }
+    public function userdashborad(){
+        $work = Work::first();
+        $setting = Setting::all();
+        $users = User::where('role', '1')->get();
+        $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
+        return view('front.pages.userdashboardind', compact('users','work', 'blog','setting'));
     }
     public function feature(){
         $feature = Feature::find(1);
@@ -50,19 +59,11 @@ class FrontendController extends Controller
         return view('front.dashboard.activityCreate');
     }
     public function activity($id){
-        $star5=Review::where('star','5')->where('activity_id','1')->sum('star');
-        $star4=Review::where('star','4')->sum('star');
-        $star3=Review::where('star','3')->sum('star');
-        $star2=Review::where('star','2')->sum('star');
-        $star1=Review::where('star','1')->sum('star');
-        $totalstars= Review::all();
-        $totalstarval = $star5 + $star4 +$star3 + $star2 + $star1 ;
-
         $id = base64_decode($id);
         $users = User::where('role', '1')->get();
         $rating =\App\Review::all();
         $activity = Activity::find($id);
-        return view('front.dashboard.activity', compact('activity','users','rating','star5','star4','star3','star2','star1','totalstars','totalstarval'));
+        return view('front.dashboard.activity', compact('activity','users','rating'));
     }
     public function myProfile(){
         $user= Auth::user();

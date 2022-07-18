@@ -1,105 +1,134 @@
 @extends('front.layouts.layout')
 @section('content')
-
 <!-- ================ Banner Section start Here =============== -->
-<section class="banner-section">
-    <div class="container">
-        <div class="section-wrapper">
-            <div class="row align-items-end">
-                <div class="col-lg-6">
-                    <div class="banner-content">
-                        <div class="intro-form">
-                            <div class="intro-form-inner">
-                                <h3>Présentation de Darting</h3>
-                                <p>Ne restez plus seul à la maison Confiez-nous l'organisation de vos sorties de groupe.</p>
-                                <form action="{{route('front.dashboard')}}" method="get" class="banner-form">
-                                    @csrf
-                                    <div class="gender">
-                                        <label for="gender" class="left">Je suis un </label>
-                                        <div class="custom-select right">
-                                            <select required name="gender" id="gender" class="">
-                                                <option value="Mâle">Homme</option>
-                                                <option value="Femelle">Femme</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="person">
-                                        <label for="gender-two" class="left">À la recherche de</label>
-                                        <div class="custom-select right">
-                                            <select required name="gender_two" id="gender_two" class="">
-                                                <option value="Femelle">Femme</option>
-                                                <option value="Mâle">Homme</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="age">
-                                        <label for="age" class="left">Âge</label>
-                                        <div class="right d-flex justify-content-between">
-                                            <div class="custom-select">
-                                                <select required name="age_start" id="age">
-                                                    <option value="19">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
-                                                    <option value="26">26</option>
-                                                    <option value="27">27</option>
-                                                    <option value="28">28</option>
-                                                    <option value="29">29</option>
-                                                    <option value="30">30</option>
-                                                </select>
-                                            </div>
+@auth
 
-                                            <div class="custom-select">
-                                                <select required name="age_end" id="age_two">
-                                                    <option value="19">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                    <option value="21">21</option>
-                                                    <option value="22">22</option>
-                                                    <option value="23">23</option>
-                                                    <option value="24">24</option>
-                                                    <option value="25">25</option>
-                                                    <option value="26">26</option>
-                                                    <option value="27">27</option>
-                                                    <option value="28">28</option>
-                                                    <option value="29">29</option>
-                                                    <option value="30">30</option>
+    <section>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{$slide->image1}}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{$slide->image2}}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{$slide->image3}}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+@else
+
+
+
+    <section class="banner-section">
+        <div class="container">
+            <div class="section-wrapper">
+                <div class="row align-items-end">
+                    <div class="col-lg-6">
+                        <div class="banner-content">
+                            <div class="intro-form">
+                                <div class="intro-form-inner">
+                                    <h3>Présentation de Darting</h3>
+                                    <p>Ne restez plus seul à la maison Confiez-nous l'organisation de vos sorties de groupe.</p>
+                                    <form action="{{route('front.dashboard')}}" method="get" class="banner-form">
+                                        @csrf
+                                        <div class="gender">
+                                            <label for="gender" class="left">Je suis un </label>
+                                            <div class="custom-select right">
+                                                <select required name="gender" id="gender" class="">
+                                                    <option value="Mâle">Homme</option>
+                                                    <option value="Femelle">Femme</option>
                                                 </select>
                                             </div>
                                         </div>
-
-                                    </div>
-                                    <div class="city">
-                                        <label for="city" class="left">Objectif</label>
-                                        <div class="custom-select right">
-                                            <select required name="purpose" id="gender-two" class="">
-                                                <option value="Rencontres">Rencontres</option>
-                                                <option value="Relation amicale">Relation amicale</option>
-                                            </select>
+                                        <div class="person">
+                                            <label for="gender-two" class="left">À la recherche de</label>
+                                            <div class="custom-select right">
+                                                <select required name="gender_two" id="gender_two" class="">
+                                                    <option value="Femelle">Femme</option>
+                                                    <option value="Mâle">Homme</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <button class="">Trouvez votre partenaire</button>
+                                        <div class="age">
+                                            <label for="age" class="left">Âge</label>
+                                            <div class="right d-flex justify-content-between">
+                                                <div class="custom-select">
+                                                    <select required name="age_start" id="age">
+                                                        <option value="19">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                    </select>
+                                                </div>
 
-                                </form>
+                                                <div class="custom-select">
+                                                    <select required name="age_end" id="age_two">
+                                                        <option value="19">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="city">
+                                            <label for="city" class="left">Objectif</label>
+                                            <div class="custom-select right">
+                                                <select required name="purpose" id="gender-two" class="">
+                                                    <option value="Rencontres">Rencontres</option>
+                                                    <option value="Relation amicale">Relation amicale</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <button class="">Trouvez votre partenaire</button>
+
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="banner-thumb">
-                        @foreach($setting as $row)
-                        <img src="{{asset($row->banarimage)}}" alt="img">
-                        @endforeach
+                    <div class="col-lg-6">
+                        <div class="banner-thumb">
+                            @foreach($setting as $row)
+                                <img src="{{asset($row->banarimage)}}" alt="img">
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+@endauth
 <!-- ================ Banner Section end Here =============== -->
 
 
