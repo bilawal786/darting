@@ -33,6 +33,75 @@
     @yield('styles')
     <style>
 
+    /*.marginl{*/
+    /*    margin-left: 50px;*/
+    /*}*/
+        .heading {
+            font-size: 25px;
+            margin-right: 25px;
+        }
+
+        .fa {
+            font-size: 20px;
+
+        }
+
+        .checked {
+            color: orange;
+        }
+
+        /* Three column layout */
+        .side {
+            float: left;
+            width: 15%;
+            margin-top:10px;
+        }
+
+        .middle {
+            margin-top:10px;
+            float: left;
+            width: 70%;
+        }
+
+        /* Place text to the right */
+        .right {
+            text-align: right;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* The bar container */
+        .bar-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            color: white;
+        }
+
+        /* Individual bars */
+        .bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
+        .bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
+        .bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
+        .bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
+        .bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+
+        /* Responsive layout - make the columns stack on top of each other instead of next to each other */
+        @media (max-width: 400px) {
+            .side, .middle {
+                width: 100%;
+            }
+            .right {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+
         #myImg {
             border-radius: 5px;
             cursor: pointer;
@@ -198,10 +267,10 @@
             color: white;
         }
         .banner-section .section-wrapper .banner-content .intro-form::after {
-            background: url{{asset('images/banner/shape-bottom.pngxxx')}};
+            background: url{{asset('images/banner/shape-bottom.png')}};
         }
         .banner-section .section-wrapper .banner-content .intro-form::before {
-            background: url{{asset('images/banner/shape-top.pngxxx')}};
+            background: url{{asset('images/banner/shape-top.png')}};
         }
         .footer-section .footer-bottom, .bg-color, .group-item .lab-inner, .story-item, .about-item .lab-inner {
             background-color: #5b398b;
@@ -439,23 +508,18 @@
                     <div class="footer-middle-item-wrapper">
                         <div class="footer-middle-item-3 mb-lg-0">
                             <div class="fm-item-title">
-                                <h4>Useful links</h4>
+                                <h4>Notre inscription à la newsletter</h4>
                             </div>
                             <div class="fm-item-content">
-                                <ul>
-                                    <li>
-                                        <a style="color: white" href="{{route('front.function')}}">Fonctionnalités</a>
-                                    </li>
-                                    <li>
-                                        <a style="color: white" href="#">Communauté</a>
-                                    </li>
-                                    <li>
-                                        <a  style="color: white" href="{{route('front.allposts')}}">Blog</a>
-                                    </li>
-                                    <li>
-                                        <a style="color: white" href="{{route('front.contact')}}">Contact</a>
-                                    </li>
-                                </ul>
+                                <p>By subscribing to our mailing list you will always
+                                    be update with the latest news from us.</p>
+                                <form>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Enter email">
+                                    </div>
+                                    <button type="submit" class="lab-btn">Envoyer un massage <i
+                                            class="icofont-paper-plane"></i></button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -484,6 +548,8 @@
 
 
 <!-- All Scripts -->
+<script src="{{asset('maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.js')}}"></script>
 <script src=”{{asset('ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')}}”></script>
 <script src=”{{asset('js/bootstrap-star-rating/star-rating.js” type=”text/javascript')}}”></script>
@@ -500,7 +566,25 @@
 <script src="{{asset('src/plugins/src/splide/splide.min.js')}}"></script>
 <script src="{{asset('src/assets/js/apps/ecommerce-details.')}}"></script>
 
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
 
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
 <script>
     @if(Session::has('messege'))
     var type="{{Session::get('alert-type','info')}}"

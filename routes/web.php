@@ -23,7 +23,7 @@ Route::get('/front/function', 'Front\FrontendController@feature')->name('front.f
 Route::get('/contact','ContactController@index')->name('front.contact');
 Route::post('/contact','ContactController@store')->name('front.store');
 
-
+Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
 
 
 Auth::routes();
@@ -33,7 +33,8 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/subscription/buy/{id}', 'Front\FrontendController@subscriptionBuy')->name('subscription.buy');
 
-    Route::get('/dashboard', 'Front\FrontendController@dashboard')->name('front.dashboard');
+
+    Route::get('/userdashborad','Front\FrontendController@userdashborad')->name('front.userdashboard');
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity/{id}', 'Front\FrontendController@activity')->name('front.activity');
     Route::post('/activity', 'Front\FrontendController@activityStore')->name('activity.store');
@@ -106,6 +107,9 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::get('admin/blog/delete/{id}','BlogController@delete')->name('admin.blog.delete');
     Route::post('admin/blog/update/{id}','BlogController@update')->name('admin.blog.update');
     Route::get('admin/blog/edit/{id}','BlogController@edit')->name('admin.blog.edit');
+
+    Route::get('admin/slider/index','SliderController@index')->name('admin.slide.index');
+    Route::post('admin/slider/update','SliderController@update')->name('admin.slide.update');
 
 
 
