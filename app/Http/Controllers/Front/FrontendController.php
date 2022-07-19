@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\About;
 use App\Activity;
 use App\Blog;
 use App\Feature;
@@ -26,17 +27,18 @@ class FrontendController extends Controller
         $work = Work::first();
         $setting = Setting::all();
         $slide=Slider::first();
+        $about=About::first();
         $users = User::where('role', '1')->get();
         $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
-        return view('front.pages.index', compact('slide','users','work', 'blog','setting'));
+        return view('front.pages.index', compact('about','slide','users','work', 'blog','setting'));
     }
-    public function userdashborad(){
-        $work = Work::first();
-        $setting = Setting::all();
-        $users = User::where('role', '1')->get();
-        $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
-        return view('front.pages.userdashboardind', compact('users','work', 'blog','setting'));
-    }
+//    public function userdashborad(){
+//        $work = Work::first();
+//        $setting = Setting::all();
+//        $users = User::where('role', '1')->get();
+//        $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
+//        return view('front.pages.userdashboardind', compact('users','work', 'blog','setting'));
+//    }
     public function feature(){
         $feature = Feature::find(1);
         return view('front.pages.function',compact('feature'));
@@ -63,7 +65,9 @@ class FrontendController extends Controller
         $users = User::where('role', '1')->get();
         $rating =\App\Review::all();
         $activity = Activity::find($id);
-        return view('front.dashboard.activity', compact('activity','users','rating'));
+        $condition= Auth::user()->id;
+
+        return view('front.dashboard.activity', compact('activity','users','rating','condition'));
     }
     public function myProfile(){
         $user= Auth::user();

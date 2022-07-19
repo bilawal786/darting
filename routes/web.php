@@ -45,9 +45,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
-//    Route::get('/activity/rating','Front\ReviewController@create')->name('activity.rating');
+//    Route::get('/activity/rating','Front\ReviewController@store')->name('activity.rating.store');
     Route::post('/activity/rating','Front\FrontendController@rating')->name('activity.rating');
-    Route::get('/activity/rating/create','Front\FrontendController@ratingcreate')->name('activity.ratingcreate');
+//    Route::get('/activity/rating/create','Front\FrontendController@ratingcreate')->name('activity.ratingcreate');
 
 
 
@@ -110,6 +110,11 @@ Route::group(['middleware' => ['auth', 'role']], function() {
 
     Route::get('admin/slider/index','SliderController@index')->name('admin.slide.index');
     Route::post('admin/slider/update','SliderController@update')->name('admin.slide.update');
+
+    Route::get('admin/about/index','AboutController@index')->name('admin.about.index');
+    Route::post('admin/about/update','AboutController@update')->name('admin.about.index');
+
+
 
 
 

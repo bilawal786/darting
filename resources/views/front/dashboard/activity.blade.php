@@ -206,10 +206,12 @@
                                 <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="nav-photos-tab">
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
+{{--                                    @if(!$activity)--}}
 
+                                <section class="section mt-5">
                                     <div class="row">
                                         <div class="col-6">
-                                            <span class="heading">User Rating</span>
+                                            <span class="heading" >User Rating</span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
                                             <span class="fa fa-star checked"></span>
@@ -276,15 +278,15 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
+{{--                                        @else--}}
+                                        @foreach($rating as $row)
                                         <div class="col-md-6">
-                                            <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto;  align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
+                                            <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto; margin-top: 60px; align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
                                                 <div class="col-3">
-                                                    <img style="height: 100px; border-radius: 50%" src="../assets/images/download.png" alt="">
+                                                    <img style="height: 100px; border-radius: 50%" src="{{asset($row->user->profile_picture)}}" alt="">
                                                 </div>
                                                 <div class="col-9">
-                                                    <h5>User name</h5>
+                                                    <h5>{{$row->user->fname}}{{$row->user->lname}}</h5>
                                                     <div style="float: left">
                                                         <i class="fa fa-star checked "></i>
                                                         <i class="fa fa-star checked"></i>
@@ -292,13 +294,50 @@
                                                         <i class="fa fa-star checked"></i>
                                                         <i class="fa fa-star"></i>
                                                     </div>
-                                                    </div>
-                                                <p class="mt-4">Lorem ipsem till amet Lorem ipsem till amet Lorem ipsem till amet Lorem ipsem till amet Lorem ipsem till amet </p>
-
                                                 </div>
+                                                <p class="mt-4">{{$row->comment}} </p>
                                             </div>
                                         </div>
-                                </div>
+                                        @endforeach
+                                    </div>
+                                </section>
+                             <section>
+
+                                 <div class="row">
+                                     <div class="col-md-6">
+                                         <h3>Review</h3>
+                                         <form action="{{route('activity.rating')}}" method="post"  accept-charset="UTF-8" enctype="multipart/form-data">
+                                             @csrf
+
+                                             <div class="txt-center">
+                                                 <div class="rating">
+                                                     <input type="hidden" value="{{$activity->id}}" name="activity_id" />
+                                                     <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
+                                                     <label for="star5"><i class='fa fa-star fa-fw'></i></label>
+                                                     <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                                     <label for="star4"><i class='fa fa-star fa-fw'></i></label>
+                                                     <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                                     <label for="star3"><i class='fa fa-star fa-fw'></i></label>
+                                                     <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                                     <label for="star2"><i class='fa fa-star fa-fw'></i></label>
+                                                     <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                                     <label for="star1"><i class='fa fa-star fa-fw '></i></label>
+                                                     <div class="clear"></div>
+                                                 </div>
+
+                                                 <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white">
+                                                                    </textarea>
+                                                 <button type="submit" class="btn btn-primary" style="width: 100%" >Poster le commentaire</button>
+                                             </div>
+                                         </form>
+                                     </div>
+                                          </div>
+
+                             </section>
+
+
+{{--                                        @endif--}}
+                    </div>
                             </div>
                         </div>
                     </div>

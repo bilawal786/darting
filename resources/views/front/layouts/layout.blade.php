@@ -39,10 +39,12 @@
         .heading {
             font-size: 25px;
             margin-right: 25px;
+
         }
 
         .fa {
             font-size: 20px;
+
 
         }
 

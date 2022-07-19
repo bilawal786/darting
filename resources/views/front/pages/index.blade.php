@@ -3,7 +3,9 @@
 <!-- ================ Banner Section start Here =============== -->
 @auth
 
-    <section>
+    <section class="banner-section">
+        <div class="container">
+
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -24,7 +26,8 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        </div>
+                </div>
+            </div>
 
     </section>
 @else
@@ -172,8 +175,9 @@
 <section class="about-section padding-tb bg-img">
     <div class="container">
         <div class="section-header">
-            <h4>À propos de nos fléchettes</h4>
-            <h2>Tout commence par un rendez-vous</h2>
+
+            <h4>{{$about->title1}}</h4>
+            <h2>{{$about->title2}}</h2>
         </div>
         <div class="section-wrapper">
             <div class="row justify-content-center g-4">
@@ -184,7 +188,7 @@
                                 <img src="assets/images/about/01.png" alt="img">
                             </div>
                             <div class="lab-content">
-                                <h2 class="counter">29,991</h2>
+                                <h2 class="counter">{{$about->count1}}</h2>
                                 <p>Membres au total</p>
                             </div>
                         </div>
@@ -197,7 +201,7 @@
                                 <img src="assets/images/about/02.png" alt="img">
                             </div>
                             <div class="lab-content">
-                                <h2 class="counter">29,960</h2>
+                                <h2 class="counter">{{$about->count2}}</h2>
                                 <p>Membres en ligne</p>
                             </div>
                         </div>
@@ -210,7 +214,7 @@
                                 <img src="assets/images/about/03.png" alt="img">
                             </div>
                             <div class="lab-content">
-                                <h2 class="counter">29,960</h2>
+                                <h2 class="counter">{{$about->count3}}</h2>
                                 <p>Hommes en ligne</p>
                             </div>
                         </div>
@@ -223,7 +227,7 @@
                                 <img src="assets/images/about/04.png" alt="img">
                             </div>
                             <div class="lab-content">
-                                <h2 class="counter">28,960</h2>
+                                <h2 class="counter">{{$about->count4}}</h2>
                                 <p>Femmes en ligne</p>
                             </div>
                         </div>

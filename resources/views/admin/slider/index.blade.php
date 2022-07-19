@@ -9,8 +9,8 @@
                 <div class="page-meta">
                     <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Slider</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Create</li>
+                            <li class="breadcrumb-item"><a href="#">Glissière</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Créer</li>
                         </ol>
                     </nav>
                 </div>
@@ -48,7 +48,7 @@
 
                                                 </div>
                                                 <div class="col-xxl-12 col-sm-4 col-12 mx-auto">
-                                                    <button class="btn btn-success w-100">Mise à jour partie travail </button>
+                                                    <button class="btn btn-success w-100">Mettre à jour le curseur </button>
                                                 </div>
                                             </div>
                                         </div>
