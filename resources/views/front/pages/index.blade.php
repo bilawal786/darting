@@ -2,10 +2,7 @@
 @section('content')
 <!-- ================ Banner Section start Here =============== -->
 @auth
-
-    <section class="banner-section">
-        <div class="container">
-
+    <div style="padding-top: 200px" class="banner-section page-header-section login-section" >
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -28,12 +25,7 @@
             </button>
                 </div>
             </div>
-
-    </section>
 @else
-
-
-
     <section class="banner-section">
         <div class="container">
             <div class="section-wrapper">
