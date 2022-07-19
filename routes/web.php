@@ -45,7 +45,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
-//    Route::get('/activity/rating','Front\ReviewController@store')->name('activity.rating.store');
+    Route::get('/activity/rating','Front\ReviewController@store')->name('activity.rating.store');
     Route::post('/activity/rating','Front\FrontendController@rating')->name('activity.rating');
 //    Route::get('/activity/rating/create','Front\FrontendController@ratingcreate')->name('activity.ratingcreate');
 

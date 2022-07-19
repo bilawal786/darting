@@ -52,13 +52,11 @@
                                         </a>
                                     </li>
                                 </ul>
-
                             </div>
                         </div>
                         <div class="profile-details">
                             <nav class="profile-nav">
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-
                                     <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab"
                                             data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
                                             aria-selected="false">Informations</button>
@@ -74,11 +72,9 @@
                                     <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                             data-bs-target="#reviews" type="button" role="tab" aria-controls="photos"
                                             aria-selected="false">Examen</button>
-
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
-
                                 <!-- Profile tab -->
                                 <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                     <div>
@@ -186,7 +182,6 @@
                                                     <div class="lab-content w-100">
                                                         <form action="">
                                                             <div class="row">
-
                                                                 <div class="col-md-6">
                                                                     @if(Auth::user()->hasSubscription())
                                                                     <a href="{{route('activity.apply.part', ['id' => $activity->id])}}" style="width: 100%" class="btn btn-primary"> Vous voulez participer ?</a>
@@ -206,138 +201,157 @@
                                 <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="nav-photos-tab">
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
-{{--                                    @if(!$activity)--}}
-
-                                <section class="section mt-5">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <span class="heading" >User Rating</span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <p>4.1 average based on 254 reviews.</p>
-                                            <hr style="border:3px solid #f1f1f1">
-
-                                            <div class="row">
-                                                <div class="side">
-                                                    <div>5 star</div>
-                                                </div>
-                                                <div class="middle">
-                                                    <div class="bar-container">
-                                                        <div class="bar-5"></div>
+                                    <section class="section mt-5">
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-12">
+                                                <span class="heading" >Note de l'utilisateur</span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+{{--                                                @elseif({{$rating->where('star', '3')->count()}})--}}
+                                                <p>{{$star4}} moyenne basée sur {{$rating->count()}} Commentaires.</p>
+                                                <hr style="border:3px solid #f1f1f1">
+                                                <div class="row">
+                                                    <div class="side">
+                                                        <div>5 star</div>
+                                                    </div>
+                                                    <div class="middle">
+                                                        <div class="bar-container">
+                                                            <div class="bar-5" style="width: {{$rating->where('star', '5')->count()}}%; height: 18px; background-color: #04AA6D;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div>{{$rating->where('star', '5')->count()}}</div>
+                                                    </div>
+                                                    <div class="side">
+                                                        <div>4 star</div>
+                                                    </div>
+                                                    <div class="middle">
+                                                        <div class="bar-container">
+                                                            <div class="bar-4" style="width: {{$rating->where('star', '4')->count()}}%; height: 18px; background-color: #2196F3;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div>{{$rating->where('star', '4')->count()}}</div>
+                                                    </div>
+                                                    <div class="side">
+                                                        <div>3 star</div>
+                                                    </div>
+                                                    <div class="middle">
+                                                        <div class="bar-container">
+                                                            <div class="bar-3" style="width: {{$rating->where('star', '3')->count()}}%; height: 18px; background-color: #00bcd4;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div>{{$rating->where('star', '3')->count()}}</div>
+                                                    </div>
+                                                    <div class="side">
+                                                        <div>2 star</div>
+                                                    </div>
+                                                    <div class="middle">
+                                                        <div class="bar-container">
+                                                            <div class="bar-2" style="width: {{$rating->where('star', '2')->count()}}%; height: 18px; background-color: #ff9800;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div>{{$rating->where('star', '2')->count()}}</div>
+                                                    </div>
+                                                    <div class="side">
+                                                        <div>1 star</div>
+                                                    </div>
+                                                    <div class="middle">
+                                                        <div class="bar-container">
+                                                            <div class="bar-1" style="width: {{$rating->where('star', '1')->count()}}%; height: 18px; background-color: #f44336;"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="side right">
+                                                        <div>{{$rating->where('star', '1')->count()}}</div>
                                                     </div>
                                                 </div>
-                                                <div class="side right">
-                                                    <div>150</div>
-                                                </div>
-                                                <div class="side">
-                                                    <div>4 star</div>
-                                                </div>
-                                                <div class="middle">
-                                                    <div class="bar-container">
-                                                        <div class="bar-4"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="side right">
-                                                    <div>63</div>
-                                                </div>
-                                                <div class="side">
-                                                    <div>3 star</div>
-                                                </div>
-                                                <div class="middle">
-                                                    <div class="bar-container">
-                                                        <div class="bar-3"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="side right">
-                                                    <div>15</div>
-                                                </div>
-                                                <div class="side">
-                                                    <div>2 star</div>
-                                                </div>
-                                                <div class="middle">
-                                                    <div class="bar-container">
-                                                        <div class="bar-2"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="side right">
-                                                    <div>6</div>
-                                                </div>
-                                                <div class="side">
-                                                    <div>1 star</div>
-                                                </div>
-                                                <div class="middle">
-                                                    <div class="bar-container">
-                                                        <div class="bar-1"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="side right">
-                                                    <div>20</div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <br>
+                                                    <h3>Ajoutez votre avis</h3>
+                                                    <form action="{{route('activity.rating')}}" method="post"  accept-charset="UTF-8" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="txt-center">
+                                                            <div class="rating">
+                                                                <input type="hidden" value="{{$activity->id}}" name="activity_id" />
+                                                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
+                                                                <label for="star5"><i class='fa fa-star fa-fw'></i></label>
+                                                                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                                                <label for="star4"><i class='fa fa-star fa-fw'></i></label>
+                                                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                                                <label for="star3"><i class='fa fa-star fa-fw'></i></label>
+                                                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                                                <label for="star2"><i class='fa fa-star fa-fw'></i></label>
+                                                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                                                <label for="star1"><i class='fa fa-star fa-fw '></i></label>
+                                                                <div class="clear"></div>
+                                                            </div>
+                                                            <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white">
+                                                                    </textarea>
+                                                            <button type="submit" class="btn btn-primary" style="width: 100%" >Poster le commentaire</button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-{{--                                        @else--}}
-                                        @foreach($rating as $row)
                                         <div class="col-md-6">
                                             <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto; margin-top: 60px; align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
-                                                <div class="col-3">
-                                                    <img style="height: 100px; border-radius: 50%" src="{{asset($row->user->profile_picture)}}" alt="">
-                                                </div>
-                                                <div class="col-9">
-                                                    <h5>{{$row->user->fname}}{{$row->user->lname}}</h5>
-                                                    <div style="float: left">
-                                                        <i class="fa fa-star checked "></i>
-                                                        <i class="fa fa-star checked"></i>
-                                                        <i class="fa fa-star checked"></i>
-                                                        <i class="fa fa-star checked"></i>
-                                                        <i class="fa fa-star"></i>
+                                                @foreach($rating as $row)
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-3">
+                                                            @if($row->user->profile_picture != null)
+                                                                <img style="height: 100px; border-radius: 50%" src="{{asset($row->user->profile_picture)}}" alt="">
+                                                            @else
+                                                                <img  style="height: 100px; border-radius: 50%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-9">
+                                                            <h5>{{$row->user->fname}}{{$row->user->lname}}</h5>
+                                                            <div style="float: left">
+                                                                @if($row->star == 1)
+                                                                <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                @elseif($row->star==3)
+                                                                <i class="fa fa-star checked"></i>
+                                                                <i class="fa fa-star checked"></i>
+                                                                <i class="fa fa-star checked"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                 <i class="fa fa-star"></i>
+                                                                    @elseif($row->star==4)
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    @elseif($row->star==5)
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                        <p class="mt-4">{{$row->comment}} </p>
                                                     </div>
                                                 </div>
-                                                <p class="mt-4">{{$row->comment}} </p>
+                                                @endforeach
                                             </div>
                                         </div>
-                                        @endforeach
                                     </div>
                                 </section>
-                             <section>
-
-                                 <div class="row">
-                                     <div class="col-md-6">
-                                         <h3>Review</h3>
-                                         <form action="{{route('activity.rating')}}" method="post"  accept-charset="UTF-8" enctype="multipart/form-data">
-                                             @csrf
-
-                                             <div class="txt-center">
-                                                 <div class="rating">
-                                                     <input type="hidden" value="{{$activity->id}}" name="activity_id" />
-                                                     <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
-                                                     <label for="star5"><i class='fa fa-star fa-fw'></i></label>
-                                                     <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
-                                                     <label for="star4"><i class='fa fa-star fa-fw'></i></label>
-                                                     <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-                                                     <label for="star3"><i class='fa fa-star fa-fw'></i></label>
-                                                     <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-                                                     <label for="star2"><i class='fa fa-star fa-fw'></i></label>
-                                                     <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-                                                     <label for="star1"><i class='fa fa-star fa-fw '></i></label>
-                                                     <div class="clear"></div>
-                                                 </div>
-
-                                                 <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white">
-                                                                    </textarea>
-                                                 <button type="submit" class="btn btn-primary" style="width: 100%" >Poster le commentaire</button>
-                                             </div>
-                                         </form>
-                                     </div>
-                                          </div>
-
-                             </section>
-
-
-{{--                                        @endif--}}
-                    </div>
+                                 </div>
                             </div>
                         </div>
                     </div>

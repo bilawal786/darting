@@ -63,11 +63,15 @@ class FrontendController extends Controller
     public function activity($id){
         $id = base64_decode($id);
         $users = User::where('role', '1')->get();
-        $rating =\App\Review::all();
+        $rating = Review::where('activity_id',$id)->get();
         $activity = Activity::find($id);
-        $condition= Auth::user()->id;
-
-        return view('front.dashboard.activity', compact('activity','users','rating','condition'));
+        $total=Review::count();
+        $star5= (Review::where('star','=','5')->where('activity_id','=',$id)->count()/$total)*100;
+        $star4= (Review::where('star','=','4')->where('activity_id','=',$id)->count()/$total)*100;
+        $star3= (Review::where('star','=','3')->where('activity_id','=',$id)->count()/$total)*100;
+        $star2= (Review::where('star','=','2')->where('activity_id','=',$id)->count()/$total)*100;
+        $star1= (Review::where('star','=','1')->where('activity_id','=',$id)->count()/$total)*100;
+        return view('front.dashboard.activity', compact('activity','users','rating','star5','star4','star3','star2','star1',));
     }
     public function myProfile(){
         $user= Auth::user();

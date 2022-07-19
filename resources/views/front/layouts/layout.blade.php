@@ -84,13 +84,16 @@
             text-align: center;
             color: white;
         }
+        .slide-bar{
+            margin-top: 10px;
+        }
 
         /* Individual bars */
-        .bar-5 {width: 60%; height: 18px; background-color: #04AA6D;}
-        .bar-4 {width: 30%; height: 18px; background-color: #2196F3;}
-        .bar-3 {width: 10%; height: 18px; background-color: #00bcd4;}
-        .bar-2 {width: 4%; height: 18px; background-color: #ff9800;}
-        .bar-1 {width: 15%; height: 18px; background-color: #f44336;}
+        .bar-5 {}
+        .bar-4 {}
+        .bar-3 {}
+        .bar-2 {}
+        .bar-1 {}
 
         /* Responsive layout - make the columns stack on top of each other instead of next to each other */
         @media (max-width: 400px) {
@@ -102,6 +105,7 @@
             }
         }
     </style>
+
     <style>
 
         #myImg {
