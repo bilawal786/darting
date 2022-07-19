@@ -14,7 +14,7 @@ class AddPaidToPlansTable extends Migration
     public function up()
     {
         Schema::table('plans', function (Blueprint $table) {
-            $table->string('user_id')->default('monthly')->after('description');
+            $table->string('duration')->default('monthly')->after('description');
         });
     }
 
@@ -26,7 +26,7 @@ class AddPaidToPlansTable extends Migration
     public function down()
     {
         Schema::table('plans', function (Blueprint $table) {
-            $table->string('user_id')->default('monthly')->after('description');
+            $table->string('duration')->default('monthly')->after('description');
         });
     }
 
