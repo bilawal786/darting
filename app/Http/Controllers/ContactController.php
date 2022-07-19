@@ -15,7 +15,6 @@ class ContactController extends Controller
      */
     public function index()
     {
-
         $setting =Setting::all();
         return view('front.pages.contact',compact('setting'));
     }

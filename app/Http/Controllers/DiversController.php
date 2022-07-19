@@ -15,20 +15,16 @@ class DiversController extends Controller
 
     public function edit($id)
     {
-
         $divers = Divers::find($id);
-
         return view('admin.divers.edit', compact('divers'));
     }
 
     public function create()
     {
-
         return view('admin.divers.create');
     }
     public function store(Request $request)
     {
-
         $divers = new Divers();
         $divers->name = $request->name;
         if ($request->hasfile('image')) {

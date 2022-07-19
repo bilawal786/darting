@@ -30,18 +30,17 @@ class SettingSeeder extends Seeder
             'name' => 'Forfait Premium 1',
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     ',      'price' => 10,
+            'duration' => 'Par Mois',
+            'plan' => 'price_1LN9jLD7gIuku9edhjpvQbZG',
         ]);
         \App\Plan::create([
             'name' => 'Forfait Premium 2',
             'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
     ',
             'price' => 20,
+            'duration' => 'Par an',
+            'plan' => 'price_1LN9kBD7gIuku9edmYz2g12v',
         ]);
-        \App\Plan::create([
-            'name' => 'Forfait Premium 3',
-            'description' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-    ',
-            'price' => 30,
-        ]);
+
     }
 }

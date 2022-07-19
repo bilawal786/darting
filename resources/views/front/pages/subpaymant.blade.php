@@ -5,17 +5,36 @@
     <!-- ==========login Section start Here========== -->
     <div class="page-header-section style-1 login-section padding-tb">
         <div class=" container">
-            @foreach($subscriptions as $subscription)
-            <div class="account-wrapper" style="max-width: 1000px">
-                <h3 class="title">{{$subscription->name}}</h3>
-                <h6 class="title">{{$subscription->description}}</h6>
-                <h1 class="title">{{$subscription->price}} €  <small style="font-size: 20px">/ {{$subscription->duration}}</small></h1>
-                <div class="form-group">
-                    <a style="width: 100%" class="d-block lab-btn" href="{{route('front.subscription.paymant',['id'=>$subscription->id])}}"><span>Acheter maintenant</span></a>
 
+                <div class="account-wrapper" style="max-width: 1000px">
+                    <h3 class="title">{{$subscription->name}}</h3>
+                    <h6 class="title">{{$subscription->description}}</h6>
+                    <h1 class="title">{{$subscription->price}} €  <small style="font-size: 20px">/ {{$subscription->duration}}</small></h1>
+                    <div class="form-group">
+                        <form method="POST" action="{{ route('subscription.buy',['id'=>$subscription->id]) }}" id="payment-form" data-secret="{{$intent->client_secret}}" class="paymentformsubmit" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="key" value="{{$subscription->plan}}">
+                            <input type="hidden" name="price" value="{{$subscription->price}}">
+
+                            <div class="input_group">
+                                <label for="card-holder-name" class="margin-t-20" style="font-size: 15px;"> <strong>Nom du titulaire</strong> <strong style="color: red;">*</strong></label>
+                                <input type="text" id="card-holder-name" name="card_holder_name" class="form-control"  placeholder="Nom du titulaire">
+
+                            </div>
+
+                            <div class="form-group input-lined">
+                                <div class="form-group stripe-payment-method-div">
+                                    <div id="card-element"></div>
+                                    <div id="card-errors" class="text-danger" role="alert"></div>
+                                </div>
+                                <label for="description" class="margin-t-20" style="font-size: 15px;"> </label><br>
+
+                            </div>
+                            <button id="card-button" style="width: 100%" class="d-block lab-btn"><span>Acheter maintenant</span></button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            @endforeach
+
         </div>
     </div>
     <!-- ==========Login Section ends Here========== -->
@@ -66,7 +85,7 @@
 
         });
         var form = document.getElementById('payment-form');
-           console.log(form);
+        console.log(form);
         var clientSecret = form.dataset.secret;
         const cardHolderName = document.getElementById('card-holder-name');
         form.addEventListener('submit', async function(event) {

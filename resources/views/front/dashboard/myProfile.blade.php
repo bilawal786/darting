@@ -4,6 +4,9 @@
     <link href="/wizard/css/style.css" rel="stylesheet">
     <link href="/wizard/css/vendors.css" rel="stylesheet">
     <style>
+        a{
+            color: white!important;
+        }
         #left_form {
             background-color: #df314d;
         }
@@ -287,22 +290,86 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-xl-8">
-                                                <div
-                                                    class="row">
+                                                <div class="row">
                                                     @foreach($user->photos as $photo)
-                                                    @if($photo)
-                                                        <div class="col-md-4">
-                                                            <div class="gallery-img">
-                                                                <img id="myImg" src="{{asset($photo->image)}}" alt="image" class="rounded">
+                                                        @if($photo)
+                                                    <div class="post-item mb-20">
+                                                        <!-- post-content -->
+                                                        <div class="post-content">
+                                                            <!-- post-author -->
+                                                            <div class="post-author">
+                                                                <div class="post-author-inner">
+                                                                    <div class="author-thumb">
+                                                                        <img src="{{asset($user->profile_picture)}}" alt="img">
+                                                                    </div>
+                                                                    <div class="author-details">
+                                                                        <h6><a href="#">{{$user->fname .' '. $user->lname}}</a></h6>
+                                                                        <ul class="post-status">
+                                                                            <li class="post-privacy"><i class="icofont-world"></i>
+                                                                                Publique</li>
+                                                                            <li class="post-time">
+                                                                                <?php
+                                                                                \Carbon\Carbon::setLocale('fr');
+                                                                                $date = \Carbon\Carbon::parse($photo->created_at);
+                                                                                ?>
+                                                                                 {{$date->diffForHumans()}}
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- post-description -->
+                                                            <div class="post-description">
+                                                                <p>{{$photo->description}}
+
+                                                                </p>
+                                                                <div class="post-desc-img">
+                                                                    <div class="row g-3">
+                                                                        <div class="col-md-6">
+                                                                            @if($photo->image)
+                                                                            <img src="{{asset($photo->image)}}" alt="img">
+                                                                            @else
+                                                                                <img src="{{asset('assets/images/profile/dp.png')}}" alt="img">
+                                                                            @endif
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    @endif
-                                                    @endforeach
-                                                        <div id="myModal" class="modal">
-                                                            <span class="close">&times;</span>
-                                                            <img id="img01" class="modal-content"  src="">
-                                                            <div id="caption"></div>
+                                                        <!-- post meta -->
+                                                        <div class="post-meta">
+                                                            <div class="post-meta-top">
+                                                                <p><a href="#"><i class="icofont-like"></i> <i class="icofont-heart"></i> <i class="icofont-laughing"></i>
+                                                                        <span>Julia,
+                                                                                    Petrova and 306 like this</span></a>
+                                                                </p>
+                                                                <p>
+                                                                    <a href="#">136 Comments</a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="post-meta-bottom">
+                                                                <ul class="react-list">
+                                                                    @php $like = \App\Like::where('user_id','=',$user->id)->where('post_id','=',$photo->id)->where('is_dislike','=',0)->first();@endphp
+                                                                    <li class="react">
+                                                                        @if($like)
+                                                                            <a style="color: red!important;"   onclick="myfunction({{$photo->id}},1)" href=""><i class="icofont-like like"></i>
+                                                                                Like</a> </li>
+                                                                        @else
+                                                                        <a   onclick="myfunction({{$photo->id}},0)" href=""><i class="icofont-like like"></i>
+                                                                            Like</a> </li>
+                                                                       @endif
+                                                                    <li class="react"><a href="#">
+                                                                            <i class="icofont-speech-comments"></i>
+                                                                            Comment
+                                                                        </a></li>
+
+                                                                </ul>
+                                                            </div>
                                                         </div>
+                                                    </div>
+                                                        @endif
+                                                    @endforeach
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
@@ -317,12 +384,16 @@
                                                                 <div class="widget-content">
                                                                     <div class="interest">
                                                                         <div >
-                                                                            <p style="text-align: left" >Image</p>
-                                                                            <input class="form-control" type="file" name="image" >
+                                                                            <p style="text-align: left" >Image <b style="color: red;font-size: 20px;">*</b></p>
+                                                                            <input class="form-control" type="file" name="image" required>
+                                                                        </div>
+                                                                        <div >
+                                                                            <p style="text-align: left" >Description <b style="color: red;font-size: 20px;">*</b></p>
+                                                                            <textarea name="description"  id="role" cols="30" class="form-control" rows="8" placeholder="Description" required></textarea>
                                                                         </div>
                                                                     </div>
                                                                     <br>
-                                                                    <input style="width: 100%"  id="inputButtonc" type="submit" value="Envoyer la photo" class="btn btn-primary">
+                                                                    <input style="width: 100%"  id="inputButtonc" type="submit" value="Poste" class="btn btn-primary">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -331,6 +402,7 @@
 
                                             </div>
                                         </div>
+
                                     </div>
                                     <!-- Photos Tab -->
                                     <div class="tab-pane activity-page fade" id="photos" role="tabpanel">
@@ -584,6 +656,31 @@
 
     <!-- Wizard script with branch -->
     <script src="/wizard/js/wizard_with_branch.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+
+        function myfunction(id,val){
+
+            $.ajax({
+                method:"GET",
+                url: "{{url('/userlike')}}/"+id+"/"+val,
+                async: false,
+                success : function(response) {
+                    console.log(response);
+                   if(response){
+
+                        $('#category_id').append('<option value="'+item.id+'">'+item.title+'</option>');
+                    }
+
+                },
+                error: function() {
+                    $('#option').html('<option value="">Catégorie non disponible</option>');
+                }
+            });
+
+        }
+    </script>
     <script>
         document.getElementById("profileImage").onchange = function() {
             document.getElementById("autoFormSUbmit").submit();

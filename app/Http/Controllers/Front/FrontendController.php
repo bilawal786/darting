@@ -161,10 +161,15 @@ class FrontendController extends Controller
         return redirect()->back()->with($notification);
     }
     public function subscriptions(){
-        $user = Auth::user();
+
         $subscriptions = Plan::all();
+        return view('front.pages.subscriptions', compact('subscriptions'));
+    }
+    public function subscriptionPaymant($id){
+        $user = Auth::user();
+        $subscription = Plan::find($id);
         $intent = $user->createSetupIntent();
-        return view('front.pages.subscriptions', compact('subscriptions','intent'));
+        return view('front.pages.subpaymant', compact('subscription','intent'));
     }
     public function subscriptionBuy(Request $request,$id){
         $user= Auth::user();

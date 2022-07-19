@@ -15,6 +15,7 @@ class AddPaidToPlansTable extends Migration
     {
         Schema::table('plans', function (Blueprint $table) {
             $table->string('duration')->default('monthly')->after('description');
+            $table->string('plan')->nullable()->after('duration');
         });
     }
 
@@ -27,6 +28,7 @@ class AddPaidToPlansTable extends Migration
     {
         Schema::table('plans', function (Blueprint $table) {
             $table->string('duration')->default('monthly')->after('description');
+            $table->string('plan')->nullable()->after('duration');
         });
     }
 

@@ -17,6 +17,7 @@ Route::get('/', 'Front\FrontendController@index')->name('front.index');
 Route::get('/allposts','Front\FrontendController@allposts')->name('front.allposts');
 Route::get('/blogindex/{id}','Front\FrontendController@blogindex')->name('front.blogindex');
 Route::get('/subscriptions', 'Front\FrontendController@subscriptions')->name('front.subscriptions');
+Route::get('/subscription/paymant/{id}', 'Front\FrontendController@subscriptionPaymant')->name('front.subscription.paymant');
 Route::get('/front/function', 'Front\FrontendController@feature')->name('front.function');
 
 
@@ -59,6 +60,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/user/update','Front\UserController@update')->name('user.update');
     Route::post('/profile/image','Front\UserController@profileImage')->name('profile.image');
     Route::post('/user/image/post','Front\UserController@imagePost')->name('user.image.post');
+
+    Route::get('/userlike/{id}/{val}','Front\UserController@liker')->name('userlike');
+
+
+
 });
 
 Route::group(['middleware' => ['auth', 'role']], function() {
@@ -122,6 +128,13 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::post('admin/work/update','WorkController@update')->name('admin.work.update');
 
     Route::get('admin/contact/index','ContactController@index2')->name('admin.contact.index');
+
+
+    //Plans
+    Route::get('/admin/plans','Admin\FrontController@adminPlans')->name('admin.plans');
+    Route::get('/admin/plans/edit/{id}','Admin\FrontController@adminPlansEdit')->name('admin.plans.edit');
+    Route::post('/admin/plans/update/{id}','Admin\FrontController@adminPlansUpdate')->name('admin.plans.update');
+
 
 
 

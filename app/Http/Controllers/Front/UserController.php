@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Front;
+
 use App\Divers;
+
 use App\Jeux;
+use App\Like;
 use App\Photo;
 use App\Question;
 use App\Sorties;
@@ -16,26 +19,27 @@ use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 
 {
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
-        $user=Auth::user();
-        if ($request->fname){
-            $user->fname=$request->fname;
+        $user = Auth::user();
+        if ($request->fname) {
+            $user->fname = $request->fname;
         }
-        if ($request->lname){
-            $user->lname=$request->lname;
+        if ($request->lname) {
+            $user->lname = $request->lname;
         }
-       if ($request->phone){
-           $user->phone=$request->phone;
-       }
-       if ($request->city){
-           $user->city=$request->city;
-       }
-        if ($request->country){
-            $user->country=$request->country;
+        if ($request->phone) {
+            $user->phone = $request->phone;
         }
-        if ($request->description){
-            $user->about=$request->description;
+        if ($request->city) {
+            $user->city = $request->city;
+        }
+        if ($request->country) {
+            $user->country = $request->country;
+        }
+        if ($request->description) {
+            $user->about = $request->description;
         }
         if ($request->hasfile('picture2')) {
             $image1 = $request->file('picture2');
@@ -65,34 +69,34 @@ class UserController extends Controller
             $image1->move($destinationPath, $name);
             $user->picture5 = 'images/' . $name;
         }
-        if ($request->question1){
+        if ($request->question1) {
             $user->question1 = $request->question1;
         }
-        if ($request->question2){
+        if ($request->question2) {
             $user->question2 = $request->question2;
         }
-        if ($request->question3){
+        if ($request->question3) {
             $user->question3 = $request->question3;
         }
-        if ($request->question4){
+        if ($request->question4) {
             $user->question4 = $request->question4;
         }
-        if ($request->question5){
+        if ($request->question5) {
             $user->question5 = $request->question5;
         }
-        if ($request->question6){
+        if ($request->question6) {
             $user->question6 = $request->question6;
         }
-        if ($request->question7){
+        if ($request->question7) {
             $user->question7 = $request->question7;
         }
-        if ($request->question8){
+        if ($request->question8) {
             $user->question8 = $request->question8;
         }
-        if ($request->question9){
+        if ($request->question9) {
             $user->question9 = $request->question9;
         }
-        if ($request->question10){
+        if ($request->question10) {
             $user->question10 = $request->question10;
         }
         $user->save();
@@ -103,8 +107,10 @@ class UserController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
-    public function profileImage(Request $request){
-        $user=Auth::user();
+
+    public function profileImage(Request $request)
+    {
+        $user = Auth::user();
         if ($request->hasfile('profileImage')) {
             $image1 = $request->file('profileImage');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
@@ -127,9 +133,12 @@ class UserController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
-    public function imagePost(Request $request){
+
+    public function imagePost(Request $request)
+    {
         $image = new Photo();
         $image->user_id = Auth::user()->id;
+        $image->description = $request->description;
         if ($request->hasfile('image')) {
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
@@ -140,7 +149,7 @@ class UserController extends Controller
         $image->save();
 
         $notification = array(
-            'messege' => 'Successfully Updated!',
+            'messege' => 'Successfully Added Post!',
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);
@@ -148,19 +157,39 @@ class UserController extends Controller
 
     public function index()
     {
-        $user=User::where('role', '=', 1)->get();
-        return view('admin.users.index',compact('user'));
+        $user = User::where('role', '=', 1)->get();
+        return view('admin.users.index', compact('user'));
 
     }
+
     public function userview($id)
     {
-        $question=Question::all();
-        $user=User::find($id);
-        $juex=Jeux::all();
-        $divers=Divers::all();
-        $sports=Sport::all();
+        $question = Question::all();
+        $user = User::find($id);
+        $juex = Jeux::all();
+        $divers = Divers::all();
+        $sports = Sport::all();
         $sortie = Sorties::all();
-        return view('admin.users.userview',compact('user','sortie','juex','divers','sports','question'));
+        return view('admin.users.userview', compact('user', 'sortie', 'juex', 'divers', 'sports', 'question'));
     }
+
+    public function liker($id, $val)
+    {
+
+        $check = Like::where('post_id', '=', $id)->where('user_id', '=', $val)->first();
+        if ($check) {
+            $like = Like::where('post_id', '=', $id)->where('user_id', '=', $val)->first();
+            $like->is_dislike = $val;
+            $like->update();
+        } else {
+            $like = new Like();
+            $like->user_id = Auth::user()->id;
+            $like->post_id = $id;
+            $like->is_dislike = $val;
+            $like->save();
+        }
+        return response()->json($like);
+    }
+
 
 }
