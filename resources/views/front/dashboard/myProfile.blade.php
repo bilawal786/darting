@@ -391,10 +391,11 @@
                                                         <!-- post meta -->
                                                         <div class="post-meta">
                                                             <div class="post-meta-top">
-                                                                <p><a href="#"><i class="icofont-like" style="color: red"></i> <i class="icofont-heart" style="color: red"></i> </i>
+                                                                <p><a href="#">
+{{--                                                                        <i class="icofont-like" style="color: red"></i> --}}
                                                                         @php $likeCount = \App\Like::where('post_id','=',$photo->id)->where('is_dislike','=',0)->count();@endphp
-                                                                        <span id="likecounter1">{{$likeCount}} Comme ça</span>
-                                                                        <span id="likecounter2" style="display: none"></span>
+                                                                        <span id="likecounter1{{$photo->id}}">{{$likeCount}} Comme ça</span>
+                                                                        <span id="likecounter2{{$photo->id}}" style="display: none"></span>
                                                                     </a>
                                                                 </p>
                                                                 @php $comment = \App\Comments::where('post_id','=',$photo->id)->get(); @endphp
@@ -408,10 +409,10 @@
                                                                     @php $like = \App\Like::where('user_id','=',$user->id)->where('post_id','=',$photo->id)->where('is_dislike','=',0)->first();@endphp
                                                                     <li class="react " id="addLike{{$photo->id}}">
                                                                         @if($like)
-                                                                            <a   onclick="unlike({{$photo->id}})" href="#"  id="unlike{{$photo->id}}"><i class="icofont-like like"  style="color: red!important;" ></i>
+                                                                            <a   onclick="unlike({{$photo->id}})"  id="unlike{{$photo->id}}"><i class="icofont-like like"  style="color: red!important;" ></i>
                                                                                 Like</a>
                                                                         @else
-                                                                        <a class="userLike" onclick="like({{$photo->id}})" href="#" id="like{{$photo->id}}" ><i  class="icofont-like like"></i>
+                                                                        <a class="userLike" onclick="like({{$photo->id}})" id="like{{$photo->id}}" ><i  class="icofont-like like"></i>
                                                                             Like</a>
                                                                        @endif
                                                                     </li>
@@ -725,10 +726,10 @@
                 success : function(response) {
                    if(response){
                          $('#like'+id).hide();
-                         $('#addLike'+id).append('<a  href="#"  id="unlike"><i class="icofont-like like"  style="color: red!important;" ></i>Like</a> ');
-                       $('#likecounter1').hide();
-                       $('#likecounter2').html(response.success+'Comme ça');
-                       $('#likecounter2').show();
+                         $('#addLike'+id).append('<a   id="unlike"><i class="icofont-like like"  style="color: red!important;" ></i>Like</a> ');
+                       $('#likecounter1'+id).hide();
+                       $('#likecounter2'+id).html(response.success+'Comme ça');
+                       $('#likecounter2'+id).show();
                     }
 
                 },
@@ -743,11 +744,11 @@
                 async: false,
                 success : function(response) {
                     if(response){
-                        $('#unlike').hide();
-                        $('#addLike'.id).append('<a class="userLike"  href="#" id="like" ><i  class="icofont-like like"></i>Like</a>');
-                        $('#likecounter1').hide();
-                        $('#likecounter2').html(response.success+'Comme ça');
-                        $('#likecounter2').show();
+                        $('#unlike'+id).hide();
+                        $('#addLike'+id).append('<a class="userLike"   id="like" ><i  class="icofont-like like"></i>Like</a>');
+                        $('#likecounter1'+id).hide();
+                        $('#likecounter2'+id).html(response.success+'Comme ça');
+                        $('#likecounter2'+id).show();
                     }
 
                 },
