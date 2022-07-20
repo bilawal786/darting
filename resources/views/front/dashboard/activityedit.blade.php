@@ -76,7 +76,7 @@
                                     <div class="row no-gutters">
                                         <div class="col-lg-12">
                                             <div id="wizard_container">
-                                                <form  method="get" action="{{route('activity.update')}}"  accept-charset="UTF-8" enctype="multipart/form-data">
+                                                <form  method="get" action="{{route('activity.update',['id' => base64_encode($editactive->id)])}}"  accept-charset="UTF-8" enctype="multipart/form-data">
                                                     @csrf
                                                     <div id="sport" style="display: none">
                                                         <h6 style="text-align: left; color: black">Sélectionnez le sport pour l'activité</h6>
@@ -161,14 +161,14 @@
                                                             <input type="text" name="title" class="form-control" required value=" {{$editactive->title}}" placeholder="Entrez le titre de l'activité">
 
                                                             <h6 style="text-align: left; color: black">Durée de l'activité</h6>
-                                                            <input type="time" required name="time" class="form-control">
+                                                            <input type="time" required name="time" value="{{$editactive->time}}" class="form-control">
 
                                                             <h6 style="text-align: left; color: black">Pays</h6>
                                                             <select  required name="country" class="form-control" id="">
-                                                                <option value="Guadeloupe">Guadeloupe</option>
-                                                                <option value="Martinique">Martinique</option>
-                                                                <option value="Guyane">Guyane</option>
-                                                                <option value="Réunion">Réunion</option>
+                                                                <option value="Guadeloupe" {{ $editactive->country == 'Guadeloupe' ? 'selected' : '' }}>Guadeloupe</option>
+                                                                <option value="Martinique" {{ $editactive->country == 'Martinique' ? 'selected' : '' }}>Martinique</option>
+                                                                <option value="Guyane" {{ $editactive->country == 'Guyane' ? 'selected' : '' }}>Guyane</option>
+                                                                <option value="Réunion" {{ $editactive->country == 'Réunion' ? 'selected' : '' }}>Réunion</option>
                                                             </select>
 
                                                             <h6 style="text-align: left; color: black">Image d'activité</h6>
@@ -178,77 +178,77 @@
                                                             <h6 style="text-align: left; color: black">Âge des participants (min-max)</h6>
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <select required name="min_age" value="min_age" class="form-control" id="">
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
-                                                                        <option value="21">21</option>
-                                                                        <option value="22">22</option>
-                                                                        <option value="23">23</option>
-                                                                        <option value="24">24</option>
-                                                                        <option value="25">25</option>
-                                                                        <option value="26">26</option>
-                                                                        <option value="27">27</option>
-                                                                        <option value="28">28</option>
-                                                                        <option value="29">29</option>
-                                                                        <option value="30">30</option>
-                                                                        <option value="31">31</option>
-                                                                        <option value="32">32</option>
-                                                                        <option value="33">33</option>
-                                                                        <option value="34">34</option>
-                                                                        <option value="35">35</option>
-                                                                        <option value="36">36</option>
-                                                                        <option value="37">37</option>
-                                                                        <option value="38">38</option>
-                                                                        <option value="39">39</option>
-                                                                        <option value="40">40</option>
-                                                                        <option value="41">41</option>
-                                                                        <option value="42">42</option>
-                                                                        <option value="43">43</option>
-                                                                        <option value="44">44</option>
-                                                                        <option value="45">45</option>
-                                                                        <option value="46">46</option>
-                                                                        <option value="47">47</option>
-                                                                        <option value="48">48</option>
-                                                                        <option value="49">49</option>
-                                                                        <option value="50">50</option>
+                                                                    <select required name="min_age"  class="form-control" id="">
+                                                                        <option value="18" {{ $editactive->min_age == 18 ? 'selected' : '' }}>18</option>
+                                                                        <option value="19" {{ $editactive->min_age == 19 ? 'selected' : '' }}>19</option>
+                                                                        <option value="20" {{ $editactive->min_age == 20 ? 'selected' : '' }}>20</option>
+                                                                        <option value="21" {{ $editactive->min_age == 21 ? 'selected' : '' }}>21</option>
+                                                                        <option value="22" {{ $editactive->min_age == 22 ? 'selected' : '' }}>22</option>
+                                                                        <option value="23" {{ $editactive->min_age == 23 ? 'selected' : '' }}>23</option>
+                                                                        <option value="24" {{ $editactive->min_age == 24 ? 'selected' : '' }}>24</option>
+                                                                        <option value="25"{{ $editactive->min_age == 25 ? 'selected' : '' }}>25</option>
+                                                                        <option value="26"{{ $editactive->min_age == 26 ? 'selected' : '' }}>26</option>
+                                                                        <option value="27"{{ $editactive->min_age == 27 ? 'selected' : '' }}>27</option>
+                                                                        <option value="28"{{ $editactive->min_age == 28 ? 'selected' : '' }}>28</option>
+                                                                        <option value="29"{{ $editactive->min_age == 29 ? 'selected' : '' }}>29</option>
+                                                                        <option value="30"{{ $editactive->min_age == 30 ? 'selected' : '' }}>30</option>
+                                                                        <option value="31"{{ $editactive->min_age == 31 ? 'selected' : '' }}>31</option>
+                                                                        <option value="32"{{ $editactive->min_age == 32 ? 'selected' : '' }}>32</option>
+                                                                        <option value="33"{{ $editactive->min_age == 33 ? 'selected' : '' }}>33</option>
+                                                                        <option value="34"{{ $editactive->min_age == 34 ? 'selected' : '' }}>34</option>
+                                                                        <option value="35"{{ $editactive->min_age == 35 ? 'selected' : '' }}>35</option>
+                                                                        <option value="36"{{ $editactive->min_age == 36 ? 'selected' : '' }}>36</option>
+                                                                        <option value="37"{{ $editactive->min_age == 37 ? 'selected' : '' }}>37</option>
+                                                                        <option value="38"{{ $editactive->min_age == 38 ? 'selected' : '' }}>38</option>
+                                                                        <option value="39"{{ $editactive->min_age == 39 ? 'selected' : '' }}>39</option>
+                                                                        <option value="40"{{ $editactive->min_age == 40 ? 'selected' : '' }}>40</option>
+                                                                        <option value="41"{{ $editactive->min_age == 41 ? 'selected' : '' }}>41</option>
+                                                                        <option value="42"{{ $editactive->min_age == 42 ? 'selected' : '' }}>42</option>
+                                                                        <option value="43"{{ $editactive->min_age == 43 ? 'selected' : '' }}>43</option>
+                                                                        <option value="44"{{ $editactive->min_age == 44 ? 'selected' : '' }}>44</option>
+                                                                        <option value="45"{{ $editactive->min_age == 45 ? 'selected' : '' }}>45</option>
+                                                                        <option value="46"{{ $editactive->min_age == 46 ? 'selected' : '' }}>46</option>
+                                                                        <option value="47"{{ $editactive->min_age == 47 ? 'selected' : '' }}>47</option>
+                                                                        <option value="48"{{ $editactive->min_age == 48 ? 'selected' : '' }}>48</option>
+                                                                        <option value="49"{{ $editactive->min_age == 49 ? 'selected' : '' }}>49</option>
+                                                                        <option value="50"{{ $editactive->min_age == 50 ? 'selected' : '' }}>50</option>
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <select required name="max_age" value="max_age" class="form-control" id="">
-                                                                        <option value="18">18</option>
-                                                                        <option value="19">19</option>
-                                                                        <option value="20">20</option>
-                                                                        <option value="21">21</option>
-                                                                        <option value="22">22</option>
-                                                                        <option value="23">23</option>
-                                                                        <option value="24">24</option>
-                                                                        <option value="25">25</option>
-                                                                        <option value="26">26</option>
-                                                                        <option value="27">27</option>
-                                                                        <option value="28">28</option>
-                                                                        <option value="29">29</option>
-                                                                        <option value="30">30</option>
-                                                                        <option value="31">31</option>
-                                                                        <option value="32">32</option>
-                                                                        <option value="33">33</option>
-                                                                        <option value="34">34</option>
-                                                                        <option value="35">35</option>
-                                                                        <option value="36">36</option>
-                                                                        <option value="37">37</option>
-                                                                        <option value="38">38</option>
-                                                                        <option value="39">39</option>
-                                                                        <option value="40">40</option>
-                                                                        <option value="41">41</option>
-                                                                        <option value="42">42</option>
-                                                                        <option value="43">43</option>
-                                                                        <option value="44">44</option>
-                                                                        <option value="45">45</option>
-                                                                        <option value="46">46</option>
-                                                                        <option value="47">47</option>
-                                                                        <option value="48">48</option>
-                                                                        <option value="49">49</option>
-                                                                        <option value="50">50</option>
+                                                                        <option value="18" {{ $editactive->max_age == 18 ? 'selected' : '' }}>18</option>
+                                                                        <option value="19" {{ $editactive->max_age == 19 ? 'selected' : '' }}>19</option>
+                                                                        <option value="20" {{ $editactive->max_age == 20 ? 'selected' : '' }}>20</option>
+                                                                        <option value="21" {{ $editactive->max_age == 21 ? 'selected' : '' }}>21</option>
+                                                                        <option value="22" {{ $editactive->max_age == 22 ? 'selected' : '' }}>22</option>
+                                                                        <option value="23" {{ $editactive->max_age == 23 ? 'selected' : '' }}>23</option>
+                                                                        <option value="24" {{ $editactive->max_age == 24 ? 'selected' : '' }}>24</option>
+                                                                        <option value="25"{{ $editactive->max_age == 25 ? 'selected' : '' }}>25</option>
+                                                                        <option value="26"{{ $editactive->max_age == 26 ? 'selected' : '' }}>26</option>
+                                                                        <option value="27"{{ $editactive->max_age == 27 ? 'selected' : '' }}>27</option>
+                                                                        <option value="28"{{ $editactive->max_age == 28 ? 'selected' : '' }}>28</option>
+                                                                        <option value="29"{{ $editactive->max_age == 29 ? 'selected' : '' }}>29</option>
+                                                                        <option value="30"{{ $editactive->max_age == 30 ? 'selected' : '' }}>30</option>
+                                                                        <option value="31"{{ $editactive->max_age == 31 ? 'selected' : '' }}>31</option>
+                                                                        <option value="32"{{ $editactive->max_age == 32 ? 'selected' : '' }}>32</option>
+                                                                        <option value="33"{{ $editactive->max_age == 33 ? 'selected' : '' }}>33</option>
+                                                                        <option value="34"{{ $editactive->max_age == 34 ? 'selected' : '' }}>34</option>
+                                                                        <option value="35"{{ $editactive->max_age == 35 ? 'selected' : '' }}>35</option>
+                                                                        <option value="36"{{ $editactive->max_age == 36 ? 'selected' : '' }}>36</option>
+                                                                        <option value="37"{{ $editactive->max_age == 37 ? 'selected' : '' }}>37</option>
+                                                                        <option value="38"{{ $editactive->max_age == 38 ? 'selected' : '' }}>38</option>
+                                                                        <option value="39"{{ $editactive->max_age == 39 ? 'selected' : '' }}>39</option>
+                                                                        <option value="40"{{ $editactive->max_age == 40 ? 'selected' : '' }}>40</option>
+                                                                        <option value="41"{{ $editactive->max_age == 41 ? 'selected' : '' }}>41</option>
+                                                                        <option value="42"{{ $editactive->max_age == 42 ? 'selected' : '' }}>42</option>
+                                                                        <option value="43"{{ $editactive->max_age == 43 ? 'selected' : '' }}>43</option>
+                                                                        <option value="44"{{ $editactive->max_age == 44 ? 'selected' : '' }}>44</option>
+                                                                        <option value="45"{{ $editactive->max_age == 45 ? 'selected' : '' }}>45</option>
+                                                                        <option value="46"{{ $editactive->max_age == 46 ? 'selected' : '' }}>46</option>
+                                                                        <option value="47"{{ $editactive->max_age == 47 ? 'selected' : '' }}>47</option>
+                                                                        <option value="48"{{ $editactive->max_age == 48 ? 'selected' : '' }}>48</option>
+                                                                        <option value="49"{{ $editactive->max_age == 49 ? 'selected' : '' }}>49</option>
+                                                                        <option value="50"{{ $editactive->max_age == 50 ? 'selected' : '' }}>50</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -257,35 +257,35 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <h6 style="text-align: left; color: black">Date d'activité</h6>
-                                                            <input type="date" required name="date"  value=" {{$editactive->date}}" class="form-control">
+                                                            <input type="date" required name="date"  value="{{$editactive->date}}" class="form-control">
 
                                                             <h6 style="text-align: left; color: black">Ville</h6>
-                                                            <input type="text" required name="city" value="city" class="form-control" placeholder="Entrez la ville d'activité">
+                                                            <input type="text" required name="city" value="{{$editactive->city}}" class="form-control" placeholder="Entrez la ville d'activité">
 
                                                             <h6 style="text-align: left; color: black">Nombre maximum de participants
                                                             </h6>
                                                             <select required name="num"   class="form-control" id="">
-                                                                <option value="2">2</option>
-                                                                <option value="3">3</option>
-                                                                <option value="4">4</option>
-                                                                <option value="5">5</option>
-                                                                <option value="6">6</option>
-                                                                <option value="7">7</option>
-                                                                <option value="8">8</option>
-                                                                <option value="9">9</option>
-                                                                <option value="10">10</option>
+                                                                <option value="2"{{ $editactive->num == 2 ? 'selected' : '' }} >2</option>
+                                                                <option value="3"{{ $editactive->num == 3 ? 'selected' : '' }}>3</option>
+                                                                <option value="4"{{ $editactive->num == 4 ? 'selected' : '' }}>4</option>
+                                                                <option value="5"{{ $editactive->num == 5 ? 'selected' : '' }}>5</option>
+                                                                <option value="6"{{ $editactive->num == 6 ? 'selected' : '' }}>6</option>
+                                                                <option value="7"{{ $editactive->num == 7 ? 'selected' : '' }}>7</option>
+                                                                <option value="8"{{ $editactive->num == 8 ? 'selected' : '' }}>8</option>
+                                                                <option value="9"{{ $editactive->num == 9 ? 'selected' : '' }}>9</option>
+                                                                <option value="10"{{ $editactive->num == 10 ? 'selected' : '' }}>10</option>
                                                             </select>
 
                                                             <h6 style="text-align: left; color: black">Type de participants souhaité
                                                             </h6>
                                                             <select required name="type"  class="form-control" id="">
-                                                                <option value="Everybody">Tout le monde</option>
-                                                                <option value="Males Oly">Hommes seulement</option>
-                                                                <option value="Females Only">Femmes seulement</option>
+                                                                <option value="Everybody" {{ $editactive->type == 'Everybody' ? 'selected' : '' }}>Tout le monde</option>
+                                                                <option value="Males Oly" {{ $editactive->type == 'Males Oly' ? 'selected' : '' }}>Hommes seulement</option>
+                                                                <option value="Females Only" {{ $editactive->type == 'Females Only' ? 'selected' : '' }}>Femmes seulement</option>
                                                             </select>
                                                             <h6 style="text-align: left; color: black">Price</h6>
                                                             <span class="input-symbol-euro">
-                                                            <input type="number" class="form-control" name="price"  value=" {{$editactive->price}}" min="0" step="1" placeholder="€"  />
+                                                            <input type="number" class="form-control" name="price"  value="{{$editactive->price}}" min="0" step="1" placeholder="€"  />
                                                                     </span>
 
 

@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/activity/create/a', 'Front\FrontendController@activityCreate')->name('activity.create');
     Route::get('/activity/edit/a{id}', 'Front\FrontendController@activityedit')->name('activity.edit');
-    Route::get('/activity/update/a', 'Front\FrontendController@activityUpdate')->name('activity.update');
+    Route::get('/activity/update/a{id}', 'Front\FrontendController@activityUpdate')->name('activity.update');
     Route::get('/myactivity', 'Front\FrontendController@myactivity')->name('front.myactivity');
 
     Route::get('/my/profile', 'Front\FrontendController@myProfile')->name('my.profile');

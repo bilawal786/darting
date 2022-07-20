@@ -59,11 +59,11 @@ class FrontendController extends Controller
     public function activityedit($id){
         $id = base64_decode($id);
         $editactive=Activity::find($id);
-
         return view('front.dashboard.activityedit', compact('editactive'));
     }
     public function activityUpdate(Request $request,$id){
-        $active=Activity::find($id) ;
+        $id = base64_decode($id);
+        $active=Activity::find($id);
         if ($request->sortie){
             foreach($request->sortie as $name)
             {
@@ -85,6 +85,7 @@ class FrontendController extends Controller
                 $active->game=json_encode($data2);
             }
         }
+
         if ($request->sport){
             foreach($request->sport as $name)
             {
@@ -92,6 +93,7 @@ class FrontendController extends Controller
                 $active->sport=json_encode($data3);
             }
         }
+
         $active->title = $request->title;
         $active->time = $request->time;
         $active->country = $request->country;
@@ -115,7 +117,7 @@ class FrontendController extends Controller
         $active->price=$request->price;
         $active->update();
        $notification = array(
-           'messege' => 'Successfully added a activity',
+           'messege' => 'Successfully Update a activity',
            'alert-type' => 'success'
        );
         return redirect()->back()->with($notification);
@@ -216,7 +218,6 @@ class FrontendController extends Controller
         $active->activity_subtype = $request->activity_subtype;
         $active->description = $request->description;
         $active->price=$request->price;
-
         $active->save();
         $notification = array(
             'messege' => 'Successfully added a activity',
