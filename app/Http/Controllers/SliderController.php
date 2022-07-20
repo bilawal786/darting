@@ -17,7 +17,11 @@ class SliderController extends Controller
 
         }
     public function update(Request $request){
+
         $slide=Slider::find(1);
+        $slide->link1=$request->link1;
+        $slide->link2=$request->link2;
+        $slide->link3=$request->link3;
         if ($request->hasfile('image1')) {
             $image1 = $request->file('image1');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();

@@ -32,13 +32,7 @@ class FrontendController extends Controller
         $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
         return view('front.pages.index', compact('about','slide','users','work', 'blog','setting'));
     }
-//    public function userdashborad(){
-//        $work = Work::first();
-//        $setting = Setting::all();
-//        $users = User::where('role', '1')->get();
-//        $blog = Blog::orderBy('updated_at','desc')->limit(3)->get();
-//        return view('front.pages.userdashboardind', compact('users','work', 'blog','setting'));
-//    }
+
     public function feature(){
         $feature = Feature::find(1);
         return view('front.pages.function',compact('feature'));
