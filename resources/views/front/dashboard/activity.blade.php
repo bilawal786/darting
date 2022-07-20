@@ -202,7 +202,6 @@
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
                                     <section class="section mt-5">
-                                @if(!$showactivity)
                                     @php
                                     $zero = $rating->count();
                                     if($zero == 0){
@@ -314,7 +313,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            @else
+                                            @if(!$showactivity->count())
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
                                                     <br>
