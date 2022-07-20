@@ -118,7 +118,7 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::post('admin/slider/update','SliderController@update')->name('admin.slide.update');
 
     Route::get('admin/about/index','AboutController@index')->name('admin.about.index');
-    Route::post('admin/about/update','AboutController@update')->name('admin.about.index');
+    Route::post('admin/about/update','AboutController@update')->name('admin.about.update');
 
 
 

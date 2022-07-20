@@ -2,11 +2,8 @@
 @section('content')
 
     <div id="content" class="main-content ">
-
         <div class="layout-px-spacing ">
-
             <div class="middle-content container-xxl p-0">
-
                 <!-- BREADCRUMB -->
                 <div class="page-meta">
                     <nav class="breadcrumb-style-one" aria-label="breadcrumb">
@@ -28,21 +25,15 @@
                                 <div class="row mb-4">
                                     <div class="col-sm-12 " >
                                         <label>Title-1</label>
-
                                         <textarea class="form-control"  name="title1" >{{$about->title1}}  </textarea>
-
                                     </div>
                                 </div>
-
                                 <div class="row mb-4">
                                     <div class="col-sm-12 " >
                                         <label>Title-2</label>
-
                                         <textarea class="form-control"   name="title2" > {{$about->title2}}  </textarea>
-
                                     </div>
                                 </div>
-
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
                                         <label>Count-1</label>

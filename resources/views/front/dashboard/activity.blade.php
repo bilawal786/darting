@@ -212,7 +212,8 @@
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star"></span>
 {{--                                                @elseif({{$rating->where('star', '3')->count()}})--}}
-                                                <p>{{$star4}} moyenne basée sur {{$rating->count()}} Commentaires.</p>
+
+                                                <p> moyenne basée sur {{$rating->count()}} Commentaires.</p>
                                                 <hr style="border:3px solid #f1f1f1">
                                                 <div class="row">
                                                     <div class="side">
