@@ -202,14 +202,25 @@
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
                                     <section class="section mt-5">
-                                    <?php $zero=$rating->count();
-                                 @if(!$zero==0)
-
-                                        <?php $starcond= round($rating->sum('star') / $rating->count());?>
+                                    @php
+                                    $zero = $rating->count();
+                                    if($zero == 0){
+                                        $starcond = 0;
+                                    }else{
+                                        $starcond= round($rating->sum('star') / $rating->count());
+                                    }
+                                    @endphp
                                         <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-md-12">
-                                                @if($starcond==1.0)
+                                                @if($starcond==0)
+                                                <span class="heading" >Note de l'utilisateur</span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                @elseif($starcond==1.0)
                                                 <span class="heading" >Note de l'utilisateur</span>
                                                 <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star"></span>
@@ -241,13 +252,6 @@
                                                     <span class="fa fa-star checked"></span>
                                                     <span class="fa fa-star checked"></span>
                                                 @endif
-                                            @else
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star checked"></span>
-                                                    <span class="fa fa-star"></span>
-                                                    @endif
 
                                                 <p> {{$starcond}} moyenne basée sur {{$rating->count()}} Commentaires.</p>
                                                 <hr style="border:3px solid #f1f1f1">
