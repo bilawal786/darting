@@ -202,6 +202,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
                                     <section class="section mt-5">
+                                @if(!$showactivity)
                                     @php
                                     $zero = $rating->count();
                                     if($zero == 0){
@@ -313,6 +314,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @else
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
                                                     <br>
@@ -320,7 +322,7 @@
                                                     <form action="{{route('activity.rating')}}" method="post"  accept-charset="UTF-8" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="txt-center">
-                                                            <div class="rating">
+                                                            <div class="rating ">
                                                                 <input type="hidden" value="{{$activity->id}}" name="activity_id" />
                                                                 <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
                                                                 <label for="star5"><i class='fa fa-star fa-fw'></i></label>
@@ -334,13 +336,15 @@
                                                                 <label for="star1"><i class='fa fa-star fa-fw '></i></label>
                                                                 <div class="clear"></div>
                                                             </div>
-                                                            <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white">
+                                                            <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white" required>
                                                                     </textarea>
                                                             <button type="submit" class="btn btn-primary" style="width: 100%" >Poster le commentaire</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
+                                            @endif
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto; margin-top: 60px; align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
