@@ -6,13 +6,13 @@
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{$slide->image1}}" class="d-block w-100" alt="...">
+                   <a href="{{$slide->link1}}"> <img src="{{$slide->image1}}" class="d-block w-100" alt="..."></a>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{$slide->image2}}" class="d-block w-100" alt="...">
+                    <a href="{{$slide->link2}}"> <img src="{{$slide->image2}}" class="d-block w-100" alt="..."></a>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{$slide->image3}}" class="d-block w-100" alt="...">
+                    <a href="{{$slide->link3}}"> <img src="{{$slide->image3}}" class="d-block w-100" alt="..."></a>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

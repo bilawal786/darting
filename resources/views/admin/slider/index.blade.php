@@ -28,26 +28,35 @@
                                         <div class="widget-content widget-content-area blog-create-section">
 
                                             <div class="row mb-4">
-                                                <div class="col-sm-12 " >
-                                                    <label>image 1</label>
+                                                <div class="col-sm-6 " >
+                                                    <label>Image 1</label>
                                                     <input type="file" name="image1" />
 
                                                 </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-sm-12 " >
-                                                    <label>image 2</label>
-                                                    <input type="file" name="image2" />
-
+                                                <div class="col-sm-6">
+                                                    <input type="text"  placeholder="Image/URL" style="width: 70%" name="link1"/>
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
-                                                <div class="col-sm-12 " >
-                                                    <label>image 3</label>
+                                                <div class="col-sm-6 " >
+                                                    <label>Image 2</label>
+                                                    <input type="file" name="image2"  />
+
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input type="text"  placeholder="Image/URL"  style="width: 70%" name="link2" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-sm-6 " >
+                                                    <label>Image 3</label>
                                                     <input type="file" name="image3" />
 
                                                 </div>
-                                                <div class="col-xxl-12 col-sm-4 col-12 mx-auto">
+                                                <div class="col-sm-6">
+                                                    <input type="text" placeholder="Image/URL" style="width: 70%" name="link3"/>
+                                                </div>
+                                                <div class="col-xxl-12 col-sm-4 col-12 mx-auto mt-5">
                                                     <button class="btn btn-success w-100">Mettre à jour le curseur </button>
                                                 </div>
                                             </div>

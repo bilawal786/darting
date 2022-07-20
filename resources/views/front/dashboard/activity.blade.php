@@ -202,17 +202,58 @@
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
                                     <section class="section mt-5">
+                                    @php
+                                    $zero = $rating->count();
+                                    if($zero == 0){
+                                        $starcond = 0;
+                                    }else{
+                                        $starcond= round($rating->sum('star') / $rating->count());
+                                    }
+                                    @endphp
                                         <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-md-12">
+                                                @if($starcond==0)
+                                                <span class="heading" >Note de l'utilisateur</span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                @elseif($starcond==1.0)
                                                 <span class="heading" >Note de l'utilisateur</span>
                                                 <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star"></span>
-{{--                                                @elseif({{$rating->where('star', '3')->count()}})--}}
-                                                <p>{{$star4}} moyenne basée sur {{$rating->count()}} Commentaires.</p>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                @elseif($starcond==2.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @elseif($starcond==3.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @elseif($starcond==4.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @elseif($starcond==5.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                @endif
+
+                                                <p> {{$starcond}} moyenne basée sur {{$rating->count()}} Commentaires.</p>
                                                 <hr style="border:3px solid #f1f1f1">
                                                 <div class="row">
                                                     <div class="side">
@@ -272,6 +313,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @if(!$showactivity->count())
                                             <div class="col-md-12">
                                                 <div class="col-md-12">
                                                     <br>
@@ -279,7 +321,7 @@
                                                     <form action="{{route('activity.rating')}}" method="post"  accept-charset="UTF-8" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="txt-center">
-                                                            <div class="rating">
+                                                            <div class="rating ">
                                                                 <input type="hidden" value="{{$activity->id}}" name="activity_id" />
                                                                 <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"  />
                                                                 <label for="star5"><i class='fa fa-star fa-fw'></i></label>
@@ -293,13 +335,15 @@
                                                                 <label for="star1"><i class='fa fa-star fa-fw '></i></label>
                                                                 <div class="clear"></div>
                                                             </div>
-                                                            <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white">
+                                                            <textarea  class="form-control" name="comment" rows="5" style="background-color: #221c53; color: white" required>
                                                                     </textarea>
                                                             <button type="submit" class="btn btn-primary" style="width: 100%" >Poster le commentaire</button>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div>
+                                            @endif
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto; margin-top: 60px; align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px">
@@ -317,17 +361,23 @@
                                                             <h5>{{$row->user->fname}}{{$row->user->lname}}</h5>
                                                             <div style="float: left">
                                                                 @if($row->star == 1)
-                                                                <i class="fa fa-star checked"></i>
-                                                                    <i class="fa fa-star"></i>
+                                                                 <i class="fa fa-star checked"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                @elseif($row->star==2)
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                 @elseif($row->star==3)
-                                                                <i class="fa fa-star checked"></i>
-                                                                <i class="fa fa-star checked"></i>
-                                                                <i class="fa fa-star checked"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                 <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
                                                                     @elseif($row->star==4)
                                                                     <i class="fa fa-star checked"></i>
                                                                     <i class="fa fa-star checked"></i>

@@ -235,8 +235,6 @@ $user = Auth::user();
                                 <a href="{{route('admin.about.index')}}"> À propos de</a>
                             </li>
                         </ul>
-
-
                     </ul>
                 </li>
                 <li class="menu">
@@ -247,15 +245,11 @@ $user = Auth::user();
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         </div>
                     </a>
-
-
-
                         <ul class="collapse submenu list-unstyled" id="invoice3" data-bs-parent="#accordionExample">
                             <li>
                                 <a href="{{route('admin.users.index')}}"> Client </a>
                             </li>
                         </ul>
-
                 </li>
                 <li class="menu">
                     <a href="#invoice4" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -265,9 +259,6 @@ $user = Auth::user();
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                         </div>
                     </a>
-
-
-
                     <ul class="collapse submenu list-unstyled" id="invoice4" data-bs-parent="#accordionExample">
                         <li>
                             <a href="{{route('admin.blog.create')}}"> Créer un blog
@@ -277,10 +268,7 @@ $user = Auth::user();
                             <a href="{{route('admin.blog.index')}}">Liste de blogs </a>
                         </li>
                     </ul>
-
                 </li>
-
-
             <li class="menu ">
                 <a href="{{route('admin.question.index')}}" class="dropdown-toggle">
                     <div class="active">
@@ -290,23 +278,12 @@ $user = Auth::user();
 
                 </a>
             </li>
-
                 <li class="menu ">
                     <a href="{{route('admin.plans')}}" class="dropdown-toggle">
                         <div class="active">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                             <span>Plans</span>
                         </div>
-
-                    </a>
-                </li>
-                <li class="menu ">
-                    <a href="{{route('admin.slide.index')}}" class="dropdown-toggle">
-                        <div class="active">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                            <span>Slider</span>
-                        </div>
-
                     </a>
                 </li>
             </ul>

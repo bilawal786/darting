@@ -34,8 +34,6 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/subscription/buy/{id}', 'Front\FrontendController@subscriptionBuy')->name('subscription.buy');
 
-
-    Route::get('/userdashborad','Front\FrontendController@userdashborad')->name('front.userdashboard');
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity/{id}', 'Front\FrontendController@activity')->name('front.activity');
     Route::post('/activity', 'Front\FrontendController@activityStore')->name('activity.store');
@@ -125,7 +123,7 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::post('admin/slider/update','SliderController@update')->name('admin.slide.update');
 
     Route::get('admin/about/index','AboutController@index')->name('admin.about.index');
-    Route::post('admin/about/update','AboutController@update')->name('admin.about.index');
+    Route::post('admin/about/update','AboutController@update')->name('admin.about.update');
 
 
 
