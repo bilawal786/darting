@@ -202,18 +202,44 @@
                                 </div>
                                 <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="nav-groups-tab">
                                     <section class="section mt-5">
+                                        <?php $starcond= round($rating->sum('star')/$rating->count());?>
                                         <div class="row">
                                         <div class="col-md-6">
                                             <div class="col-md-12">
+                                                @if($starcond==1.0)
                                                 <span class="heading" >Note de l'utilisateur</span>
                                                 <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
-                                                <span class="fa fa-star checked"></span>
                                                 <span class="fa fa-star"></span>
-{{--                                                @elseif({{$rating->where('star', '3')->count()}})--}}
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                 <span class="fa fa-star"></span>
+                                                @elseif($starcond==2.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @elseif($starcond==3.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @elseif($starcond==4.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                @elseif($starcond==5.0)
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                @endif
 
-                                                <p> moyenne basée sur {{$rating->count()}} Commentaires.</p>
+                                                <p> {{$starcond}} moyenne basée sur {{$rating->count()}} Commentaires.</p>
                                                 <hr style="border:3px solid #f1f1f1">
                                                 <div class="row">
                                                     <div class="side">
@@ -318,17 +344,23 @@
                                                             <h5>{{$row->user->fname}}{{$row->user->lname}}</h5>
                                                             <div style="float: left">
                                                                 @if($row->star == 1)
-                                                                <i class="fa fa-star checked"></i>
-                                                                    <i class="fa fa-star"></i>
+                                                                 <i class="fa fa-star checked"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                  <i class="fa fa-star"></i>
+                                                                @elseif($row->star==2)
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                     <i class="fa fa-star"></i>
                                                                 @elseif($row->star==3)
-                                                                <i class="fa fa-star checked"></i>
-                                                                <i class="fa fa-star checked"></i>
-                                                                <i class="fa fa-star checked"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                 <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star checked"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
                                                                     @elseif($row->star==4)
                                                                     <i class="fa fa-star checked"></i>
                                                                     <i class="fa fa-star checked"></i>
