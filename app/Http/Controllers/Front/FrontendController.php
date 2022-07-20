@@ -65,8 +65,7 @@ class FrontendController extends Controller
         $users = User::where('role', '1')->get();
         $rating = Review::where('activity_id',$id)->get();
         $activity = Activity::find($id);
-        $showactivity=Review::where('activity','=',$id)->where('user_id',$id)->get();
-        dd($showactivity);
+        $showactivity = Review::where('activity_id',$id)->where('user_id', Auth::user()->id)->get();
         return view('front.dashboard.activity', compact('activity','users','rating','showactivity'));
     }
     public function myProfile(){
