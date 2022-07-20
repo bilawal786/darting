@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Comments;
 use App\Divers;
 
 use App\Jeux;
@@ -154,7 +155,35 @@ class UserController extends Controller
         );
         return Redirect()->back()->with($notification);
     }
+    public function postUpdate(Request $request,$id)
+    {
+        $image = Photo::find($id);
+        $image->description = $request->description;
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $image->image = 'images/' . $name;
+        }
+        $image->update();
 
+        $notification = array(
+            'messege' => 'Successfully Update Post!',
+            'alert-type' => 'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
+    public function postDelete($id)
+    {
+        $image = Photo::find($id);
+        $image->delete();
+        $notification = array(
+            'messege' => 'Successfully Delete Post!',
+            'alert-type' => 'error'
+        );
+        return Redirect()->back()->with($notification);
+    }
     public function index()
     {
         $user = User::where('role', '=', 1)->get();
@@ -173,22 +202,63 @@ class UserController extends Controller
         return view('admin.users.userview', compact('user', 'sortie', 'juex', 'divers', 'sports', 'question'));
     }
 
-    public function liker($id, $val)
+    public function liker($id)
     {
 
-        $check = Like::where('post_id', '=', $id)->where('user_id', '=', $val)->first();
-        if ($check) {
-            $like = Like::where('post_id', '=', $id)->where('user_id', '=', $val)->first();
-            $like->is_dislike = $val;
-            $like->update();
-        } else {
+        $check = Like::where('post_id', '=', $id)->where('user_id', '=', Auth::user()->id)->first();
+        if (!$check) {
             $like = new Like();
             $like->user_id = Auth::user()->id;
             $like->post_id = $id;
-            $like->is_dislike = $val;
             $like->save();
         }
-        return response()->json($like);
+        else{
+            $check->is_dislike = 0;
+            $check->update();
+        }
+        $count = Like::where('post_id', '=', $id)->where('is_dislike','=',0)->count();
+        return response()->json(['success' => $count]);
+    }
+    public function unLiker($id)
+    {
+        $ulike = Like::where('post_id', '=', $id)->where('user_id', '=', Auth::user()->id)->first();
+        $ulike->is_dislike = 1;
+        $ulike->update();
+        $count = Like::where('post_id', '=', $id)->where('is_dislike','=',0)->count();
+        return response()->json(['success' => $count]);
+    }
+    public function singlePost($id)
+    {
+        $post = Photo::find($id);
+        $comment = Comments::where('post_id', '=', $id)->where('post_id','=',$id)->get();
+        return view('front.dashboard.singlepost',compact('post','comment'));
+    }
+    public function postComment(Request $request)
+    {
+        $comment = new Comments();
+        $comment->user_id = Auth::user()->id;
+        $comment->post_id = $request->post_id;
+        $comment->comment = $request->comment;
+        $comment->save();
+
+        $notification = array(
+            'messege' => 'Successfully Added Comment!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+
+
+
+    }
+    public function deleteComment($id)
+    { $com = Comments::find($id);
+        $com->delete();
+        $notification = array(
+            'messege' => 'Successfully Deleted Comment!',
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+
     }
 
 

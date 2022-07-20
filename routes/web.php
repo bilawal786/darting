@@ -60,8 +60,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/user/update','Front\UserController@update')->name('user.update');
     Route::post('/profile/image','Front\UserController@profileImage')->name('profile.image');
     Route::post('/user/image/post','Front\UserController@imagePost')->name('user.image.post');
+    Route::get('/user/sigle/post/{id}','Front\UserController@singlePost')->name('user.sigle.post');
+    Route::post('/user/post/update/{id}','Front\UserController@postUpdate')->name('user.post.update');
+    Route::get('/user/post/delete/{id}','Front\UserController@postDelete')->name('user.post.delete');
+  //coments
+    Route::post('/user/comment/post','Front\UserController@postComment')->name('user.comment.post');
+    Route::get('/delete/comment/{id}','Front\UserController@deleteComment')->name('delete.comment');
 
-    Route::get('/userlike/{id}/{val}','Front\UserController@liker')->name('userlike');
+    Route::get('/userlike/{id}','Front\UserController@liker')->name('userlike');
+    Route::get('/userunlike/{id}','Front\UserController@unLiker')->name('userunlike');
 
 
 

@@ -232,22 +232,68 @@
                                 <div class="photo-title text-center border-radius-2 bg-theme p-1 mb-4">
                                     <h3 class="mb-0">Pictures</h3>
                                 </div>
-                                <div class="col-xl-12">
+                                <div class="col-xl-8">
                                     <div class="row">
-                                        @foreach($user->photos as $photo)
-                                            @if($photo)
-                                                <div class="col-md-3">
-                                                    <div class="gallery-img">
-                                                        <img id="myImg" src="{{asset($photo->image)}}" alt="image" class="rounded">
+                                        @foreach($post as $row)
+                                            @if($row)
+                                                <div class="post-item mb-20">
+                                                    <!-- post-content -->
+                                                    <div class="post-content">
+                                                        <!-- post-author -->
+                                                        <!-- post-description -->
+                                                        <div class="post-description" style="margin-top: 20px;">
+                                                            <p>{{$row->description}}
+
+                                                            </p>
+                                                            <div class="post-desc-img">
+                                                                <div class="row g-3">
+                                                                    <div class="col-md-6">
+                                                                        @if($row->image)
+                                                                            <img src="{{asset($row->image)}}" alt="img">
+                                                                        @endif
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- post meta -->
+                                                    <div class="post-meta">
+                                                        <div class="post-meta-top">
+                                                            <p><a href="#"><i class="icofont-like" style="color: red"></i> <i class="icofont-heart" style="color: red"></i> </i>
+                                                                    @php $likeCount = \App\Like::where('post_id','=',$row->id)->where('is_dislike','=',0)->count();@endphp
+                                                                    <span id="likecounter1">{{$likeCount}} Comme ça</span>
+                                                                    <span id="likecounter2" style="display: none"></span>
+                                                                </a>
+                                                            </p>
+                                                            @php $comment = \App\Comments::where('post_id','=',$row->id)->get(); @endphp
+                                                            <p>
+                                                                <a href="#">{{$comment->count()}} Commentaires</a>
+                                                            </p>
+                                                        </div>
+                                                        <div class="post-meta-bottom">
+                                                            <ul class="react-list">
+                                                                @php $like = \App\Like::where('user_id','=',Auth::user()->id)->where('post_id','=',$row->id)->where('is_dislike','=',0)->first();@endphp
+                                                                <li class="react " id="addLike{{$row->id}}">
+                                                                    @if($like)
+                                                                        <a   onclick="unlike({{$row->id}})" href="#"  id="unlike{{$row->id}}"><i class="icofont-like like"  style="color: red!important;" ></i>
+                                                                            Like</a>
+                                                                    @else
+                                                                        <a class="userLike" onclick="like({{$row->id}})" href="#" id="like{{$row->id}}" ><i  class="icofont-like like"></i>
+                                                                            Like</a>
+                                                                    @endif
+                                                                </li>
+                                                                <li class="react"><a href="{{route('user.sigle.post',['id'=>$row->id])}}">
+                                                                        <i class="icofont-speech-comments"></i>
+                                                                        Comment
+                                                                    </a></li>
+
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             @endif
                                         @endforeach
-                                        <div id="myModal" class="modal">
-                                            <span class="close">&times;</span>
-                                            <img id="img01" class="modal-content"  src="">
-                                            <div id="caption"></div>
-                                        </div>
                                     </div>
                                 </div>
 
@@ -365,5 +411,47 @@
         </div>
     </section>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
 
+        function like(id){
+
+            $.ajax({
+                method:"GET",
+                url: "{{url('/userlike')}}/"+id,
+                async: false,
+                success : function(response) {
+                    if(response){
+                        $('#like'+id).hide();
+                        $('#addLike'+id).append('<a  href="#"  id="unlike"><i class="icofont-like like"  style="color: red!important;" ></i>Like</a> ');
+                        $('#likecounter1').hide();
+                        $('#likecounter2').html(response.success+'Comme ça');
+                        $('#likecounter2').show();
+                    }
+
+                },
+
+            });
+
+        }
+        function unlike(id){
+            $.ajax({
+                method:"GET",
+                url: "{{url('/userunlike')}}/"+id,
+                async: false,
+                success : function(response) {
+                    if(response){
+                        $('#unlike').hide();
+                        $('#addLike'.id).append('<a class="userLike"  href="#" id="like" ><i  class="icofont-like like"></i>Like</a>');
+                        $('#likecounter1').hide();
+                        $('#likecounter2').html(response.success+'Comme ça');
+                        $('#likecounter2').show();
+                    }
+
+                },
+
+            });
+
+        }
+    </script>
 @endsection

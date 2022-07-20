@@ -4,6 +4,12 @@
     <link href="/wizard/css/style.css" rel="stylesheet">
     <link href="/wizard/css/vendors.css" rel="stylesheet">
     <style>
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 100%!important;
+            max-width: 700px;
+        }
         a{
             color: white!important;
         }
@@ -298,28 +304,75 @@
                                                         <div class="post-content">
                                                             <!-- post-author -->
                                                             <div class="post-author">
-                                                                <div class="post-author-inner">
-                                                                    <div class="author-thumb">
-                                                                        <img src="{{asset($user->profile_picture)}}" alt="img">
-                                                                    </div>
-                                                                    <div class="author-details">
-                                                                        <h6><a href="#">{{$user->fname .' '. $user->lname}}</a></h6>
-                                                                        <ul class="post-status">
-                                                                            <li class="post-privacy"><i class="icofont-world"></i>
-                                                                                Publique</li>
-                                                                            <li class="post-time">
-                                                                                <?php
-                                                                                \Carbon\Carbon::setLocale('fr');
-                                                                                $date = \Carbon\Carbon::parse($photo->created_at);
-                                                                                ?>
-                                                                                 {{$date->diffForHumans()}}
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
+                                                                <a style="float: right;color: red!important;" class="comment-reply-link" href="{{route('user.post.delete',['id'=>$photo->id])}}">
+                                                                    / Effacer</a>
+                                                                 <span class="reply">
+
+                                                    <a rel="nofollow" data-toggle="modal" data-target="#exampleModalCenter{{$photo->id}}" style="float: right;color: red!important;" class="comment-reply-link" href=""><i
+                                                            class="icofont-reply-all"></i>
+                                                        Éditer</a>
+                                                                     <!-- Modal -->
+    <div class="modal fade " id="exampleModalCenter{{$photo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                  <form action="{{route('user.post.update',['id'=>$photo->id])}}" method="POST" enctype="multipart/form-data" >
+                                                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="color: black">Posté</h5>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="interest">
+                        <div >
+                            <p style="text-align: left;color: black;" >Image <b style="color: red;font-size: 20px;">*</b></p>
+                            <input class="form-control" type="file" name="image" >
+                        </div>
+                        <div >
+                            <p style="text-align: left; color: black" >Description <b style="color: red;font-size: 20px;">*</b></p>
+                            <textarea name="description"  id="role" cols="30" class="form-control" rows="8" placeholder="Description" required>{{$photo->description}}</textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">proche</button>
+                    <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+                                                </span>
+{{--                                                                <div class="post-author-inner">--}}
+{{--                                                                    <div class="author-thumb">--}}
+{{--                                                                        @if($user->profile_picture)--}}
+{{--                                                                        <img src="{{asset($user->profile_picture)}}" alt="img">--}}
+{{--                                                                        @else--}}
+{{--                                                                            <img src="{{asset('assets/images/profile/dp.png')}}" alt="img">--}}
+{{--                                                                        @endif--}}
+{{--                                                                    </div>--}}
+{{--                                                                    <div class="author-details">--}}
+{{--                                                                        <h6><a href="#">{{$user->fname .' '. $user->lname}}</a></h6>--}}
+{{--                                                                        <ul class="post-status">--}}
+{{--                                                                            <li class="post-privacy"><i class="icofont-world"></i>--}}
+{{--                                                                                Publique</li>--}}
+{{--                                                                            <li class="post-time">--}}
+{{--                                                                                <?php--}}
+{{--                                                                                \Carbon\Carbon::setLocale('fr');--}}
+{{--                                                                                $date = \Carbon\Carbon::parse($photo->created_at);--}}
+{{--                                                                                ?>--}}
+{{--                                                                                 {{$date->diffForHumans()}}--}}
+{{--                                                                            </li>--}}
+{{--                                                                        </ul>--}}
+{{--                                                                    </div>--}}
+
+{{--                                                                </div>--}}
                                                             </div>
+
+
                                                             <!-- post-description -->
-                                                            <div class="post-description">
+                                                            <div class="post-description" style="margin-top: 20px;">
                                                                 <p>{{$photo->description}}
 
                                                                 </p>
@@ -328,8 +381,6 @@
                                                                         <div class="col-md-6">
                                                                             @if($photo->image)
                                                                             <img src="{{asset($photo->image)}}" alt="img">
-                                                                            @else
-                                                                                <img src="{{asset('assets/images/profile/dp.png')}}" alt="img">
                                                                             @endif
                                                                         </div>
 
@@ -340,26 +391,31 @@
                                                         <!-- post meta -->
                                                         <div class="post-meta">
                                                             <div class="post-meta-top">
-                                                                <p><a href="#"><i class="icofont-like"></i> <i class="icofont-heart"></i> <i class="icofont-laughing"></i>
-                                                                        <span>Julia,
-                                                                                    Petrova and 306 like this</span></a>
+                                                                <p><a href="#"><i class="icofont-like" style="color: red"></i> <i class="icofont-heart" style="color: red"></i> </i>
+                                                                        @php $likeCount = \App\Like::where('post_id','=',$photo->id)->where('is_dislike','=',0)->count();@endphp
+                                                                        <span id="likecounter1">{{$likeCount}} Comme ça</span>
+                                                                        <span id="likecounter2" style="display: none"></span>
+                                                                    </a>
                                                                 </p>
+                                                                @php $comment = \App\Comments::where('post_id','=',$photo->id)->get(); @endphp
+
                                                                 <p>
-                                                                    <a href="#">136 Comments</a>
+                                                                    <a href="#">{{$comment->count()}} Commentaires</a>
                                                                 </p>
                                                             </div>
                                                             <div class="post-meta-bottom">
                                                                 <ul class="react-list">
                                                                     @php $like = \App\Like::where('user_id','=',$user->id)->where('post_id','=',$photo->id)->where('is_dislike','=',0)->first();@endphp
-                                                                    <li class="react">
+                                                                    <li class="react " id="addLike{{$photo->id}}">
                                                                         @if($like)
-                                                                            <a style="color: red!important;"   onclick="myfunction({{$photo->id}},1)" href=""><i class="icofont-like like"></i>
-                                                                                Like</a> </li>
+                                                                            <a   onclick="unlike({{$photo->id}})" href="#"  id="unlike{{$photo->id}}"><i class="icofont-like like"  style="color: red!important;" ></i>
+                                                                                Like</a>
                                                                         @else
-                                                                        <a   onclick="myfunction({{$photo->id}},0)" href=""><i class="icofont-like like"></i>
-                                                                            Like</a> </li>
+                                                                        <a class="userLike" onclick="like({{$photo->id}})" href="#" id="like{{$photo->id}}" ><i  class="icofont-like like"></i>
+                                                                            Like</a>
                                                                        @endif
-                                                                    <li class="react"><a href="#">
+                                                                    </li>
+                                                                    <li class="react"><a href="{{route('user.sigle.post',['id'=>$photo->id])}}">
                                                                             <i class="icofont-speech-comments"></i>
                                                                             Comment
                                                                         </a></li>
@@ -660,23 +716,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>
 
-        function myfunction(id,val){
+        function like(id){
 
             $.ajax({
                 method:"GET",
-                url: "{{url('/userlike')}}/"+id+"/"+val,
+                url: "{{url('/userlike')}}/"+id,
                 async: false,
                 success : function(response) {
-                    console.log(response);
                    if(response){
-
-                        $('#category_id').append('<option value="'+item.id+'">'+item.title+'</option>');
+                         $('#like'+id).hide();
+                         $('#addLike'+id).append('<a  href="#"  id="unlike"><i class="icofont-like like"  style="color: red!important;" ></i>Like</a> ');
+                       $('#likecounter1').hide();
+                       $('#likecounter2').html(response.success+'Comme ça');
+                       $('#likecounter2').show();
                     }
 
                 },
-                error: function() {
-                    $('#option').html('<option value="">Catégorie non disponible</option>');
-                }
+
+            });
+
+        }
+        function unlike(id){
+            $.ajax({
+                method:"GET",
+                url: "{{url('/userunlike')}}/"+id,
+                async: false,
+                success : function(response) {
+                    if(response){
+                        $('#unlike').hide();
+                        $('#addLike'.id).append('<a class="userLike"  href="#" id="like" ><i  class="icofont-like like"></i>Like</a>');
+                        $('#likecounter1').hide();
+                        $('#likecounter2').html(response.success+'Comme ça');
+                        $('#likecounter2').show();
+                    }
+
+                },
+
             });
 
         }

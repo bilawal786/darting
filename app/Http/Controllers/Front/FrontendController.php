@@ -8,6 +8,7 @@ use App\Blog;
 use App\Feature;
 use App\Http\Controllers\Controller;
 use App\Participant;
+use App\Photo;
 use App\Setting;
 use App\Slider;
 use App\Subscription;
@@ -51,7 +52,8 @@ class FrontendController extends Controller
         $idd = base64_decode($id);
         $user = User::find($idd);
         $question = Question::all();
-        return view('front.dashboard.profile', compact('user','question'));
+        $post = Photo::all();
+        return view('front.dashboard.profile', compact('user','question','post'));
     }
     public function dashboard(){
         $activities = Activity::all();
