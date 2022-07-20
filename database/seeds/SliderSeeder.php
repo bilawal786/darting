@@ -13,8 +13,8 @@ class SliderSeeder extends Seeder
     {
         \App\Slider::create([
             'image1'=>'assets/images/sliderimage.jpeg',
-            'image2'=>'assets/images/sliderimage.jpeg',
-            'image3'=>'assets/images/sliderimage.jpeg',
+            'image2'=>'assets/images/1658294650images.jpg',
+            'image3'=>'assets/images/1658294650images.jpg',
             ]);
 
     }

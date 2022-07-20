@@ -56,6 +56,75 @@ class FrontendController extends Controller
     public function activityCreate(){
         return view('front.dashboard.activityCreate');
     }
+    public function activityedit($id){
+        $id = base64_decode($id);
+        $editactive=Activity::find($id);
+
+        return view('front.dashboard.activityedit', compact('editactive'));
+    }
+    public function activityUpdate(Request $request,$id){
+        $active=Activity::find($id) ;
+        if ($request->sortie){
+            foreach($request->sortie as $name)
+            {
+                $data4[]=$name;
+                $active->sortie=json_encode($data4);
+            }
+        }
+        if ($request->diver){
+            foreach($request->diver as $diver)
+            {
+                $data1[]=$diver;
+                $active->diver=json_encode($data1);
+            }
+        }
+        if ($request->game){
+            foreach($request->game as $name)
+            {
+                $data2[]=$name;
+                $active->game=json_encode($data2);
+            }
+        }
+        if ($request->sport){
+            foreach($request->sport as $name)
+            {
+                $data3[]=$name;
+                $active->sport=json_encode($data3);
+            }
+        }
+        $active->title = $request->title;
+        $active->time = $request->time;
+        $active->country = $request->country;
+        if ($request->hasfile('image')) {
+            $image1 = $request->file('image');
+            $name = time() . 'image' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $active->image = 'images/' . $name;
+        }
+        $active->user_id = Auth::user()->id;
+        $active->min_age = $request->min_age;
+        $active->max_age = $request->max_age;
+        $active->date = $request->date;
+        $active->city = $request->city;
+        $active->num = $request->num;
+        $active->type = $request->type;
+        $active->activity_type = $request->activity_type;
+        $active->activity_subtype = $request->activity_subtype;
+        $active->description = $request->description;
+        $active->price=$request->price;
+        $active->update();
+       $notification = array(
+           'messege' => 'Successfully added a activity',
+           'alert-type' => 'success'
+       );
+        return redirect()->back()->with($notification);
+    }
+
+    public function myactivity(){
+        $authactivity=Activity::where('user_id',Auth::user()->id)->get();
+        return view('front.dashboard.myactivity',compact('authactivity'));
+    }
     public function activity($id){
         $id = base64_decode($id);
         $users = User::where('role', '1')->get();
