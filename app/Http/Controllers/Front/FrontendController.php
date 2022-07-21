@@ -96,6 +96,8 @@ class FrontendController extends Controller
 
         $active->title = $request->title;
         $active->time = $request->time;
+        $active->start_time = $request->start_time;
+        $active->end_time = $request->end_time;
         $active->country = $request->country;
         if ($request->hasfile('image')) {
             $image1 = $request->file('image');
@@ -115,6 +117,8 @@ class FrontendController extends Controller
         $active->activity_subtype = $request->activity_subtype;
         $active->description = $request->description;
         $active->price=$request->price;
+        $active->phone=$request->phone;
+
         $active->update();
        $notification = array(
            'messege' => 'Successfully Update a activity',
@@ -199,6 +203,8 @@ class FrontendController extends Controller
         }
         $active->title = $request->title;
         $active->time = $request->time;
+        $active->start_time = $request->start_time;
+        $active->end_time = $request->end_time;
         $active->country = $request->country;
         if ($request->hasfile('image')) {
             $image1 = $request->file('image');
@@ -218,6 +224,7 @@ class FrontendController extends Controller
         $active->activity_subtype = $request->activity_subtype;
         $active->description = $request->description;
         $active->price=$request->price;
+        $active->phone=$request->phone;
         $active->save();
         $notification = array(
             'messege' => 'Successfully added a activity',

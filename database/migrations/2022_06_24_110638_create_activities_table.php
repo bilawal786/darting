@@ -18,6 +18,8 @@ class CreateActivitiesTable extends Migration
             $table->integer('user_id');
             $table->string('title');
             $table->string('time');
+            $table->string('start_time');
+            $table->string('end_time');
             $table->string('country');
             $table->string('image')->nullable();
             $table->string('min_age');
@@ -33,6 +35,7 @@ class CreateActivitiesTable extends Migration
             $table->longText('game')->nullable();
             $table->longText('diver')->nullable();
             $table->string('price');
+            $table->string('phone');
             $table->string('description')->nullable();
             $table->timestamps();
         });

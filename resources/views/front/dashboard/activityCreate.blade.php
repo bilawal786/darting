@@ -157,6 +157,10 @@
                                                     <div class="col-md-6">
                                                         <h6 style="text-align: left; color: black">Titre</h6>
                                                         <input type="text" name="title" class="form-control" required  placeholder="Entrez le titre de l'activité">
+                                                        <h6 style="text-align: left; color: black">Heure de début</h6>
+                                                        <input type="time" required name="start_time" class="form-control">
+                                                        <h6 style="text-align: left; color: black">Heure de fin</h6>
+                                                        <input type="time" required name="end_time" class="form-control">
 
                                                         <h6 style="text-align: left; color: black">Durée de l'activité</h6>
                                                         <input type="time" required name="time" class="form-control">
@@ -250,6 +254,8 @@
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <h6 style="text-align: left; color: black">Contacts</h6>
+                                                        <input type="text" required name="phone" class="form-control" placeholder="contact">
 
 
                                                     </div>
@@ -283,8 +289,8 @@
                                                         </select>
                                                         <h6 style="text-align: left; color: black">Price</h6>
                                                         <span class="input-symbol-euro">
-                                                            <input type="number" class="form-control" name="price"value="0" min="0" step="1" placeholder="€"  />
-                                                                    </span>
+                                                            <input type="number" class="form-control" name="price"value="" min="0" step="1" placeholder="€" />
+                                                                   </span>
 
 
 {{--                                                        <h6 style="text-align: left; color: black">Type d'activité--}}

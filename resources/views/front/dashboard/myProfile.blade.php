@@ -219,6 +219,18 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
+                                                                    <div class="gender">
+                                                                        <div class="custom-select right w-100">
+                                                                            <p style="text-align:left" >Je suis</p>
+                                                                            <select name="gender"  class="">
+                                                                                <option value="Un Particulier">Un Particulier</option>
+                                                                                <option value="Une femme">Une femme</option>
+                                                                                <option value="Un pro / Une asso">Un pro / Une asso</option>
+                                                                                <option value="Un homme">Un homme</option>
+
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
                                                                         <div class="city">
                                                                             <div class="custom-select right w-100">
                                                                                 <select name="country"  class="">
@@ -231,6 +243,7 @@
                                                                             </div>
                                                                         </div>
 
+                                                                </div>
                                                                         <input style="width: 100%"  id="inputButtonc" type="submit" value="Mettre à jour le profil" class="btn btn-primary">
                                                                 </div>
                                                             </div>

@@ -365,7 +365,7 @@
                         @guest
 
                         <li>
-                            <a href="{{route('front.function')}}">Fonctionnalités</a>
+                            <a href="{{route('front.function')}}">Comment ça marche?</a>
                         </li>
                         <li>
                             <a href="{{route('front.allposts')}}">Blog</a>

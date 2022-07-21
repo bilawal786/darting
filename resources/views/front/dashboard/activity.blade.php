@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="profile-name">
                                     <h4>{{$activity->title}}</h4>
-                                    <p>{{$activity->date}}</p>
+                                    <p>{{date('d-M-y', strtotime($activity->date))}}</p>
                                 </div>
                                 <ul class="profile-contact">
                                     <li>
@@ -39,7 +39,7 @@
                                         <a href="#">
                                             <div class="icon"><i class="icofont-clock-time"></i></div>
                                             <div class="text">
-                                                <p>{{$activity->time}}</p>
+                                                <p>{{$activity->start_time}}/{{$activity->end_time}}</p>
                                             </div>
                                         </a>
                                     </li>
@@ -83,7 +83,7 @@
                                                 <article>
                                                     @php
                                                     $participants = \App\Participant::where('activity_id' , $activity->id)->get();
-                                                     $totalprice = $activity->price/$activity->num;
+
                                                     @endphp
                                                     <div class="info-card mb-20">
                                                         <div class="info-card-title">
@@ -123,13 +123,11 @@
                                                                 <li>
                                                                     <p class="info-name">Lieux & Coordonnées
                                                                     </p>
-                                                                    <p class="info-details">Adresse réservée aux participants à :
-
-                                                                        9088 km(s)</p>
+                                                                    <p class="info-details">{{$activity->city}};{{$activity->phone}}</p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Coût (€)</p>
-                                                                    <p class="info-details">Gratuit</p>
+                                                                    <p class="info-details">{{$activity->price}}</p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Type d'activité
@@ -138,7 +136,7 @@
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Activité visible</p>
-                                                                    <p class="info-details">Par tout le monde</p>
+                                                                    <p class="info-details">{{$activity->activity_type}}</p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Participants souhaités
@@ -176,7 +174,7 @@
                                             <div class="info-card mb-20">
                                                 <div class="info-card-title">
                                                     <h6>Inscrivez-vous en tant que participant à cette activité </h6>
-                                                    <h5>({{$totalprice}}€)</h5>
+                                                    <h5>({{$activity->price}}€)</h5>
                                                 </div>
                                                 <div class="info-card-content">
                                                     <div class="lab-content w-100">
