@@ -18,6 +18,10 @@
         <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Messages </button>
     </div>
     <div class="col-md-12">
+        <a href="{{route('front.myactivity')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Mon activité
+            </button></a>
+    </div>
+    <div class="col-md-12">
         <a  style="width: 100%;  background-color: #3a1965; text-align: left; padding: 0px" class="lab-btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" href="{{route('logout')}}">
         <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Déconnecter </button> </a>
@@ -25,4 +29,5 @@
             @csrf
         </form>
     </div>
+
 </div>

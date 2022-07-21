@@ -306,9 +306,7 @@
                                                     <div class="col-md-6">
                                                         <button type="submit" class="btn btn-primary mt-4" style="width: 100%"> Enregistrer l'activité </button>
                                                     </div>
-
                                                 </div>
-
                                             </form>
                                         </div>
                                         <!-- /Wizard container -->
