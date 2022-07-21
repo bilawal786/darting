@@ -75,6 +75,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/userunlike/{id}','Front\UserController@unLiker')->name('userunlike');
 
 
+    Route::get('/usermatch/{id}/{status}','Front\UserController@userMatch')->name('usermatch');
+
+
 
 });
 

@@ -7,6 +7,7 @@ use App\Activity;
 use App\Blog;
 use App\Feature;
 use App\Http\Controllers\Controller;
+use App\MatchProfile;
 use App\Participant;
 use App\Photo;
 use App\Setting;
@@ -39,8 +40,9 @@ class FrontendController extends Controller
         return view('front.pages.function',compact('feature'));
     }
     public function profiles(){
+        $match = MatchProfile::where('user_id','=',Auth::user()->id)->pluck('users_id')->toArray();
         $users = User::where('role', '1')->where('id', '!=', Auth::user()->id)->get();
-        return view('front.dashboard.profiles', compact('users'));
+        return view('front.dashboard.profiles', compact('users','match'));
     }
     public function profile($id){
         $idd = base64_decode($id);

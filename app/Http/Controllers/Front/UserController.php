@@ -7,6 +7,7 @@ use App\Divers;
 
 use App\Jeux;
 use App\Like;
+use App\MatchProfile;
 use App\Photo;
 use App\Question;
 use App\Sorties;
@@ -262,6 +263,14 @@ class UserController extends Controller
         );
         return redirect()->back()->with($notification);
 
+    }
+    public function userMatch($id,$status)
+    {  $match = new MatchProfile();
+        $match->users_id = $id;
+        $match->user_id = Auth::user()->id;
+        $match->status = $status;
+        $match->save();
+        return response()->json(['success' => '1']);
     }
 
 
