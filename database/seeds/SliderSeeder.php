@@ -12,9 +12,9 @@ class SliderSeeder extends Seeder
     public function run()
     {
         \App\Slider::create([
-            'image1'=>'assets/images/sliderimage.jpeg',
-            'image2'=>'assets/images/1658294650images.jpg',
-            'image3'=>'assets/images/1658294650images.jpg',
+            'image1'=>'images/1658443703images.jpg',
+            'image2'=>'images/1658443711images.jpg',
+            'image3'=>'images/1658443718images.jpg',
             ]);
 
     }
