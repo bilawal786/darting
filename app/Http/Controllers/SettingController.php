@@ -31,6 +31,8 @@ class SettingController extends Controller
         $setting->link3=$request->link3;
         $setting->link4=$request->link4;
         $setting->link5=$request->link5;
+        $setting->blogh1=$request->blogh1;
+        $setting->blogh2=$request->blogh2;
         $setting->footercontent=$request->footercontent;
         if ($request->hasfile('banarimage')) {
             $image1 = $request->file('banarimage');

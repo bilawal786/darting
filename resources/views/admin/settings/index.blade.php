@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
     <div id="content" class="main-content">
         <div class="layout-px-spacing">
 
@@ -21,12 +20,9 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-2">
-
                                     </div>
                                     <div class="col-xl-8 col-md-8 col-sm-8 col-8">
-
                                         <div class="widget-content widget-content-area">
-
                                             <div class="form-group mb-4 mt-5">
                                                 <label for="exampleFormControlInput2">Nom du site </label>
                                                 <input type="text" class="form-control"
@@ -44,7 +40,7 @@
                                             </div>
                                             <div class="col">
                                                 <label for="">Logo du site</label>
-                                    <input class="form-control file-upload-input" type="file" name="logo"   >
+                                            <input class="form-control file-upload-input" type="file" name="logo"   >
                                             </div>
                                             <div class="form-group mb-4 mt-5">
                                                 <label for="exampleFormControlInput2">Address</label>
@@ -86,29 +82,27 @@
                                                 <input type="file" class="form-control"
                                                        name="banarimage" value="{{$setting->banarimage}}">
                                             </div>
-
-
-
+                                            <div class="form-group mb-4 mt-5">
+                                                <label for="exampleFormControlInput2">Rubrique 1 de la section du blog</label>
+                                                <input type="text" class="form-control"
+                                                          name="blogh1" rows="8"  value="{{$setting->blogh1}}" required>
+                                            </div>
+                                            <div class="form-group mb-4 mt-5">
+                                                <label for="exampleFormControlInput2">Rubrique 2 de la section du blog</label>
+                                                <input type="text" class="form-control"
+                                                          name="blogh2" rows="8"  value="{{$setting->blogh2}} "  required>
+                                            </div>
                                             <input type="submit" name="time" class="mt-4 mb-4 btn btn-primary"
                                                    value="Soumettre">
-
-
                                             <div class="col-xl-2">
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </form>
-
         </div>>
-
     </div>>
-
-
-
 @endsection

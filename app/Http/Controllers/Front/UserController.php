@@ -40,6 +40,9 @@ class UserController extends Controller
         if ($request->country) {
             $user->country = $request->country;
         }
+        if ($request->gender) {
+            $user->gender = $request->gender;
+        }
         if ($request->description) {
             $user->about = $request->description;
         }
@@ -104,7 +107,7 @@ class UserController extends Controller
         $user->save();
 
         $notification = array(
-            'messege' => 'Successfully Updated!',
+            'messege' => 'Mise à jour réussie!',
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);
@@ -130,7 +133,7 @@ class UserController extends Controller
         $user->save();
 
         $notification = array(
-            'messege' => 'Successfully Updated!',
+            'messege' => 'Mise à jour réussie!',
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);
@@ -151,7 +154,7 @@ class UserController extends Controller
         $image->save();
 
         $notification = array(
-            'messege' => 'Successfully Added Post!',
+            'messege' => 'Article ajouté avec succès!',
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);
@@ -170,7 +173,7 @@ class UserController extends Controller
         $image->update();
 
         $notification = array(
-            'messege' => 'Successfully Update Post!',
+            'messege' => 'Article ajouté avec succès!',
             'alert-type' => 'success'
         );
         return Redirect()->back()->with($notification);
@@ -180,7 +183,7 @@ class UserController extends Controller
         $image = Photo::find($id);
         $image->delete();
         $notification = array(
-            'messege' => 'Successfully Delete Post!',
+            'messege' => 'Supprimer le message avec succès!',
             'alert-type' => 'error'
         );
         return Redirect()->back()->with($notification);
@@ -243,7 +246,7 @@ class UserController extends Controller
         $comment->save();
 
         $notification = array(
-            'messege' => 'Successfully Added Comment!',
+            'messege' => 'Commentaire ajouté avec succès!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
@@ -255,7 +258,7 @@ class UserController extends Controller
     { $com = Comments::find($id);
         $com->delete();
         $notification = array(
-            'messege' => 'Successfully Deleted Comment!',
+            'messege' => 'Commentaire supprimé avec succès!',
             'alert-type' => 'error'
         );
         return redirect()->back()->with($notification);

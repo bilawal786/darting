@@ -159,7 +159,10 @@
                                                             <h6 style="text-align: left; color: black">Titre</h6>
 
                                                             <input type="text" name="title" class="form-control" required value=" {{$editactive->title}}" placeholder="Entrez le titre de l'activité">
-
+                                                            <h6 style="text-align: left; color: black">Heure de début</h6>
+                                                            <input type="time" required name="start_time" value="{{$editactive->start_time}}" class="form-control">
+                                                            <h6 style="text-align: left; color: black">Heure de fin</h6>
+                                                            <input type="time" required name="end_time" value="{{$editactive->end_time}}" class="form-control">
                                                             <h6 style="text-align: left; color: black">Durée de l'activité</h6>
                                                             <input type="time" required name="time" value="{{$editactive->time}}" class="form-control">
 
@@ -252,6 +255,8 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <h6 style="text-align: left; color: black">Contacts</h6>
+                                                            <input type="text" required name="phone" class="form-control" value="{{$editactive->phone}}" placeholder="contact">
 
 
                                                         </div>

@@ -23,6 +23,8 @@ class SettingSeeder extends Seeder
             'link4' => 'www.skype.com',
             'link5' => 'www.pintrest.com',
             'banarimage'=>'assets/images/01.png',
+            'blogh1'=> 'amour dans la foi Histoires de réussite',
+            'blogh2'=> 'Douces histoires de nos amants',
             'footercontent'=>'Energistically coordinate highly efficient procesr partnerships befor revolutionar growth strategie improvement viaing awesome
                               Energistically coordinate highly efficient procesr partnerships befor revolutionar growth Energistically coordinate highly efficient procesr partnerships befor revolutionar growth   '
         ]);
