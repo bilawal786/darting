@@ -60,15 +60,9 @@
                                     <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab"
                                             data-bs-target="#profile" type="button" role="tab" aria-controls="profile"
                                             aria-selected="false">Informations</button>
-                                    <button class="nav-link" id="nav-friends-tab" data-bs-toggle="tab"
-                                            data-bs-target="#friends" type="button" role="tab" aria-controls="friends"
-                                            aria-selected="false">Discussion</button>
                                     <button class="nav-link" id="nav-groups-tab" data-bs-toggle="tab"
                                             data-bs-target="#groups" type="button" role="tab" aria-controls="groups"
                                             aria-selected="false">Participer</button>
-                                    <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
-                                            data-bs-target="#photos" type="button" role="tab" aria-controls="photos"
-                                            aria-selected="false">Inviter</button>
                                     <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                             data-bs-target="#reviews" type="button" role="tab" aria-controls="photos"
                                             aria-selected="false">Examen</button>
