@@ -3,7 +3,6 @@
 <!-- ================ Banner Section start Here =============== -->
 
 
-@auth
     <div style="padding-top: 200px" class="banner-section page-header-section login-section" >
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -181,9 +180,9 @@
 <!-- ================ Video Section start Here =============== -->
 
 <section class="story-section padding-tb bg-img" style="width: 100%;">
-    <div class=" container">
+    <div style="padding: 0px" class="container-fluid">
         <div class="ytp-cued-thumbnail-overlay" data-layer="4" style="">
-            <video autoplay muted loop id="myVideo" >
+            <video style="width: 100%" autoplay muted loop id="myVideo" >
                 <source src="{{asset('WhatsApp Video 2022-07-22 at 4.53.52 PM.mp4')}}" type="video/mp4">
             </video>
         </div>

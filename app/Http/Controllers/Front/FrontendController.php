@@ -237,8 +237,11 @@ class FrontendController extends Controller
     public function subscriptions(){
 
         $subscriptions = Plan::all();
-        $subscriptionn = Plan::where('id','=',Auth::user()->subscription)->first();
-        return view('front.pages.subscriptions', compact('subscriptions','subscriptionn'));
+        if (Auth::user()){
+            $subscriptionn = Plan::where('id','=' , Auth::user()->subscription)->first();
+            return view('front.pages.subscriptions', compact('subscriptions','subscriptionn'));
+        }
+        return view('front.pages.subscriptions', compact('subscriptions'));
     }
     public function subscriptionPaymant($id){
         $user = Auth::user();
