@@ -24,14 +24,15 @@
                                                             @if($user->profile_picture != null)
                                                                 <img   src="{{asset($user->profile_picture)}}" alt="member-img">
                                                             @else
-                                                                <img  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
+{{--                                                                https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png--}}
+                                                                <img  src="{{asset('assets/images/member/01.jpg')}}" alt="member-img">
                                                             @endif
                                                         </div>
                                                         <div class="lab-content">
                                                             <h6><a href="#">{{$user->fname. ' ' . $user->lname}}</a> </h6>
                                                             <p>{{$user->country}}</p>
-                                                            <a class="btn btn-success" onclick="myFunction({{$user->id}},1)">Accept </a>
-                                                            <a class="btn btn-primary" onclick="myFunction({{$user->id}},0)">Reject </a>
+                                                            <a class="btn btn-success" onclick="myFunction({{$user->id}},1)">Accepter </a>
+                                                            <a class="btn btn-primary" onclick="myFunction({{$user->id}},0)">Rejeter </a>
                                                         </div>
 
                                                     </div>

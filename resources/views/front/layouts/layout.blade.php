@@ -305,7 +305,8 @@
             <div class="header-top-area">
                 <ul class="left">
                     <li>
-                        <a href="{{route('front.subscriptions')}}">Abonnement</a>
+
+                        <a href="{{route('front.subscriptions')}}" class="lab-btn text-center"><i class="icofont-circled-right "></i>Adhesion Primium</a>
                     </li>
                     <li>
                         <i class="icofont-ui-call"></i> {{$setting->phone}}
@@ -383,7 +384,7 @@
                             <a href="{{route('front.profiles')}}">Match parfait <span class="myspan">1</span></a>
                         </li>
                         <li>
-                            <a href="#">Messages <span class="myspan">2</span></a>
+                            <a href="{{route('front.iframe.chat')}}">Messages <span class="myspan">2</span></a>
                         </li>
                         <li>
                             <a href="{{route('front.dashboard')}}">Activities <span class="myspan">1</span></a>

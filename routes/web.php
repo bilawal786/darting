@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/activity/apply/part/{id}', 'Front\FrontendController@activityApply')->name('activity.apply.part');
     Route::post('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
     Route::get('/front/profiles', 'Front\FrontendController@profiles')->name('front.profiles');
+    Route::get('/front/myaccept/request', 'Front\FrontendController@whoMyAcceptRequest')->name('front.myaccept.request');
+    Route::get('/front/iaccept/request', 'Front\FrontendController@iAcceptRequest')->name('front.iaccept.request');
+
+    Route::get('/front/iframe/chat', 'Front\FrontendController@iframChat')->name('front.iframe.chat');
 
     Route::get('/activity/create/a', 'Front\FrontendController@activityCreate')->name('activity.create');
     Route::get('/activity/edit/a{id}', 'Front\FrontendController@activityedit')->name('activity.edit');

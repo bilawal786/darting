@@ -259,27 +259,30 @@
                                                     </div>
                                                     <!-- post meta -->
                                                     <div class="post-meta">
-                                                        <div class="post-meta-top">
-                                                            <p><a href="#"><i class="icofont-like" style="color: red"></i> <i class="icofont-heart" style="color: red"></i> </i>
-                                                                    @php $likeCount = \App\Like::where('post_id','=',$row->id)->where('is_dislike','=',0)->count();@endphp
-                                                                    <span id="likecounter1{{$row->id}}">{{$likeCount}} Comme ça</span>
-                                                                    <span id="likecounter2{{$row->id}}" style="display: none"></span>
-                                                                </a>
-                                                            </p>
-                                                            @php $comment = \App\Comments::where('post_id','=',$row->id)->get(); @endphp
-                                                            <p>
-                                                                <a href="#">{{$comment->count()}} Commentaires</a>
-                                                            </p>
-                                                        </div>
+                                                        @php $likeCount = \App\Like::where('post_id','=',$row->id)->where('is_dislike','=',0)->count();@endphp
+                                                        @php $comment = \App\Comments::where('post_id','=',$row->id)->get(); @endphp
+{{--                                                        <div class="post-meta-top">--}}
+{{--                                                           --}}
+{{--                                                            <p><a href="#"><i class="icofont-like" style="color: red"></i> <i class="icofont-heart" style="color: red"></i> </i>--}}
+{{--                                                                   --}}
+{{--                                                                    <span id="likecounter1{{$row->id}}">{{$likeCount}} Comme ça</span>--}}
+{{--                                                                    <span id="likecounter2{{$row->id}}" style="display: none"></span>--}}
+{{--                                                                </a>--}}
+{{--                                                            </p>--}}
+{{--                                                          --}}
+{{--                                                            <p>--}}
+{{--                                                                <a href="#">{{$comment->count()}} Commentaires</a>--}}
+{{--                                                            </p>--}}
+{{--                                                        </div>--}}
                                                         <div class="post-meta-bottom">
                                                             <ul class="react-list">
                                                                 @php $like = \App\Like::where('user_id','=',Auth::user()->id)->where('post_id','=',$row->id)->where('is_dislike','=',0)->first();@endphp
                                                                 <li class="react " id="addLike{{$row->id}}">
                                                                     @if($like)
-                                                                        <a   onclick="unlike({{$row->id}})"   id="unlike{{$row->id}}"><i class="icofont-like like"  style="color: red!important;" ></i>
-                                                                            Like</a>
+                                                                        <a   onclick="unlike({{$row->id}})"   id="unlike{{$row->id}}">{{$likeCount}} <i class="icofont-like like"  style="color: red!important;" ></i>
+                                                                              Like</a>
                                                                     @else
-                                                                        <a class="userLike" onclick="like({{$row->id}})"  id="like{{$row->id}}" ><i  class="icofont-like like"></i>
+                                                                        <a class="userLike" onclick="like({{$row->id}})"  id="like{{$row->id}}" >{{$likeCount}} <i  class="icofont-like like"></i>
                                                                             Like</a>
                                                                     @endif
                                                                 </li>
@@ -423,7 +426,7 @@
                 success : function(response) {
                     if(response){
                         $('#like'+id).hide();
-                        $('#addLike'+id).append('<a    id="unlike"><i class="icofont-like like"  style="color: red!important;" ></i>Like</a> ');
+                        $('#addLike'+id).append('<a  id="unlike"><span>'+response.success+'</span><i class="icofont-like like"  style="color: red!important;" ></i>Like</a> ');
                         $('#likecounter1'+id).hide();
                         $('#likecounter2'+id).html(response.success+'Comme ça');
                         $('#likecounter2'+id).show();
@@ -442,7 +445,7 @@
                 success : function(response) {
                     if(response){
                         $('#unlike'+id).hide();
-                        $('#addLike'+id).append('<a class="userLike"   id="like" ><i  class="icofont-like like"></i>Like</a>');
+                        $('#addLike'+id).append('<a class="userLike"   id="like" ><span>'+response.success+'</span><i  class="icofont-like like"></i>Like</a>');
                         $('#likecounter1'+id).hide();
                         $('#likecounter2'+id).html(response.success+'Comme ça');
                         $('#likecounter2'+id).show();

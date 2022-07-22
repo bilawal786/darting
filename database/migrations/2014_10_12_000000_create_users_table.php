@@ -50,6 +50,7 @@ class CreateUsersTable extends Migration
             $table->string('question8')->nullable();
             $table->string('question9')->nullable();
             $table->string('question10')->nullable();
+            $table->string('subscription')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

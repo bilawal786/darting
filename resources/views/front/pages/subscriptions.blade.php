@@ -5,6 +5,21 @@
     <!-- ==========login Section start Here========== -->
     <div class="page-header-section style-1 login-section padding-tb">
         <div class=" container">
+
+            <h2> Votre abonnement activé</h2>
+
+                @if($subscriptionn)
+                    <div class="account-wrapper" style="max-width: 1000px">
+                        <h3 class="title">{{$subscriptionn->name}}</h3>
+                        <h6 class="title">{{$subscriptionn->description}}</h6>
+                        <h1 class="title">{{$subscriptionn->price}} €  <small style="font-size: 20px">/ {{$subscriptionn->duration}}</small></h1>
+
+                    </div>
+                @else
+                    <h4 style="color: red;">Pas d'abonnement S'abonner</h4><br><br>
+                @endif
+
+            <h2> S'abonner Nouvel abonnement </h2>
             @foreach($subscriptions as $subscription)
             <div class="account-wrapper" style="max-width: 1000px">
                 <h3 class="title">{{$subscription->name}}</h3>

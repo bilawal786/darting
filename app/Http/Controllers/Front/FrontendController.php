@@ -230,7 +230,8 @@ class FrontendController extends Controller
     public function subscriptions(){
 
         $subscriptions = Plan::all();
-        return view('front.pages.subscriptions', compact('subscriptions'));
+        $subscriptionn = Plan::where('id','=',Auth::user()->subscription)->first();
+        return view('front.pages.subscriptions', compact('subscriptions','subscriptionn'));
     }
     public function subscriptionPaymant($id){
         $user = Auth::user();
@@ -248,6 +249,11 @@ class FrontendController extends Controller
         $userSubscription->card_holder_name = $request->card_holder_name;
         $userSubscription->paymentMethodId = $request->paymentMethodId;
         $userSubscription->save();
+
+        if($userSubscription->save()){
+            $user->subscription = $id;
+            $user->save();
+        }
 
         $user->newSubscription('main', $userSubscription->key)
             ->create($userSubscription->paymentMethodId);
@@ -288,6 +294,21 @@ class FrontendController extends Controller
         );
        return redirect()->back()->with($notification);
 
+    }
+    public function whoMyAcceptRequest(){
+        $match = MatchProfile::where('users_id','=',Auth::user()->id)->where('status','=',0)->orderBy('created_at', 'desc')->pluck('user_id');
+        $users = User::whereIn('id',$match)->get();
+        return view('front.dashboard.myrequest',compact('users'));
+
+    }
+    public function iAcceptRequest(){
+        $match = MatchProfile::where('user_id','=',Auth::user()->id)->where('status','=',0)->orderBy('created_at', 'desc')->pluck('users_id');
+        $users = User::whereIn('id',$match)->get();
+        return view('front.dashboard.myrequest',compact('users'));
+
+    }
+    public function iframChat(){
+        return view('front.dashboard.iframe');
     }
 
 

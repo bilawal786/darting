@@ -22,6 +22,14 @@
             </button></a>
     </div>
     <div class="col-md-12">
+        <a href="{{route('front.iaccept.request')}}"><button style="width: 100%;  background-color:{{ request()->is('front/iaccept/request') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Accepter la requête
+            </button></a>
+    </div>
+    <div class="col-md-12">
+        <a href="{{route('front.myaccept.request')}}"><button style="width: 100%;  background-color:{{ request()->is('front/myaccept/request') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Qui a visité mon profil
+            </button></a>
+    </div>
+    <div class="col-md-12">
         <a  style="width: 100%;  background-color: #3a1965; text-align: left; padding: 0px" class="lab-btn" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" href="{{route('logout')}}">
         <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Déconnecter </button> </a>
