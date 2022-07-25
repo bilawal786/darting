@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Activity;
 use App\Comments;
 use App\Divers;
 
@@ -9,10 +10,13 @@ use App\Jeux;
 use App\Like;
 use App\MatchProfile;
 use App\Photo;
+use App\Plan;
 use App\Question;
 use App\Sorties;
 use App\Sport;
+use App\Subscription;
 use App\User;
+use App\UserSubscription;
 use Illuminate\Http\Request;
 use Auth;
 use App\Http\Controllers\Controller;
@@ -199,11 +203,14 @@ class UserController extends Controller
     {
         $question = Question::all();
         $user = User::find($id);
+        $plans=UserSubscription::find($id);
+        $plan=Plan::find($id);
+        $activiety=Activity::where('user_id','=',$id)->get();
         $juex = Jeux::all();
         $divers = Divers::all();
         $sports = Sport::all();
         $sortie = Sorties::all();
-        return view('admin.users.userview', compact('user', 'sortie', 'juex', 'divers', 'sports', 'question'));
+        return view('admin.users.userview', compact('user','activiety' ,'plan' ,'plans','sortie', 'juex', 'divers', 'sports', 'question'));
     }
 
     public function liker($id)

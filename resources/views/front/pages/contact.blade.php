@@ -10,16 +10,14 @@
                     <div class="col-lg-8">
                         <article class="contact-form-wrapper">
                             <div class="contact-form">
-                                <h4>Ne soyez pas un étranger, dites simplement bonjour.</h4>
-                                <p class="mb-5">Nous réparons rapidement votre téléphone. Au plus pour réparer votre appareil en quelques minutes,
-                                    li nous allons normalement obtenir des inutes de connexion, nous aurons normalement ge.</p>
+                                <h4>Nous contacter</h4>
                                 <form action="{{route('front.store')}}" method="POST"  enctype="multipart/form-data" id="commentform" class="comment-form">
                                     @csrf
-                                    <input type="text" name="name" class="" placeholder="Nom*">
-                                    <input type="email" name="email" class="" placeholder="E-mail*">
-                                    <input type="text" name="sub" class="" placeholder="Matière*">
-                                    <input type="text" name="number" class="" placeholder="Mobile Number*">
-                                    <textarea name="text"  cols="30" rows="8" placeholder="Message*"></textarea>
+                                    <input type="text" name="name" class="" placeholder="Nom*" required>
+                                    <input type="email" name="email" class="" placeholder="E-mail*"required>
+                                    <input type="text" name="sub" class="" placeholder="Matière*"required>
+                                    <input type="text" name="number" class="" placeholder="Mobile Number*"required>
+                                    <textarea name="text"  cols="30" rows="8" placeholder="Message*" required></textarea>
                                     <button type="submit" class="lab-btn">
                                         <span>Envoyez notre message</span>
                                     </button>
@@ -29,11 +27,6 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="contact-info-wrapper">
-                            <div class="contact-info-title">
-                                <h5>Obtenir des informations</h5>
-                                <p>Nos Coordonnées Détails et
-                                    Suivez-nous sur les réseaux sociaux</p>
-                            </div>
                             <div class="contact-info-content">
                                 <div class="contact-info-item">
                                     <div class="contact-info-inner">

@@ -172,6 +172,17 @@ class FrontendController extends Controller
 
 
     }
+    public function activityDelete($id){
+        $id = base64_decode($id);
+        $activitie = Activity::find($id);
+        $activitie->delete();
+        $notification = array(
+            'messege' => 'Activité supprimée réussie!',
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+
+    }
     public function activityStore(Request $request)
     {
         $active = new Activity();

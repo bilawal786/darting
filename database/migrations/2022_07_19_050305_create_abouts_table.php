@@ -17,6 +17,10 @@ class CreateAboutsTable extends Migration
             $table->id();
             $table->string('title1');
             $table->string('title2');
+            $table->string('image1');
+            $table->string('image2');
+            $table->string('image3');
+            $table->string('image4');
             $table->integer('count1');
             $table->integer('count2');
             $table->integer('count3');

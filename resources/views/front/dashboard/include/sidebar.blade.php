@@ -1,9 +1,17 @@
+
+@php
+$activities =\App\Activity::all()->count();
+$match=\App\MatchProfile::all()->count();
+$authactivity=\App\Activity::where('user_id',Auth::user()->id)->count();
+@endphp
+
+
 <div class="row">
     <div class="col-md-12">
-        <a href="{{route('front.profiles')}}"><button style="width: 100%;  background-color: {{ request()->is('front/profiles') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Match parfait</button></a>
+        <a href="{{route('front.profiles')}}"><button style="width: 100%;  background-color: {{ request()->is('front/profiles') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Match parfait<span class="myspan">{{$match}}</span></button></a>
     </div>
     <div class="col-md-12">
-        <a href="{{route('front.dashboard')}}"><button style="width: 100%;  background-color: {{ request()->is('dashboard') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Activities</button></a>
+        <a href="{{route('front.dashboard')}}"><button style="width: 100%;  background-color: {{ request()->is('dashboard') ? '#df314d' : '#3a1965' }}; text-align: left"  class="lab-btn"  >Activities <span class="myspan">{{$activities}}</span></button> </a>
     </div>
     <div class="col-md-12">
         <a href="{{route('activity.create')}}"><button style="width: 100%;  background-color:{{ request()->is('activity/create') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Créer une activité</button></a>
@@ -12,14 +20,13 @@
         <a href="{{route('my.profile')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Mon profil</button></a>
     </div>
     <div class="col-md-12">
-        <a href="{{route('front.notification')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Notification</button></a>
+        <a href="{{route('front.notification')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Notification <span class="myspan"> 0</span></button></a>
     </div>
     <div class="col-md-12">
-        <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Messages </button>
+        <button style="width: 100%;  background-color: #3a1965; text-align: left" class="lab-btn">Messages <span class="myspan"> 0</span> </button>
     </div>
     <div class="col-md-12">
-        <a href="{{route('front.myactivity')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Mon activité
-            </button></a>
+        <a href="{{route('front.myactivity')}}"><button style="width: 100%;  background-color:{{ request()->is('my/profile') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Mon activité <span class="myspan"> {{$authactivity}}</span></button></a>
     </div>
     <div class="col-md-12">
         <a href="{{route('front.iaccept.request')}}"><button style="width: 100%;  background-color:{{ request()->is('front/iaccept/request') ? '#df314d' : '#3a1965' }}; text-align: left" class="lab-btn">Accepter la requête

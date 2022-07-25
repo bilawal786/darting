@@ -17,7 +17,6 @@ class SliderController extends Controller
 
         }
     public function update(Request $request){
-
         $slide=Slider::find(1);
         $slide->link1=$request->link1;
         $slide->link2=$request->link2;
@@ -43,6 +42,31 @@ class SliderController extends Controller
             $image1->move($destinationPath, $name);
             $slide->image3 = 'images/' . $name;
         }
+        $slide->link4=$request->link4;
+        $slide->link5=$request->link5;
+        $slide->link6=$request->link6;
+        if ($request->hasfile('image4')) {
+            $image1 = $request->file('image4');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $slide->image4 = 'images/' . $name;
+        }
+        if ($request->hasfile('image5')) {
+            $image1 = $request->file('image5');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $slide->image5 = 'images/' . $name;
+        }
+        if ($request->hasfile('image6')) {
+            $image1 = $request->file('image6');
+            $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+            $destinationPath = 'images/';
+            $image1->move($destinationPath, $name);
+            $slide->image6 = 'images/' . $name;
+        }
+
         $slide->update();
         $notification = array(
             'messege' => 'Mise à jour partie travail',

@@ -34,14 +34,12 @@
                                                             <a class="btn btn-success" onclick="myFunction({{$user->id}},1)">Accepter </a>
                                                             <a class="btn btn-primary" onclick="myFunction({{$user->id}},0)">Rejeter </a>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </a>
                                         </div>
                                 @endif
                             @endforeach
-
                         </div>
                     </div>
                 </div>

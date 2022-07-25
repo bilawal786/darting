@@ -2,7 +2,7 @@
 @section('content')
 <!-- ================ Banner Section start Here =============== -->
 
-
+@auth
     <div style="padding-top: 200px" class="banner-section page-header-section login-section" >
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -26,7 +26,33 @@
             </button>
                 </div>
             </div>
+@else
 
+<div style="padding-top: 200px" class="banner-section page-header-section login-section" >
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="{{$slide->link4}}"> <img src="{{$slide->image4}}" class="d-block w-100" alt="..."></a>
+            </div>
+            <div class="carousel-item">
+                <a href="{{$slide->link5}}"> <img src="{{$slide->image5}}" class="d-block w-100" alt="..."></a>
+            </div>
+            <div class="carousel-item">
+                <a href="{{$slide->link6}}"> <img src="{{$slide->image6}}" class="d-block w-100" alt="..."></a>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+@endauth
 <!-- ================ Banner Section end Here =============== -->
 
 
@@ -48,7 +74,7 @@
                     <div class="lab-item about-item">
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
-                                <img src="assets/images/about/01.png" alt="img">
+                                <img src="{{$about->image1}}" alt="img">
                             </div>
                             <div class="lab-content">
                                 <h2 class="counter">{{$about->count1}}</h2>
@@ -61,7 +87,7 @@
                     <div class="lab-item about-item">
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
-                                <img src="assets/images/about/02.png" alt="img">
+                                <img src="{{$about->image2}}" alt="img">
                             </div>
                             <div class="lab-content">
                                 <h2 class="counter">{{$about->count2}}</h2>
@@ -74,7 +100,7 @@
                     <div class="lab-item about-item">
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
-                                <img src="assets/images/about/03.png" alt="img">
+                                <img src="{{$about->image3}}" alt="img">
                             </div>
                             <div class="lab-content">
                                 <h2 class="counter">{{$about->count3}}</h2>
@@ -87,7 +113,7 @@
                     <div class="lab-item about-item">
                         <div class="lab-inner text-center">
                             <div class="lab-thumb">
-                                <img src="assets/images/about/04.png" alt="img">
+                                <img src="{{$about->image4}}" alt="img">
                             </div>
                             <div class="lab-content">
                                 <h2 class="counter">{{$about->count4}}</h2>

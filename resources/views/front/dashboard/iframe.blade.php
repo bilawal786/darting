@@ -19,7 +19,6 @@
     <div class="banner-section page-header-section style-1 login-section padding-tb">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-12">
                     <div class="section-wrapper">
                         <iframe src="{{asset('/chatify')}}" class="iframe"  title="W3Schools Free Online Web Tutorials">

@@ -303,7 +303,7 @@
     <div class="header-top">
         <div class="container-fluid">
             <div class="header-top-area">
-                <ul class="left">
+                <ul class="left menu">
                     <li style="padding: 0px">
 
                         <a href="{{route('front.subscriptions')}}" class="lab-btn text-center"><i class="icofont-circled-right "></i>Adhesion Primium</a>
@@ -312,7 +312,13 @@
                         <i class="icofont-ui-call"></i> {{$setting->phone}}
                     </li>
                     <li>
-                        <i class="icofont-location-pin"></i> {{$setting->address}}
+                        <a href="#">{{$setting->address}}</a>
+                        <ul class="submenu">
+                            <li><a href="#">Guadeloupe</a></li>
+                            <li><a href="#">Martinique</a></li>
+                            <li><a href="#">Guyane</a></li>
+                            <li><a href="#">Réunion</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <ul class="social-icons d-flex align-items-center" style="margin-right: 30px">
@@ -381,7 +387,7 @@
                             <a href="{{route('my.profile')}}">Mon profil</a>
                         </li>
                         <li>
-                            <a href="{{route('front.profiles')}}">Match parfait <span class="myspan">1</span></a>
+                            <a href="{{route('front.profiles')}}">Match parfait <span class="myspan">{{\App\MatchProfile::all()->count()}}</span></a>
                         </li>
                         <li>
                             <a href="{{route('front.iframe.chat')}}">Messages <span class="myspan">2</span></a>

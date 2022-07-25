@@ -36,8 +36,20 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
+                                        <label>image-1</label>
+                                        <input type="file" class="form-control"  name="image1" value="{{$about->image1}}"  >
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-sm-12">
                                         <label>Count-1</label>
                                         <input type="text" class="form-control"  name="count1" value="{{$about->count1}}"  >
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-sm-12">
+                                        <label>image-2</label>
+                                        <input type="file" class="form-control"  name="image2" value="{{$about->image2}}"  >
                                     </div>
                                 </div>
                                 <div class="row mb-4">
@@ -48,8 +60,21 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-sm-12">
+                                        <label>image-3</label>
+                                        <input type="file" class="form-control"  name="image3" value="{{$about->image3}}"  >
+                                    </div>
+                                </div>
+                                <div class="row mb-4">
+                                    <div class="col-sm-12">
                                         <label>Count-3</label>
                                         <input type="text" class="form-control"  name="count3" value="{{$about->count3}}" >
+                                    </div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-sm-12">
+                                        <label>image-4</label>
+                                        <input type="file" class="form-control"  name="image4" value="{{$about->image4}}">
                                     </div>
                                 </div>
                                 <div class="row mb-4">

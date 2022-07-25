@@ -117,7 +117,11 @@
                                                                 <li>
                                                                     <p class="info-name">Lieux & Coordonnées
                                                                     </p>
-                                                                    <p class="info-details">{{$activity->city}};{{$activity->phone}}</p>
+                                                                    <p class="info-details">{{$activity->city}}</p>
+                                                                </li>
+                                                                <li>
+                                                                    <p class="info-name">Téléphoner</p>
+                                                                    <p class="info-details">{{$activity->phone}} </p>
                                                                 </li>
                                                                 <li>
                                                                     <p class="info-name">Coût (€)</p>

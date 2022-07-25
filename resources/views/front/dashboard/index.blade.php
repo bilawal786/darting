@@ -28,7 +28,7 @@
                                          </div>
                                          <div class="col-md-4">
                                                  <h4>{{$activitie->title}}</h4>
-                                                 <p> <i class="icofont-clock-time"></i> {{$activitie->date}} - {{$activitie->time}} </p>
+                                                 <p> <i class="icofont-clock-time"></i> {{date('d-M-y', strtotime($activitie->date))}} - {{$activitie->time}} </p>
                                                  <p> <i class="icofont-location-pin"></i> {{$activitie->country}} </p>
                                                  <p> <i class="icofont-location-pin"></i> {{$activitie->city}} </p>
                                                  <p> <i class="icofont-users-alt-5"></i> 1 / {{$activitie->num}} </p>
