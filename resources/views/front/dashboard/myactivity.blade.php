@@ -10,20 +10,17 @@
                         @foreach($authactivity as $activitie)
                             <div class="section-wrapper" style="margin-bottom: 10px">
                                 <div class="row g-4">
-
                                         <div class="col-xl-12 col-12">
                                             <div class="group-item lab-item">
                                                 <div class="lab-inner d-flex flex-wrap align-items-center p-4">
                                                     <div class="row" style="text-align: left">
                                                         <div class="col-md-3">
                                                             <div class="me-sm-4 mb-4 mb-sm-0">
-
                                                                 @if($activitie->user->profile_picture != null)
                                                                     <img style="border-radius: 50%; height: 80px" src="{{asset($activitie->user->profile_picture)}}" alt="member-img">
                                                                 @else
                                                                     <img style="border-radius: 50%; height: 80px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1024px-User-avatar.svg.png" alt="member-img">
                                                                 @endif
-
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
@@ -45,14 +42,37 @@
                                                            <a href="{{route('activity.delete', ['id' => base64_encode($activitie->id)])}}" class="btn btn-danger"style="width: 100%" >Effacer</a>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             </div>
                                         </div>
-
                                 </div>
                             </div>
                         @endforeach
+                </div>
+                <div class="paginations">
+                    <ul class="lab-ul d-flex flex-wrap justify-content-center mb-1">
+                        <li>
+                            <a href="#"><i class="icofont-rounded-double-left"></i></a>
+                        </li>
+                        <li>
+                            <a href="#">1</a>
+                        </li>
+                        <li class="d-none d-sm-block">
+                            <a href="#">2</a>
+                        </li>
+                        <li>
+                            <a href="#">...</a>
+                        </li>
+                        <li class="d-none d-sm-block">
+                            <a href="#">4</a>
+                        </li>
+                        <li>
+                            <a href="#">5</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="icofont-rounded-double-right"></i></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

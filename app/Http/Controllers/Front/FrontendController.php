@@ -21,6 +21,7 @@ use App\Work;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 
 class FrontendController extends Controller
@@ -41,7 +42,7 @@ class FrontendController extends Controller
     }
     public function profiles(){
         $match = MatchProfile::where('user_id','=',Auth::user()->id)->pluck('users_id')->toArray();
-        $users = User::where('role', '1')->where('id', '!=', Auth::user()->id)->get();
+        $users = User::where('role', '1')->where('country', '!=', Auth::user()->country)->where('id', '!=', Auth::user()->id)->get();
         return view('front.dashboard.profiles', compact('users','match'));
     }
     public function profile($id){
@@ -120,7 +121,6 @@ class FrontendController extends Controller
         $active->description = $request->description;
         $active->price=$request->price;
         $active->phone=$request->phone;
-
         $active->update();
        $notification = array(
            'messege' => 'Successfully Update a activity',
@@ -128,7 +128,6 @@ class FrontendController extends Controller
        );
         return redirect()->back()->with($notification);
     }
-
     public function myactivity(){
         $authactivity=Activity::where('user_id',Auth::user()->id)->get();
         return view('front.dashboard.myactivity',compact('authactivity'));

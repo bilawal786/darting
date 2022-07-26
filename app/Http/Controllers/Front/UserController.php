@@ -212,6 +212,15 @@ class UserController extends Controller
         $sortie = Sorties::all();
         return view('admin.users.userview', compact('user','activiety' ,'plan' ,'plans','sortie', 'juex', 'divers', 'sports', 'question'));
     }
+    public function userviewdelete($id){
+        $userview=Activity::find($id);
+        $userview->delete();
+        $notification = array(
+            'messege' => 'Supprimer le message avec succès!',
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
 
     public function liker($id)
     {

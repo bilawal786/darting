@@ -60,13 +60,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/activity/rating','Front\FrontendController@rating')->name('activity.rating');
 //    Route::get('/activity/rating/create','Front\FrontendController@ratingcreate')->name('activity.ratingcreate');
 
-
-
-
 //user
 
     Route::get('/admin/users/index','Front\UserController@index')->name('admin.users.index');
     Route::get('/admin/users/userview/{id}','Front\UserController@userview')->name('admin.users.userview');
+    Route::get('/admin/users/userview/delete/{id}','Front\UserController@userviewdelete')->name('admin.users.userviewdelete');
     Route::post('/user/update','Front\UserController@update')->name('user.update');
     Route::post('/profile/image','Front\UserController@profileImage')->name('profile.image');
     Route::post('/user/image/post','Front\UserController@imagePost')->name('user.image.post');

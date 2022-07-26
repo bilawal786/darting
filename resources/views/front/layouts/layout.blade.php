@@ -303,7 +303,7 @@
     <div class="header-top">
         <div class="container-fluid">
             <div class="header-top-area">
-                <ul class="left menu">
+                <ul class="left ">
                     <li style="padding: 0px">
 
                         <a href="{{route('front.subscriptions')}}" class="lab-btn text-center"><i class="icofont-circled-right "></i>Adhesion Primium</a>
@@ -311,15 +311,18 @@
                     <li>
                         <i class="icofont-ui-call"></i> {{$setting->phone}}
                     </li>
-                    <li>
-                        <a href="#">{{$setting->address}}</a>
-                        <ul class="submenu">
-                            <li><a href="#">Guadeloupe</a></li>
-                            <li><a href="#">Martinique</a></li>
-                            <li><a href="#">Guyane</a></li>
-                            <li><a href="#">Réunion</a></li>
-                        </ul>
+                    @if($user)
+                    <li style="padding: 3px; opacity:0.6; ">
+                        <select class="form-select   pl-1" name="country" style="background-color:#221c53; color: #ffffff ">
+                            <i class="icofont-circled-right "></i>
+                            <option value="Guadeloupe" {{ $user->country == 'Guadeloupe' ? 'selected' : '' }} >Guadeloupe</option>
+                            <option value="Martinique"{{ $user->country == 'Martinique' ? 'selected' : '' }}>Martinique</option>
+                            <option value="France" {{ $user->country == 'France' ? 'selected' : '' }} >France</option>
+                            <option value="Guyane"{{ $user->country == 'Guyane' ? 'selected' : '' }}>Guyane</option>
+                            <option value="Réunion"{{ $user->country == 'Réunion' ? 'selected' : '' }}>Réunion</option>
+                        </select>
                     </li>
+                        @endif
                 </ul>
                 <ul class="social-icons d-flex align-items-center" style="margin-right: 30px">
                     <li>
