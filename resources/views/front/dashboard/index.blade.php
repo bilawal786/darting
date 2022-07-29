@@ -203,6 +203,7 @@
                $('#addCalanderr').show();
 
            }
+
            else if(id==2){
                $('#activity').show();
                $('#activityy').show();
