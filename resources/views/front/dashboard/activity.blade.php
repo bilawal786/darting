@@ -24,7 +24,12 @@
                                 </div>
                                 <div class="profile-name">
                                     <h4>{{$activity->title}}</h4>
-                                    <p>{{date('d-M-y', strtotime($activity->date))}}</p>
+                                    <?php
+                                    \Carbon\Carbon::setLocale('fr');
+                                    $date = \Carbon\Carbon::parse($activity->created_at);
+                                    ?>
+                                    <span> {{$date->diffForHumans()}}</span>
+{{--                                    <p>{{date('d-M-y', strtotime($activity->date))}}</p>--}}
                                 </div>
                                 <ul class="profile-contact">
                                     <li>
@@ -66,6 +71,9 @@
                                     <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
                                             data-bs-target="#reviews" type="button" role="tab" aria-controls="photos"
                                             aria-selected="false">Examen</button>
+                                    <button class="nav-link" id="nav-photos-tab" data-bs-toggle="tab"
+                                            data-bs-target="#invite" type="button" role="tab" aria-controls="photos"
+                                            aria-selected="false">Invitation</button>
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
@@ -120,7 +128,7 @@
                                                                     <p class="info-details">{{$activity->city}}</p>
                                                                 </li>
                                                                 <li>
-                                                                    <p class="info-name">Téléphoner</p>
+                                                                    <p class="info-name">Téléphone</p>
                                                                     <p class="info-details">{{$activity->phone}} </p>
                                                                 </li>
                                                                 <li>
@@ -398,16 +406,47 @@
                                     </div>
                                 </section>
                                  </div>
+                                <div class="tab-pane fade" id="invite" role="tabpanel" aria-labelledby="nav-groups-tab">
+{{--                                                <div class="info-card-content">--}}
+{{--                                                    <div class="lab-content w-100">--}}
+{{--                                                        <form id="form1"  action="#" method="POST"--}}
+{{--                                                              enctype="multipart/form-data">--}}
+{{--                                                            @csrf--}}
+{{--                                                            end--}}
+{{--                                                            <div class="row">--}}
+{{--                                                                <div class="col-md-6">--}}
+{{--                                                                        <div class="col-md-6">--}}
+{{--                                                                            <div class="row" style="background-color: #200152; border-radius: 10px;  display: flex;  margin: auto; margin-top: 60px; align-items:center; justify-content:center; padding: 20px; margin-bottom: 10px" >--}}
+
+{{--                                                                                <select   class="form-select " id="example-getting-started" multiple="multiple"   name="" style="background-color:#221c53; color: #ffffff ;width:100%" >--}}
+
+{{--                                                                            @foreach($userss as $user)--}}
+{{--                                                                                        <option value="{{$user->id}}">{{$user->fname}}</option>--}}
+{{--                                                                                @endforeach--}}
+{{--                                                                                </select>--}}
+{{--                                                                                    </div>--}}
+{{--                                                                            </div>--}}
+{{--                                                                        </div>--}}
+{{--                                                                </div>--}}
+{{--                                                            <button type="submit" class="lab-btn">Envoyer un massage <i class="icofont-paper-plane"></i></button>--}}
+{{--                                                        </form>--}}
+{{--                                                    </div>--}}
+{{--                                            </div>--}}
+                                         </div>
+                                    </div>
+                                 </div>
+                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                     </section>
     </div>
     <script src="{{asset('js/addons/rating.js')}}">
         $(document).ready(function() {
             $('#rateMe4').mdbRate();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#example-getting-started').multiselect();
         });
     </script>
 @endsection

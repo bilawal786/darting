@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- x-icon -->
     <link rel="shortcut icon" href="{{asset('logo.png')}}" type="image/x-icon">
-
     <!-- Other css -->
     <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -21,7 +20,12 @@
     <link rel="stylesheet" href="{{asset('//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css')}}">
+{{--calender csslinks--}}
 
+
+    <link rel="stylesheet" href="{{('css/bootstrap-multiselect.css')}}" type="text/css"/>
+
+    {{-- end calender section   --}}
 
     @php
     $setting=\App\Setting::first();
@@ -31,6 +35,11 @@
     <title>{{$setting->name}}</title>
 
     @yield('styles')
+
+    <style>
+        .multiselect-container>li>a>label {
+            padding: 4px 20px 3px 20px;
+        }</style>
     <style>
 
     /*.marginl{*/
@@ -249,10 +258,19 @@
     <style>
         .myspan{
             background-color: red;
-            padding: 2px;
+            padding: 5px;
             border-radius: 10px;
             margin-left: 5px;
             font-size: 15px;
+        }
+        .myspan1{
+            background-color: red;
+            padding:8px;
+            border-radius:10px;
+            font-size: 15px;
+            display: block;
+            float:right;
+            line-height: 17px;
         }
         header{
             padding: 0px;
@@ -305,21 +323,22 @@
             <div class="header-top-area">
                 <ul class="left ">
                     <li style="padding: 0px">
-
                         <a href="{{route('front.subscriptions')}}" class="lab-btn text-center"><i class="icofont-circled-right "></i>Adhesion Primium</a>
                     </li>
                     <li>
                         <i class="icofont-ui-call"></i> {{$setting->phone}}
                     </li>
+                    @php
+                    $country=\App\Country::all();
+
+                    @endphp
                     @if($user)
                     <li style="padding: 3px; opacity:0.6; ">
-                        <select class="form-select   pl-1" name="country" style="background-color:#221c53; color: #ffffff ">
+                        <select class="form-select   pl-1" name="country" style="background-color:#221c53; color: #ffffff ;width:100%" onchange="location = this.options[this.selectedIndex].value;">>
                             <i class="icofont-circled-right "></i>
-                            <option value="Guadeloupe" {{ $user->country == 'Guadeloupe' ? 'selected' : '' }} >Guadeloupe</option>
-                            <option value="Martinique"{{ $user->country == 'Martinique' ? 'selected' : '' }}>Martinique</option>
-                            <option value="France" {{ $user->country == 'France' ? 'selected' : '' }} >France</option>
-                            <option value="Guyane"{{ $user->country == 'Guyane' ? 'selected' : '' }}>Guyane</option>
-                            <option value="Réunion"{{ $user->country == 'Réunion' ? 'selected' : '' }}>Réunion</option>
+                            @foreach($country as $row)
+                            <option value="{{route('user.country.update',['id' => $row->id])}}"{{ $user->country == $row->id ? 'selected' : '' }} > {{$row->country}}</option>
+                            @endforeach
                         </select>
                     </li>
                         @endif
@@ -386,17 +405,21 @@
                         @endguest
 
                         @auth
+                            @php
+                            $mprofcount=\App\MatchProfile::all()->count();
+                            $activecount=\App\Activity::all()->count();
+                            @endphp
                         <li>
                             <a href="{{route('my.profile')}}">Mon profil</a>
                         </li>
                         <li>
-                            <a href="{{route('front.profiles')}}">Match parfait <span class="myspan">{{\App\MatchProfile::all()->count()}}</span></a>
+                            <a href="{{route('front.profiles')}}">Match parfait <span class="myspan">{{$mprofcount}}</span></a>
                         </li>
                         <li>
-                            <a href="{{route('front.iframe.chat')}}">Messages <span class="myspan">2</span></a>
+                            <a href="{{route('front.iframe.chat')}}">Messages <span class="myspan ">5</span></a>
                         </li>
                         <li>
-                            <a href="{{route('front.dashboard')}}">Activities <span class="myspan">1</span></a>
+                            <a href="{{route('front.dashboard')}}">Activities <span class="myspan">{{$activecount}}</span></a>
                         </li>
                         <li>
                             <a href="{{route('activity.create')}}">Créer une activité </a>
@@ -568,7 +591,7 @@
 <script src="{{asset('ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.js')}}"></script>
 <script src=”{{asset('ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')}}”></script>
-<script src=”{{asset('js/bootstrap-star-rating/star-rating.js” type=”text/javascript')}}”></script>
+<script src=”{{asset('js/bootstrap-star-rating/star-rating.js')}}” type=”text/javascript”></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/waypoints.min.js')}}"></script>
 <script src="{{asset('assets/js/swiper.min.js')}}"></script>
@@ -581,6 +604,14 @@
 <script src="{{asset('src/plugins/src/glightbox/glightbox.min.js')}}"></script>
 <script src="{{asset('src/plugins/src/splide/splide.min.js')}}"></script>
 <script src="{{asset('src/assets/js/apps/ecommerce-details.')}}"></script>
+<script src="{{asset('ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')}}"></script>
+
+{{--<script type="text/javascript" src="{{('js/jquery.min.js')}}"></script>--}}
+{{--<script type="text/javascript" src="{{('js/bootstrap.min.js')}}"></script>--}}
+{{--<script type="text/javascript" src="{{('js/bootstrap-multiselect.js')}}"></script>--}}
+{{--<script src="{{('ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js')}}"></script>--}}
+
+
 
 <script>
     var slideIndex = 1;
@@ -662,3 +693,13 @@
 </body>
 
 </html>
+{{--<script>--}}
+{{--    import {Vendors--}}
+{{--    import {App} from "../../../../public/js/app";--}}
+{{--    export default {--}}
+{{--        components: {App, Vendors}--}}
+{{--    }--}}
+{{--</script>--}}
+
+{{--calende--}}
+

@@ -19,8 +19,6 @@ Route::get('/blogindex/{id}','Front\FrontendController@blogindex')->name('front.
 Route::get('/subscriptions', 'Front\FrontendController@subscriptions')->name('front.subscriptions');
 Route::get('/subscription/paymant/{id}', 'Front\FrontendController@subscriptionPaymant')->name('front.subscription.paymant');
 Route::get('/front/function', 'Front\FrontendController@feature')->name('front.function');
-
-
 Route::get('/contact','ContactController@index')->name('front.contact');
 Route::post('/contact','ContactController@store')->name('front.store');
 
@@ -33,7 +31,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
     Route::post('/subscription/buy/{id}', 'Front\FrontendController@subscriptionBuy')->name('subscription.buy');
-
     Route::get('/profile/{id}', 'Front\FrontendController@profile')->name('front.profile');
     Route::get('/activity/{id}', 'Front\FrontendController@activity')->name('front.activity');
     Route::post('/activity', 'Front\FrontendController@activityStore')->name('activity.store');
@@ -52,7 +49,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/myactivity', 'Front\FrontendController@myactivity')->name('front.myactivity');
 
-    Route::get('//activity', 'Front\FrontendController@myProfile')->name('my.profile');
+    Route::get('/myprofile', 'Front\FrontendController@myProfile')->name('my.profile');
     Route::get('/notification', 'Front\FrontendController@notification')->name('front.notification');
 
 
@@ -62,10 +59,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 //user
 
-    Route::get('/admin/users/index','Front\UserController@index')->name('admin.users.index');
-    Route::get('/admin/users/userview/{id}','Front\UserController@userview')->name('admin.users.userview');
-    Route::get('/admin/users/userview/delete/{id}','Front\UserController@userviewdelete')->name('admin.users.userviewdelete');
+
     Route::post('/user/update','Front\UserController@update')->name('user.update');
+    Route::get('/user/country/update/{id}','Front\UserController@countryupdate')->name('user.country.update');
     Route::post('/profile/image','Front\UserController@profileImage')->name('profile.image');
     Route::post('/user/image/post','Front\UserController@imagePost')->name('user.image.post');
     Route::get('/user/sigle/post/{id}','Front\UserController@singlePost')->name('user.sigle.post');
@@ -121,39 +117,48 @@ Route::group(['middleware' => ['auth', 'role']], function() {
     Route::post('admin/question/update/{id}','QuestionController@update')->name('admin.question.update');
     Route::get('admin/question/delete/{id}','QuestionController@delete')->name('admin.question.delete');
     Route::get('admin/question/show/{id}','QuestionController@show')->name('admin.question.show');
-
+    //features module
     Route::get('admin/features/index','FeatureController@index')->name('admin.feature.index');
     Route::post('admin/feature/update','FeatureController@update')->name('admin.feature.update');
-
+    //Blog module
     Route::get('admin/blog/index','BlogController@index')->name('admin.blog.index');
     Route::get('admin/blog/create','BlogController@create')->name('admin.blog.create');
     Route::post('admin/blog/store','BlogController@store')->name('admin.blog.store');
     Route::get('admin/blog/delete/{id}','BlogController@delete')->name('admin.blog.delete');
     Route::post('admin/blog/update/{id}','BlogController@update')->name('admin.blog.update');
     Route::get('admin/blog/edit/{id}','BlogController@edit')->name('admin.blog.edit');
-
+    //Slider
     Route::get('admin/slider/index','SliderController@index')->name('admin.slide.index');
     Route::post('admin/slider/update','SliderController@update')->name('admin.slide.update');
-
+    //About medule
     Route::get('admin/about/index','AboutController@index')->name('admin.about.index');
     Route::post('admin/about/update','AboutController@update')->name('admin.about.update');
-
-
-
-
-
+    //All user details
+    Route::get('/admin/users/index','Front\UserController@index')->name('admin.users.index');
+    Route::get('/admin/users/userview/{id}','Front\UserController@userview')->name('admin.users.userview');
+    Route::get('/admin/users/userview/delete/{id}','Front\UserController@userviewdelete')->name('admin.users.userviewdelete');
+    //work Module
     Route::get('admin/work/index','WorkController@index')->name('admin.work.index');
     Route::post('admin/work/update','WorkController@update')->name('admin.work.update');
-
+    //contact module
     Route::get('admin/contact/index','ContactController@index2')->name('admin.contact.index');
-
-
-    //Plans
+    //subscription Plans
     Route::get('/admin/plans','Admin\FrontController@adminPlans')->name('admin.plans');
     Route::get('/admin/plans/edit/{id}','Admin\FrontController@adminPlansEdit')->name('admin.plans.edit');
     Route::post('/admin/plans/update/{id}','Admin\FrontController@adminPlansUpdate')->name('admin.plans.update');
+    //country
+    Route::get('/admin/country', 'CountryController@index')->name('admin.country.index');
+    Route::get('/admin/country/create', 'CountryController@create')->name('admin.country.create');
+    Route::post('/admin/country/store', 'CountryController@store')->name('admin.country.store');
+    Route::get('/admin/country/edit/{id}', 'CountryController@edit')->name('admin.country.edit');
+    Route::post('/admin/country/update/{id}', 'CountryController@update')->name('admin.country.update');
 
-
+    Route::get('/admin/countrylocation/index', 'LocationController@index')->name('admin.countrylocation.index');
+    Route::get('/admin/countrylocation/create', 'LocationController@create')->name('admin.countrylocation.create');
+    Route::post('/admin/countrylocation/store', 'LocationController@store')->name('admin.countrylocation.store');
+    Route::post('/admin/countrylocation/update/{id}', 'LocationController@update')->name('admin.countrylocation.update');
+    Route::get('/admin/countrylocation/edit/{id}', 'LocationController@edit')->name('admin.countrylocation.edit');
+    Route::get('/admin/countrylocation/delete/{id}', 'LocationController@delete')->name('admin.countrylocation.delete');
 
 
 

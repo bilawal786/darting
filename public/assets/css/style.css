@@ -615,11 +615,11 @@ select {
   }
 }
 /*======= Background Image ==========*/
-.bg-img {
-  background: url(../images/bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+/*.bg-img {*/
+/*  background: url(../images/bg.jpg);*/
+/*  background-size: cover;*/
+/*  background-repeat: no-repeat;*/
+/*}*/
 
 /*============ Custom File Upload =============*/
 .custom-upload .file-btn {
@@ -2004,7 +2004,7 @@ select {
 
 /* @@@@@@@@@@@@@  Banner Section Start Here  @@@@@@@@@@@@@@ */
 .banner-section {
-  background-image: url(../images/banner/bg.jpg);
+  /*background-image: url(../images/banner/bg.jpg);*/
   background-size: cover;
   padding-top: 200px;
 }
@@ -4081,34 +4081,34 @@ textarea::placeholder {
 .footer-section .footer-top .footer-top-item .lab-inner .lab-content span {
   color: #fff;
 }
-@media (min-width: 1200px) {
-  .footer-section .footer-middle:before {
-    position: absolute;
-    content: "";
-    left: 1%;
-    bottom: 5%;
-    width: 290px;
-    height: 365px;
-    background: url(../images/footer/shape-1.png);
-    background-repeat: no-repeat;
-    z-index: 0;
-    animation: up-down 6s infinite linear;
-  }
-}
-@media (min-width: 1200px) {
-  .footer-section .footer-middle:after {
-    position: absolute;
-    content: "";
-    right: 1%;
-    bottom: 5%;
-    width: 290px;
-    height: 365px;
-    background: url(../images/footer/shape-2.png);
-    background-repeat: no-repeat;
-    z-index: 0;
-    animation: up-down 6s 1s infinite linear;
-  }
-}
+/*@media (min-width: 1200px) {*/
+/*  .footer-section .footer-middle:before {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    left: 1%;*/
+/*    bottom: 5%;*/
+/*    width: 290px;*/
+/*    height: 365px;*/
+/*    background: url(../images/footer/shape-1.png);*/
+/*    background-repeat: no-repeat;*/
+/*    z-index: 0;*/
+/*    animation: up-down 6s infinite linear;*/
+/*  }*/
+/*}*/
+/*@media (min-width: 1200px) {*/
+/*  .footer-section .footer-middle:after {*/
+/*    position: absolute;*/
+/*    content: "";*/
+/*    right: 1%;*/
+/*    bottom: 5%;*/
+/*    width: 290px;*/
+/*    height: 365px;*/
+/*    background: url(../images/footer/shape-2.png);*/
+/*    background-repeat: no-repeat;*/
+/*    z-index: 0;*/
+/*    animation: up-down 6s 1s infinite linear;*/
+/*  }*/
+/*}*/
 .footer-section .footer-middle .footer-middle-item-wrapper {
   z-index: 9;
 }

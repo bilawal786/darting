@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\About;
 use App\Activity;
 use App\Blog;
+use App\Country;
 use App\Feature;
 use App\Http\Controllers\Controller;
 use App\MatchProfile;
@@ -41,6 +42,7 @@ class FrontendController extends Controller
         return view('front.pages.function',compact('feature'));
     }
     public function profiles(){
+
         $match = MatchProfile::where('user_id','=',Auth::user()->id)->pluck('users_id')->toArray();
         $users = User::where('role', '1')->where('country', '!=', Auth::user()->country)->where('id', '!=', Auth::user()->id)->get();
         return view('front.dashboard.profiles', compact('users','match'));
@@ -52,12 +54,16 @@ class FrontendController extends Controller
         $post = Photo::latest()->get();
         return view('front.dashboard.profile', compact('user','question','post'));
     }
+
     public function dashboard(){
+
         $activities = Activity::all();
+
         return view('front.dashboard.index', compact('activities'));
     }
     public function activityCreate(){
-        return view('front.dashboard.activityCreate');
+        $country=Country::all();
+        return view('front.dashboard.activityCreate', compact('country'));
     }
     public function activityedit($id){
         $id = base64_decode($id);
@@ -130,6 +136,7 @@ class FrontendController extends Controller
     }
     public function myactivity(){
         $authactivity=Activity::where('user_id',Auth::user()->id)->get();
+
         return view('front.dashboard.myactivity',compact('authactivity'));
     }
     public function activity($id){
@@ -137,8 +144,10 @@ class FrontendController extends Controller
         $users = User::where('role', '1')->get();
         $rating = Review::where('activity_id',$id)->get();
         $activity = Activity::find($id);
+        $userss = User::where('country','=',Auth::user()->country)->get();
+//   dd($userss);
         $showactivity = Review::where('activity_id',$id)->where('user_id', Auth::user()->id)->get();
-        return view('front.dashboard.activity', compact('activity','users','rating','showactivity'));
+        return view('front.dashboard.activity', compact('userss','activity','users','rating','showactivity'));
     }
     public function myProfile(){
         $user= Auth::user();

@@ -25,6 +25,12 @@ use Illuminate\Support\Facades\Redirect;
 class UserController extends Controller
 
 {
+    public function countryupdate($id){
+
+        $activities = Activity::where('country','=',$id)->get();
+        return view('front.dashboard.index',compact('activities'));
+
+    }
     public function update(Request $request)
     {
 
@@ -145,20 +151,30 @@ class UserController extends Controller
 
     public function imagePost(Request $request)
     {
+        $request->validate([
+            'file'  => 'mimes:mp4,mov,ogg,qt | max:9000'
+        ]);
+//        $file->request->file('image');
+//        $file->move('upload',$file->getClientOrignalName());
+//        $imagen=$file->getClientOrignalName();
+
         $image = new Photo();
         $image->user_id = Auth::user()->id;
         $image->description = $request->description;
+
         if ($request->hasfile('image')) {
 
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
+
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
             $image->image = 'images/' . $name;
 
         }
-        $image->save();
+//        $image->image=$imagen;
 
+        $image->save();
         $notification = array(
             'messege' => 'Article ajouté avec succès!',
             'alert-type' => 'success'
@@ -171,6 +187,7 @@ class UserController extends Controller
         $image = Photo::find($id);
         $image->description = $request->description;
         if ($request->hasfile('image')) {
+            dd($request->file('image') );
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
             $destinationPath = 'images/';

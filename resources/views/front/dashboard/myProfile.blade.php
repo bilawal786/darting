@@ -118,18 +118,7 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li>
-{{--                                            <a href="#">--}}
-{{--                                                <div class="icon"><i class="icofont-star"></i></div>--}}
-{{--                                                <div class="text">--}}
-{{--                                                    <p style="color: white">Avis <i class="icofont-star"></i><i--}}
-{{--                                                            class="icofont-star"></i><i class="icofont-star"></i><i--}}
-{{--                                                            class="icofont-star"></i><i class="icofont-star"></i></p>--}}
-{{--                                                </div>--}}
-{{--                                            </a>--}}
-                                        </li>
                                     </ul>
-
                                 </div>
                             </div>
                         </form>
@@ -278,19 +267,19 @@
                                                                             </select>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="city">
-                                                                        <div class="custom-select right w-100">
-                                                                            <select name="country" class="">
-                                                                                <p style="text-align: left">Pays</p>
-                                                                                <option value="Guadeloupe">Guadeloupe
-                                                                                </option>
-                                                                                <option value="Martinique">Martinique
-                                                                                </option>
-                                                                                <option value="Guyane">Guyane</option>
-                                                                                <option value="Réunion">Réunion</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
+{{--                                                                    <div class="city">--}}
+{{--                                                                        <div class="custom-select right w-100">--}}
+{{--                                                                            <select name="country" >--}}
+{{--                                                                                <p style="text-align: left">Pays</p>--}}
+{{--                                                                                <option value="Guadeloupe">Guadeloupe--}}
+{{--                                                                                </option>--}}
+{{--                                                                                <option value="Martinique">Martinique--}}
+{{--                                                                                </option>--}}
+{{--                                                                                <option value="Guyane">Guyane</option>--}}
+{{--                                                                                <option value="Réunion">Réunion</option>--}}
+{{--                                                                            </select>--}}
+{{--                                                                        </div>--}}
+{{--                                                                    </div>--}}
 
                                                                 </div>
                                                                 <input style="width: 100%" id="inputButtonc"
@@ -298,11 +287,11 @@
                                                                        class="btn btn-primary">
                                                             </div>
                                                         </div>
+                                                    </aside>
                                                 </div>
-                                                </aside>
                                             </div>
+                                        </form>
                                     </div>
-                                    </form>
                                 </div>
                                 <!-- Frinds Tab -->
                                 <div class="tab-pane fade" id="friends" role="tabpanel" aria-labelledby="nav-friends-tab">
@@ -397,7 +386,7 @@
                                                             class="icofont-reply-all"></i>
                                                         Éditer</a>
                                                                         <!-- Modal -->
-    <div class="modal fade " id="exampleModalCenter{{$photo->id}}" tabindex="-1" role="dialog"
+     <div class="modal fade " id="exampleModalCenter{{$photo->id}}" tabindex="-1" role="dialog"
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">

@@ -12,8 +12,6 @@
                             <div class="col-md-12">
                                 <h3 style="text-align: left">Match parfait selon votre profil</h3>
                             </div>
-
-
                             @foreach($users as $user)
                                 @if(in_array($user->id, $match,true))
                                 @else

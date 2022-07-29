@@ -57,5 +57,9 @@ class User extends Authenticatable
             return false;
         }
     }
+    public function location()
+    {
+        return $this->belongsTo(Country::class, 'country');
+    }
 }
 

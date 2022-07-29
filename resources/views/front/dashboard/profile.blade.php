@@ -24,7 +24,13 @@
                             </div>
                             <div class="profile-name">
                                 <h4>{{$user->fname. ' ' . $user->lname}}</h4>
-                                <p>VIP <i class="icofont-badge"></i></p>
+                                @if($user->subscripion==1)
+                                    <p>De base <i style="color: white" class="icofont-badge"></i></p>
+                                @elseif($user->subscripion==2)
+                                    <p>VIP <i style="color: white" class="icofont-badge"></i>
+                                @else
+                                    <p>Pas d'abonnement  <i style="color: white" class="icofont-badge"></i></p>
+                                @endif
                             </div>
                             <ul class="profile-contact">
                                 <li>
@@ -32,14 +38,6 @@
                                         <div class="icon"><i class="icofont-user"></i></div>
                                         <div class="text">
                                             <p>Presense 100%</p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="icon"><i class="icofont-star"></i></div>
-                                        <div class="text">
-                                            <p>Avis <i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i><i class="icofont-star"></i></p>
                                         </div>
                                     </a>
                                 </li>

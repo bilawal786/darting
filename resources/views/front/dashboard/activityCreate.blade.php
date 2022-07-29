@@ -167,10 +167,9 @@
 
                                                         <h6 style="text-align: left; color: black">Pays</h6>
                                                         <select  required name="country" class="form-control" id="">
-                                                            <option value="Guadeloupe">Guadeloupe</option>
-                                                            <option value="Martinique">Martinique</option>
-                                                            <option value="Guyane">Guyane</option>
-                                                            <option value="Réunion">Réunion</option>
+                                                            @foreach($country as $row)
+                                                            <option value="{{$row->id}}">{{$row->country}}</option>
+                                                                @endforeach
                                                         </select>
 
                                                         <h6 style="text-align: left; color: black">Image d'activité</h6>

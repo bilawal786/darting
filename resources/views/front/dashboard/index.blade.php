@@ -137,15 +137,19 @@
 
                                              </div>
                                          </div>
+                                         <?php
+                                         \Carbon\Carbon::setLocale('fr');
+                                         $date = \Carbon\Carbon::parse($activitie->created_at);
+                                         ?>
                                          <div class="col-md-4">
                                                  <h4>{{$activitie->title}}</h4>
-                                                 <p> <i class="icofont-clock-time"></i> {{date('d-M-y', strtotime($activitie->date))}} - {{$activitie->time}} </p>
+                                                 <p> <i class="icofont-clock-time"></i> <span> {{$date->diffForHumans()}}</span> - {{$activitie->time}} </p>
                                                  <p> <i class="icofont-location-pin"></i> {{$activitie->country}} </p>
                                                  <p> <i class="icofont-location-pin"></i> {{$activitie->city}} </p>
                                                  <p> <i class="icofont-users-alt-5"></i> 1 / {{$activitie->num}} </p>
                                          </div>
                                          <div class="col-md-5">
-                                             <img style="border-radius: 10px" src="{{asset($activitie->image)}}" alt="img">
+                                             <img style="border-radius: 10px; height:100%" src="{{asset($activitie->image)}}" alt="img">
                                          </div>
                                      </div>
 

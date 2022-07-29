@@ -143,6 +143,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @php
+                                        $country=\App\Country::all();
+                                        @endphp
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <h3 class="main_question"><i class="arrow_right"></i>Ma Pays</h3>
@@ -150,11 +153,11 @@
                                             <div class="col-lg-8">
                                                 <div class="form-group">
                                                     <select name="country" class="form-control" id="">
-                                                        <option value="Guadeloupe">Guadeloupe</option>
-                                                        <option value="Martinique">Martinique</option>
-                                                        <option value="Guyane">Guyane</option>
-                                                        <option value="Réunion">Réunion</option>
+                                                        @foreach($country as $row)
+                                                        <option value="{{$row->id}}">{{$row->country}}</option>
+                                                        @endforeach
                                                     </select>
+
                                                 </div>
                                             </div>
                                         </div>

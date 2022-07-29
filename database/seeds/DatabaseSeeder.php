@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogSeeder::class);
         $this->call(SliderSeeder::class);
         $this->call(AboutSeeder::class);
+        $this->call(CountrySeeder::class);
+
     }
 
 
