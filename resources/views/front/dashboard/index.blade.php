@@ -105,7 +105,6 @@
                  <div class="section-wrapper" style="margin-bottom: 10px">
 {{--                      //calander--}}
                      <div class="row g-4" onclick="myFunction(2)" id="addCalander"  >
-
                          <a  style="float: left;width: 30%;border-radius: 8px;" class="lab-btn text-center"><i class="icofont-circled-right "></i>Aller à l'activité</a>
                      </div>
                      <div >
@@ -164,31 +163,31 @@
                  <h3>Aucune activité trouvée dans votre région</h3>
                  @endif
              </div>
-             <div class="paginations">
-                 <ul class="lab-ul d-flex flex-wrap justify-content-center mb-1">
-                     <li>
-                         <a href="#"><i class="icofont-rounded-double-left"></i></a>
-                     </li>
-                     <li>
-                         <a href="#">1</a>
-                     </li>
-                     <li class="d-none d-sm-block">
-                         <a href="#">2</a>
-                     </li>
-                     <li>
-                         <a href="#">...</a>
-                     </li>
-                     <li class="d-none d-sm-block">
-                         <a href="#">4</a>
-                     </li>
-                     <li>
-                         <a href="#">5</a>
-                     </li>
-                     <li>
-                         <a href="#"><i class="icofont-rounded-double-right"></i></a>
-                     </li>
-                 </ul>
-             </div>
+{{--             <div class="paginations">--}}
+{{--                 <ul class="lab-ul d-flex flex-wrap justify-content-center mb-1">--}}
+{{--                     <li>--}}
+{{--                         <a href="#"><i class="icofont-rounded-double-left"></i></a>--}}
+{{--                     </li>--}}
+{{--                     <li>--}}
+{{--                         <a href="#">1</a>--}}
+{{--                     </li>--}}
+{{--                     <li class="d-none d-sm-block">--}}
+{{--                         <a href="#">2</a>--}}
+{{--                     </li>--}}
+{{--                     <li>--}}
+{{--                         <a href="#">...</a>--}}
+{{--                     </li>--}}
+{{--                     <li class="d-none d-sm-block">--}}
+{{--                         <a href="#">4</a>--}}
+{{--                     </li>--}}
+{{--                     <li>--}}
+{{--                         <a href="#">5</a>--}}
+{{--                     </li>--}}
+{{--                     <li>--}}
+{{--                         <a href="#"><i class="icofont-rounded-double-right"></i></a>--}}
+{{--                     </li>--}}
+{{--                 </ul>--}}
+{{--             </div>--}}
          </div>
         </div>
     </div>
