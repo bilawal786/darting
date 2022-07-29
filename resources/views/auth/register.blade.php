@@ -134,6 +134,17 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-4">
+                                                <h3 class="main_question"><i class="arrow_right"></i>Emplacement</h3>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <div class="form-group">
+                                                    <input name="address" class="form-control autocomplete @error('address') is-invalid @enderror" id="address">{{ old('address') }} </input>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
                                                 <h3 class="main_question"><i class="arrow_right"></i>Ma Pays</h3>
                                             </div>
                                             <div class="col-lg-8">
@@ -383,4 +394,28 @@
         <!-- Wizard script with branch -->
         <script src="/wizard/js/wizard_with_branch.js"></script>
 
-@endsection
+        <script src="https://maps.google.com/maps/api/js?key=AIzaSyAeKxMwTMJzHH2AR1xt7OLWIWFMIzm-JLM&libraries=places" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.js" integrity="sha512-PC6BMUJfhXSSRw6fOnyfn21Yjc/6oRUnAGUboA+uzAUkKX5K2wzUvTHPCEjfwmmfrjCuiSnf23iX8JYVlJTXmA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/compressed/picker.time.js" integrity="sha512-wsTBGzc0ra42jNgXre39rdHpXqAkkaSN+bRrXZ3hpOvqxOtLNZns3OseDZRfGCWSs00N9HuXyKHZEzKAWCl3SA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pickadate.js/3.6.4/translations/fr_FR.js" integrity="sha512-oppWtIxLpE9C9k/RJ/+z8pZXIh2PIuYDYsklCWMFsoTxK2bRMJ9Y86rvVZ20NkOBsjrywgEIi/tibOxJk7cXmg==" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $('.timepicker').pickatime({
+                format: 'HH:i',
+                formatSubmit: 'HH:i',
+                hiddenName: true,
+            });
+            google.maps.event.addDomListener(window, 'load', initialize);
+            function initialize() {
+                var input = document.getElementById('address');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+                autocomplete.addListener('place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    $('#lat').val(place.geometry['location'].lat());
+                    $('#long').val(place.geometry['location'].lng());
+                });
+            }
+        </script>
+
+
+
+    @endsection

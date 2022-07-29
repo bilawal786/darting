@@ -249,8 +249,20 @@
                                                                 <div class="row g-3">
                                                                     <div class="col-md-6">
                                                                         @if($row->image)
+                                                                            <?php
+                                                                            $infoPath = pathinfo(public_path($row->image));
+                                                                            $extension = $infoPath['extension'];
+
+                                                                            ?>
+                                                                            @if($extension=="mp4")
+                                                                                <video style="width: 100%" autoplay muted loop id="myVideo" >
+                                                                                    <source src="{{asset($row->image)}}" style="width: 100%" type="video/mp4">
+                                                                                </video>
+                                                                            @else
                                                                             <img src="{{asset($row->image)}}" alt="img">
+                                                                                @endif
                                                                         @endif
+
                                                                     </div>
 
                                                                 </div>

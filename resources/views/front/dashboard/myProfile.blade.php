@@ -469,8 +469,19 @@
                                                                         <div class="row g-3">
                                                                             <div class="col-md-6">
                                                                                 @if($photo->image)
+                                                                                    <?php
+                                                                                    $infoPath = pathinfo(public_path($photo->image));
+                                                                                    $extension = $infoPath['extension'];
+
+                                                                                    ?>
+                                                                                @if($extension=="mp4")
+                                                                                            <video style="width: 100%" autoplay muted loop id="myVideo" >
+                                                                                                <source src="{{asset($photo->image)}}" style="width: 100%" type="video/mp4">
+                                                                                            </video>
+                                                                                    @else
                                                                                     <img src="{{asset($photo->image)}}"
                                                                                          alt="img">
+                                                                                    @endif
                                                                                 @endif
                                                                             </div>
 

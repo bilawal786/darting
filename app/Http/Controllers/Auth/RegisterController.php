@@ -66,6 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         $sport_data = json_encode($data['sport']);
         $sortie_data = json_encode($data['sortie']);
         $game_data = json_encode($data['game']);
@@ -78,6 +79,7 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'date' => $data['date'],
             'country' => $data['country'],
+            'address' => $data['address'],
             'about' => $data['about'],
             'sport' => $sport_data,
             'sortie' => $sortie_data,

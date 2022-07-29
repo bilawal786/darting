@@ -149,11 +149,13 @@ class UserController extends Controller
         $image->user_id = Auth::user()->id;
         $image->description = $request->description;
         if ($request->hasfile('image')) {
+
             $image1 = $request->file('image');
             $name = time() . 'images' . '.' . $image1->getClientOriginalExtension();
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
             $image->image = 'images/' . $name;
+
         }
         $image->save();
 
@@ -165,6 +167,7 @@ class UserController extends Controller
     }
     public function postUpdate(Request $request,$id)
     {
+
         $image = Photo::find($id);
         $image->description = $request->description;
         if ($request->hasfile('image')) {
@@ -173,6 +176,7 @@ class UserController extends Controller
             $destinationPath = 'images/';
             $image1->move($destinationPath, $name);
             $image->image = 'images/' . $name;
+
         }
         $image->update();
 

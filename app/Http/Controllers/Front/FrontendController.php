@@ -49,7 +49,7 @@ class FrontendController extends Controller
         $idd = base64_decode($id);
         $user = User::find($idd);
         $question = Question::all();
-        $post = Photo::all();
+        $post = Photo::latest()->get();
         return view('front.dashboard.profile', compact('user','question','post'));
     }
     public function dashboard(){

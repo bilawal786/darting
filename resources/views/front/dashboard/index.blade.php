@@ -1,4 +1,97 @@
 @extends('front.layouts.layout')
+
+<link href="{{asset('calender/lib/main.css')}}" rel='stylesheet' />
+<script src="{{asset('calender/lib/main.js')}}"></script>
+<script src="{{asset('calender/lib/locales-all.js')}}"></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var initialLocaleCode = 'fr';
+        var localeSelectorEl = document.getElementById('locale-selector');
+        var calendarEl = document.getElementById('calendar1');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+
+                left: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+
+            buttonText: {
+                today: "Aujourd'hui",
+                year: 'Année',
+                month: 'Mois',
+                week: 'Semaine',
+                day: 'Jour',
+                list: 'Mon planning',
+            },
+            initialDate: "{{\Carbon\Carbon::now()}}",
+            locale: initialLocaleCode,
+            buttonIcons: true, // show the prev/next text
+            weekNumbers: true,
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            dayMaxEvents: true, // allow "more" link when too many events
+            events: [
+                    @if($activities->count())
+                    @foreach($activities as $activitie)
+                {
+                    title: "{{$activitie->title}}",
+                    start: "{{$activitie->date}}",
+
+                    borderColor: 'black',
+                    url: "{{route('front.activity', ['id' => base64_encode($activitie->id)])}}"
+
+                },
+                @endforeach
+                @endif
+
+            ]
+        });
+
+        calendar.render();
+
+        // build the locale selector's options
+        calendar.getAvailableLocaleCodes().forEach(function(localeCode) {
+            var optionEl = document.createElement('option');
+            optionEl.value = localeCode;
+            optionEl.selected = localeCode == initialLocaleCode;
+            optionEl.innerText = localeCode;
+            localeSelectorEl.appendChild(optionEl);
+        });
+
+        // when the selected option changes, dynamically change the calendar option
+        localeSelectorEl.addEventListener('change', function() {
+            if (this.value) {
+                calendar.setOption('locale', this.value);
+            }
+        });
+
+    });
+    calendar.setOption('locale', 'fr');
+
+</script>
+<style>
+
+
+    #top {
+        background: #eee;
+        border-bottom: 1px solid #ddd;
+        padding: 0 10px;
+        line-height: 40px;
+        font-size: 12px;
+    }
+
+    #calendar {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0 10px;
+    }
+    .container{
+        margin-top: 60px;
+    }
+
+</style>
 @section('content')
     <div class="banner-section page-header-section style-1 login-section padding-tb">
         <div class="container">
@@ -10,14 +103,32 @@
                  @if($activities->count())
                  @foreach($activities as $activitie)
                  <div class="section-wrapper" style="margin-bottom: 10px">
-                     <div class="row g-4">
-                         <a href="{{route('front.activity', ['id' => base64_encode($activitie->id)])}}">
+{{--                      //calander--}}
+                     <div class="row g-4" onclick="myFunction(2)" id="addCalander"  >
+
+                         <a  style="float: left;width: 30%;border-radius: 8px;" class="lab-btn text-center"><i class="icofont-circled-right "></i>Aller à l'activité</a>
+                     </div>
+                     <div >
+                     <div  id="addCalanderr" class="row g-4" style="margin-top: 5px; "  >
+                         <div id='calendar1' ></div>
+                         <div id="popup"></div>
+
+                     </div></div>
+{{--                     Activity--}}
+                     <div id="activity"  class="row g-4" style="display: none">
+
+                         <a onclick="myFunction(1)" style="float: left;width: 30%;border-radius: 8px;" class="lab-btn text-center"><i class="icofont-circled-right "></i>Aller au calendrier</a>
+                     </div>
+                     <div class="row g-4" id="activityy"  style="margin-top: -14px; display: none  ">
+                         <a id="activity" href="{{route('front.activity', ['id' => base64_encode($activitie->id)])}}">
                          <div class="col-xl-12 col-12">
                              <div class="group-item lab-item">
                                  <div class="lab-inner d-flex flex-wrap align-items-center p-4">
                                      <div class="row" style="text-align: left">
+
                                          <div class="col-md-3">
                                              <div class="me-sm-4 mb-4 mb-sm-0">
+
                                                  @if($activitie->user->profile_picture != null)
                                                      <img style="border-radius: 50%; height: 80px" src="{{asset($activitie->user->profile_picture)}}" alt="member-img">
                                                  @else
@@ -77,4 +188,25 @@
          </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script>
+        function myFunction(id) {
+
+           if(id==1){
+               $('#activity').hide();
+               $('#activityy').hide();
+               $('#addCalander').show();
+               $('#addCalanderr').show();
+
+           }
+           else if(id==2){
+               $('#activity').show();
+               $('#activityy').show();
+               $('#addCalander').hide();
+               $('#addCalanderr').hide();
+
+            }
+        }
+    </script>
+
 @endsection
