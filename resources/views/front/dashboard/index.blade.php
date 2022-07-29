@@ -101,12 +101,19 @@
              </div>
              <div class="col-md-9">
                  @if($activities->count())
-                 @foreach($activities as $activitie)
-                 <div class="section-wrapper" style="margin-bottom: 10px">
-{{--                      //calander--}}
                      <div class="row g-4" onclick="myFunction(2)" id="addCalander"  >
                          <a  style="float: left;width: 30%;border-radius: 8px;" class="lab-btn text-center"><i class="icofont-circled-right "></i>Aller à l'activité</a>
                      </div>
+
+                     {{--                     Activity--}}
+                     <div id="activity"  class="row g-4" style="display: none">
+
+                         <a onclick="myFunction(1)" style="float: left;width: 30%;border-radius: 8px;" class="lab-btn text-center"><i class="icofont-circled-right "></i>Aller au calendrier</a>
+                     </div>
+                 @foreach($activities as $activitie)
+                 <div class="section-wrapper" style="margin-bottom: 10px">
+{{--                      //calander--}}
+
                      <div >
                      <div  id="addCalanderr" class="row g-4" style="margin-top: 5px; "  >
                          <div id='calendar1' ></div>
